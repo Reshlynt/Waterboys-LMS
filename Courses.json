@@ -1,0 +1,42 @@
+{
+    "courses": [
+        {
+            "title": "Intro to JavaScript",
+            "difficulty": "BEGINNER",
+            "author": "Mr. Cole",
+            "courseType": "JAVASCRIPT",
+            "exam": "Intro_to_JavaScript.Mr._Cole.E",
+            "modules": [
+                {
+                    "title": "For loops",
+                    "slides": "Intro_to_Javascript.Mr._Cole.M1",
+                    "quiz": "Intro_to_JavaScript.Mr._Cole.M1"
+                },
+                {
+                    "name": "While loops",
+                    "slides": "Intro_to_Javascript.Mr._Cole.M2",
+                    "quiz": "Intro_to_JavaScript.Mr._Cole.M2"
+                }
+            ]
+        },
+        {
+            "title": "JavaScript integration with HTML and CSS",
+            "difficulty": "INTERMEDIATE",
+            "author": "Scumbo Scuzz",
+            "courseType": "JAVASCRIPT",
+            "exam": "JavaScript_integration_with_H.Scumbo_Scuzz.E",
+            "modules": [
+                {
+                    "title": "HTML review",
+                    "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M1",
+                    "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M1"
+                },
+                {
+                    "name": "CSS review",
+                    "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M2",
+                    "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M2"
+                }
+            ]
+        }
+    ]
+}
