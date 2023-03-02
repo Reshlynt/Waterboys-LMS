@@ -24,7 +24,7 @@
               "corr-answer": 1
             }
           ],   
-          "comments":[
+          "module_comments":[
             {
               "id": "asdfasdfasdfs",
               "text": "adsfasdfasdfads",
@@ -46,7 +46,18 @@
             7
           ]
         }
-      ]
+      ],
+      "course_comments":[
+        {
+          "id": "12341i23048",
+          "text": "kasdpfjklhg",
+          "replies":[{
+            "id": "478923",
+            "text": "bro chilllllllllll;qiweurqwioerupqwer",
+            "more_replies": []
+          }]
+        }
+      ]  
     },
     {
       "title": "JavaScript integration with HTML and CSS",
