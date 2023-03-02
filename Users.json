@@ -1,23 +1,22 @@
 [
   {
+    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
     "username": "UziThaGoat13",
     "firstName": "Grichael",
     "lastName": "Crach",
     "email": "gCrach2000@gmail.com",
     "password": "!password123",
-    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
     "dateOfBirth": "2000-04-14",
     "type": "student"
   },
-
-
+  
   {
+    "id": "f16ed563-913a-4156-bee9-fdbcfgdc15g3",
     "username": "scrimblo.bimblo",
     "firstName": "Anthony",
     "lastName": "Bimblos",
     "email": "biblo444@gmail.com",
     "password": "12345678_",
-    "id": "f16ed563-913a-4156-bee9-fdbcfgdc15g3",
     "courseProgress": [
       [
         "Python 212",
@@ -70,11 +69,12 @@
       }
     },
     "students": [
-      "UziThaGoat13",
-      "scrimblo.bimblo"
+      "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+      "f16ed563-913a-4156-bee9-fdbcfgdc15g3"
     ]
   },
   {
+    "id": "d2261609-8d98-4dae-a886-61d4ffb80ee1",
     "username": "Scuzzo19",
     "firstName": "Scumbo",
     "lastName": "Scuzz",
@@ -84,15 +84,15 @@
       "JavaScript integration with HTML and CSS": {
         "difficulty": "Intermediate",
         "description": "Javascript integration with HTML and CSS",
-        "teacher": "scuzzo19",
-        "exam": "Javascript_integration_with_H.Scumbo_Scuzz.E",
-        "type": "JAVASCRIPT",
-        "modules": "JavaScript_integration_with_H.Scumbo_Scuzz.modules"
-      }
+          "teacher": "scuzzo19",
+          "exam": "Javascript_integration_with_H.Scumbo_Scuzz.E",
+          "type": "JAVASCRIPT",
+          "modules": "JavaScript_integration_with_H.Scumbo_Scuzz.modules"
+        }
     },
     "students": [
-      "UziThaGoat13",
-      "scrimblo.bimblo"
+        "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+        "f16ed563-913a-4156-bee9-fdbcfgdc15g3"
     ]
-  }
+}
 ]
