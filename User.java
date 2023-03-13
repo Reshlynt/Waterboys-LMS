@@ -2,15 +2,18 @@
  * Represents a user of the system
  * @author Waterboys
  */
+import java.util.UUID;
 public abstract class User {
-    private String username;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String DOB;
+    protected UUID id;
+    protected String username;
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    protected String password;
+    protected Date DOB;
     
-    public User(String username, String firstName, String lastName, String email, String password, String DOB) {
+    public User(UUID id, String username, String firstName, String lastName, String email, String password, String DOB) {
+        this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,7 +21,21 @@ public abstract class User {
         this.password = password;
         this.DOB = DOB;
     }
-    private boolean checkPassword(String password) {
+    public boolean setPassword() {
+        return true;
+    }
+    public boolean setUser() {
+        return true;
+    }
+    public void changePassword(String newPassword) {
+        /*if (checkPassword(newPassword)) {
+            password = newPassword;
+        }*/
+        return;
+    }
+
+
+    /*private boolean checkPassword(String password) {
         // TODO: combine checks into one loop??
         if (password.length() < 8) {
             return false;
@@ -34,9 +51,9 @@ public abstract class User {
             }
         }
         return false;
-    }
-    private boolean checkUser(String username) {
-        if (username.length() < 5 || username.length() > 14) {
+    }*/
+    /*private boolean checkUser(String username) {
+        /*if (username.length() < 5 || username.length() > 14) {
             return false;
         }
         for (int i = 0; i < username.length(); i++) {
@@ -44,11 +61,8 @@ public abstract class User {
                 return false;
             }
         }
+        return true;
     }
-    public void changePassword(String newPassword) {
-        if (checkPassword(newPassword)) {
-            password = newPassword;
-        }
-    }
+    */
 }
  
