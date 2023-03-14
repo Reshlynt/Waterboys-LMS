@@ -24,14 +24,14 @@
               "corr-answer": 1
             }
           ],   
-          "module_comments":[
+          "comments":[
             {
               "id": "asdfasdfasdfs",
               "text": "adsfasdfasdfads",
               "replies":[{
                 "id": "asdfasdfasdf1123412341234",
                 "text": "asdfasdf;qiweurqwioerupqwer",
-                "more_replies": []
+                "replies": []
               }]
             }
           ]    
