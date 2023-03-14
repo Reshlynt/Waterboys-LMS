@@ -12,7 +12,7 @@ public abstract class User {
     protected String password;
     protected Date DOB;
     
-    public User(UUID id, String username, String firstName, String lastName, String email, String password, String DOB) {
+    public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
