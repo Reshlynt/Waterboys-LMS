@@ -1,0 +1,82 @@
+{
+  "courses": [
+    {
+      "title": "Intro to JavaScript",
+      "difficulty": "BEGINNER",
+      "author": "Mr. Cole",
+      "courseType": "JAVASCRIPT",
+      "modules": [
+        {
+          "title": "For loops",
+          "slides": [
+            {
+              "title": "dsafwefew",
+              "descripton": "sdfawef"
+            }
+          ],
+          "quiz": [
+            {
+              "question": "dsfawe",
+              "answers": [
+                "dsafw",
+                "sdafwe"
+              ],
+              "corr-answer": 1
+            }
+          ],   
+          "module_comments":[
+            {
+              "id": "asdfasdfasdfs",
+              "text": "adsfasdfasdfads",
+              "replies":[{
+                "id": "asdfasdfasdf1123412341234",
+                "text": "asdfasdf;qiweurqwioerupqwer",
+                "more_replies": []
+              }]
+            }
+          ]    
+        }
+      ],
+      "students": [
+        {
+          "id": "",
+          "grades": [
+            5,
+            4,
+            7
+          ]
+        }
+      ],
+      "course_comments":[
+        {
+          "id": "12341i23048",
+          "text": "kasdpfjklhg",
+          "replies":[{
+            "id": "478923",
+            "text": "bro chilllllllllll;qiweurqwioerupqwer",
+            "more_replies": []
+          }]
+        }
+      ]  
+    },
+    {
+      "title": "JavaScript integration with HTML and CSS",
+      "difficulty": "INTERMEDIATE",
+      "author": "Scumbo Scuzz",
+      "courseType": "JAVASCRIPT",
+      "exam": "JavaScript_integration_with_H.Scumbo_Scuzz.E",
+      "modules": [
+        {
+          "title": "HTML review",
+          "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M1",
+          "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M1"
+        },
+        {
+          "name": "CSS review",
+          "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M2",
+          "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M2"
+        }
+      ]
+    }
+  ]
+}
