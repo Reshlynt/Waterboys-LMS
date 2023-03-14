@@ -1,5 +1,9 @@
 public class DataConstants {
-  public static final String ID = "id";
+  // 
+  public static final String COURSE_ID = "id";
+  public static final String COURSE_ID = "id";
+  // User Constants
+  public static final String USER_ID = "id";
   public static final String USER_NAME = "username";
   public static final String FIRST_NAME = "firstName";
   public static final String LAST_NAME = "lastName";
