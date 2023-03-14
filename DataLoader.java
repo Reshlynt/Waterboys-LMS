@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class DataLoader {
-  public ArrayList<User> getUsers() {
+  public static ArrayList<User> getUsers() {
     return null;
   }
 
-  public ArrayList<Course> getCourses() {
+  public static ArrayList<Course> getCourses() {
     return null;
   }
 }
