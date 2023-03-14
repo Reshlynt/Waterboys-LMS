@@ -2,9 +2,19 @@ package src;
 import java.util.ArrayList;
 
 public class CourseList {
+    private static CourseList courseList;
     private static ArrayList<Course> courses = new ArrayList<Course>();
 
     private CourseList() {
+    }
+
+    /**
+     * 
+     * @return Instance of the UserList object.
+     */
+    public static CourseList getInstance() {
+
+        return courseList;
     }
 
     public void addCourse(Course course) {

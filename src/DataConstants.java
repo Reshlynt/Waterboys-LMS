@@ -1,7 +1,8 @@
 public class DataConstants {
-  // 
+  // Course Constants
   public static final String COURSE_ID = "id";
-  public static final String COURSE_ID = "id";
+  public static final String TITLE = "title";
+  public static final String DESCRIPTION = "hello";
   // User Constants
   public static final String USER_ID = "id";
   public static final String USER_NAME = "username";
