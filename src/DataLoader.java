@@ -16,12 +16,12 @@ public class DataLoader extends DataConstants {
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			for(int i=0; i < usersJSON.size(); i++) {
-				JSONObject personJSON = (JSONObject)usersJSON.get(i);
-				UUID id = UUID.fromString((String)personJSON.get(ID));
-        String userName = (String)personJSON.get(USER_NAME);
-
+				JSONObject userJSONObject = (JSONObject)usersJSON.get(i);
+				UUID id = UUID.fromString((String)userJSONObject.get(ID));
+        String userName = (String)userJSONObject.get(USER_NAME);
+        String firstName = (String)userJSONObject.get(FIRST_NAME);
+        String lastName = (String)userJSONObject.get(LAST_NAME);
         
-				String lastName = (String)personJSON.get(PEOPLE_LAST_NAME);
 				String phoneNumber = (String)personJSON.get(PEOPLE_PHONE_NUMBER);
 				
 				users.add(new Person(firstName, lastName, phoneNumber));
