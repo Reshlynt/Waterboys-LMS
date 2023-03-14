@@ -21,8 +21,10 @@ public class DataLoader extends DataConstants {
         String userName = (String)userJSONObject.get(USER_NAME);
         String firstName = (String)userJSONObject.get(FIRST_NAME);
         String lastName = (String)userJSONObject.get(LAST_NAME);
-        
-				String phoneNumber = (String)personJSON.get(PEOPLE_PHONE_NUMBER);
+        String email = (String)userJSONObject.get(EMAIL); 
+        String password = (String)userJSONObject.get(PASSWORD);
+        Date dateOfBirth = parseDate(userJSONObject.get(DOB_DATE));
+        String userType = (String)userJSONObject.get(TYPE);
 				
 				users.add(new Person(firstName, lastName, phoneNumber));
 			}
@@ -43,4 +45,3 @@ public class DataLoader extends DataConstants {
   public static ArrayList<Course> getCourses() {
     return null;
   }
-}
