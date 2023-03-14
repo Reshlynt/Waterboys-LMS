@@ -32,12 +32,9 @@ public class DataLoader extends DataConstants {
         if (userType.equalsIgnoreCase("student"))
           users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
         else if (userType.equalsIgnoreCase("teacher"))
-          users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
-
+          users.add(new Teacher(id, userName, firstName, lastName, email, password, dateOfBirth));
       }
-
       return users;
-
     } catch (Exception e) {
       e.printStackTrace();
     }

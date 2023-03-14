@@ -3,6 +3,7 @@
  * @author Waterboys
  */
 import java.util.UUID;
+import java.util.Date;
 public abstract class User {
     protected UUID id;
     protected String username;
