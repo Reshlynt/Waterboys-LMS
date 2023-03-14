@@ -1,6 +1,6 @@
 package src;
 
-public class System {
+public class LMSSystem {
     public UserList userList;
     public CourseList courseList;
 
