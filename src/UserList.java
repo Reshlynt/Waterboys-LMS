@@ -3,20 +3,21 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static UserList userList;
-    private static ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<User> userList;
 
-    private UserList() {
+    private UserList() {}
+    
+    public static UserList getInstance() {
+        if ( userList == null)  {
+            userList = new ArrayList<User>();
+        }
+        return new UserList();
     }
 
     /**
      * 
      * @return Instance of the UserList object.
      */
-    public static UserList getInstance() {
-
-        return userList;
-    }
 
     public void addUser(User user) {
         userList.add(user);
