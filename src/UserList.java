@@ -3,9 +3,19 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
+    private static UserList userList;
     private static ArrayList<User> userList = new ArrayList<User>();
 
     private UserList() {
+    }
+
+    /**
+     * 
+     * @return Instance of the UserList object.
+     */
+    public static UserList getInstance() {
+
+        return userList;
     }
 
     public void addUser(User user) {
