@@ -3,7 +3,7 @@
     {
       "title": "Intro to JavaScript",
       "difficulty": "BEGINNER",
-      "id": "e58ed763-928c-4155-bee9e",
+      "author": "Mr. Cole",
       "courseType": "JAVASCRIPT",
       "modules": [
         {
@@ -31,7 +31,7 @@
               "replies":[{
                 "id": "asdfasdfasdf1123412341234",
                 "text": "asdfasdf;qiweurqwioerupqwer",
-                "replies": []
+                "more_replies": []
               }]
             }
           ]    
