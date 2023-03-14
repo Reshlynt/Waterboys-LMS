@@ -20,7 +20,7 @@ public class DataLoader extends DataConstants {
 
       for (int i = 0; i < usersJSON.size(); i++) {
         JSONObject userJSONObject = (JSONObject) usersJSON.get(i);
-        UUID id = UUID.fromString((String) userJSONObject.get(ID));
+        UUID id = UUID.fromString((String) userJSONObject.get(USER_ID));
         String userName = (String) userJSONObject.get(USER_NAME);
         String firstName = (String) userJSONObject.get(FIRST_NAME);
         String lastName = (String) userJSONObject.get(LAST_NAME);
