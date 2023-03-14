@@ -29,7 +29,11 @@ public class DataLoader extends DataConstants {
         Date dateOfBirth = parseDate((String) userJSONObject.get(DOB_DATE));
         String userType = (String) userJSONObject.get(TYPE);
 
-        users.add(new User(firstName, lastName, phoneNumber));
+        if (userType.equalsIgnoreCase("student"))
+          users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
+        else if (userType.equalsIgnoreCase("teacher"))
+          users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
+
       }
 
       return users;

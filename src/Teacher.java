@@ -5,7 +5,7 @@ public class Teacher extends User {
     private ArrayList<Course> courses;
     private ArrayList<Student> students;
 
-    public Teacher(UUID id, String username, String firstName, String lastName, String email, String password, String DOB) {
+    public Teacher(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
         super(id, username, firstName, lastName, email, password, DOB);
 
     }
