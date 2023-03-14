@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserList {
     private static UserList userList;
@@ -29,9 +30,9 @@ public class UserList {
         return userList;
     }
 
-    public found(String name) {
+    public boolean found(UUID id) {
         for (User user : userList) {
-            if (user.getName().equals(name)) {
+            if (user.getUserByUUID(id)) {
                 return true;
             }
         }

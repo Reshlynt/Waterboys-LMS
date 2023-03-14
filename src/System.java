@@ -1,15 +1,10 @@
 package src;
 
 public class System {
-    public UserList() {
-        UserList userList = new UserList();
-    }
+    public UserList userList;
+    public CourseList courseList;
 
-    public CourseList() {
-        CourseList courseList = new CourseList();
-    }
-
-    public void Login(String username, String password) {
+    public User Login(String username, String password) {
         if (userList.found(username)) {
             if (userList.getUser(username).getPassword().equals(password)) {
                 System.out.println("Login successfully!");
