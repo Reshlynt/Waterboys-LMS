@@ -20,7 +20,7 @@ public class DataLoader extends DataConstants {
 
       for (int i = 0; i < usersJSON.size(); i++) {
         JSONObject userJSONObject = (JSONObject) usersJSON.get(i);
-        UUID id = UUID.fromString((String) userJSONObject.get(ID));
+        UUID id = UUID.fromString((String) userJSONObject.get(USER_ID));
         String userName = (String) userJSONObject.get(USER_NAME);
         String firstName = (String) userJSONObject.get(FIRST_NAME);
         String lastName = (String) userJSONObject.get(LAST_NAME);
@@ -29,11 +29,12 @@ public class DataLoader extends DataConstants {
         Date dateOfBirth = parseDate((String) userJSONObject.get(DOB_DATE));
         String userType = (String) userJSONObject.get(TYPE);
 
-        users.add(new User(firstName, lastName, phoneNumber));
+        if (userType.equalsIgnoreCase("student"))
+          users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
+        else if (userType.equalsIgnoreCase("teacher"))
+          users.add(new Teacher(id, userName, firstName, lastName, email, password, dateOfBirth));
       }
-
       return users;
-
     } catch (Exception e) {
       e.printStackTrace();
     }
