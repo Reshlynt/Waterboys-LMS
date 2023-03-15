@@ -51,7 +51,7 @@ public class UI {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
             input.nextLine();
             System.out.println("\n\n\n\n\n");
-            return Welcome(input);
+            return Welcome();
         }
         return choice;
     }
