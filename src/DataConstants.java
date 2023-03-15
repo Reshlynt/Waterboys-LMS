@@ -42,7 +42,7 @@ public class DataConstants {
   public static final String REPLIES = "replies";// replies to comments
   public static final String REPLIER_ID = "id";
   public static final String REPLY_TEXT = "text";
-  public static final String REPLIES_2 = "more_replies";// replies to replies
+  public static final String SECOND_REPLIES = "more_replies";// replies to replies
   public static final String SECOND_REPLIER_ID = "id";
   public static final String SECOND_REPLY_TEXT = "text";
 
@@ -51,14 +51,6 @@ public class DataConstants {
   public static final String GRADES = "grades";
 
   public static final String COURSE_COMMENTS = "course_comments";
-  public static final String COURSE_COMMENTER_ID = "id";
-  public static final String COURSE_COMMENT_TEXT = "text";
-  public static final String COURSE_COMMENT_REPLIES = "replies";
-  public static final String COURSE_COMMENT_REPLY_ID = "id";
-  public static final String COURSE_COMMENT_REPLY_TEXT = "text";
-  public static final String MORE_REPLIES = "more_replies";// replies to course comments
-  public static final String COURSE_SECOND_REPLIER_ID = "id";
-  public static final String COURSE_SECOND_REPLY_TEXT = "text";
   // User Constants
   public static final String USER_ID = "id";
   public static final String USER_NAME = "username";

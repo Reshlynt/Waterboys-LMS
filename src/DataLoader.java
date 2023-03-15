@@ -139,30 +139,30 @@ public class DataLoader extends DataConstants {
       // JSON object(Comment) that has a UUID, text, and a JSON array of replies
       JSONObject commentJSON = (JSONObject) commentsJSON.get(i);
 
-      UUID commenterID = UUID.fromString((String) commentJSON.get(COURSE_COMMENTER_ID));
-      String commentText = (String) commentJSON.get(COURSE_COMMENT_TEXT);
+      UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
+      String commentText = (String) commentJSON.get(COMMENT_TEXT);
 
       // JSON Array of replies, array list will hold those replies
-      JSONArray repliesJSON = (JSONArray) commentJSON.get(COURSE_COMMENT_REPLIES);
+      JSONArray repliesJSON = (JSONArray) commentJSON.get(REPLIES);
       ArrayList<Comment> replies = new ArrayList<Comment>();
 
       for (int j = 0; j < repliesJSON.size(); j++) {
         // JSON object(Reply) that has a UUID, text, and a JSON array of replies
         JSONObject replyJSON = (JSONObject) repliesJSON.get(j);
 
-        UUID replierID = UUID.fromString((String) replyJSON.get(COURSE_COMMENT_REPLY_ID));
-        String replyText = (String) replyJSON.get(COURSE_COMMENT_REPLY_TEXT);
+        UUID replierID = UUID.fromString((String) replyJSON.get(REPLIER_ID));
+        String replyText = (String) replyJSON.get(REPLY_TEXT);
 
         // reply to a reply
         ArrayList<Comment> secondReplies = new ArrayList<Comment>();
-        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(MORE_REPLIES);
+        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(SECOND_REPLIES);
 
         for (int second_reply_index = 0; second_reply_index < secondRepliesJSON.size(); second_reply_index++) {
         // JSON object(Second Reply) that has a UUID and text
           JSONObject second_reply_JSONObject = (JSONObject) secondRepliesJSON.get(second_reply_index);
 
-          UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(COURSE_SECOND_REPLIER_ID));
-          String second_replyText = (String) second_reply_JSONObject.get(COURSE_SECOND_REPLY_TEXT);
+          UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(SECOND_REPLIER_ID));
+          String second_replyText = (String) second_reply_JSONObject.get(SECOND_REPLY_TEXT);
 
           // second reply will not have an array list of comments(it is the leaf of the
           // tree if you will)
