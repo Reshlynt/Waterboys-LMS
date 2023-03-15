@@ -44,6 +44,35 @@ public class DataLoader extends DataConstants {
   }
 
   public static ArrayList<Course> getCourses() {
+        // purpose of this method is to read Users.json, go through entries, create a
+    // User instance for each entry, then push to an array list
+    ArrayList<Course> courses = new ArrayList<Course>();
+    try {
+      FileReader reader = new FileReader("json/Courses.json");
+      JSONParser parser = new JSONParser();
+      JSONArray courseJSON = (JSONArray) new JSONParser().parse(reader);
+
+      for (int i = 0; i < courseJSON.size(); i++) {
+        JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
+        UUID id = UUID.fromString((String) userJSONObject.get(USER_ID));
+        String userName = (String) userJSONObject.get(USER_NAME);
+        String firstName = (String) userJSONObject.get(FIRST_NAME);
+        String lastName = (String) userJSONObject.get(LAST_NAME);
+        String email = (String) userJSONObject.get(EMAIL);
+        String password = (String) userJSONObject.get(PASSWORD);
+        Date dateOfBirth = parseDate((String) userJSONObject.get(DOB_DATE));
+        String userType = (String) userJSONObject.get(TYPE);
+
+        if (userType.equalsIgnoreCase("student"))
+          courses.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
+        else if (userType.equalsIgnoreCase("teacher"))
+          courses.add(new Teacher(id, userName, firstName, lastName, email, password, dateOfBirth));
+      }
+      return courses;
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
     return null;
   }
 

@@ -7,7 +7,7 @@
       "courseType": "JAVASCRIPT",
       "modules": [
         {
-          "title": "For loops",
+          "module_title": "For loops",
           "slides": [
             {
               "title": "dsafwefew",
@@ -23,18 +23,20 @@
               ],
               "corr-answer": 1
             }
-          ],   
-          "comments":[
+          ],
+          "comments": [
             {
               "id": "asdfasdfasdfs",
               "text": "adsfasdfasdfads",
-              "replies":[{
-                "id": "asdfasdfasdf1123412341234",
-                "text": "asdfasdf;qiweurqwioerupqwer",
-                "replies": []
-              }]
+              "replies": [
+                {
+                  "id": "asdfasdfasdf1123412341234",
+                  "text": "asdfasdf;qiweurqwioerupqwer",
+                  "replies": []
+                }
+              ]
             }
-          ]    
+          ]
         }
       ],
       "students": [
@@ -47,34 +49,17 @@
           ]
         }
       ],
-      "course_comments":[
+      "course_comments": [
         {
           "id": "12341i23048",
           "text": "kasdpfjklhg",
-          "replies":[{
-            "id": "478923",
-            "text": "bro chilllllllllll;qiweurqwioerupqwer",
-            "more_replies": []
-          }]
-        }
-      ]  
-    },
-    {
-      "title": "JavaScript integration with HTML and CSS",
-      "difficulty": "INTERMEDIATE",
-      "author": "Scumbo Scuzz",
-      "courseType": "JAVASCRIPT",
-      "exam": "JavaScript_integration_with_H.Scumbo_Scuzz.E",
-      "modules": [
-        {
-          "title": "HTML review",
-          "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M1",
-          "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M1"
-        },
-        {
-          "name": "CSS review",
-          "slides": "JavaScript_integration_with_H.Scumbo_Scuzz.M2",
-          "quiz": "JavaScript_integration_with_H.Scumbo_Scuzz.M2"
+          "replies": [
+            {
+              "id": "478923",
+              "text": "bro chilllllllllll;qiweurqwioerupqwer",
+              "more_replies": []
+            }
+          ]
         }
       ]
     }
