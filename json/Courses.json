@@ -2,6 +2,7 @@
   {
     "title": "Intro to JavaScript",
     "difficulty": "BEGINNER",
+    "author" : "Mr. Bro",
     "id": "e58ed763-928c-4155-bee9e",
     "courseType": "JAVASCRIPT",
     "modules": [
