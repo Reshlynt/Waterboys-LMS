@@ -64,7 +64,7 @@ public class DataLoader extends DataConstants {
         JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
         for (int j = 0; j < modulesJSON.size(); j++) {
           JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
-          String module_title = (String) moduleJSONObject.get(MODULE_TITLE);
+          String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
 
           // slides will also be a JSONArray
           ArrayList<Slide> slides = new ArrayList<Slide>();
@@ -100,11 +100,12 @@ public class DataLoader extends DataConstants {
             Question readQuestion = new Question(question, answerChoices, correctAnswer);
             questions.add(readQuestion);
           }
+          String quizLabel = moduleTitle + " quiz";
           // Question quiz
           // quiz needs String label,
           // ArrayList<Question> questions, String correctAnswers,
           // String inputtedAnswers, int score, Type type
-
+          Assessment readQuiz = new Assessment(quizLabel, questions, Type.QUIZ);
           // parse comments here
           JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
           ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
