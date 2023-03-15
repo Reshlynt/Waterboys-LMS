@@ -23,7 +23,7 @@
             "correct_answer": 1
           }
         ],
-        "comments": [
+        "module_comments": [
           {
             "id": "asdfasdfasdfs",
             "text": "adsfasdfasdfads",
@@ -31,7 +31,7 @@
               {
                 "id": "asdfasdfasdf1123412341234",
                 "text": "asdfasdf;qiweurqwioerupqwer",
-                "replies": []
+                "more_replies": []
               }
             ]
           }

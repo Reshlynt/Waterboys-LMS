@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -111,13 +112,27 @@ public class DataLoader extends DataConstants {
 
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
-        for(int o = 0; o<studentsJSON.size();o++){
+        for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
-          UUID studentID = UUID.fromString((String)studentJSONObject.get(STUDENT_ID));
-          
+          UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
+          // deal with grades here(array in JSON)
         }
-        // parse course comments here
 
+        // course comments
+        JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
+        for (int m = 0; m < courseCommentJSON.size(); m++) {
+          JSONObject courseCommentJSONObject = (JSONObject) courseCommentJSON.get(m);
+          UUID courseCommenterID = UUID.fromString((String) courseCommentJSONObject.get(COURSE_COMMENTER_ID));
+          String courseCommentText = (String) courseCommentJSONObject.get(COURSE_COMMENT_TEXT);
+
+          JSONArray courseRepliesJSON = (JSONArray) courseCommentJSONObject.get(COURSE_COMMENT_REPLIES);
+          for (int n = 0; n < courseRepliesJSON.size(); n++) {
+            JSONObject courseReplyJSONObject = (JSONObject) courseRepliesJSON.get(n);
+            UUID replierID = UUID.fromString((String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_ID));
+            String replyText = (String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_TEXT);
+            // add another for loop about replies to replies lol(MORE_REPLIES)
+          }
+        }
       }
       return courses;
     } catch (Exception e) {

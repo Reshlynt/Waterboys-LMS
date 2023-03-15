@@ -36,13 +36,13 @@ public class DataConstants {
   public static final String ANSWERS = "answers";
   public static final String CORRECT_ANSWER = "correct_answer";
 
-  public static final String COMMENTS = "comments";
+  public static final String COMMENTS = "module_comments";
   public static final String COMMENTER_ID = "id";
   public static final String COMMENT_TEXT = "text";
   public static final String REPLIES = "replies";// replies to comments
   public static final String REPLIER_ID = "id";
   public static final String REPLY_TEXT = "text";
-  public static final String REPLIES_2 = "replies";// replies to replies
+  public static final String REPLIES_2 = "more_replies";// replies to replies
 
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
@@ -51,6 +51,9 @@ public class DataConstants {
   public static final String COURSE_COMMENTS = "course_comments";
   public static final String COURSE_COMMENTER_ID = "id";
   public static final String COURSE_COMMENT_TEXT = "text";
+  public static final String COURSE_COMMENT_REPLIES = "replies";
+  public static final String COURSE_COMMENT_REPLY_ID = "id";
+  public static final String COURSE_COMMENT_REPLY_TEXT = "text";
   public static final String MORE_REPLIES = "more_replies";// replies to course comments
 
   // User Constants
