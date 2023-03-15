@@ -67,7 +67,7 @@ public class Course {
 
   // Return course type
   public CourseType getCourseType() {
-    return coursetype;
+    return courseType;
   }
 
   // Return course assessment
