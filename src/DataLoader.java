@@ -127,26 +127,42 @@ public class DataLoader extends DataConstants {
         }
 
         // course comments
+        ArrayList<Comment> comments = new ArrayList<Comment>();
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
         for (int m = 0; m < courseCommentJSON.size(); m++) {
           JSONObject courseCommentJSONObject = (JSONObject) courseCommentJSON.get(m);
           UUID courseCommenterID = UUID.fromString((String) courseCommentJSONObject.get(COURSE_COMMENTER_ID));
           String courseCommentText = (String) courseCommentJSONObject.get(COURSE_COMMENT_TEXT);
 
+          // reply to a coment
+          ArrayList<Comment> replies = new ArrayList<Comment>();
           JSONArray courseRepliesJSON = (JSONArray) courseCommentJSONObject.get(COURSE_COMMENT_REPLIES);
           for (int n = 0; n < courseRepliesJSON.size(); n++) {
             JSONObject courseReplyJSONObject = (JSONObject) courseRepliesJSON.get(n);
             UUID replierID = UUID.fromString((String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_ID));
             String replyText = (String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_TEXT);
             // reply to a reply
+            ArrayList<Comment> secondReplies = new ArrayList<Comment>();
             JSONArray replies_2_JSON = (JSONArray) courseReplyJSONObject.get(MORE_REPLIES);
             for (int second_reply_index = 0; second_reply_index < replies_2_JSON.size(); second_reply_index++) {
               JSONObject second_reply_JSONObject = (JSONObject) replies_2_JSON.get(second_reply_index);
               UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(COURSE_SECOND_REPLIER_ID));
               String second_replyText = (String) second_reply_JSONObject.get(COURSE_SECOND_REPLY_TEXT);
+
+              // second reply will not have an array list of comments(it is the leaf of the
+              // tree if you will)
+              Comment secondReply = new Comment(second_replyText, second_replierID, null);
+              secondReplies.add(secondReply);
             }
+            // reply will have an array list of second replies underneath it
+            Comment reply = new Comment(replyText, replierID, secondReplies);
+            replies.add(reply);
           }
+          // comment will have an array list of replies underneath it
+          Comment comment = new Comment(courseCommentText, courseCommenterID, replies);
+          comments.add(comment);
         }
+        
       }
       return courses;
     } catch (Exception e) {
@@ -167,6 +183,9 @@ public class DataLoader extends DataConstants {
     return date;
   }
 
+  private static void readComments(){
+    
+  }
   public static void main(String[] args) {
     // ArrayList<User> readUsers = getUsers();
     // for (int i = 0; i < readUsers.size(); i++) {

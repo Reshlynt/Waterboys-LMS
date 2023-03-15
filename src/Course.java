@@ -11,7 +11,8 @@ public class Course {
     private Assessment exam;
     private CourseType coursetype;
     private ArrayList<Module> lessons;
-
+    private ArrayList<Comment> courseComments;
+    
     public boolean displayComments() {
         return true;
     }
