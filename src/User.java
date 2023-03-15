@@ -86,4 +86,12 @@ public abstract class User {
         }
         return false;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
