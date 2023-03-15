@@ -5,15 +5,15 @@ import java.util.UUID;
 public class UserList {
   private static ArrayList<User> userList;
   private static UserList singletonUserList;
+
   private UserList() {
     userList = DataLoader.getUsers();
 
   }
 
   public static UserList getInstance() {
-    if (singletonUserList == null) {
+    if (singletonUserList == null)
       singletonUserList = new UserList();
-    }
     return singletonUserList;
   }
 
