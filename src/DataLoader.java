@@ -111,7 +111,7 @@ public class DataLoader extends DataConstants {
           ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
           // modules has a module_title and slides, now add an array list of comments as
           // well as a lessonQuiz
-          // modules.add(new Module(module_title, moduleComments, QUIZ BRO));
+          modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
         }
 
         // parse students here
@@ -125,9 +125,9 @@ public class DataLoader extends DataConstants {
         // course comments
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
         ArrayList<Comment> courseComments = readComments(courseCommentJSON);
-        // Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
-        // courseTitle, null, null, courseType, studentsJSON, comments);
-        // courses.add(readCourse);
+        Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
+        courseTitle, null, null, courseType, studentsJSON, courseComments);
+        courses.add(readCourse);
       }
       return courses;
     } catch (Exception e) {
