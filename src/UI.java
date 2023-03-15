@@ -4,25 +4,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 public class UI {
+    public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static void main(String[] args) {
         //System.out.println(Welcome());
         SignUp();
     }
     public static String Welcome() {
         Scanner input = new Scanner(System.in);
-        String FiveStar = "*****", FourStar = "****";
-        String SpaceStar = " *";
         String choice = null;
         WelcomeLine1();
-        WelcomeLine2(FiveStar, SpaceStar, 34);
-        WelcomeLine3(FiveStar, " ", 69);
-        WelcomeLine4(FourStar, "Welcome to", 30);
-        WelcomeLine4(FiveStar, "the Waterboys\'", 27);
-        WelcomeLine4(FourStar, "Learning Management System", 22);
-        WelcomeLine3(FiveStar, " ", 69);
-        WelcomeLine4(FourStar, "\"Teaching Others About Coding Languages\"", 15);
-        WelcomeLine3(FiveStar, " ", 69);
-        WelcomeLine2(FiveStar, SpaceStar, 34);
+        WelcomeLine2(FIVESTAR, SPACESTAR, 34);
+        WelcomeLine3(FIVESTAR, " ", 69);
+        WelcomeLine4(FOURSTAR, "Welcome to", 30);
+        WelcomeLine4(FIVESTAR, "the Waterboys\'", 27);
+        WelcomeLine4(FOURSTAR, "Learning Management System", 22);
+        WelcomeLine3(FIVESTAR, " ", 69);
+        WelcomeLine4(FOURSTAR, "\"Teaching Others About Coding Languages\"", 15);
+        WelcomeLine3(FIVESTAR, " ", 69);
+        WelcomeLine2(FIVESTAR, SPACESTAR, 34);
         WelcomeLine1();
         System.out.print("\n\n\n");
         WelcomeLine5(35, "1.) Login\n");
@@ -87,11 +86,9 @@ public class UI {
     
     public static void SignUp() {
         Scanner input = new Scanner(System.in);
-        String FiveStar = "*****", FourStar = "****";
-        String SpaceStar = " *";
         String first_name = "", last_name = "", email = "", username = "", password = "", confirm = "", birthday = "";
         WelcomeLine1();
-        WelcomeLine4(FourStar, "New User Sign-Up", 27);
+        WelcomeLine4(FOURSTAR, "New User Sign-Up", 27);
         WelcomeLine1();
         System.out.println();
         WelcomeLine5(25, "First Name: ");
@@ -108,6 +105,6 @@ public class UI {
         password = input.nextLine();
         WelcomeLine5(25, "Confirm Password: ");
         confirm = input.nextLine();
-        User new_user = new Student(username, first_name, last_name, email, password, parseDate(birthday));
+        //User new_user = new Student(username, first_name, last_name, email, password, parseDate(birthday));
     }
 }
