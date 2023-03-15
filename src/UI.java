@@ -2,10 +2,10 @@ package src;
 import java.util.*;
 public class UI {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println(Welcome(input));
+        System.out.println(Welcome());
     }
-    public static String Welcome(Scanner input) {
+    public static String Welcome() {
+        Scanner input = new Scanner(System.in);
         String FiveStar = "*****", FourStar = "****";
         String SpaceStar = " *";
         String choice = null;
@@ -51,7 +51,7 @@ public class UI {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
             input.nextLine();
             System.out.println("\n\n\n\n\n");
-            Welcome(input);
+            return Welcome(input);
         }
         return choice;
     }

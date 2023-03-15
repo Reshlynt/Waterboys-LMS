@@ -1,4 +1,4 @@
-package src;
+
 import java.util.ArrayList;
 
 public class CourseList {
@@ -32,7 +32,7 @@ public class CourseList {
     public ArrayList<Course> getCourseByKeyword(String name) {
         ArrayList<Course> result = new ArrayList<Course>();
         for (Course course : courses) {
-            if (course.getName().contains(name)) {
+            if (course.getTitle().contains(name)) {
                 result.add(course);
             }
         }

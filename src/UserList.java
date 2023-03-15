@@ -1,4 +1,4 @@
-package src;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -31,13 +31,13 @@ public class UserList {
         return userList;
     }
 
-    public boolean found(UUID id) {
+    public User getUserByUUID(UUID id) {
         for (User user : userList) {
-            if (user.getUserByUUID(id)) {
-                return true;
+            if (user.equals(id)) {
+                return user;
             }
         }
-        return false;
+        return null;
     }
     
 
