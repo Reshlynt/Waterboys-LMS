@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -43,7 +44,7 @@ public class DataLoader extends DataConstants {
   }
 
   public static ArrayList<Course> getCourses() {
-        // purpose of this method is to read Users.json, go through entries, create a
+    // purpose of this method is to read Users.json, go through entries, create a
     // User instance for each entry, then push to an array list
     ArrayList<Course> courses = new ArrayList<Course>();
     try {
@@ -53,19 +54,26 @@ public class DataLoader extends DataConstants {
 
       for (int i = 0; i < courseJSON.size(); i++) {
         JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
-        UUID id = UUID.fromString((String) userJSONObject.get(USER_ID));
-        String userName = (String) userJSONObject.get(USER_NAME);
-        String firstName = (String) userJSONObject.get(FIRST_NAME);
-        String lastName = (String) userJSONObject.get(LAST_NAME);
-        String email = (String) userJSONObject.get(EMAIL);
-        String password = (String) userJSONObject.get(PASSWORD);
-        Date dateOfBirth = parseDate((String) userJSONObject.get(DOB_DATE));
-        String userType = (String) userJSONObject.get(TYPE);
+        String courseTitle = (String) courseJSONObject.get(TITLE);
+        Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
+        UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
+        CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
+        // modules will be a JSONArray
+        JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
+        for (int j = 0; j < modulesJSON.size(); j++) {
+          JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
+          String module_title = (String) moduleJSONObject.get(MODULE_TITLE);
+          //slides will also be a JSONArray
+          JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
+          for(int k = 0; k<slidesJSON.size();k++){
+            JSONObject slideJSONObject = (JSONObject) modulesJSON.get(k);
+            String slideTitle = (String)slideJSONObject.get(SLIDE_TITLE);
+            String slideDescription = (String) slideJSONObject.get(CONTENT);
 
-        if (userType.equalsIgnoreCase("student"))
-          courses.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
-        else if (userType.equalsIgnoreCase("teacher"))
-          courses.add(new Teacher(id, userName, firstName, lastName, email, password, dateOfBirth));
+            Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+          }
+        }
+
       }
       return courses;
     } catch (Exception e) {

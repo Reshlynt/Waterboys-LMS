@@ -7,11 +7,11 @@
       "courseType": "JAVASCRIPT",
       "modules": [
         {
-          "title": "For loops",
+          "module_title": "Loops",
           "slides": [
             {
-              "title": "dsafwefew",
-              "descripton": "sdfawef"
+              "slide_title": "For Loops",
+              "descripton": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
             }
           ],
           "quiz": [
@@ -21,12 +21,12 @@
                 "dsafw",
                 "sdafwe"
               ],
-              "corr-answer": 1
+              "correct_answer": 1
             }
           ],
           "comments": [
             {
-              "id": "asdfasdfasdfs",
+              "idS": "asdfasdfasdfs",
               "text": "adsfasdfasdfads",
               "replies": [
                 {
