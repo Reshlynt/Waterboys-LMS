@@ -2,44 +2,29 @@ package src;
 import java.util.*;
 public class UI {
     public static void main(String[] args) {
-        System.out.println(Welcome());
+        //System.out.println(Welcome());
+        SignUp();
     }
     public static String Welcome() {
         Scanner input = new Scanner(System.in);
         String FiveStar = "*****", FourStar = "****";
         String SpaceStar = " *";
         String choice = null;
-        //Line 1
         WelcomeLine1();
-        //Line 2
         WelcomeLine2(FiveStar, SpaceStar, 34);
-        //Line 3
         WelcomeLine3(FiveStar, " ", 69);
-        //Line 4
         WelcomeLine4(FourStar, "Welcome to", 30);
-        //Line 5
         WelcomeLine4(FiveStar, "the Waterboys\'", 27);
-        //Line 6
         WelcomeLine4(FourStar, "Learning Management System", 22);
-        //Line 7
         WelcomeLine3(FiveStar, " ", 69);
-        //Line 8
         WelcomeLine4(FourStar, "\"Teaching Others About Coding Languages\"", 15);
-        //Line 9
         WelcomeLine3(FiveStar, " ", 69);
-        //Line 10
         WelcomeLine2(FiveStar, SpaceStar, 34);
-        //Line 11
         WelcomeLine1();
-        //Lines 12 - 15
         System.out.print("\n\n\n");
-        //Line 16
         WelcomeLine5(35, "1.) Login\n");
-        //Line 17
         WelcomeLine5(35, "2.) Sign Up\n");
-        //Lines 18 - 20
         System.out.print("\n\n");
-        //Line 21
         WelcomeLine5(32, "Choose an option: ");
         choice = input.nextLine();
         System.out.println();
@@ -85,5 +70,31 @@ public class UI {
         for(int i = 0; i < iterator; i++)
             System.out.print(' ');
         System.out.print(item1);
+    }
+    
+    public static void SignUp() {
+        Scanner input = new Scanner(System.in);
+        String FiveStar = "*****", FourStar = "****";
+        String SpaceStar = " *";
+        String first_name = "", last_name = "", email = "", username = "", password = "", confirm = "", birthday = "";
+        WelcomeLine1();
+        WelcomeLine4(FourStar, "New User Sign-Up", 27);
+        WelcomeLine1();
+        System.out.println();
+        WelcomeLine5(25, "First Name: ");
+        first_name = input.nextLine();
+        WelcomeLine5(25, "Last Name: ");
+        last_name = input.nextLine();
+        WelcomeLine5(25, "Email: ");
+        email = input.nextLine();
+        WelcomeLine5(25, "Date of Birth (MMDDYYYY): ");
+        birthday = input.nextLine();
+        WelcomeLine5(25, "User Name: ");
+        username = input.nextLine();
+        WelcomeLine5(25, "Password: ");
+        password = input.nextLine();
+        WelcomeLine5(25, "Confirm Password: ");
+        confirm = input.nextLine();
+        User new_user = new User();
     }
 }

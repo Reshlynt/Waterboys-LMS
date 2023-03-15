@@ -32,4 +32,15 @@ public class Assessment extends Slide {
   public String getLabel() {
     return "";
   }
+
+  // Return the correct answers
+  public String getCorrectAnswers() {
+    return correctAnswers;
+  }
+
+  //Return the inputted answers
+  public String getInputtedAnswers() {
+    return inputtedAnswers;
+  }
+
 }

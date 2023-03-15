@@ -1,12 +1,28 @@
 
 public class DataConstants {
+  // Assessment Constants
+  /*
+     private String label;
+  private ArrayList<Question> questions;
+  private String correctAnswers;
+  private String inputtedAnswers;
+  private int score;
+  private Type type;
+   */
+  public static final String LABEL = "label";
+  public static final String CORRECT_ANSWERS = "correctAnswers";
+  public static final String INPUTTED_ANSWERS = "inputtedAnswers";
+  public static final String SCORE = "score";
+  public static final String ASSESSMENT_TYPE = "type";
+
   // Course Constants
   public static final String TITLE = "title";
   public static final String DIFFICULTY = "difficulty";
   public static final String COURSE_ID = "id";
   public static final String COURSE_TYPE = "courseType";
-
+  public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
+  public static final String COURSE_AUTHOR_ID = "modules";
 
   // module things
   public static final String MODULE_TITLE = "module_title";

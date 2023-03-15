@@ -2,10 +2,13 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-//@SuppressWarnings("unchecked")
+import java.util.UUID;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+@SuppressWarnings("unchecked")
 
 public class DataWriter extends DataConstants {
     
@@ -36,7 +39,7 @@ public class DataWriter extends DataConstants {
     }
     /**
      * Course saving.
-     */
+     
     public void saveCourses() {
         // (1) Get your UserList list and establish your
         // JSON array object.
@@ -58,58 +61,96 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
     /**
      * Creates User JSON object.
      * @param user
      * @return
      */
     private static JSONObject getUserJSON(User user) {
-        HashMap<String, String> userDetails = new HashMap<String, String>();
+        JSONObject userDetails = new JSONObject();
+        // "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
+        String[] userArray = user.toString().substring(5).split(" ");
 
-        userDetails.put(USER_ID, user.getID().toString());
+        userDetails.put(USER_ID, userArray[0]);
 
-        userDetails.put(USER_NAME, user.getUserName());
+        userDetails.put(USER_NAME, userArray[1]);
 
-        userDetails.put(FIRST_NAME, user.getFirstName());
+        userDetails.put(FIRST_NAME, userArray[2]);
 
-        userDetails.put(LAST_NAME, user.getLastName());
+        userDetails.put(LAST_NAME, userArray[3]);
 
-        userDetails.put(EMAIL, user.getEmail());
+        userDetails.put(EMAIL, userArray[4]);
 
-        userDetails.put(PASSWORD, user.getEmail());
+        userDetails.put(PASSWORD, userArray[5]);
 
-        userDetails.put(DOB_DATE, user.getDOB().toString());
+        userDetails.put(DOB_DATE, userArray[6]);
 
-        // I dont even know what this is.
-        JSONObject laterDetails = new JSONObject(userDetails);
 
-        return laterDetails;
+        return userDetails;
     }
     /**
      * Creates Class JSON object.
      * @param user
      * @return
      */
+    /* 
     private static JSONObject getCourseJSON(Course course) {
         JSONObject courseDetails = new JSONObject();
         
-        userDetails.put(COURSE_ID, course.getID().toString());
+        courseDetails.put(COURSE_ID, course.getID().toString());
 
-        userDetails.put(TITLE, course.());
+        courseDetails.put(TITLE, course.getTitle());
 
-        userDetails.put(DIFFICULTY, course.getDifficulty().toString(); // String shit
+        courseDetails.put(DIFFICULTY, course.getDifficulty().toString(); // String shit
 
-        userDetails.put(DESCRIPTION, course.getLastName());
+        courseDetails.put(DESCRIPTION, course.getDescription());
 
-        userDetails.put(AUTHOR, course.getPhoneNumber()); //get author id
+        courseDetails.put(COURSE_AUTHOR_ID, course.getAuthor().getID().toString()); // get author id
 
-        userDetails.put(EXAM, course.dateToString()); // Embed obj into JSON File.
+        courseDetails.put(EXAM, getAssessmentJSON(course.getAssessment())); // Embed obj into JSON File. JSONS deep down.
+                                                        // Write a new method like this one to create a JSON object that holds the Assessment object's data.
 
-        userDetails.put(COURSE_TYPE, course.dateToString()); // String shit
+        courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
 
-        userDetails.put(LESSONS, course.dateToString()); // JSON array
+        courseDetails.put(LESSONS, course.dateToString()); // JSON array
 
         return courseDetails;
+    }
+     */
+    /* 
+    private static JSONObject getAssessmentJSON(Assessment assessment) {
+        JSONObject assessmentDetails = new JSONObject();
+
+        assessmentDetails.put(LABEL, assessment.getLabel());
+
+        assessmentDetails.put(CORRECT_ANSWERS, assessment.getCorrectAnswers());
+
+        assessmentDetails.put(INPUTTED_ANSWERS, assessment.getInputtedAnswers());
+
+        Integer 
+        assessmentDetails.put(SCORE, assessment.getScore().toString());
+
+        
+        return assessmentDetails;
+    }
+    */
+    private static Date parseDate(String dob) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+        Date date = null;
+        try {
+          date = dateFormat.parse(dob);
+        } catch (ParseException e) {
+          e.printStackTrace();
+        }
+        return date;
+      }
+    public static void main(String[] args) {
+        // public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB)
+        User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12152002"));
+        UserList userList = UserList.getInstance();
+        userList.addUser(funny);
+        saveUsers();
+
     }
 }
