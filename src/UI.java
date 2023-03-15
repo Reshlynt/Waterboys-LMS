@@ -1,4 +1,4 @@
-
+package src;
 import java.util.*;
 public class UI {
     public static void main(String[] args) {
@@ -51,7 +51,7 @@ public class UI {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
             input.nextLine();
             System.out.println("\n\n\n\n\n");
-            Welcome(input);
+            return Welcome(input);
         }
         return choice;
     }
