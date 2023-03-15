@@ -37,4 +37,24 @@ public class Course {
     public String getTitle() {
         return title;
     }
+
+    // Return course description
+    public String getDescription() {
+        return description;
+    }
+
+    //Return course author.
+    public Teacher getAuthor() {
+        return author;
+    }
+
+    // Return course type
+    public CourseType getCourseType() {
+        return coursetype;
+    }
+
+    // Return course assessment
+    public Assessment getAssessment() {
+        return exam;
+    }
 }
