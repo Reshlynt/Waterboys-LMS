@@ -23,4 +23,17 @@ public class Course {
     public boolean listComment() {
         return true;
     }
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    // Returns the course's UUID
+    public UUID getID() {
+        return id;
+    }
+
+    // Returns the course's title
+    public String getTitle() {
+        return title;
+    }
 }
