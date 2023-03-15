@@ -41,4 +41,13 @@ public class UserList {
         return null;
     }
 
+    public boolean foundUser(String username) {
+        for (User user : userList) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
