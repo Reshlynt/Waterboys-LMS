@@ -17,10 +17,12 @@
           {
             "question": "dsfawe",
             "answers": [
-              "dsafw",
-              "sdafwe",
-              "asdfasdf",
-              "asdfasdf"
+              {
+                "a": "dsafw",
+                "b": "sdafwe",
+                "c": "asdfasdf",
+                "d": "asdfasdf"
+              }
             ],
             "correct_answer": 1
           }
