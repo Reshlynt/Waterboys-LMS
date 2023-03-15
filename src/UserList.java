@@ -32,13 +32,13 @@ public class UserList {
         return userList;
     }
 
-    public boolean getUserByUUID(UUID id) {
+    public User getUserByUUID(UUID id) {
         for (User user : userList) {
             if (user.equals(id)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
     
 
