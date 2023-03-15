@@ -1,5 +1,3 @@
-package src;
-
 /**
  * Represents a user of the system
  * @author Waterboys
