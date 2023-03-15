@@ -16,7 +16,7 @@
         "quiz": [
           {
             "question": "dsfawe",
-            "answers": [
+            "answer_choices": [
               {
                 "a": "dsafw",
                 "b": "sdafwe",
@@ -24,7 +24,7 @@
                 "d": "asdfasdf"
               }
             ],
-            "correct_answer": 1
+            "correct_answer": "a"
           }
         ],
         "module_comments": [

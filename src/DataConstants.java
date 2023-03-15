@@ -33,7 +33,7 @@ public class DataConstants {
 
   public static final String QUIZ = "quiz";
   public static final String QUESTION = "question";
-  public static final String ANSWERS = "answers";
+  public static final String ANSWER_CHOICES = "answer_choices";
   public static final String CORRECT_ANSWER = "correct_answer";
 
   public static final String MODULE_COMMENTS = "module_comments";
