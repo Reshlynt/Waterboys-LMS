@@ -32,6 +32,7 @@ public class DataConstants {
   public static final String CONTENT = "description";
 
   public static final String QUIZ = "quiz";
+  public static final String EXAM = "exam";
   public static final String QUESTION = "question";
   public static final String ANSWER_CHOICES = "answer_choices";
   public static final String A = "a";
