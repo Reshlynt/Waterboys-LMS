@@ -1,4 +1,4 @@
-
+package src;
 
 /**
  * Represents a user of the system
@@ -11,13 +11,21 @@ public abstract class User {
     protected String username;
     protected String firstName;
     protected String lastName;
-    protected String phoneNumber;
     protected String email;
     protected String password;
     protected Date DOB;
     
     public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
         this.id = id;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.DOB = DOB;
+    }
+    public User(String username, String firstName, String lastName, String email, String password, Date DOB) {
+        this.id = UUID.randomUUID();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,7 +48,7 @@ public abstract class User {
             }
         }
         return false;
-        //return true;
+        return true;
     }
     public boolean setUser() {
         return true;
@@ -51,52 +59,13 @@ public abstract class User {
         }*/
         return;
     }
-    public boolean equals(UUID id) {
-        if (this.id == id) {
-            return true;
-        }
-        return false;
+    public boolean getUserByUUID(UUID id) {
+        return (this.id == id);
     }
-    // Returns the user's UUID
-    public UUID getID() {
-        return id;
-    }
-    // Returns the user's username
-    public String getUserName() {
-        return username;
+    public String toString() {
+        return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
 
-
-
-    /*
-        userDetails.put(FIRST_NAME, user.getFirstName());
-
-        userDetails.put(LAST_NAME, user.getLastName());
-
-        userDetails.put(EMAIL, user.getPhoneNumber());
-
-        userDetails.put(DOB_DATE, user.dateToString());
-     * 
-     * 
-     * 
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public String getEmail() {
-        return email;
-    }
-    // Create an accessor method that returns the user's password
-    // Additionally, create an accessor method that returns the user's DOB
-    public String getPassword() {
-        return password;
-    }
-    public Date getDOB() {
-        return DOB;
-    }
     /*private boolean checkPassword(String password) {
         // TODO: combine checks into one loop??
         if (password.length() < 8) {
