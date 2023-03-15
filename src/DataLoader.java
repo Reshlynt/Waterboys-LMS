@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -66,12 +65,12 @@ public class DataLoader extends DataConstants {
         for (int j = 0; j < modulesJSON.size(); j++) {
           JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
           String module_title = (String) moduleJSONObject.get(MODULE_TITLE);
-          // slides will also be a JSONArray
 
+          // slides will also be a JSONArray
           ArrayList<Slide> slides = new ArrayList<Slide>();
           JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
           for (int k = 0; k < slidesJSON.size(); k++) {
-            JSONObject slideJSONObject = (JSONObject) modulesJSON.get(k);
+            JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
             String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
             String slideDescription = (String) slideJSONObject.get(CONTENT);
 
@@ -81,17 +80,28 @@ public class DataLoader extends DataConstants {
 
           JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
           for (int l = 0; l < slidesJSON.size(); l++) {
-            JSONObject quizJSONObject = (JSONObject) modulesJSON.get(l);
+            JSONObject quizJSONObject = (JSONObject) quizJSON.get(l);
             String question = (String) quizJSONObject.get(QUESTION);
 
             // insert JSON parsing for answer choices
-            
+
             String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
 
           }
 
           // parse comments here
+          JSONArray commentJSON = (JSONArray) moduleJSONObject.get(COMMENTS);
+          for (int m = 0; m < slidesJSON.size(); m++) {
+            JSONObject commentJSONObject = (JSONObject) commentJSON.get(m);
+            UUID commenterID = UUID.fromString((String) commentJSONObject.get(COMMENTER_ID));
+            String commentText = (String) commentJSONObject.get(COMMENT_TEXT);
 
+            JSONArray repliesJSON = (JSONArray) commentJSONObject.get(REPLIES);
+            for (int n = 0; n < repliesJSON.size(); n++) {
+
+            }
+
+          }
           // modules has a module_title and slides, now add an array list of comments as
           // well as a lessonQuiz
           // modules.add(new Module(module_title, slides,))
@@ -99,7 +109,7 @@ public class DataLoader extends DataConstants {
 
         // parse students here
 
-        //parse course comments here
+        // parse course comments here
 
       }
       return courses;
@@ -119,5 +129,18 @@ public class DataLoader extends DataConstants {
       e.printStackTrace();
     }
     return date;
+  }
+
+  public static void main(String[] args) {
+    // ArrayList<User> readUsers = getUsers();
+    // for (int i = 0; i < readUsers.size(); i++) {
+    // User user = readUsers.get(i);
+    // String printString = user.getEmail() + " " + user.getFirstName() + " " +
+    // user.getLastName() + " "
+    // + user.getPassword() + " " + user.getUserName() + " " + user.getID();
+    // System.out.println(printString);
+    // }
+    // }
+    UserList myList = UserList.getInstance();
   }
 }
