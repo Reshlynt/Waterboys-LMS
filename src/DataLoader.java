@@ -1,4 +1,3 @@
-package src;
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -97,7 +96,10 @@ public class DataLoader extends DataConstants {
 
             JSONArray repliesJSON = (JSONArray) commentJSONObject.get(REPLIES);
             for (int n = 0; n < repliesJSON.size(); n++) {
-
+              JSONObject replyJSONObject = (JSONObject) repliesJSON.get(n);
+              UUID replierID = UUID.fromString((String) replyJSONObject.get(REPLIER_ID));
+              String replyText = (String) replyJSONObject.get(REPLY_TEXT);
+              // add another for loop about replies to replies lol
             }
 
           }
@@ -107,7 +109,12 @@ public class DataLoader extends DataConstants {
         }
 
         // parse students here
-
+        JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
+        for(int o = 0; o<studentsJSON.size();o++){
+          JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
+          UUID studentID = UUID.fromString((String)studentJSONObject.get(STUDENT_ID));
+          
+        }
         // parse course comments here
 
       }

@@ -1,5 +1,8 @@
 package src;
-import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
 public class UI {
     public static void main(String[] args) {
         //System.out.println(Welcome());
@@ -71,6 +74,16 @@ public class UI {
             System.out.print(' ');
         System.out.print(item1);
     }
+    private static Date parseDate(String dob) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+        Date date = null;
+        try {
+          date = dateFormat.parse(dob);
+        } catch (ParseException e) {
+          e.printStackTrace();
+        }
+        return date;
+      }
     
     public static void SignUp() {
         Scanner input = new Scanner(System.in);
@@ -95,6 +108,6 @@ public class UI {
         password = input.nextLine();
         WelcomeLine5(25, "Confirm Password: ");
         confirm = input.nextLine();
-        User new_user = new User();
+        User new_user = new Student(username, first_name, last_name, email, password, parseDate(birthday));
     }
 }
