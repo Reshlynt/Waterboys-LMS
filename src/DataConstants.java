@@ -1,17 +1,9 @@
 package src;
 public class DataConstants {
-  // Course
-  public static final String TITLE = "title";
-  public static final String DIFFICULTY = "difficulty";
+  // Course Constants
   public static final String COURSE_ID = "id";
-  public static final String COURSE_TYPE = "courseType";
-
-  public static final String MODULES = "modules";
-  public static final String MODULE_TITLE = "module_title";
-
-
-  public static final String STUDENTS = "students";
-  public static final String COURSE_COMMENTS = "course_comments";
+  public static final String TITLE = "title";
+  public static final String DESCRIPTION = "hello";
   // User Constants
   public static final String USER_ID = "id";
   public static final String USER_NAME = "username";

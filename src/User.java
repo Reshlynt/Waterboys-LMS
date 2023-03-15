@@ -51,9 +51,10 @@ public abstract class User {
         return;
     }
     public boolean getUserByUUID(UUID id) {
-        if (this.id == id) {
-            return true;
-        }
+        return (this.id == id);
+    }
+    public String toString() {
+        return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
 
     /*private boolean checkPassword(String password) {
