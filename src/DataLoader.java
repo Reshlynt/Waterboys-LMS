@@ -117,7 +117,7 @@ public class DataLoader extends DataConstants {
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
         ArrayList<Student> students = new ArrayList<Student>();
-        
+
         for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
@@ -128,7 +128,7 @@ public class DataLoader extends DataConstants {
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
         ArrayList<Comment> courseComments = readComments(courseCommentJSON);
         Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
-        courseTitle, null, null, courseType, modules, courseComments);
+        courseTitle, null, null, courseType, modules, courseComments, null);
         courses.add(readCourse);
       }
       return courses;
@@ -204,6 +204,37 @@ public class DataLoader extends DataConstants {
     return comments;
   }
 
+  private static Assessment readAssessment(JSONArray quizJSON){
+    ArrayList<Question> questions = new ArrayList<Question>();
+          for (int l = 0; l < quizJSON.size(); l++) {
+            JSONObject quizQuestionJSON = (JSONObject) quizJSON.get(l);
+            String question = (String) quizQuestionJSON.get(QUESTION);
+
+            // Reading as string array might now work, test later
+            JSONArray answerChoicesJSON = (JSONArray) quizQuestionJSON.get(ANSWER_CHOICES);
+            ArrayList<String> answerChoices = new ArrayList<String>();
+            for (int x = 0; x < answerChoicesJSON.size(); x++) {
+              JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(x);
+              answerChoices.add((String)answerChoiceJSON.get(A));
+              answerChoices.add((String)answerChoiceJSON.get(B));
+              answerChoices.add((String)answerChoiceJSON.get(C));
+              answerChoices.add((String)answerChoiceJSON.get(D));
+            }
+
+            String correctAnswer = (String) quizQuestionJSON.get(CORRECT_ANSWER);
+
+            Question readQuestion = new Question(question, answerChoices, correctAnswer);
+            questions.add(readQuestion);
+          }
+          String quizLabel = moduleTitle + " quiz";
+          // Question quiz
+          // quiz needs String label,
+          // ArrayList<Question> questions, String correctAnswers,
+          // String inputtedAnswers, int score, Type type
+          Assessment readQuiz = new Assessment(quizLabel, questions, Type.QUIZ);
+    //Assessment parsedAssessment = new 
+    //return parsedAssessment;
+  }
   public static void main(String[] args) {
     // ArrayList<User> readUsers = getUsers();
     // for (int i = 0; i < readUsers.size(); i++) {
