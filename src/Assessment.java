@@ -11,13 +11,11 @@ public class Assessment extends Slide {
   private Type type;
 
   public Assessment(String label,
-      ArrayList<Question> questions, String correctAnswers,
-      String inputtedAnswers, int score, Type type) {
+      ArrayList<Question> questions, String correctAnswers, Type type) {
     this.label = label;
     this.questions = questions;
     this.correctAnswers = correctAnswers;
     this.inputtedAnswers = inputtedAnswers;
-    this.score = score;
     this.type = type;
   }
 
