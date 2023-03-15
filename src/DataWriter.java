@@ -147,7 +147,7 @@ public class DataWriter extends DataConstants {
       }
     public static void main(String[] args) {
         // public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB)
-        User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12/15/2002"));
+        User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12152002"));
         UserList userList = UserList.getInstance();
         userList.addUser(funny);
         saveUsers();
