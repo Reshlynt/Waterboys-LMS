@@ -2,12 +2,12 @@
 public class DataConstants {
   // Assessment Constants
   /*
-     private String label;
-  private ArrayList<Question> questions;
-  private String correctAnswers;
-  private String inputtedAnswers;
-  private int score;
-  private Type type;
+   * private String label;
+   * private ArrayList<Question> questions;
+   * private String correctAnswers;
+   * private String inputtedAnswers;
+   * private int score;
+   * private Type type;
    */
   public static final String LABEL = "label";
   public static final String CORRECT_ANSWERS = "correctAnswers";
@@ -34,6 +34,10 @@ public class DataConstants {
   public static final String QUIZ = "quiz";
   public static final String QUESTION = "question";
   public static final String ANSWER_CHOICES = "answer_choices";
+  public static final String A = "a";
+  public static final String B = "b";
+  public static final String C = "c";
+  public static final String D = "d";
   public static final String CORRECT_ANSWER = "correct_answer";
 
   public static final String MODULE_COMMENTS = "module_comments";
