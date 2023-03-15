@@ -1,3 +1,4 @@
+package src;
 public enum Type {
     QUIZ {
         public String toString() {
