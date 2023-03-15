@@ -51,6 +51,7 @@ public class DataLoader extends DataConstants {
       JSONParser parser = new JSONParser();
       JSONArray courseJSON = (JSONArray) parser.parse(reader);
 
+      // this gigantic for loop goes through each course object in the JSON
       for (int i = 0; i < courseJSON.size(); i++) {
         JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
         String courseTitle = (String) courseJSONObject.get(TITLE);
@@ -127,42 +128,11 @@ public class DataLoader extends DataConstants {
         }
 
         // course comments
-        ArrayList<Comment> comments = new ArrayList<Comment>();
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
-        for (int m = 0; m < courseCommentJSON.size(); m++) {
-          JSONObject courseCommentJSONObject = (JSONObject) courseCommentJSON.get(m);
-          UUID courseCommenterID = UUID.fromString((String) courseCommentJSONObject.get(COURSE_COMMENTER_ID));
-          String courseCommentText = (String) courseCommentJSONObject.get(COURSE_COMMENT_TEXT);
-
-          // reply to a coment
-          ArrayList<Comment> replies = new ArrayList<Comment>();
-          JSONArray courseRepliesJSON = (JSONArray) courseCommentJSONObject.get(COURSE_COMMENT_REPLIES);
-          for (int n = 0; n < courseRepliesJSON.size(); n++) {
-            JSONObject courseReplyJSONObject = (JSONObject) courseRepliesJSON.get(n);
-            UUID replierID = UUID.fromString((String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_ID));
-            String replyText = (String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_TEXT);
-            // reply to a reply
-            ArrayList<Comment> secondReplies = new ArrayList<Comment>();
-            JSONArray replies_2_JSON = (JSONArray) courseReplyJSONObject.get(MORE_REPLIES);
-            for (int second_reply_index = 0; second_reply_index < replies_2_JSON.size(); second_reply_index++) {
-              JSONObject second_reply_JSONObject = (JSONObject) replies_2_JSON.get(second_reply_index);
-              UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(COURSE_SECOND_REPLIER_ID));
-              String second_replyText = (String) second_reply_JSONObject.get(COURSE_SECOND_REPLY_TEXT);
-
-              // second reply will not have an array list of comments(it is the leaf of the
-              // tree if you will)
-              Comment secondReply = new Comment(second_replyText, second_replierID, null);
-              secondReplies.add(secondReply);
-            }
-            // reply will have an array list of second replies underneath it
-            Comment reply = new Comment(replyText, replierID, secondReplies);
-            replies.add(reply);
-          }
-          // comment will have an array list of replies underneath it
-          Comment comment = new Comment(courseCommentText, courseCommenterID, replies);
-          comments.add(comment);
-        }
-        
+        ArrayList<Comment> comments = readComments(courseCommentJSON);
+        // Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
+        // courseTitle, null, null, courseType, studentsJSON, comments);
+        // courses.add(readCourse);
       }
       return courses;
     } catch (Exception e) {
@@ -183,9 +153,60 @@ public class DataLoader extends DataConstants {
     return date;
   }
 
-  private static void readComments(){
-    
+  private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
+    ArrayList<Comment> comments = new ArrayList<Comment>();
+
+    for (int i = 0; i < commentsJSON.size(); i++) {
+      // JSON object(Comment) that has a UUID, text, and a JSON array of replies
+      JSONObject commentJSON = (JSONObject) commentsJSON.get(i);
+
+      UUID commenterID = UUID.fromString((String) commentJSON.get(COURSE_COMMENTER_ID));
+      String commentText = (String) commentJSON.get(COURSE_COMMENT_TEXT);
+
+      // JSON Array of replies, array list will hold those replies
+      JSONArray repliesJSON = (JSONArray) commentJSON.get(COURSE_COMMENT_REPLIES);
+      ArrayList<Comment> replies = new ArrayList<Comment>();
+
+      for (int j = 0; j < repliesJSON.size(); j++) {
+        // JSON object(Reply) that has a UUID, text, and a JSON array of replies
+        JSONObject replyJSON = (JSONObject) repliesJSON.get(j);
+
+        UUID replierID = UUID.fromString((String) replyJSON.get(COURSE_COMMENT_REPLY_ID));
+        String replyText = (String) replyJSON.get(COURSE_COMMENT_REPLY_TEXT);
+
+        // reply to a reply
+        ArrayList<Comment> secondReplies = new ArrayList<Comment>();
+        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(MORE_REPLIES);
+
+        for (int second_reply_index = 0; second_reply_index < secondRepliesJSON.size(); second_reply_index++) {
+        // JSON object(Second Reply) that has a UUID and text
+          JSONObject second_reply_JSONObject = (JSONObject) secondRepliesJSON.get(second_reply_index);
+
+          UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(COURSE_SECOND_REPLIER_ID));
+          String second_replyText = (String) second_reply_JSONObject.get(COURSE_SECOND_REPLY_TEXT);
+
+          // second reply will not have an array list of comments(it is the leaf of the
+          // tree if you will)
+          Comment secondReply = new Comment(second_replyText, second_replierID, null);
+
+          //add each second reply to the array list of second replies
+          secondReplies.add(secondReply);
+        }
+        // reply will have an array list of second replies underneath it
+        Comment reply = new Comment(replyText, replierID, secondReplies);
+        
+        //add each reply to the array list of replies
+        replies.add(reply);
+      }
+      // comment will have an array list of replies underneath it
+      Comment comment = new Comment(commentText, commenterID, replies);
+
+      //add each comment to the array list of comments
+      comments.add(comment);
+    }
+    return comments;
   }
+
   public static void main(String[] args) {
     // ArrayList<User> readUsers = getUsers();
     // for (int i = 0; i < readUsers.size(); i++) {
