@@ -65,6 +65,23 @@ public abstract class User {
         return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public String getEmail() {
+        return email;
+    }
+    // Create an accessor method that returns the user's password
+    // Additionally, create an accessor method that returns the user's DOB
+    public String getPassword() {
+        return password;
+    }
+    public Date getDOB() {
+        return DOB;
+    }
     /*private boolean checkPassword(String password) {
         // TODO: combine checks into one loop??
         if (password.length() < 8) {
