@@ -33,83 +33,36 @@ public abstract class User {
         this.password = password;
         this.DOB = DOB;
     }
-    public boolean setPassword() {
-        if (password.length() < 8) {
+    public boolean setPassword(String pass) {
+        if (pass.length() < 8) {
             return false;
         }
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) == ' ' || password.charAt(i) == '\t' || password.charAt(i) == '\n') {
+        for (int i = 0; i < pass.length(); i++) {
+            if (pass.charAt(i) == ' ' || pass.charAt(i) == '\t' || pass.charAt(i) == '\n') {
                 return false;
             }
         }
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') {
+        for (int i = 0; i < pass.length(); i++) {
+            if (pass.charAt(i) >= 'A' && pass.charAt(i) <= 'Z') {
+                password = pass;
                 return true;
             }
         }
         return false;
     }
-    public boolean setUser() {
+    public boolean setUser(String user) {
+        if (user.length() < 5 || user.length() > 14) {
+            return false;
+        }
+        for (int i = 0; i < password.length(); i++) {
+            if (user.charAt(i) == ' ' || user.charAt(i) == '\t' || user.charAt(i) == '\n' || user.charAt(i) == '@' || user.charAt(i) == '\\' || user.charAt(i) == '%') {
+                return false;
+            }
+        }
+        this.username = user;
         return true;
-    }
-    public void changePassword(String newPassword) {
-        /*if (checkPassword(newPassword)) {
-            password = newPassword;
-        }*/
-        return;
-    }
-    public boolean getUserByUUID(UUID id) {
-        return (this.id == id);
     }
     public String toString() {
         return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
-
-    public String getFirstName() {
-        return firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public String getEmail() {
-        return email;
-    }
-    // Create an accessor method that returns the user's password
-    // Additionally, create an accessor method that returns the user's DOB
-    public String getPassword() {
-        return password;
-    }
-    public Date getDOB() {
-        return DOB;
-    }
-    /*private boolean checkPassword(String password) {
-        // TODO: combine checks into one loop??
-        if (password.length() < 8) {
-            return false;
-        }
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) == ' ' || password.charAt(i) == '\t' || password.charAt(i) == '\n') {
-                return false;
-            }
-        }
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') {
-                return true;
-            }
-        }
-        return false;
-    }*/
-    /*private boolean checkUser(String username) {
-        /*if (username.length() < 5 || username.length() > 14) {
-            return false;
-        }
-        for (int i = 0; i < username.length(); i++) {
-            if (username.charAt(i) == ' ' || username.charAt(i) == '\t' || username.charAt(i) == '\n') {
-                return false;
-            }
-        }
-        return true;
-    }
-    */
 }
- 
