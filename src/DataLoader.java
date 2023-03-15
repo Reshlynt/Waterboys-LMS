@@ -116,6 +116,8 @@ public class DataLoader extends DataConstants {
 
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
+        ArrayList<Student> students = new ArrayList<Student>();
+        
         for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
@@ -126,7 +128,7 @@ public class DataLoader extends DataConstants {
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
         ArrayList<Comment> courseComments = readComments(courseCommentJSON);
         Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
-        courseTitle, null, null, courseType, studentsJSON, courseComments);
+        courseTitle, null, null, courseType, modules, courseComments);
         courses.add(readCourse);
       }
       return courses;
