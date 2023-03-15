@@ -138,7 +138,6 @@ public class DataLoader extends DataConstants {
             JSONObject courseReplyJSONObject = (JSONObject) courseRepliesJSON.get(n);
             UUID replierID = UUID.fromString((String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_ID));
             String replyText = (String) courseReplyJSONObject.get(COURSE_COMMENT_REPLY_TEXT);
-            // add another for loop about replies to replies lol(MORE_REPLIES)
             // reply to a reply
             JSONArray replies_2_JSON = (JSONArray) courseReplyJSONObject.get(MORE_REPLIES);
             for (int second_reply_index = 0; second_reply_index < replies_2_JSON.size(); second_reply_index++) {
