@@ -70,6 +70,20 @@
           }
         ]
       }
+    ],
+    "exam":[
+      {
+        "question": "question1",
+        "answer_choices": [
+          {
+            "a": "asdfasdf",
+            "b": ";lkjfdsa",
+            "c": "qweriuop",
+            "d": "poiurewq"
+          }
+        ],
+        "correct_answer": "a"
+      }
     ]
   }
 ]
