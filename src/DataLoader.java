@@ -79,18 +79,31 @@ public class DataLoader extends DataConstants {
           }
 
           JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
+          ArrayList<Question> questions = new ArrayList<Question>();
           for (int l = 0; l < quizJSON.size(); l++) {
-            JSONObject quizJSONObject = (JSONObject) quizJSON.get(l);
-            String question = (String) quizJSONObject.get(QUESTION);
+            JSONObject quizQuestionJSON = (JSONObject) quizJSON.get(l);
+            String question = (String) quizQuestionJSON.get(QUESTION);
 
             // Reading as string array might now work, test later
-            String[] answerChoices = (String[]) quizJSONObject.get(ANSWERS);
+            JSONArray answerChoicesJSON = (JSONArray) quizQuestionJSON.get(ANSWER_CHOICES);
+            ArrayList<String> answerChoices = new ArrayList<String>();
+            for (int x = 0; x < answerChoicesJSON.size(); x++) {
+              JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(x);
+              answerChoices.add((String)answerChoiceJSON.get(A));
+              answerChoices.add((String)answerChoiceJSON.get(B));
+              answerChoices.add((String)answerChoiceJSON.get(C));
+              answerChoices.add((String)answerChoiceJSON.get(D));
+            }
 
-            String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
-            // quiz needs String label,
-            // ArrayList<Question> questions, String correctAnswers,
-            // String inputtedAnswers, int score, Type type
+            String correctAnswer = (String) quizQuestionJSON.get(CORRECT_ANSWER);
+
+            Question readQuestion = new Question(question, answerChoices, correctAnswer);
+            questions.add(readQuestion);
           }
+          // Question quiz
+          // quiz needs String label,
+          // ArrayList<Question> questions, String correctAnswers,
+          // String inputtedAnswers, int score, Type type
 
           // parse comments here
           JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
