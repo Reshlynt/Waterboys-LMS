@@ -79,7 +79,7 @@ public class DataLoader extends DataConstants {
           }
 
           JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
-          for (int l = 0; l < slidesJSON.size(); l++) {
+          for (int l = 0; l < quizJSON.size(); l++) {
             JSONObject quizJSONObject = (JSONObject) quizJSON.get(l);
             String question = (String) quizJSONObject.get(QUESTION);
 
@@ -87,15 +87,17 @@ public class DataLoader extends DataConstants {
             String[] answerChoices = (String[]) quizJSONObject.get(ANSWERS);
 
             String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
-
+            // quiz needs String label,
+            // ArrayList<Question> questions, String correctAnswers,
+            // String inputtedAnswers, int score, Type type
           }
 
           // parse comments here
-          JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(COMMENTS);
+          JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
           ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
           // modules has a module_title and slides, now add an array list of comments as
           // well as a lessonQuiz
-          //modules.add(new Module(module_title, moduleComments, QUIZ BRO));
+          // modules.add(new Module(module_title, moduleComments, QUIZ BRO));
         }
 
         // parse students here
@@ -158,7 +160,7 @@ public class DataLoader extends DataConstants {
         JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(SECOND_REPLIES);
 
         for (int second_reply_index = 0; second_reply_index < secondRepliesJSON.size(); second_reply_index++) {
-        // JSON object(Second Reply) that has a UUID and text
+          // JSON object(Second Reply) that has a UUID and text
           JSONObject second_reply_JSONObject = (JSONObject) secondRepliesJSON.get(second_reply_index);
 
           UUID second_replierID = UUID.fromString((String) second_reply_JSONObject.get(SECOND_REPLIER_ID));
@@ -168,19 +170,19 @@ public class DataLoader extends DataConstants {
           // tree if you will)
           Comment secondReply = new Comment(second_replyText, second_replierID, null);
 
-          //add each second reply to the array list of second replies
+          // add each second reply to the array list of second replies
           secondReplies.add(secondReply);
         }
         // reply will have an array list of second replies underneath it
         Comment reply = new Comment(replyText, replierID, secondReplies);
-        
-        //add each reply to the array list of replies
+
+        // add each reply to the array list of replies
         replies.add(reply);
       }
       // comment will have an array list of replies underneath it
       Comment comment = new Comment(commentText, commenterID, replies);
 
-      //add each comment to the array list of comments
+      // add each comment to the array list of comments
       comments.add(comment);
     }
     return comments;
