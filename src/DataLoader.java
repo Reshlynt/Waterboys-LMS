@@ -91,32 +91,11 @@ public class DataLoader extends DataConstants {
           }
 
           // parse comments here
-          JSONArray commentJSON = (JSONArray) moduleJSONObject.get(COMMENTS);
-          for (int m = 0; m < slidesJSON.size(); m++) {
-            JSONObject commentJSONObject = (JSONObject) commentJSON.get(m);
-            UUID commenterID = UUID.fromString((String) commentJSONObject.get(COMMENTER_ID));
-            String commentText = (String) commentJSONObject.get(COMMENT_TEXT);
-
-            // reply to a comment
-            JSONArray repliesJSON = (JSONArray) commentJSONObject.get(REPLIES);
-            for (int n = 0; n < repliesJSON.size(); n++) {
-              JSONObject replyJSONObject = (JSONObject) repliesJSON.get(n);
-              UUID replierID = UUID.fromString((String) replyJSONObject.get(REPLIER_ID));
-              String replyText = (String) replyJSONObject.get(REPLY_TEXT);
-
-              // reply to a reply
-              JSONArray replies_2_JSON = (JSONArray) replyJSONObject.get(REPLIES_2);
-              for (int second_reply_index = 0; second_reply_index < repliesJSON.size(); second_reply_index++) {
-                JSONObject second_reply_JSONOBject = (JSONObject) repliesJSON.get(second_reply_index);
-                UUID second_replierID = UUID.fromString((String) second_reply_JSONOBject.get(SECOND_REPLIER_ID));
-                String second_replyText = (String) replyJSONObject.get(SECOND_REPLY_TEXT);
-              }
-            }
-
-          }
+          JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(COMMENTS);
+          ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
           // modules has a module_title and slides, now add an array list of comments as
           // well as a lessonQuiz
-          // modules.add(new Module(module_title, slides,))
+          //modules.add(new Module(module_title, moduleComments, QUIZ BRO));
         }
 
         // parse students here
@@ -129,7 +108,7 @@ public class DataLoader extends DataConstants {
 
         // course comments
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
-        ArrayList<Comment> comments = readComments(courseCommentJSON);
+        ArrayList<Comment> courseComments = readComments(courseCommentJSON);
         // Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
         // courseTitle, null, null, courseType, studentsJSON, comments);
         // courses.add(readCourse);
