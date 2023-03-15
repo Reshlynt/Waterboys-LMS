@@ -5,6 +5,7 @@ package src;
  * @author Waterboys
  */
 import java.util.UUID;
+import java.util.ArrayList;
 import java.util.Date;
 public abstract class User {
     protected UUID id;
@@ -33,6 +34,11 @@ public abstract class User {
         this.password = password;
         this.DOB = DOB;
     }
+    /**
+     * Checks validity of entered password and sets it if valid
+     * @param pass the password to be set
+     * @return true if the password is valid, false otherwise
+     */
     public boolean setPassword(String pass) {
         if (pass.length() < 8) {
             return false;
@@ -50,12 +56,23 @@ public abstract class User {
         }
         return false;
     }
+    /**
+     * Sets username after checking the length, contents, and if theres already an existing user with that username
+     * @param user the username to be set
+     * @return true if the username is valid and not already taken, false otherwise
+     */
     public boolean setUser(String user) {
         if (user.length() < 5 || user.length() > 14) {
             return false;
         }
         for (int i = 0; i < password.length(); i++) {
             if (user.charAt(i) == ' ' || user.charAt(i) == '\t' || user.charAt(i) == '\n' || user.charAt(i) == '@' || user.charAt(i) == '\\' || user.charAt(i) == '%') {
+                return false;
+            }
+        }
+        ArrayList<User> currentUsers = UserList.getInstance().getUserList();
+        for (User u : currentUsers) {
+            if (u.username.equals(user)) {
                 return false;
             }
         }
