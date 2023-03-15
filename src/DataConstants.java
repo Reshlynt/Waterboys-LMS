@@ -14,12 +14,8 @@ public class DataConstants {
   public static final String INPUTTED_ANSWERS = "inputtedAnswers";
   public static final String SCORE = "score";
   public static final String ASSESSMENT_TYPE = "type";
+
   // Course Constants
-<<<<<<< HEAD
-  public static final String COURSE_ID = "id";
-  public static final String TITLE = "title";
-  public static final String DESCRIPTION = "hello";
-=======
   public static final String TITLE = "title";
   public static final String DIFFICULTY = "difficulty";
   public static final String COURSE_ID = "id";
@@ -57,7 +53,6 @@ public class DataConstants {
   public static final String COURSE_COMMENT_TEXT = "text";
   public static final String MORE_REPLIES = "more_replies";// replies to course comments
 
->>>>>>> 754d2f48aea12a3f0ff7d3d94caa47ce9c82a79b
   // User Constants
   public static final String USER_ID = "id";
   public static final String USER_NAME = "username";

@@ -150,6 +150,7 @@ public class DataWriter extends DataConstants {
         User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12/15/2002"));
         UserList userList = UserList.getInstance();
         userList.addUser(funny);
+        saveUsers();
 
     }
 }
