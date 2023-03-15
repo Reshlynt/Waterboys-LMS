@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -58,20 +59,40 @@ public class DataLoader extends DataConstants {
         Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
         UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
         CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
+
         // modules will be a JSONArray
+        ArrayList<Module> modules = new ArrayList<Module>();
         JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
         for (int j = 0; j < modulesJSON.size(); j++) {
           JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
           String module_title = (String) moduleJSONObject.get(MODULE_TITLE);
-          //slides will also be a JSONArray
+          // slides will also be a JSONArray
+
+          ArrayList<Slide> slides = new ArrayList<Slide>();
           JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
-          for(int k = 0; k<slidesJSON.size();k++){
+          for (int k = 0; k < slidesJSON.size(); k++) {
             JSONObject slideJSONObject = (JSONObject) modulesJSON.get(k);
-            String slideTitle = (String)slideJSONObject.get(SLIDE_TITLE);
+            String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
             String slideDescription = (String) slideJSONObject.get(CONTENT);
 
             Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+            slides.add(parsedSlide);
           }
+
+          JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
+          for (int l = 0; l < slidesJSON.size(); l++) {
+            JSONObject quizJSONObject = (JSONObject) modulesJSON.get(l);
+            String question = (String) quizJSONObject.get(QUESTION);
+            // insert JSON parsing for answer choices
+            String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
+            String slideDescription = (String) slideJSONObject.get(CONTENT);
+
+            Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+            slides.add(parsedSlide);
+          }
+          // modules has a module_title and slides, now add an array list of comments as
+          // well as a lessonQuiz
+          // modules.add(new Module(module_title, slides,))
         }
 
       }
