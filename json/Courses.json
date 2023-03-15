@@ -1,67 +1,65 @@
-{
-  "courses": [
-    {
-      "title": "Intro to JavaScript",
-      "difficulty": "BEGINNER",
-      "id": "e58ed763-928c-4155-bee9e",
-      "courseType": "JAVASCRIPT",
-      "modules": [
-        {
-          "module_title": "Loops",
-          "slides": [
-            {
-              "slide_title": "For Loops",
-              "descripton": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
-            }
-          ],
-          "quiz": [
-            {
-              "question": "dsfawe",
-              "answers": [
-                "dsafw",
-                "sdafwe"
-              ],
-              "correct_answer": 1
-            }
-          ],
-          "comments": [
-            {
-              "id": "asdfasdfasdfs",
-              "text": "adsfasdfasdfads",
-              "replies": [
-                {
-                  "id": "asdfasdfasdf1123412341234",
-                  "text": "asdfasdf;qiweurqwioerupqwer",
-                  "replies": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "students": [
-        {
-          "id": "",
-          "grades": [
-            5,
-            4,
-            7
-          ]
-        }
-      ],
-      "course_comments": [
-        {
-          "id": "12341i23048",
-          "text": "kasdpfjklhg",
-          "replies": [
-            {
-              "id": "478923",
-              "text": "bro chilllllllllll;qiweurqwioerupqwer",
-              "more_replies": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "title": "Intro to JavaScript",
+    "difficulty": "BEGINNER",
+    "id": "e58ed763-928c-4155-bee9e",
+    "courseType": "JAVASCRIPT",
+    "modules": [
+      {
+        "module_title": "Loops",
+        "slides": [
+          {
+            "slide_title": "For Loops",
+            "descripton": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
+          }
+        ],
+        "quiz": [
+          {
+            "question": "dsfawe",
+            "answers": [
+              "dsafw",
+              "sdafwe"
+            ],
+            "correct_answer": 1
+          }
+        ],
+        "comments": [
+          {
+            "id": "asdfasdfasdfs",
+            "text": "adsfasdfasdfads",
+            "replies": [
+              {
+                "id": "asdfasdfasdf1123412341234",
+                "text": "asdfasdf;qiweurqwioerupqwer",
+                "replies": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "students": [
+      {
+        "id": "",
+        "grades": [
+          5,
+          4,
+          7
+        ]
+      }
+    ],
+    "course_comments": [
+      {
+        "id": "12341i23048",
+        "text": "kasdpfjklhg",
+        "replies": [
+          {
+            "id": "478923",
+            "text": "bro chilllllllllll;qiweurqwioerupqwer",
+            "more_replies": []
+          }
+        ]
+      }
+    ]
+  }
+]
