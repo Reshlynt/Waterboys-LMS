@@ -85,15 +85,21 @@ public class DataLoader extends DataConstants {
             String question = (String) quizJSONObject.get(QUESTION);
             // insert JSON parsing for answer choices
             String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
-            String slideDescription = (String) slideJSONObject.get(CONTENT);
 
             Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
             slides.add(parsedSlide);
           }
+
+          // parse comments here
+
           // modules has a module_title and slides, now add an array list of comments as
           // well as a lessonQuiz
           // modules.add(new Module(module_title, slides,))
         }
+
+        // parse students here
+
+        //parse course comments here
 
       }
       return courses;
