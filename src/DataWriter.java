@@ -71,7 +71,9 @@ public class DataWriter extends DataConstants {
         JSONObject userDetails = new JSONObject();
         // "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
         String[] userArray = user.toString().substring(5).split(" ");
-
+        for (String a : userArray) {
+            System.out.println(a);
+        }
         userDetails.put(USER_ID, userArray[0]);
 
         userDetails.put(USER_NAME, userArray[1]);

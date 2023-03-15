@@ -65,5 +65,5 @@ public class DataConstants {
   public static final String PASSWORD = "password";
   public static final String DOB_DATE = "dateOfBirth";
   public static final String TYPE = "type";
-  protected static final String USER_FILE_NAME = "people.json";
+  protected static final String USER_FILE_NAME = "./json/Users.json";
 }
