@@ -3,44 +3,43 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-  private static ArrayList<User> userList;
-  private static UserList singletonUserList;
+    private static ArrayList<User> userList;
+    private static UserList singletonUserList;
 
-  private UserList() {
-    userList = DataLoader.getUsers();
+    private UserList() {
+        userList = DataLoader.getUsers();
+    }
 
-  }
-
-  public static UserList getInstance() {
-    if (singletonUserList == null)
-      singletonUserList = new UserList();
-    return singletonUserList;
-  }
+    public static UserList getInstance() {
+        if (singletonUserList == null)
+            singletonUserList = new UserList();
+        return singletonUserList;
+    }
 
     /**
-     * 
-     * @return Instance of the UserList object.
-     */
+    * 
+    * @return Instance of the UserList object.
+    */
 
     public void addUser(User user) {
         userList.add(user);
     }
-
-  public void deleteUser(User user) {
-    userList.remove(user);
-  }
-
-  public ArrayList<User> getUserList() {
-    return userList;
-  }
-
-  public User getUserByUUID(UUID id) {
-    for (User user : userList) {
-      if (user.equals(id)) {
-        return user;
-      }
+  
+    public void deleteUser(User user) {
+        userList.remove(user);
     }
-    return null;
-  }
+
+    public ArrayList<User> getUserList() {
+        return userList;
+    }
+
+    public User getUserByUUID(UUID id) {
+        for (User user : userList) {
+            if (user.equals(id)) {
+                return user;
+            }
+        }
+        return null;
+    }
 
 }
