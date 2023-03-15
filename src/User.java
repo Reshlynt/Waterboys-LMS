@@ -65,4 +65,10 @@ public abstract class User {
     public String toString() {
         return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
+    public boolean equals(UUID id) {
+        if (this.id == id) {
+            return true;
+        }
+        return false;
+    }
 }
