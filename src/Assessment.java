@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 public class Assessment extends Slide {
@@ -10,12 +9,9 @@ public class Assessment extends Slide {
   private int score;
   private Type type;
 
-  public Assessment(String label,
-      ArrayList<Question> questions, String correctAnswers, Type type) {
+  public Assessment(String label, ArrayList<Question> questions, Type type) {
     this.label = label;
     this.questions = questions;
-    this.correctAnswers = correctAnswers;
-    this.inputtedAnswers = inputtedAnswers;
     this.type = type;
   }
 
@@ -36,7 +32,7 @@ public class Assessment extends Slide {
     return correctAnswers;
   }
 
-  //Return the inputted answers
+  // Return the inputted answers
   public String getInputtedAnswers() {
     return inputtedAnswers;
   }
