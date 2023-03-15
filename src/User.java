@@ -40,7 +40,7 @@ public abstract class User {
             }
         }
         return false;
-        return true;
+        //return true;
     }
     public boolean setUser() {
         return true;
@@ -51,7 +51,7 @@ public abstract class User {
         }*/
         return;
     }
-    public boolean getUserByUUID(UUID id) {
+    public boolean equals(UUID id) {
         if (this.id == id) {
             return true;
         }
