@@ -48,7 +48,6 @@ public abstract class User {
             }
         }
         return false;
-        return true;
     }
     public boolean setUser() {
         return true;
