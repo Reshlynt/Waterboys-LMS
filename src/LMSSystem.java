@@ -5,14 +5,17 @@ public class LMSSystem {
     public CourseList courseList;
 
     public User Login(String username, String password) {
-        if (userList.found(username)) {
+        if (userList.foundUser(username)) {
             if (userList.getUser(username).getPassword().equals(password)) {
                 System.out.println("Login successfully!");
+                return userList.getUser(username);
             } else {
                 System.out.println("Wrong password!");
+                return null;
             }
         } else {
             System.out.println("User not found!");
+            return null;
         }
     }
 
@@ -21,7 +24,7 @@ public class LMSSystem {
     }
 
     public void SignUp(String firstName, String lastName, String username, String email, String password, String dateOfBirth) {
-        if (userList.found(username)) {
+        if (userList.foundUser(username)) {
             System.out.println("User already exists!");
         } else {
             User user = new User(firstName, lastName, username, email, password, dateOfBirth);
