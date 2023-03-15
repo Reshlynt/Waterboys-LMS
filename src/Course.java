@@ -12,9 +12,11 @@ public class Course {
   private CourseType courseType;
   private ArrayList<Module> lessons;
   private ArrayList<Comment> courseComments;
+  private ArrayList<Student> students;
 
   public Course(UUID id, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
-      CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments) {
+      CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
+      ArrayList<Student> students) {
     this.id = id;
     this.title = title;
     this.difficulty = difficulty;
@@ -23,6 +25,7 @@ public class Course {
     this.courseType = courseType;
     this.lessons = lessons;
     this.courseComments = courseComments;
+    this.students = students;
   }
 
   public boolean displayComments() {
