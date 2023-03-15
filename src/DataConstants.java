@@ -1,3 +1,4 @@
+package src;
 public class DataConstants {
   // Course Constants
   public static final String COURSE_ID = "id";
