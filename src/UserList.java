@@ -31,9 +31,9 @@ public class UserList {
         return userList;
     }
 
-    public boolean found(UUID id) {
+    public boolean getUserByUUID(UUID id) {
         for (User user : userList) {
-            if (user.getUserByUUID(id)) {
+            if (user.equals(id)) {
                 return true;
             }
         }
