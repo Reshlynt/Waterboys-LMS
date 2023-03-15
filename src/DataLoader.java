@@ -79,33 +79,8 @@ public class DataLoader extends DataConstants {
           }
 
           JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
-          ArrayList<Question> questions = new ArrayList<Question>();
-          for (int l = 0; l < quizJSON.size(); l++) {
-            JSONObject quizQuestionJSON = (JSONObject) quizJSON.get(l);
-            String question = (String) quizQuestionJSON.get(QUESTION);
+          Assessment readQuiz = readAssessment(quizJSON, moduleTitle + " quiz", Type.QUIZ);
 
-            // Reading as string array might now work, test later
-            JSONArray answerChoicesJSON = (JSONArray) quizQuestionJSON.get(ANSWER_CHOICES);
-            ArrayList<String> answerChoices = new ArrayList<String>();
-            for (int x = 0; x < answerChoicesJSON.size(); x++) {
-              JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(x);
-              answerChoices.add((String)answerChoiceJSON.get(A));
-              answerChoices.add((String)answerChoiceJSON.get(B));
-              answerChoices.add((String)answerChoiceJSON.get(C));
-              answerChoices.add((String)answerChoiceJSON.get(D));
-            }
-
-            String correctAnswer = (String) quizQuestionJSON.get(CORRECT_ANSWER);
-
-            Question readQuestion = new Question(question, answerChoices, correctAnswer);
-            questions.add(readQuestion);
-          }
-          String quizLabel = moduleTitle + " quiz";
-          // Question quiz
-          // quiz needs String label,
-          // ArrayList<Question> questions, String correctAnswers,
-          // String inputtedAnswers, int score, Type type
-          Assessment readQuiz = new Assessment(quizLabel, questions, Type.QUIZ);
           // parse comments here
           JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
           ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
@@ -127,8 +102,12 @@ public class DataLoader extends DataConstants {
         // course comments
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
         ArrayList<Comment> courseComments = readComments(courseCommentJSON);
+
+        // exam
+        JSONArray examJSON = (JSONArray) courseJSONObject.get(EXAM);
+        Assessment readExam = readAssessment(examJSON, courseTitle + " exam", Type.EXAM);
         Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
-        courseTitle, null, null, courseType, modules, courseComments, null);
+            courseTitle, null, readExam, courseType, modules, courseComments, null);
         courses.add(readCourse);
       }
       return courses;
@@ -204,37 +183,32 @@ public class DataLoader extends DataConstants {
     return comments;
   }
 
-  private static Assessment readAssessment(JSONArray quizJSON){
+  private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
     ArrayList<Question> questions = new ArrayList<Question>();
-          for (int l = 0; l < quizJSON.size(); l++) {
-            JSONObject quizQuestionJSON = (JSONObject) quizJSON.get(l);
-            String question = (String) quizQuestionJSON.get(QUESTION);
+    for (int i = 0; i < assessmentJSON.size(); i++) {
+      // questionJSON will consist of the question, answer choices, as well as the
+      // correct answer
+      JSONObject questionJSON = (JSONObject) assessmentJSON.get(i);
 
-            // Reading as string array might now work, test later
-            JSONArray answerChoicesJSON = (JSONArray) quizQuestionJSON.get(ANSWER_CHOICES);
-            ArrayList<String> answerChoices = new ArrayList<String>();
-            for (int x = 0; x < answerChoicesJSON.size(); x++) {
-              JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(x);
-              answerChoices.add((String)answerChoiceJSON.get(A));
-              answerChoices.add((String)answerChoiceJSON.get(B));
-              answerChoices.add((String)answerChoiceJSON.get(C));
-              answerChoices.add((String)answerChoiceJSON.get(D));
-            }
+      String question = (String) questionJSON.get(QUESTION);
 
-            String correctAnswer = (String) quizQuestionJSON.get(CORRECT_ANSWER);
+      JSONArray answerChoicesJSON = (JSONArray) questionJSON.get(ANSWER_CHOICES);
+      ArrayList<String> answerChoices = new ArrayList<String>();
+      for (int j = 0; j < answerChoicesJSON.size(); j++) {
+        JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(j);
+        answerChoices.add((String) answerChoiceJSON.get(A));
+        answerChoices.add((String) answerChoiceJSON.get(B));
+        answerChoices.add((String) answerChoiceJSON.get(C));
+        answerChoices.add((String) answerChoiceJSON.get(D));
+      }
 
-            Question readQuestion = new Question(question, answerChoices, correctAnswer);
-            questions.add(readQuestion);
-          }
-          String quizLabel = moduleTitle + " quiz";
-          // Question quiz
-          // quiz needs String label,
-          // ArrayList<Question> questions, String correctAnswers,
-          // String inputtedAnswers, int score, Type type
-          Assessment readQuiz = new Assessment(quizLabel, questions, Type.QUIZ);
-    //Assessment parsedAssessment = new 
-    //return parsedAssessment;
+      String correctAnswer = (String) questionJSON.get(CORRECT_ANSWER);
+
+      questions.add(new Question(question, answerChoices, correctAnswer));
+    }
+    return new Assessment(label, questions, type);
   }
+
   public static void main(String[] args) {
     // ArrayList<User> readUsers = getUsers();
     // for (int i = 0; i < readUsers.size(); i++) {
