@@ -69,20 +69,22 @@ public class DataWriter extends DataConstants {
      */
     private static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
+        // "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
+        String[] userArray = user.toString().substring(5).split(" ");
 
-        userDetails.put(USER_ID, user.getID().toString());
+        userDetails.put(USER_ID, userArray[0]);
 
-        userDetails.put(USER_NAME, user.getUserName());
+        userDetails.put(USER_NAME, userArray[1]);
 
-        userDetails.put(FIRST_NAME, user.getFirstName());
+        userDetails.put(FIRST_NAME, userArray[2]);
 
-        userDetails.put(LAST_NAME, user.getLastName());
+        userDetails.put(LAST_NAME, userArray[3]);
 
-        userDetails.put(EMAIL, user.getEmail());
+        userDetails.put(EMAIL, userArray[4]);
 
-        userDetails.put(PASSWORD, user.getEmail());
+        userDetails.put(PASSWORD, userArray[5]);
 
-        userDetails.put(DOB_DATE, user.getDOB().toString());
+        userDetails.put(DOB_DATE, userArray[6]);
 
 
         return userDetails;
@@ -148,5 +150,6 @@ public class DataWriter extends DataConstants {
         User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12/15/2002"));
         UserList userList = UserList.getInstance();
         userList.addUser(funny);
+
     }
 }
