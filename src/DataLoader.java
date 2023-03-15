@@ -18,7 +18,7 @@ public class DataLoader extends DataConstants {
     try {
       FileReader reader = new FileReader("json/Users.json");
       JSONParser parser = new JSONParser();
-      JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
+      JSONArray usersJSON = (JSONArray) parser.parse(reader);
 
       for (int i = 0; i < usersJSON.size(); i++) {
         JSONObject userJSONObject = (JSONObject) usersJSON.get(i);
@@ -51,7 +51,7 @@ public class DataLoader extends DataConstants {
     try {
       FileReader reader = new FileReader("json/Courses.json");
       JSONParser parser = new JSONParser();
-      JSONArray courseJSON = (JSONArray) new JSONParser().parse(reader);
+      JSONArray courseJSON = (JSONArray) parser.parse(reader);
 
       for (int i = 0; i < courseJSON.size(); i++) {
         JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
@@ -83,11 +83,11 @@ public class DataLoader extends DataConstants {
           for (int l = 0; l < slidesJSON.size(); l++) {
             JSONObject quizJSONObject = (JSONObject) modulesJSON.get(l);
             String question = (String) quizJSONObject.get(QUESTION);
+
             // insert JSON parsing for answer choices
+            
             String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
 
-            Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
-            slides.add(parsedSlide);
           }
 
           // parse comments here
