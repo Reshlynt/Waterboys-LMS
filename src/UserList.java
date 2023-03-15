@@ -4,8 +4,9 @@ import java.util.UUID;
 
 public class UserList {
     private static ArrayList<User> userList;
-
-    private UserList() {}
+    private UserList() {
+      userList = DataLoader.getUsers();
+    }
     
     public static UserList getInstance() {
         if ( userList == null)  {
