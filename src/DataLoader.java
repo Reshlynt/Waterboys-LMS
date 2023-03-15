@@ -69,7 +69,8 @@ public class DataLoader extends DataConstants {
             JSONObject slideJSONObject = (JSONObject) modulesJSON.get(k);
             String slideTitle = (String)slideJSONObject.get(SLIDE_TITLE);
             String slideDescription = (String) slideJSONObject.get(CONTENT);
-            
+
+            Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
           }
         }
 
