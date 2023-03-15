@@ -82,7 +82,8 @@ public class DataLoader extends DataConstants {
             JSONObject quizJSONObject = (JSONObject) quizJSON.get(l);
             String question = (String) quizJSONObject.get(QUESTION);
 
-            // insert JSON parsing for answer choices
+            // Reading as string array might now work, test later
+            String[] answerChoices = (String[]) quizJSONObject.get(ANSWERS);
 
             String correctAnswer = (String) quizJSONObject.get(CORRECT_ANSWER);
 
@@ -95,12 +96,20 @@ public class DataLoader extends DataConstants {
             UUID commenterID = UUID.fromString((String) commentJSONObject.get(COMMENTER_ID));
             String commentText = (String) commentJSONObject.get(COMMENT_TEXT);
 
+            // reply to a comment
             JSONArray repliesJSON = (JSONArray) commentJSONObject.get(REPLIES);
             for (int n = 0; n < repliesJSON.size(); n++) {
               JSONObject replyJSONObject = (JSONObject) repliesJSON.get(n);
               UUID replierID = UUID.fromString((String) replyJSONObject.get(REPLIER_ID));
               String replyText = (String) replyJSONObject.get(REPLY_TEXT);
-              // add another for loop about replies to replies lol
+
+              // reply to a reply
+              JSONArray replies_2_JSON = (JSONArray) replyJSONObject.get(REPLIES_2);
+              for (int second_reply_index = 0; second_reply_index < repliesJSON.size(); second_reply_index++) {
+                JSONObject second_reply_JSONOBject = (JSONObject) repliesJSON.get(second_reply_index);
+                UUID second_replierID = UUID.fromString((String) second_reply_JSONOBject.get(SECOND_REPLIER_ID));
+                String second_replyText = (String) replyJSONObject.get(SECOND_REPLY_TEXT);
+              }
             }
 
           }

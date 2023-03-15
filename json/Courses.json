@@ -18,20 +18,27 @@
             "question": "dsfawe",
             "answers": [
               "dsafw",
-              "sdafwe"
+              "sdafwe",
+              "asdfasdf",
+              "asdfasdf"
             ],
             "correct_answer": 1
           }
         ],
         "module_comments": [
           {
-            "id": "asdfasdfasdfs",
+            "id": "this is a commenter's ID",
             "text": "adsfasdfasdfads",
             "replies": [
               {
-                "id": "asdfasdfasdf1123412341234",
-                "text": "asdfasdf;qiweurqwioerupqwer",
-                "more_replies": []
+                "id": "this is a replier's ID ",
+                "text": "reply to a comment",
+                "more_replies": [
+                  {
+                    "id": "second repliers ID",
+                    "text": "reply to a reply"
+                  }
+                ]
               }
             ]
           }

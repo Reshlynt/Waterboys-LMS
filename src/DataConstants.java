@@ -43,7 +43,9 @@ public class DataConstants {
   public static final String REPLIER_ID = "id";
   public static final String REPLY_TEXT = "text";
   public static final String REPLIES_2 = "more_replies";// replies to replies
-
+  public static final String SECOND_REPLIER_ID = "id";
+  public static final String SECOND_REPLY_TEXT = "text";
+  
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
   public static final String GRADES = "grades";
