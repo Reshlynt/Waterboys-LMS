@@ -1,11 +1,12 @@
+package src;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static ArrayList<User> userList;
+    private static ArrayList<User> userList = new ArrayList<User>();
     private static UserList singletonUserList;
 
-    private UserList() {
+    public UserList() {
         userList = DataLoader.getUsers();
     }
 

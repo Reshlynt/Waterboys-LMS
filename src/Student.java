@@ -30,4 +30,9 @@ public class Student extends User {
     // set grades array list to array grades
     this.grades = Arrays.asList(grades);
   }
+
+  
+  public String getType() {
+    return "student";
+  }
 }

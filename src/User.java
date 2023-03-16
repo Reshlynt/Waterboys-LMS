@@ -1,4 +1,3 @@
-package src;
 /**
  * Represents a user of the system
  * @author Waterboys
@@ -15,6 +14,7 @@ public abstract class User {
     protected String email;
     protected String password;
     protected Date DOB;
+    
     
     public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
         this.id = id;
@@ -149,4 +149,6 @@ public abstract class User {
         }
         return age;
     }
+    // Return the type of user.
+    public abstract String getType();
 }
