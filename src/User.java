@@ -1,10 +1,13 @@
+package src;
 /**
  * Represents a user of the system
  * @author Waterboys
  */
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Calendar;
 public abstract class User {
     protected UUID id;
     protected String username;
@@ -122,5 +125,19 @@ public abstract class User {
     }
     public void setDOB(Date DOB) {
         this.DOB = DOB;
+    }
+
+    Calendar rightNow = Calendar.getInstance();
+
+    public int getAge() {
+        int age = rightNow.get(Calendar.YEAR) - DOB.getYear();
+        if (rightNow.get(Calendar.MONTH) < DOB.getMonth()) {
+            age--;
+        } else if (rightNow.get(Calendar.MONTH) == DOB.getMonth()) {
+            if (rightNow.get(Calendar.DAY_OF_MONTH) < DOB.getDay()) {
+                age--;
+            }
+        }
+        return age;
     }
 }
