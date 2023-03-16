@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class LMSSystem {
-    public UserList userList = new UserList();
+    public UserList userList;
     public CourseList courseList;
 
     public User Login(String username, String password) {

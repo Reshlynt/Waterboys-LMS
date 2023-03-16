@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<User> userList;
     private static UserList singletonUserList;
 
     public UserList() {

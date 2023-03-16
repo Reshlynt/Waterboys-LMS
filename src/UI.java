@@ -47,7 +47,7 @@ public class UI {
                     Welcome();
             }
         } catch (Exception e) {
-            //System.out.println(e);
+            e.printStackTrace();
             for (int i = 0; i < 13; i++)
                 System.out.print(" ");
             System.out.println("You entered an invalid choice. Press Enter or to Continue");
@@ -135,6 +135,7 @@ public class UI {
         WelcomeLine5(25, "Password: ");
         password = INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
+        LMS.Login(username, password);
     }
 
 
