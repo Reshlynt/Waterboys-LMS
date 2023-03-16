@@ -1,4 +1,3 @@
-package src;
 public class TextSlide extends Slide {
     private String title;
     private String contents;

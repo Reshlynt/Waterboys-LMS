@@ -1,5 +1,3 @@
-package src;
-
 public class Slide {
   public String toString() {
     return "";
