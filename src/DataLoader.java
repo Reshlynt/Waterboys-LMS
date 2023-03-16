@@ -90,6 +90,7 @@ public class DataLoader extends DataConstants {
           modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
         }
 
+        //make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
         ArrayList<Student> students = new ArrayList<Student>();
@@ -97,11 +98,11 @@ public class DataLoader extends DataConstants {
         for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
-          students.add(UserList.getInstance().getUserByUUID(studentID));
-          /*TODO deal with grades here(array in JSON)*/
-          /*
-           * int[] grades = (int []) studentJSONObject.get(GRADES)
-           */
+          Student student = UserList.getInstance().getUserByUUID(studentID);
+          /*TODO deal with grades here(array in JSON), MIGHT BE WRONG*/
+           Integer[] grades = (Integer []) studentJSONObject.get(GRADES);
+           student.setGrades(grades);
+           students.add(student);
         }
 
         // course comments
