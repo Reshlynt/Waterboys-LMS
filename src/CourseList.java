@@ -1,4 +1,4 @@
-
+package src;
 import java.util.ArrayList;
 
 public class CourseList {
@@ -6,6 +6,7 @@ public class CourseList {
     private static ArrayList<Course> courses = new ArrayList<Course>();
 
     private CourseList() {
+        courses = DataLoader.getCourses();
     }
 
     /**
@@ -13,12 +14,13 @@ public class CourseList {
      * @return Instance of the UserList object.
      */
     public static CourseList getInstance() {
-
+        if (courseList == null)
+            courseList = new CourseList();
         return courseList;
     }
-
     public void addCourse(Course course) {
         courses.add(course);
+        return;
     }
 
     public void deleteCourse(Course course) {
