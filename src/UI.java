@@ -7,6 +7,7 @@ import java.util.UUID;
 public class UI {
     public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static final Scanner INPUT = new Scanner(System.in);
+    public static final LMSSystem LMS = new LMSSystem();
     public static void main(String[] args) {
         //System.out.println(Welcome());
         Welcome();
@@ -115,14 +116,7 @@ public class UI {
         confirm = INPUT.nextLine();
         WelcomeLine5(25, "Are you are Student or Teacher: ");
         job = INPUT.nextLine();
-        if (job.equalsIgnoreCase("student")) {
-            User new_user = new Student(UUID.randomUUID(), username, first_name, last_name, email, password, parseDate(birthday));
-        } else if (job.equalsIgnoreCase("teacher")) {
-            User new_user = new Teacher(UUID.randomUUID(), username, first_name, last_name, email, password, parseDate(birthday));
-        } else {
-            System.out.println("\n\n\n\n\n\n");
-            
-        }
+        LMSSystem.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
         System.out.println("\n\n\n\n\n");
     }
 
@@ -138,4 +132,6 @@ public class UI {
         password = INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
     }
+
+
 }
