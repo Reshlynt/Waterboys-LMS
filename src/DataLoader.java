@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 public class DataLoader extends DataConstants {
   public static ArrayList<User> getUsers() {
@@ -61,47 +62,25 @@ public class DataLoader extends DataConstants {
         CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
 
         // modules will be a JSONArray
-        ArrayList<Module> modules = new ArrayList<Module>();
         JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
-        for (int j = 0; j < modulesJSON.size(); j++) {
-          JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
-          String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
-
-          // slides will also be a JSONArray
-          ArrayList<Slide> slides = new ArrayList<Slide>();
-          JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
-          for (int k = 0; k < slidesJSON.size(); k++) {
-            JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
-            String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
-            String slideDescription = (String) slideJSONObject.get(CONTENT);
-
-            Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
-            slides.add(parsedSlide);
-          }
-
-          JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
-          Assessment readQuiz = readAssessment(quizJSON, moduleTitle + " quiz", Type.QUIZ);
-
-          // parse comments here
-          JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
-          ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
-          // modules has a module_title and slides, now add an array list of comments as
-          // well as a lessonQuiz
-          modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
-        }
+        ArrayList<Module> modules = readModules(modulesJSON);
 
         // make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
-        ArrayList<Student> students = new ArrayList<Student>();
+        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMap = readStudents(studentsJSON);
 
         for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
-          Student student = UserList.getInstance().getUserByUUID(studentID);
-          /* TODO deal with grades here(array in JSON), MIGHT BE WRONG */
-          Integer[] grades = (Integer[]) studentJSONObject.get(GRADES);
-          student.setGrades(grades);
+
+          Student student = (Student) UserList.getInstance().getUserByUUID(studentID);
+
+          JSONArray gradesJSON = (JSONArray) studentJSONObject.get(GRADES);
+          ArrayList<Long> grades = new ArrayList<Long>();
+          for (int g = 0; g < gradesJSON.size(); g++) {
+            grades.add((Long) gradesJSON.get(g));
+          }
           students.add(student);
         }
 
@@ -115,16 +94,16 @@ public class DataLoader extends DataConstants {
 
         // ask what exactly we need to construct a course from JSON, edit constructor
         // for Course and DataConstants accordingly
-        Course readCourse = new Course(courseID, UserList.getInstance().getUserByUUID(teacherID), courseTitle,
+        Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
             courseDifficulty,
             courseTitle, null, readExam, courseType, modules, courseComments, null);
         courses.add(readCourse);
+        // set students grades for the course here
       }
       return courses;
     } catch (Exception e) {
       e.printStackTrace();
     }
-
     return null;
   }
 
@@ -217,6 +196,62 @@ public class DataLoader extends DataConstants {
       questions.add(new Question(question, answerChoices, correctAnswer));
     }
     return new Assessment(label, questions, type);
+  }
+
+  private static ArrayList<Module> readModules(JSONArray modulesJSON) {
+
+    ArrayList<Module> modules = new ArrayList<Module>();
+    for (int j = 0; j < modulesJSON.size(); j++) {
+      JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
+      String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
+
+      // slides will also be a JSONArray
+      ArrayList<Slide> slides = new ArrayList<Slide>();
+      JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
+      for (int k = 0; k < slidesJSON.size(); k++) {
+        JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
+        String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
+        String slideDescription = (String) slideJSONObject.get(CONTENT);
+
+        Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+        slides.add(parsedSlide);
+      }
+
+      JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
+      Assessment readQuiz = readAssessment(quizJSON, moduleTitle + " quiz", Type.QUIZ);
+
+      // parse comments here
+      JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
+      ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
+      // modules has a module_title and slides, now add an array list of comments as
+      // well as a lessonQuiz
+      modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
+    }
+    return modules;
+  }
+
+  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudents(JSONArray studentsJSON) {
+    // Arraylist of HashMaps, Each HashMap is gonna hash between a singular student
+    // and an ArrayList of Grades
+    // convoluted, i know
+    ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = new ArrayList<HashMap<Student, ArrayList<Long>>>();
+    for (int i = 0; i < studentsJSON.size(); i++) {
+      HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
+
+      JSONObject studentJSONObject = (JSONObject) studentsJSON.get(i);
+      UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
+
+      Student student = (Student) UserList.getInstance().getUserByUUID(studentID);
+
+      JSONArray gradesJSON = (JSONArray) studentJSONObject.get(GRADES);
+      ArrayList<Long> grades = new ArrayList<Long>();
+      for (int g = 0; g < gradesJSON.size(); g++) {
+        grades.add((Long) gradesJSON.get(g));
+      }
+      gradeMap.put(student, grades);
+      gradeMaps.add(gradeMap);
+    }
+    return gradeMaps;
   }
 
   public static void main(String[] args) {
