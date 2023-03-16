@@ -7,9 +7,6 @@ import org.json.simple.JSONObject;
 import java.util.UUID;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
-import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Calendar;
@@ -19,7 +16,7 @@ import java.util.Calendar;
 public class DataWriter extends DataConstants {
 
     /**
-     * Saves users to a json file.
+     * Saves users to a json file - Users.json
      */
     public static void saveUsers() {
         // (1) Get your UserList list and establish your
@@ -63,8 +60,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates User JSON object.
      * 
-     * @param user
-     * @return
+     * @param user - User object.
+     * @return  JSON object that contains User data.
      */
     private static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
@@ -82,14 +79,8 @@ public class DataWriter extends DataConstants {
         userDetails.put(PASSWORD, user.getPassword());
 
         userDetails.put(TYPE, user.getType());
-
-        String date = user.getDOB().toString();
-        String gamer = date.substring(4, 7); // + date.substring(8, 10) + date.substring(24, 28);
-        date = MonthToInt(gamer) + date.substring(8, 10) + date.substring(24, 28);
-
-
-        userDetails.put(DOB_DATE, date); // Manipulate with string so that only the month, day, and
-                                          // year is stored.
+        
+        userDetails.put(DOB_DATE, DateFormatting(user.getDOB().toString()));
 
 
         return userDetails;
@@ -150,81 +141,32 @@ public class DataWriter extends DataConstants {
         }
         return date;
     }
-
-    private static String MonthToInt(String month_name) {
-        switch (month_name) {
-            case "january":
-            case "Jan":
-                month_name = "01";
-                break;
-
-            case "febuary":
-            case "Feb":
-                month_name = "02";
-                break;
-
-            case "march":
-            case "Mar":
-                month_name = "03";
-                break;
-
-            case "april":
-            case "Apr":
-                month_name = "04";
-                break;
-
-            case "May":
-                month_name = "05";
-                break;
-
-            case "june":
-            case "Jun":
-                month_name = "06";
-                break;
-
-            case "july":
-            case "Jul":
-                month_name = "07";
-                break;
-
-            case "august":
-            case "Aug":
-                month_name = "08";
-                break;
-
-            case "september":
-            case "Sep":
-            case "sept":
-                month_name = "09";
-                break;
-
-            case "october":
-            case "Oct":
-                month_name = "10";
-                break;
-
-            case "november":
-            case "Nov":
-                month_name = "11";
-                break;
-
-            case "december":
-            case "Dec":
-                month_name = "12";
-                break;
+    /**
+     * Converts the string acquired from the Date object to the format: MMDDYYYY.
+     * @param date - String acquired from the Date object.
+     * @return - String in the format: MMDDYYYY.
+     */
+    private static String DateFormatting(String date) {
+        // date = MonthToInt(date.substring(4, 7)) + date.substring(8, 10) + date.substring(24, 28);
+        // Assume that date is the date returned by calling toSting() on a Date object.
+        Date month;
+        try {
+            month = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(date.substring(4, 7));
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(month);
+            int month_int = cal.get(Calendar.MONTH) + 1;
+            
+            if (month_int < 10) {
+                return "0" + month_int + date.substring(8, 10) + date.substring(24, 28);
+            }
+            return "" + month_int + date.substring(8, 10) + date.substring(24, 28);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "01011990";
         }
-        return month_name;
     }
 
     public static void main(String[] args) {
-        // public User(UUID id, String username, String firstName, String lastName, String email,
-        // String password, Date DOB)
-
-        User funny = new Teacher(UUID.randomUUID(), "AphixDragon", "Trees", "Trago", "weeee.com",
-                "password74", parseDate("12151984"));
-        UserList userList = UserList.getInstance();
-        userList.addUser(funny);
-        saveUsers();
 
     }
 }
