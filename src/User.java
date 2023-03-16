@@ -4,6 +4,7 @@
  */
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 public abstract class User {
     protected UUID id;
@@ -111,6 +112,9 @@ public abstract class User {
     public Date getDOB() {
         return DOB;
     }
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
     //setters for all instance variables
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -123,6 +127,27 @@ public abstract class User {
     }
     public void setDOB(Date DOB) {
         this.DOB = DOB;
+    }
+
+    public int getAge() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(DOB);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        cal.setTime(new Date());
+        int currentYear = cal.get(Calendar.YEAR);
+        int currentMonth = cal.get(Calendar.MONTH);
+        int currentDay = cal.get(Calendar.DAY_OF_MONTH);
+        int age = currentYear - year;
+        if (currentMonth < month) {
+            age--;
+        } else if (currentMonth == month) {
+            if (currentDay < day) {
+                age--;
+            }
+        }
+        return age;
     }
     // Return the type of user.
     public abstract String getType();

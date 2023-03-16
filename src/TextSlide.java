@@ -6,6 +6,7 @@ public class TextSlide extends Slide {
       this.contents = contents;
     }
     public void display() {
+        
         return;
     }
 
