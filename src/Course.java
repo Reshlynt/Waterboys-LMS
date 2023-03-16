@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Course {
-  private UUID id;
+  private UUID courseID;
+  //private UUID teacherID;
+  private User teacher;
   private String title;
   private Difficulty difficulty;
   private String description;
@@ -14,10 +16,12 @@ public class Course {
   private ArrayList<Comment> courseComments;
   private ArrayList<Student> students;
 
-  public Course(UUID id, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
+  public Course(UUID courseID, User teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
       CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
-    this.id = id;
+    this.courseID = courseID;
+    //this.teacherID = teacherID;
+    this.teacher = teacher;
     this.title = title;
     this.difficulty = difficulty;
     this.description = description;
@@ -50,7 +54,7 @@ public class Course {
 
   // Returns the course's UUID
   public UUID getID() {
-    return id;
+    return courseID;
   }
 
   // Returns the course's title

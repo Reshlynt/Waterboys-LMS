@@ -18,7 +18,8 @@ public class DataConstants {
   // Course Constants
   public static final String TITLE = "title";
   public static final String DIFFICULTY = "difficulty";
-  public static final String COURSE_ID = "id";
+  public static final String COURSE_ID = "course_id";
+  public static final String TEACHER_ID = "teacher_id";
   public static final String COURSE_TYPE = "courseType";
   public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
@@ -32,6 +33,7 @@ public class DataConstants {
   public static final String CONTENT = "description";
 
   public static final String QUIZ = "quiz";
+  public static final String EXAM = "exam";
   public static final String QUESTION = "question";
   public static final String ANSWER_CHOICES = "answer_choices";
   public static final String A = "a";
