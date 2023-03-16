@@ -1,7 +1,6 @@
 package src;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.Date;
 
 public class Course {
   private UUID courseID;
@@ -49,8 +48,10 @@ public class Course {
     this.students = students;
   }
 
+  int minage = 13;
+
   public boolean displayComments() {
-    if(User.getAge() < 13) {
+    if(User.getAge() < minage) {
       return false;
     } else { 
       return true;
@@ -58,7 +59,9 @@ public class Course {
   }
 
   public void displaySlides() {
-    return;
+    for(Module lesson : lessons) {
+      lesson.displaySlides();
+    }
   }
 
   public Certificate createCertificate(User user) {
