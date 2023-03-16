@@ -5,18 +5,17 @@ import java.util.UUID;
 public class Course {
   private UUID courseID;
   //private UUID teacherID;
-  private User teacher;
   private String title;
   private Difficulty difficulty;
   private String description;
-  private Teacher author;
+  private Teacher teacher;
   private Assessment exam;
   private CourseType courseType;
   private ArrayList<Module> lessons;
   private ArrayList<Comment> courseComments;
   private ArrayList<Student> students;
 
-  public Course(UUID courseID, User teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
+  public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
       CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
     this.courseID = courseID;
@@ -25,7 +24,6 @@ public class Course {
     this.title = title;
     this.difficulty = difficulty;
     this.description = description;
-    this.author = author;
     this.courseType = courseType;
     this.lessons = lessons;
     this.courseComments = courseComments;
