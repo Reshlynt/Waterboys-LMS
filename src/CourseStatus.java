@@ -1,12 +1,19 @@
+import java.util.ArrayList;
 public class CourseStatus {
     private Course course;
     private double progress;
-    private int grade;
-
+    private Long totalGrade;
+    private ArrayList<Long> grades;
     public double getProgress() {
         return progress;
     }
-    public int getGrade() {
-        return grade;
+    public void setGrades(ArrayList<Long> grades){
+      this.grades = grades;
+    }
+    public Long getGrade() {
+        return totalGrade;
+    }
+    public Course getCourse(){
+      return this.course;
     }
 }

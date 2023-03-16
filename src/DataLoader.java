@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.Map;
 
 public class DataLoader extends DataConstants {
   public static ArrayList<User> getUsers() {
@@ -68,20 +70,17 @@ public class DataLoader extends DataConstants {
         // make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
-        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMap = readStudents(studentsJSON);
+        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudents(studentsJSON);
+        ArrayList<Student> students = new ArrayList<Student>();
 
-        for (int o = 0; o < studentsJSON.size(); o++) {
-          JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
-          UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
-
-          Student student = (Student) UserList.getInstance().getUserByUUID(studentID);
-
-          JSONArray gradesJSON = (JSONArray) studentJSONObject.get(GRADES);
-          ArrayList<Long> grades = new ArrayList<Long>();
-          for (int g = 0; g < gradesJSON.size(); g++) {
-            grades.add((Long) gradesJSON.get(g));
+        for (int k = 0; k < gradeMaps.size(); k++) {
+          HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
+          gradeMap = gradeMaps.get(i);
+          Set<Student> oneStudent = gradeMap.keySet();
+          //this for loop only has 1 iteration
+          for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
+            students.add(set.getKey());
           }
-          students.add(student);
         }
 
         // course comments
@@ -96,8 +95,9 @@ public class DataLoader extends DataConstants {
         // for Course and DataConstants accordingly
         Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
             courseDifficulty,
-            courseTitle, null, readExam, courseType, modules, courseComments, null);
+            courseTitle, null, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
+        //for each student in students, set their grades using a setGrades method or soemthing
         // set students grades for the course here
       }
       return courses;

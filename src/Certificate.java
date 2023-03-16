@@ -1,16 +1,16 @@
 import java.util.Date;
 public class Certificate {
     private Course course;
-    private String name;
+    private User user;
     private Date date;
-    private String author;
-    public Certificate(Course course, String name, Date date, String author) {
+    private Teacher teacher;
+    public Certificate(Course course, User user, Date date, Teacher teacher) {
         this.course = course;
-        this.name = name;
+        this.user = user;
         this.date = date;
-        this.author = author;
+        this.teacher = teacher;
     }
     public String toString() {
-        return name + " recieved this certificate for completing " + course.getName() + " by " + author + " on " + date + ".";
+        return user.getFullName() + " recieved this certificate for completing " + course.getName() + " by " + teacher.getFullName() + " on " + date + ".";
     }
 }
