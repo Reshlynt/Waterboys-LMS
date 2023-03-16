@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Date;
@@ -25,5 +26,8 @@ public class Teacher extends User {
     }
     public void makeComment() {
         return;
+    }
+    public String getType() {
+        return "teacher";
     }
 }

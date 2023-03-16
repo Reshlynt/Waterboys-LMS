@@ -1,3 +1,4 @@
+package src;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -28,5 +29,10 @@ public class Student extends User {
   public void setGrades(Integer[] grades) {
     // set grades array list to array grades
     this.grades = Arrays.asList(grades);
+  }
+
+  
+  public String getType() {
+    return "student";
   }
 }

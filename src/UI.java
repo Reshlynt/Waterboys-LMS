@@ -1,8 +1,8 @@
+package src;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.UUID;
 public class UI {
     public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static final Scanner INPUT = new Scanner(System.in);
@@ -41,8 +41,13 @@ public class UI {
                 case 2:
                     SignUp();
                     break;
+                default:
+                    System.out.println("You entered an invalid choice. Press Enter or to Continue");
+                    INPUT.nextLine();
+                    Welcome();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             for (int i = 0; i < 13; i++)
                 System.out.print(" ");
             System.out.println("You entered an invalid choice. Press Enter or to Continue");
@@ -115,7 +120,7 @@ public class UI {
         confirm = INPUT.nextLine();
         WelcomeLine5(25, "Are you are Student or Teacher: ");
         job = INPUT.nextLine();
-        LMSSystem.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
+        LMS.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
         System.out.println("\n\n\n\n\n");
     }
 
@@ -130,6 +135,7 @@ public class UI {
         WelcomeLine5(25, "Password: ");
         password = INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
+        LMS.Login(username, password);
     }
 
 
