@@ -21,4 +21,7 @@ public class Teacher extends User {
     public void makeComment() {
         return;
     }
+    public String getType() {
+        return "teacher";
+    }
 }
