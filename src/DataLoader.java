@@ -77,7 +77,7 @@ public class DataLoader extends DataConstants {
           HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
           gradeMap = gradeMaps.get(i);
           Set<Student> oneStudent = gradeMap.keySet();
-          //this for loop only has 1 iteration
+          // this for loop only has 1 iteration
           for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
             students.add(set.getKey());
           }
@@ -97,7 +97,17 @@ public class DataLoader extends DataConstants {
             courseDifficulty,
             courseTitle, null, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
-        //for each student in students, set their grades using a setGrades method or soemthing
+
+        // for each student in students, set their grades using a setGrades method or
+        // soemthing.
+        //This code definitely might be wrong, debug later if needed
+        for (int h = 0; h < students.size(); h++) {
+          Student particularStudent = students.get(h);
+          Student listedStudent = (Student) UserList.getInstance().getUserByUUID(particularStudent.getID());
+          ArrayList<Long> particularGrades = gradeMaps.get(i).get(listedStudent);
+          listedStudent.setCourseGrade(readCourse, particularGrades);
+        }
+
         // set students grades for the course here
       }
       return courses;
