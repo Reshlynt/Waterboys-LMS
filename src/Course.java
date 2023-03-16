@@ -1,21 +1,23 @@
 package src;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.Date;
 
 public class Course {
   private UUID courseID;
   //private UUID teacherID;
+  private User teacher;
   private String title;
   private Difficulty difficulty;
   private String description;
-  private Teacher teacher;
+  private Teacher author;
   private Assessment exam;
   private CourseType courseType;
   private ArrayList<Module> lessons;
   private ArrayList<Comment> courseComments;
   private ArrayList<Student> students;
 
-  public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
+  public Course(UUID courseID, User teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
       CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
     this.courseID = courseID;
@@ -24,6 +26,7 @@ public class Course {
     this.title = title;
     this.difficulty = difficulty;
     this.description = description;
+    this.author = author;
     this.courseType = courseType;
     this.lessons = lessons;
     this.courseComments = courseComments;
@@ -58,8 +61,8 @@ public class Course {
     return;
   }
 
-  public Certificate createCertificate() {
-    return new Certificate(User.getFullName(), this.title, this.author, this.courseType, this.difficulty);
+  public Certificate createCertificate(User user) {
+    return new Certificate(this, user, new Date(), this.author);
   }
 
   public boolean listComment() {
