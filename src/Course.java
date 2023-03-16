@@ -58,7 +58,7 @@ public class Course {
   }
 
   // Returns the course's title
-  public String getTitle() {
+  public String getName() {
     return title;
   }
 
