@@ -1,9 +1,10 @@
+package src;
 import java.util.Date;
 import java.util.UUID;
 
-public static class LMSSystem {
-    public static UserList userList;
-    public static CourseList courseList;
+public class LMSSystem {
+    public UserList userList;
+    public CourseList courseList;
 
     public User Login(String username, String password) {
         if (userList.foundUser(username)) {
@@ -24,7 +25,7 @@ public static class LMSSystem {
         System.out.println("Logout successfully!");
     }
 
-    public static boolean SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
+    public boolean SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
         if (userList.foundUser(username)) {
             System.out.println("User already exists!");
         } else {
@@ -40,8 +41,8 @@ public static class LMSSystem {
             }
             userList.addUser(new_user);
             System.out.println("Sign up successfully!");
-            return true;
         }
+        return true;
     }
 
     public void goToCourse(Course course) {
