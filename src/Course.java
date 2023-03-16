@@ -1,4 +1,4 @@
-
+package src;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -61,7 +61,7 @@ public class Course {
   }
 
   public Certificate createCertificate() {
-    return new Certificate();
+    return new Certificate(User.getFullName(), this.title, this.author, this.courseType, this.difficulty);
   }
 
   public boolean listComment() {

@@ -112,6 +112,9 @@ public abstract class User {
     public Date getDOB() {
         return DOB;
     }
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
     //setters for all instance variables
     public void setFirstName(String firstName) {
         this.firstName = firstName;
