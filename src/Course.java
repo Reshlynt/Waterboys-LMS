@@ -49,7 +49,11 @@ public class Course {
   }
 
   public boolean displayComments() {
-    return true;
+    if(User.getAge() < 13) {
+      return false;
+    } else { 
+      return true;
+    }
   }
 
   public void displaySlides() {
