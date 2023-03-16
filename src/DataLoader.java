@@ -96,7 +96,10 @@ public class DataLoader extends DataConstants {
         for (int o = 0; o < studentsJSON.size(); o++) {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
-          // deal with grades here(array in JSON)
+          /*TODO deal with grades here(array in JSON)*/
+          /*
+           * int[] grades = (int []) studentJSONObject.get(GRADES)
+           */
         }
 
         // course comments
