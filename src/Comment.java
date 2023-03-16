@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -8,6 +9,11 @@ public class Comment {
     private int dislikes;
     private ArrayList<Comment> comments;
 
+    public Comment(String post, UUID postingUser, ArrayList<Comment> comments){
+      this.post = post;
+      this.postingUser = postingUser;
+      this.comments = comments;
+    }
     public void viewPost() {
         return;
     }

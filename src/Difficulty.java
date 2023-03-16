@@ -1,3 +1,4 @@
+
 public enum Difficulty {
     BEGINNER {
         public String toString() {

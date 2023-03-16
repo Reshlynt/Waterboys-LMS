@@ -1,3 +1,4 @@
+
 public enum CourseType {
     JAVASCRIPT {
         public String toString() {
