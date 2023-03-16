@@ -8,12 +8,17 @@ public class Teacher extends User {
 
     public Teacher(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
         super(id, username, firstName, lastName, email, password, DOB);
-
     }
+    public Teacher(String username, String firstName, String lastName, String email, String password, Date DOB) {
+        super(username, firstName, lastName, email, password, DOB);
+        this.id = UUID.randomUUID();
+    }
+
     public Course createCourse() {
         return new Course();
     }
-    public boolean addToCourse() {
+    public boolean addToCourse(String userName) {
+        
         return true;
     }
     public boolean removeFromCourse() {
