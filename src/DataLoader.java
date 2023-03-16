@@ -58,10 +58,10 @@ public class DataLoader extends DataConstants {
       for (int i = 0; i < courseJSON.size(); i++) {
         JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
         String courseTitle = (String) courseJSONObject.get(TITLE);
-        Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
+        Difficulty courseDifficulty = Difficulty.valueOf((String) courseJSONObject.get(DIFFICULTY));
         UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
         UUID teacherID = UUID.fromString((String) courseJSONObject.get(TEACHER_ID));
-        CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
+        CourseType courseType = CourseType.valueOf((String) courseJSONObject.get(COURSE_TYPE));
 
         // modules will be a JSONArray
         JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
@@ -205,14 +205,14 @@ public class DataLoader extends DataConstants {
       String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
 
       // slides will also be a JSONArray
-      ArrayList<Slide> slides = new ArrayList<Slide>();
+      ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
       JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
       for (int k = 0; k < slidesJSON.size(); k++) {
         JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
         String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
         String slideDescription = (String) slideJSONObject.get(CONTENT);
 
-        Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+        TextSlide parsedSlide = new TextSlide(slideTitle, slideDescription);
         slides.add(parsedSlide);
       }
 
@@ -256,9 +256,8 @@ public class DataLoader extends DataConstants {
   private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
     ArrayList<Student> students = new ArrayList<Student>();
     for (int k = 0; k < gradeMaps.size(); k++) {
-      
-      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
 
+      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
       for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
         students.add(set.getKey());
       }
@@ -276,6 +275,12 @@ public class DataLoader extends DataConstants {
     // System.out.println(printString);
     // }
     // }
-    UserList myList = UserList.getInstance();
+    // UserList myList = UserList.getInstance();
+    ArrayList<Course> readCourses = getCourses();
+    for (int i = 0; i < readCourses.size(); i++) {
+      Course course = readCourses.get(i);
+      System.out.println(course);
+    }
+
   }
 }
