@@ -70,18 +70,8 @@ public class DataLoader extends DataConstants {
         // make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
-        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudents(studentsJSON);
-        ArrayList<Student> students = new ArrayList<Student>();
-
-        for (int k = 0; k < gradeMaps.size(); k++) {
-          HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
-          gradeMap = gradeMaps.get(i);
-          Set<Student> oneStudent = gradeMap.keySet();
-          // this for loop only has 1 iteration
-          for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
-            students.add(set.getKey());
-          }
-        }
+        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudentGrades(studentsJSON);
+        ArrayList<Student> students = getStudents(gradeMaps);
 
         // course comments
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
@@ -239,7 +229,7 @@ public class DataLoader extends DataConstants {
     return modules;
   }
 
-  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudents(JSONArray studentsJSON) {
+  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudentGrades(JSONArray studentsJSON) {
     // Arraylist of HashMaps, Each HashMap is gonna hash between a singular student
     // and an ArrayList of Grades
     // convoluted, i know
@@ -261,6 +251,19 @@ public class DataLoader extends DataConstants {
       gradeMaps.add(gradeMap);
     }
     return gradeMaps;
+  }
+
+  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
+    ArrayList<Student> students = new ArrayList<Student>();
+    for (int k = 0; k < gradeMaps.size(); k++) {
+      
+      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
+
+      for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
+        students.add(set.getKey());
+      }
+    }
+    return students;
   }
 
   public static void main(String[] args) {
