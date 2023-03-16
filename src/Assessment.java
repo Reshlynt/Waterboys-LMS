@@ -20,7 +20,7 @@ public class Assessment extends Slide {
   }
 
   public int getScore() {
-    return 0;
+    return this.score;
   }
 
   public String getLabel() {

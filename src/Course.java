@@ -52,7 +52,7 @@ public class Course {
 
   // Returns the course's UUID
   public UUID getID() {
-    return id;
+    return courseID;
   }
 
   // Returns the course's title
