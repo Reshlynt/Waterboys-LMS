@@ -97,6 +97,7 @@ public class DataLoader extends DataConstants {
             courseDifficulty,
             courseTitle, null, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
+        //for each student in students, set their grades using a setGrades method or soemthing
         // set students grades for the course here
       }
       return courses;
