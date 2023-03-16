@@ -1,4 +1,3 @@
-package src;
 public class TextSlide extends Slide {
     private String title;
     private String contents;
@@ -7,6 +6,7 @@ public class TextSlide extends Slide {
       this.contents = contents;
     }
     public void display() {
+        
         return;
     }
 

@@ -1,11 +1,12 @@
-package src;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.UUID;
 public class UI {
     public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static final Scanner INPUT = new Scanner(System.in);
+    public static final LMSSystem LMS = new LMSSystem();
     public static void main(String[] args) {
         //System.out.println(Welcome());
         Welcome();
@@ -93,7 +94,7 @@ public class UI {
       }
     
     public static void SignUp() {
-        String first_name = "", last_name = "", email = "", username = "", password = "", confirm = "", birthday = "";
+        String first_name = "", last_name = "", email = "", username = "", password = "", confirm = "", birthday = "", job = "";
         WelcomeLine1();
         WelcomeLine4(FOURSTAR, "New User Sign-Up", 27);
         WelcomeLine1();
@@ -112,7 +113,9 @@ public class UI {
         password = INPUT.nextLine();
         WelcomeLine5(25, "Confirm Password: ");
         confirm = INPUT.nextLine();
-        //User new_user = new Student(username, first_name, last_name, email, password, parseDate(birthday));
+        WelcomeLine5(25, "Are you are Student or Teacher: ");
+        job = INPUT.nextLine();
+        LMSSystem.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
         System.out.println("\n\n\n\n\n");
     }
 
@@ -128,4 +131,6 @@ public class UI {
         password = INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
     }
+
+
 }
