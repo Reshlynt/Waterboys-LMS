@@ -94,13 +94,12 @@ public class DataLoader extends DataConstants {
         // ask what exactly we need to construct a course from JSON, edit constructor
         // for Course and DataConstants accordingly
         Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
-            courseDifficulty,
-            courseTitle, null, readExam, courseType, modules, courseComments, students);
+            courseDifficulty, courseTitle, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
 
         // for each student in students, set their grades using a setGrades method or
         // soemthing.
-        //This code definitely might be wrong, debug later if needed
+        // This code definitely might be wrong, debug later if needed
         for (int h = 0; h < students.size(); h++) {
           Student particularStudent = students.get(h);
           Student listedStudent = (Student) UserList.getInstance().getUserByUUID(particularStudent.getID());
