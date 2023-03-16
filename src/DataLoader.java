@@ -57,6 +57,7 @@ public class DataLoader extends DataConstants {
         String courseTitle = (String) courseJSONObject.get(TITLE);
         Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
         UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
+        UUID teacherID = UUID.fromString((String)courseJSONObject.get(TEACHER_ID));
         CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
 
         // modules will be a JSONArray
@@ -109,7 +110,7 @@ public class DataLoader extends DataConstants {
         // exam
         JSONArray examJSON = (JSONArray) courseJSONObject.get(EXAM);
         Assessment readExam = readAssessment(examJSON, courseTitle + " exam", Type.EXAM);
-        Course readCourse = new Course(courseID, courseTitle, courseDifficulty,
+        Course readCourse = new Course(courseID, UserList.getInstance().getUserByUUID(teacherID), courseTitle, courseDifficulty,
             courseTitle, null, readExam, courseType, modules, courseComments, null);
         courses.add(readCourse);
       }
