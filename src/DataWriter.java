@@ -81,8 +81,9 @@ public class DataWriter extends DataConstants {
         userDetails.put(EMAIL, user.getEmail());
 
         userDetails.put(PASSWORD, user.getPassword());
-
-        userDetails.put(DOB_DATE, user.getDOB().toString());
+        
+        String date = user.getDOB().toString();
+        userDetails.put(DOB_DATE, date.substring(4, 7) + date.substring(8, 10) + date.substring(24, 28)); // Manipulate with string so that only the month, day, and year is stored.
 
 
         return userDetails;
@@ -145,11 +146,10 @@ public class DataWriter extends DataConstants {
       }
     public static void main(String[] args) {
         // public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB)
-        User funny = new Student(UUID.randomUUID(), "Gamerman", "John", "Doe", "email.com", "password", parseDate("12152002"));
+
+        User funny = new Student(UUID.randomUUID(), "AphixDragon", "Trees", "Trago", "weeee.com", "password74", parseDate("12151984"));
         UserList userList = UserList.getInstance();
         userList.addUser(funny);
-        User elephant = new Student(UUID.randomUUID(), "GOYTE", "James", "Doe", "emailsda.com", "password123", parseDate("04151963"));
-        userList.addUser(elephant);
         saveUsers();
 
     }
