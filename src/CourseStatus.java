@@ -1,5 +1,3 @@
-package src;
-
 public class CourseStatus {
     private Course course;
     private double progress;
