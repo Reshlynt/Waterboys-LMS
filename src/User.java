@@ -126,10 +126,24 @@ public abstract class User {
         this.DOB = DOB;
     }
 
-    Calendar rightNow = Calendar.getInstance();
-
     public int getAge() {
-        int age = rightNow.get(Calendar.YEAR) - DOB.getYear();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(DOB);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        cal.setTime(new Date());
+        int currentYear = cal.get(Calendar.YEAR);
+        int currentMonth = cal.get(Calendar.MONTH);
+        int currentDay = cal.get(Calendar.DAY_OF_MONTH);
+        int age = currentYear - year;
+        if (currentMonth < month) {
+            age--;
+        } else if (currentMonth == month) {
+            if (currentDay < day) {
+                age--;
+            }
+        }
         return age;
     }
 }
