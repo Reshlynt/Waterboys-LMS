@@ -57,7 +57,7 @@ public class DataLoader extends DataConstants {
         String courseTitle = (String) courseJSONObject.get(TITLE);
         Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
         UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
-        UUID teacherID = UUID.fromString((String)courseJSONObject.get(TEACHER_ID));
+        UUID teacherID = UUID.fromString((String) courseJSONObject.get(TEACHER_ID));
         CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
 
         // modules will be a JSONArray
@@ -90,7 +90,7 @@ public class DataLoader extends DataConstants {
           modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
         }
 
-        //make parsing students its own function using studentsJSON
+        // make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
         ArrayList<Student> students = new ArrayList<Student>();
@@ -99,10 +99,10 @@ public class DataLoader extends DataConstants {
           JSONObject studentJSONObject = (JSONObject) studentsJSON.get(o);
           UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
           Student student = UserList.getInstance().getUserByUUID(studentID);
-          /*TODO deal with grades here(array in JSON), MIGHT BE WRONG*/
-           Integer[] grades = (Integer []) studentJSONObject.get(GRADES);
-           student.setGrades(grades);
-           students.add(student);
+          /* TODO deal with grades here(array in JSON), MIGHT BE WRONG */
+          Integer[] grades = (Integer[]) studentJSONObject.get(GRADES);
+          student.setGrades(grades);
+          students.add(student);
         }
 
         // course comments
@@ -112,7 +112,11 @@ public class DataLoader extends DataConstants {
         // exam
         JSONArray examJSON = (JSONArray) courseJSONObject.get(EXAM);
         Assessment readExam = readAssessment(examJSON, courseTitle + " exam", Type.EXAM);
-        Course readCourse = new Course(courseID, UserList.getInstance().getUserByUUID(teacherID), courseTitle, courseDifficulty,
+
+        // ask what exactly we need to construct a course from JSON, edit constructor
+        // for Course and DataConstants accordingly
+        Course readCourse = new Course(courseID, UserList.getInstance().getUserByUUID(teacherID), courseTitle,
+            courseDifficulty,
             courseTitle, null, readExam, courseType, modules, courseComments, null);
         courses.add(readCourse);
       }
