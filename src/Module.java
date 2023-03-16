@@ -1,18 +1,31 @@
 import java.util.ArrayList;
 
 public class Module {
-    private String title;
-    private ArrayList<Slide> slides;
-    private ArrayList<Comment> comments;
-    private Assessment lessonQuiz;
+  private String title;
+  private ArrayList<TextSlide> slides;
+  private ArrayList<Comment> comments;
+  private Assessment lessonQuiz;
 
-    public Module(String title, ArrayList<Slide> slides, ArrayList<Comment> comments, Assessment lessonQuiz){
-      this.title = title;
-      this.slides = slides;
-      this.comments = comments;
-      this.lessonQuiz = lessonQuiz;
+  public Module(String title, ArrayList<TextSlide> slides, ArrayList<Comment> comments, Assessment lessonQuiz) {
+    this.title = title;
+    this.slides = slides;
+    this.comments = comments;
+    this.lessonQuiz = lessonQuiz;
+  }
+
+  public void present() {
+    return;
+  }
+
+  public String toString() {
+    String info = title +"\n";
+    for (int i = 0; i < slides.size(); i++) {
+      info += (slides.get(i) + "\n");
     }
-    public void present() {
-        return;
+    for(int i = 0; i<comments.size();i++){
+      info += (comments.get(i) + "\n");
     }
+    info+=lessonQuiz;
+    return info;
+  }
 }

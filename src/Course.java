@@ -28,16 +28,15 @@ public class Course {
     this.students = students;
   }
 
-  public Course(User teacher, String title, Difficulty difficulty, String description, Teacher author, Assessment exam,
+  public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
+      Assessment exam,
       CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
     this.courseID = UUID.randomUUID();
-    // this.teacherID = teacherID;
     this.teacher = teacher;
     this.title = title;
     this.difficulty = difficulty;
     this.description = description;
-    this.author = author;
     this.courseType = courseType;
     this.lessons = lessons;
     this.courseComments = courseComments;
@@ -89,7 +88,7 @@ public class Course {
 
   // Return course author.
   public Teacher getAuthor() {
-    return author;
+    return teacher;
   }
 
   // Return course type
@@ -100,5 +99,19 @@ public class Course {
   // Return course assessment
   public Assessment getAssessment() {
     return exam;
+  }
+
+  public String toString() {
+    String info = title + "\n" + difficulty + "\n" + teacher + "\n" + courseID + "\n" + courseType + "\n";
+    for (int i = 0; i < lessons.size(); i++) {
+      info += (lessons.get(i) + "\n");
+    }
+    for (int i = 0; i < courseComments.size(); i++) {
+      info += (courseComments.get(i) + "\n");
+    }
+    for (int i = 0; i < students.size(); i++) {
+      info += (students.get(i) + "\n");
+    }
+    return info;
   }
 }
