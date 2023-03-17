@@ -71,6 +71,8 @@ public class DataLoader extends DataConstants {
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
         ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudentGrades(studentsJSON);
+        System.out.print("ArrayList of hashsmaps size");
+        System.out.println(gradeMaps.size());
         ArrayList<Student> students = getStudents(gradeMaps);
 
         // course comments
@@ -91,6 +93,10 @@ public class DataLoader extends DataConstants {
         // soemthing.
         // This code definitely might be wrong, debug later if needed
         for (int h = 0; h < students.size(); h++) {
+          System.out.print("students array list size: ");
+          System.out.println(students.size());
+          System.out.print("students[h]:");
+          System.out.println(students.get(h));
           Student particularStudent = students.get(h);
           Student listedStudent = (Student) UserList.getInstance().getUserByUUID(particularStudent.getID());
           ArrayList<Long> particularGrades = gradeMaps.get(i).get(listedStudent);
@@ -256,8 +262,10 @@ public class DataLoader extends DataConstants {
   private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
     ArrayList<Student> students = new ArrayList<Student>();
     for (int k = 0; k < gradeMaps.size(); k++) {
-
       HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
+      for (Map.Entry<Student, ArrayList<Long>> entry : gradeMap.entrySet()) {
+        System.out.println(entry.getKey() + ": " + entry.getValue());
+      }
       for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
         students.add(set.getKey());
       }
