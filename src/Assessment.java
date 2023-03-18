@@ -37,6 +37,9 @@ public class Assessment extends Slide {
     return inputtedAnswers;
   }
 
+  public String toString() {
+    return "label: " + label + " type" + type;   
+  }
   // Return the type of assessment
   public Type getType() {
     return type;

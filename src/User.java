@@ -83,10 +83,7 @@ public abstract class User {
         return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
     }
     public boolean equals(UUID id) {
-        if (this.id == id) {
-            return true;
-        }
-        return false;
+      return this.id == id;
     }
 
     public String getUsername() {

@@ -9,5 +9,8 @@ public class TextSlide extends Slide {
         
         return;
     }
+    public String toString(){
+      return "TEXT SLIDE: " + title + ":\n" + contents;
+    }
 
 }

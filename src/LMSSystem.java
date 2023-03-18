@@ -2,7 +2,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class LMSSystem {
-    public UserList userList;
+    public UserList userList = new UserList();
     public CourseList courseList;
 
     public User Login(String username, String password) {
@@ -24,7 +24,7 @@ public class LMSSystem {
         System.out.println("Logout successfully!");
     }
 
-    public boolean SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
+    public User SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
         if (userList.foundUser(username)) {
             System.out.println("User already exists!");
         } else {
@@ -36,12 +36,14 @@ public class LMSSystem {
                 new_user = new Teacher(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth);
             } else {
                 System.out.println("\n\n\n\n\n\n");
-                return false;
+                System.out.println("You did not enter \"student\" or \"teacher\"");
+                return null;
             }
             userList.addUser(new_user);
             System.out.println("Sign up successfully!");
+            return new_user;
         }
-        return true;
+        return null;
     }
 
     public void goToCourse(Course course) {

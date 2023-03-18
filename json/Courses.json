@@ -3,8 +3,8 @@
     "title": "Intro to JavaScript",
     "difficulty": "BEGINNER",
     "author" : "Mr. Bro",
-    "teacher_id": "1234e58ed763e58ed763e58ed763",
-    "course_id": "e58ed763-928c-4155-bee9e",
+    "teacher_id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+    "course_id": "e58ed764-998c-4155-bee8-fdbaaadc15f3",
     "courseType": "JAVASCRIPT",
     "modules": [
       {
@@ -31,15 +31,15 @@
         ],
         "module_comments": [
           {
-            "id": "this is a commenter's ID",
+            "id": "e58ed765-998c-4155-bee8-fdbaaadc15f3",
             "text": "adsfasdfasdfads",
             "replies": [
               {
-                "id": "this is a replier's ID ",
+                "id": "e58ed766-998c-4155-bee8-fdbaaadc15f3",
                 "text": "reply to a comment",
                 "more_replies": [
                   {
-                    "id": "second repliers ID",
+                    "id": "e58ed767-998c-4155-bee8-fdbaaadc15f3",
                     "text": "reply to a reply"
                   }
                 ]
@@ -51,7 +51,7 @@
     ],
     "students": [
       {
-        "id": "",
+        "id": "e58ed768-998c-4155-bee8-fdbaaadc15f3",
         "grades": [
           95,
           94,
@@ -61,11 +61,11 @@
     ],
     "course_comments": [
       {
-        "id": "12341i23048",
+        "id": "e58ed769-998c-4155-bee8-fdbaaadc15f3",
         "text": "kasdpfjklhg",
         "replies": [
           {
-            "id": "478923",
+            "id": "e58ed763-998c-4155-bee8-fdbaaadc15f3",
             "text": "bro chilllllllllll;qiweurqwioerupqwer",
             "more_replies": []
           }

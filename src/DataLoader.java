@@ -58,10 +58,10 @@ public class DataLoader extends DataConstants {
       for (int i = 0; i < courseJSON.size(); i++) {
         JSONObject courseJSONObject = (JSONObject) courseJSON.get(i);
         String courseTitle = (String) courseJSONObject.get(TITLE);
-        Difficulty courseDifficulty = (Difficulty) courseJSONObject.get(DIFFICULTY);
+        Difficulty courseDifficulty = Difficulty.valueOf((String) courseJSONObject.get(DIFFICULTY));
         UUID courseID = UUID.fromString((String) courseJSONObject.get(COURSE_ID));
         UUID teacherID = UUID.fromString((String) courseJSONObject.get(TEACHER_ID));
-        CourseType courseType = (CourseType) courseJSONObject.get(COURSE_TYPE);
+        CourseType courseType = CourseType.valueOf((String) courseJSONObject.get(COURSE_TYPE));
 
         // modules will be a JSONArray
         JSONArray modulesJSON = (JSONArray) courseJSONObject.get(MODULES);
@@ -70,18 +70,10 @@ public class DataLoader extends DataConstants {
         // make parsing students its own function using studentsJSON
         // parse students here
         JSONArray studentsJSON = (JSONArray) courseJSONObject.get(STUDENTS);
-        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudents(studentsJSON);
-        ArrayList<Student> students = new ArrayList<Student>();
-
-        for (int k = 0; k < gradeMaps.size(); k++) {
-          HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
-          gradeMap = gradeMaps.get(i);
-          Set<Student> oneStudent = gradeMap.keySet();
-          //this for loop only has 1 iteration
-          for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
-            students.add(set.getKey());
-          }
-        }
+        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudentGrades(studentsJSON);
+        System.out.print("ArrayList of hashsmaps size");
+        System.out.println(gradeMaps.size());
+        ArrayList<Student> students = getStudents(gradeMaps);
 
         // course comments
         JSONArray courseCommentJSON = (JSONArray) courseJSONObject.get(COURSE_COMMENTS);
@@ -94,10 +86,23 @@ public class DataLoader extends DataConstants {
         // ask what exactly we need to construct a course from JSON, edit constructor
         // for Course and DataConstants accordingly
         Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
-            courseDifficulty,
-            courseTitle, null, readExam, courseType, modules, courseComments, students);
+            courseDifficulty, courseTitle, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
-        //for each student in students, set their grades using a setGrades method or soemthing
+
+        // for each student in students, set their grades using a setGrades method or
+        // soemthing.
+        // This code definitely might be wrong, debug later if needed
+        for (int h = 0; h < students.size(); h++) {
+          System.out.print("students array list size: ");
+          System.out.println(students.size());
+          System.out.print("students[h]:");
+          System.out.println(students.get(h));
+          Student particularStudent = students.get(h);
+          Student listedStudent = (Student) UserList.getInstance().getUserByUUID(particularStudent.getID());
+          ArrayList<Long> particularGrades = gradeMaps.get(i).get(listedStudent);
+          listedStudent.setCourseGrade(readCourse, particularGrades);
+        }
+
         // set students grades for the course here
       }
       return courses;
@@ -206,14 +211,14 @@ public class DataLoader extends DataConstants {
       String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
 
       // slides will also be a JSONArray
-      ArrayList<Slide> slides = new ArrayList<Slide>();
+      ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
       JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
       for (int k = 0; k < slidesJSON.size(); k++) {
         JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
         String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
         String slideDescription = (String) slideJSONObject.get(CONTENT);
 
-        Slide parsedSlide = new TextSlide(slideTitle, slideDescription);
+        TextSlide parsedSlide = new TextSlide(slideTitle, slideDescription);
         slides.add(parsedSlide);
       }
 
@@ -230,7 +235,7 @@ public class DataLoader extends DataConstants {
     return modules;
   }
 
-  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudents(JSONArray studentsJSON) {
+  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudentGrades(JSONArray studentsJSON) {
     // Arraylist of HashMaps, Each HashMap is gonna hash between a singular student
     // and an ArrayList of Grades
     // convoluted, i know
@@ -254,6 +259,20 @@ public class DataLoader extends DataConstants {
     return gradeMaps;
   }
 
+  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
+    ArrayList<Student> students = new ArrayList<Student>();
+    for (int k = 0; k < gradeMaps.size(); k++) {
+      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
+      for (Map.Entry<Student, ArrayList<Long>> entry : gradeMap.entrySet()) {
+        System.out.println(entry.getKey() + ": " + entry.getValue());
+      }
+      for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
+        students.add(set.getKey());
+      }
+    }
+    return students;
+  }
+
   public static void main(String[] args) {
     // ArrayList<User> readUsers = getUsers();
     // for (int i = 0; i < readUsers.size(); i++) {
@@ -264,6 +283,12 @@ public class DataLoader extends DataConstants {
     // System.out.println(printString);
     // }
     // }
-    UserList myList = UserList.getInstance();
+    // UserList myList = UserList.getInstance();
+    ArrayList<Course> readCourses = getCourses();
+    for (int i = 0; i < readCourses.size(); i++) {
+      Course course = readCourses.get(i);
+      System.out.println(course);
+    }
+
   }
 }
