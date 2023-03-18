@@ -42,4 +42,29 @@ public class Comment {
   public boolean checkAge() {
     return true;
   }
+
+  // returns the comment's post
+  public String getPost() {
+    return post;
+  }
+
+  // Returns the comment's posting user id
+  public UUID getPostingUser() {
+    return postingUser;
+  }
+
+  // Returns the comment's likes
+  public int getLikes() {
+    return likes;
+  }
+
+  // Returns the comment's dislikes
+  public int getDislikes() {
+    return dislikes;
+  }
+
+  // Returns the comment's comments
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
 }

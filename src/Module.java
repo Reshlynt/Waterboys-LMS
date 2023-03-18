@@ -31,4 +31,20 @@ public class Module {
     info+=lessonQuiz;
     return info;
   }
+  // returns the module's title
+  public String getTitle() {
+    return title;
+  }
+  // returns the module's slides
+  public ArrayList<TextSlide> getSlides() {
+    return slides;
+  }
+  // returns the module's comments
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
+  // returns the module's quiz
+  public Assessment getQuiz() {
+    return lessonQuiz;
+  }
 }

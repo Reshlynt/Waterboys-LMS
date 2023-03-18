@@ -12,5 +12,12 @@ public class TextSlide extends Slide {
     public String toString(){
       return "TEXT SLIDE: " + title + ":\n" + contents;
     }
-
+    // returns the slide's title
+    public String getTitle() {
+      return title;
+    }
+    // returns the slide's contents
+    public String getContents() {
+      return contents;
+    }
 }

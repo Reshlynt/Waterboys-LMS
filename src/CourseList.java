@@ -39,4 +39,8 @@ public class CourseList {
         }
         return result;
     }
+
+    public ArrayList<Course> getCourseList() {
+        return courses;
+    }
 }

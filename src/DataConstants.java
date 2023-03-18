@@ -23,20 +23,25 @@ public class DataConstants {
   public static final String DIFFICULTY = "difficulty";
   public static final String COURSE_ID = "course_id";
   public static final String TEACHER_ID = "teacher_id";
+ 
   public static final String COURSE_TYPE = "courseType";
   public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
-  public static final String COURSE_AUTHOR_ID = "CourseAuthorID";
+  protected static final String COURSE_FILE_NAME = "./json/Courses.json";
 
   // module things
   public static final String MODULE_TITLE = "module_title";
 
+
+  // Slides
   public static final String SLIDES = "slides";
   public static final String SLIDE_TITLE = "slide_title";
   public static final String CONTENT = "description";
 
+  // Assessment Constants (for quiz and exam)
+  public static final String EXAM = "exam"; // Note this also appears for courses
   public static final String QUIZ = "quiz";
-  public static final String EXAM = "exam";
+
   public static final String QUESTION = "question";
   public static final String ANSWER_CHOICES = "answer_choices";
   public static final String A = "a";
@@ -45,6 +50,7 @@ public class DataConstants {
   public static final String D = "d";
   public static final String CORRECT_ANSWER = "correct_answer";
 
+  // Comments Constants
   public static final String MODULE_COMMENTS = "module_comments";
   public static final String COURSE_COMMENTS = "course_comments";
   public static final String COMMENTER_ID = "id";
@@ -55,7 +61,13 @@ public class DataConstants {
   public static final String SECOND_REPLIES = "more_replies";// replies to replies
   public static final String SECOND_REPLIER_ID = "id";
   public static final String SECOND_REPLY_TEXT = "text";
+  public static final String LIKES = "likes";
+  public static final String DISLIKES = "dislikes";
 
+  // Placeholder for now
+  public static final String CHILD_COMMENTS = "child_comments";
+
+  // Student Constants
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
   public static final String GRADES = "grades";
