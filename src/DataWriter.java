@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import java.util.UUID;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -121,10 +120,27 @@ public class DataWriter extends DataConstants {
         courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
 
         // course comments
+        courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments()));
 
         // enrolled students
+        courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents()));
 
         return courseDetails;
+    }
+    /**
+     * Creates Student JSON array.
+     * @param textSlide
+     * @return
+     */
+    private static JSONArray getStudentJSONArray(ArrayList<Student> student) {
+        JSONArray studentArray = new JSONArray();
+        JSONObject studentDetails = new JSONObject();
+
+        for (int i = 0; i < student.size(); i++) {
+            studentDetails.put(STUDENT_ID, student.get(i).getID().toString());
+            JSONArray studentGrades = new JSONArray();
+        }
+        return studentArray;
     }
     /**
      * Create a JSON array of TextSlide objects.
@@ -160,6 +176,9 @@ public class DataWriter extends DataConstants {
      * Create a JSON array of Comment JSON objects.
      */
     private static JSONArray getCommentJSONArray(ArrayList<Comment> comment) {
+        if (comment == null) {
+            return null;
+        }
         JSONArray commentArray = new JSONArray();
         for (int i = 0; i < comment.size(); i++) {
             commentArray.add(getCommentJSON(comment.get(i)));

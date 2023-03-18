@@ -121,4 +121,14 @@ public class Course {
     }
     return info;
   }
+
+  // Return the course's comments
+  public ArrayList<Comment> getComments() {
+    return courseComments;
+  }
+
+  // Return the course's students
+  public ArrayList<Student> getStudents() {
+    return students;
+  }
 }
