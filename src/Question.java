@@ -11,11 +11,23 @@ public class Question {
     this.correctAnswer = correctAnswer;
   }
 
+  public Question() {}
+
   public boolean createQuestion(ArrayList<String> answers, String prompt, String correctAnswer) {
     return true;
   }
 
   public Question getQuestion() {
     return new Question();
+  }
+
+  // Return the correct answer
+  public String getCorrectAnswer() {
+    return correctAnswer;
+  }
+
+  // Return the answer choices
+  public ArrayList<String> getAnswerChoices() {
+    return answerChoices;
   }
 }

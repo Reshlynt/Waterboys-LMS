@@ -61,7 +61,7 @@ public class DataWriter extends DataConstants {
      * Creates User JSON object.
      * 
      * @param user - User object.
-     * @return  JSON object that contains User data.
+     * @return JSON object that contains User data.
      */
     private static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
@@ -79,7 +79,7 @@ public class DataWriter extends DataConstants {
         userDetails.put(PASSWORD, user.getPassword());
 
         userDetails.put(TYPE, user.getType());
-        
+
         userDetails.put(DOB_DATE, DateFormatting(user.getDOB().toString()));
 
 
@@ -87,50 +87,88 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * Creates Class JSON object.
+     * Creates Course JSON object.
      * 
      * @param user
      * @return
      */
-    /*
-     * private static JSONObject getCourseJSON(Course course) { JSONObject courseDetails = new
-     * JSONObject();
+
+    private static JSONObject getCourseJSON(Course course) {
+        JSONObject courseDetails = new JSONObject();
+
+        courseDetails.put(COURSE_ID, course.getID().toString());
+
+        courseDetails.put(TITLE, course.getName());
+
+        courseDetails.put(DIFFICULTY, course.getDifficulty().toString()); 
+
+        courseDetails.put(DESCRIPTION, course.getDescription());
+
+        courseDetails.put(COURSE_AUTHOR_ID, course.getAuthor().getID().toString()); // get author id
+
+
+        courseDetails.put(EXAM, getAssessmentJSON(course.getAssessment()));
+
+        courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
+
+        courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
+
+        return courseDetails;
+    }
+
+    /**
+     * Creates Assessment JSON object.
      * 
-     * courseDetails.put(COURSE_ID, course.getID().toString());
-     * 
-     * courseDetails.put(TITLE, course.getTitle());
-     * 
-     * courseDetails.put(DIFFICULTY, course.getDifficulty().toString(); // String shit
-     * 
-     * courseDetails.put(DESCRIPTION, course.getDescription());
-     * 
-     * courseDetails.put(COURSE_AUTHOR_ID, course.getAuthor().getID().toString()); // get author id
-     * 
-     * courseDetails.put(EXAM, getAssessmentJSON(course.getAssessment())); // Embed obj into JSON
-     * File. JSONS deep down. // Write a new method like this one to create a JSON object that holds
-     * the Assessment object's data.
-     * 
-     * courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
-     * 
-     * courseDetails.put(LESSONS, course.dateToString()); // JSON array
-     * 
-     * return courseDetails; }
+     * @param assessment
+     * @return
      */
-    /*
-     * private static JSONObject getAssessmentJSON(Assessment assessment) { JSONObject
-     * assessmentDetails = new JSONObject();
+    private static JSONObject getAssessmentJSON(Assessment assessment) { 
+        JSONObject assessmentDetails = new JSONObject();
+        assessmentDetails.put(LABEL, assessment.getLabel());
+        assessmentDetails.put(QUESTIONS, getQuestionJSONArray(assessment.getQuestions()));
+        assessmentDetails.put(CORRECT_ANSWERS, assessment.getCorrectAnswers());
+        assessmentDetails.put(INPUTTED_ANSWERS, assessment.getInputtedAnswers());
+        assessmentDetails.put(SCORE, assessment.getScore() + "");
+        assessmentDetails.put(TYPE, assessment.getType().toString());
+        return assessmentDetails; 
+    }
+    /**
+     * Creates Question JSON Array.
      * 
-     * assessmentDetails.put(LABEL, assessment.getLabel());
-     * 
-     * assessmentDetails.put(CORRECT_ANSWERS, assessment.getCorrectAnswers());
-     * 
-     * assessmentDetails.put(INPUTTED_ANSWERS, assessment.getInputtedAnswers());
-     * 
-     * Integer assessmentDetails.put(SCORE, assessment.getScore().toString());
-     * 
-     * 
-     * return assessmentDetails; }
+     * @param question
+     * @return
      */
+    private static JSONArray getQuestionJSONArray(ArrayList<Question> question) {
+        JSONArray questionDetails = new JSONArray();
+        for (int i = 0; i < question.size(); i++)
+            questionDetails.add(getQuestionJSON(question.get(i)));
+        return questionDetails;
+    }
+    /**
+     * Creates Question JSON object.
+     * @param dob
+     * @return
+     */
+    private static JSONObject getQuestionJSON(Question question) {
+        JSONObject questionDetails = new JSONObject();
+        JSONArray answerChoices = new JSONArray();
+        questionDetails.put(QUESTION, question.getQuestion());
+        questionDetails.put(CORRECT_ANSWER, question.getCorrectAnswer());
+        for (int i = 0; i < question.getAnswerChoices().size(); i++)
+            answerChoices.add(question.getAnswerChoices().get(i));
+        questionDetails.put(ANSWER_CHOICES, answerChoices);
+        return questionDetails;
+    }
+    /**
+     * Creates Module JSON Array.
+     * @param dob
+     * @return
+     */
+    private static JSONArray getModuleJSONArray(ArrayList<Module> module) {
+        JSONArray moduleDetails = new JSONArray();
+        
+        return moduleDetails;
+    }
     private static Date parseDate(String dob) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
         Date date = null;
@@ -141,8 +179,10 @@ public class DataWriter extends DataConstants {
         }
         return date;
     }
+
     /**
      * Converts the string acquired from the Date object to the format: MMDDYYYY.
+     * 
      * @param date - String acquired from the Date object.
      * @return - String in the format: MMDDYYYY.
      */
@@ -155,7 +195,7 @@ public class DataWriter extends DataConstants {
             Calendar cal = Calendar.getInstance();
             cal.setTime(month);
             int month_int = cal.get(Calendar.MONTH) + 1;
-            
+
             if (month_int < 10) {
                 return "0" + month_int + date.substring(8, 10) + date.substring(24, 28);
             }

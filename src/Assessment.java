@@ -37,4 +37,13 @@ public class Assessment extends Slide {
     return inputtedAnswers;
   }
 
+  // Return the type of assessment
+  public Type getType() {
+    return type;
+  }
+  // Return the questions
+  public ArrayList<Question> getQuestions() {
+    return questions;
+  }
+
 }

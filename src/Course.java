@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.Date;
 
 public class Course {
   private UUID courseID;
@@ -70,7 +71,7 @@ public class Course {
   public boolean listComment() {
     return true;
   }
-
+  // Returns the course's difficulty
   public Difficulty getDifficulty() {
     return difficulty;
   }
@@ -103,5 +104,10 @@ public class Course {
   // Return course assessment
   public Assessment getAssessment() {
     return exam;
+  }
+
+  // Return the course's modules
+  public ArrayList<Module> getModules() {
+    return lessons;
   }
 }

@@ -96,7 +96,7 @@ public abstract class User {
     public String getPassword() {
         return password;
     }
-    //getters for all instance variables
+    // Return the ID of the user.
     public UUID getID() {
         return id;
     }

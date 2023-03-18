@@ -9,7 +9,10 @@ public class DataConstants {
    * private int score;
    * private Type type;
    */
+
+  // Assessment Constants
   public static final String LABEL = "label";
+  public static final String QUESTIONS = "Questions";
   public static final String CORRECT_ANSWERS = "correctAnswers";
   public static final String INPUTTED_ANSWERS = "inputtedAnswers";
   public static final String SCORE = "score";
@@ -23,7 +26,7 @@ public class DataConstants {
   public static final String COURSE_TYPE = "courseType";
   public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
-  public static final String COURSE_AUTHOR_ID = "modules";
+  public static final String COURSE_AUTHOR_ID = "CourseAuthorID";
 
   // module things
   public static final String MODULE_TITLE = "module_title";
