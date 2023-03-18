@@ -14,6 +14,9 @@ public class Module {
   }
 
   public void present() {
+    for (int i = 0; i < slides.size(); i++) {
+      slides.get(i).display();
+    }
     return;
   }
 

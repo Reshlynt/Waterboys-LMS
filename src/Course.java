@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 public class Course {
@@ -60,7 +61,7 @@ public class Course {
   }
 
   public Certificate createCertificate(User user) {
-    return new Certificate(this, user, new Date(), this.author);
+    return new Certificate(this, user, new Date(), this.teacher);
   }
 
   public boolean listComment() {
