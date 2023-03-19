@@ -13,7 +13,7 @@ public class Module {
     this.lessonQuiz = lessonQuiz;
   }
 
-  public void present() {
+  public void displaySlides() {
     for (int i = 0; i < slides.size(); i++) {
       slides.get(i).display();
     }
@@ -47,4 +47,5 @@ public class Module {
   public Assessment getQuiz() {
     return lessonQuiz;
   }
+
 }
