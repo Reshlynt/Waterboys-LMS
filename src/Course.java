@@ -80,7 +80,7 @@ public class Course {
   }
 
   // Returns the course's title
-  public String getName() {
+  public String getTitle() {
     return title;
   }
 
