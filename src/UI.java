@@ -32,16 +32,18 @@ public class UI {
             }
             System.out.print("\n\n\n\n\n\n");
             if (user != null) {
+                DataWriter.saveUsers();
                 quit = true;
             } else {
                 System.out.println("Press Enter to Continue");
                 INPUT.nextLine();
+                continue;
             }
             if (user.getType().equalsIgnoreCase("teacher")) {
                 TeacherMenu(user);
             } else if (user.getType().equalsIgnoreCase("student")) {
                 StudentMenu(user);
-            }
+            } 
         }
     }
     public static int Welcome() {
@@ -113,7 +115,7 @@ public class UI {
         try {
           date = dateFormat.parse(dob);
         } catch (ParseException e) {
-          e.printStackTrace();
+            System.out.println("             We cannot create a date based on the given input");
         }
         return date;
       }
