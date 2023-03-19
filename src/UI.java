@@ -39,6 +39,8 @@ public class UI {
             }
             if (user.getType().equalsIgnoreCase("teacher")) {
                 TeacherMenu(user);
+            } else if (user.getType().equalsIgnoreCase("student")) {
+                StudentMenu(user);
             }
         }
     }
@@ -174,5 +176,21 @@ public class UI {
         WelcomeLine5(25, "9.) Exit LMS\n");
 
 
+    }
+    public static void StudentMenu(User student) {
+        String welcomeLine = "Welcome, " + student.getUsername();
+        int linehelper = (71 - welcomeLine.length())/2;
+        if (welcomeLine.length() % 2 == 0) {
+            linehelper -= 1;
+        }
+        WelcomeLine1();
+        WelcomeLine4(FOURSTAR, welcomeLine, linehelper);
+        WelcomeLine1();
+        System.out.println();
+        WelcomeLine5(25, "1.) Register for Course\n");
+        WelcomeLine5(25, "2.) Access your Coruses\n");
+        WelcomeLine5(25, "3.) Access Certifications\n");
+        WelcomeLine5(25, "4.) View Profile\n");
+        WelcomeLine5(25, "9.) Exit LMS\n");
     }
 }
