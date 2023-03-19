@@ -2,6 +2,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.UUID;
 public class UI {
     public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static final Scanner INPUT = new Scanner(System.in);
