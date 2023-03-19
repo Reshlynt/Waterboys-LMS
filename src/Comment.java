@@ -14,6 +14,15 @@ public class Comment {
     this.postingUser = postingUser;
     this.comments = comments;
   }
+  // Recursively prints all comments
+  public void printComments(){
+    for(int i = 0; i<comments.size();i++){
+      System.out.println(comments.get(i));
+      for (int j = 0; j < comments.get(i).getComments().size(); j++) {
+        comments.get(i).getComments().get(j).printComments();
+      }
+    }
+  }
 
   public String toString() {
     return "UUID: " + postingUser.toString() + " post: " + post;

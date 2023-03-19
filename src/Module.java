@@ -43,14 +43,6 @@ public class Module {
   public ArrayList<Comment> getComments() {
     return comments;
   }
-  public void printComments(Comment comment){
-    for(int i = 0; i<comments.size();i++){
-      System.out.println(comments.get(i));
-      for (int j = 0; j < comments.get(i).getComments().size(); j++) {
-        printComments(comments.get(i).getComments().get(j));
-      }
-    }
-  }
   // returns the module's quiz
   public Assessment getQuiz() {
     return lessonQuiz;
