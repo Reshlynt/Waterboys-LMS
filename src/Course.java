@@ -44,6 +44,7 @@ public class Course {
     this.students = students;
   }
 
+  /* 
   int minage = 13;
 
   public boolean displayComments() {
@@ -53,6 +54,7 @@ public class Course {
       return true;
     }
   }
+  */
 
   public void displaySlides() {
     for (Module lesson : lessons) {
