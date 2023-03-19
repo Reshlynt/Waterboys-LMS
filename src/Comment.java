@@ -16,12 +16,15 @@ public class Comment {
   }
   // Recursively prints all comments
   public void printComments(){
+    // if (user's age is 13+)
+    // return null
     for(int i = 0; i<comments.size();i++){
       System.out.println(comments.get(i));
       for (int j = 0; j < comments.get(i).getComments().size(); j++) {
         comments.get(i).getComments().get(j).printComments();
       }
     }
+    return;
   }
 
   public String toString() {

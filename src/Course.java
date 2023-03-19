@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import java.util.Date;
+  // Ask portia if we should add Comment IDs for replying
 
 public class Course {
   private UUID courseID;
