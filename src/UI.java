@@ -21,6 +21,8 @@ public class UI {
                 case 2:
                     user = SignUp();
                     break;
+                case 9:
+                    Quit();
                 default:
                     System.out.println("\n\n\n\n\n");
                     for (int i = 0; i < 13; i++)
@@ -32,7 +34,7 @@ public class UI {
             }
             System.out.print("\n\n\n\n\n\n");
             if (user != null) {
-                DataWriter.saveUsers();
+                //DataWriter.saveUsers();
                 quit = true;
             } else {
                 System.out.println("Press Enter to Continue");
@@ -40,7 +42,10 @@ public class UI {
                 continue;
             }
             if (user.getType().equalsIgnoreCase("teacher")) {
-                TeacherMenu(user);
+                switch(TeacherMenu(user)) {
+                    case 4:
+                        break;
+                }
             } else if (user.getType().equalsIgnoreCase("student")) {
                 StudentMenu(user);
             } 
@@ -62,6 +67,7 @@ public class UI {
         System.out.print("\n\n\n");
         WelcomeLine5(35, "1.) Login\n");
         WelcomeLine5(35, "2.) Sign Up\n");
+        WelcomeLine5(35, "9.) Quit LMS");
         System.out.print("\n\n");
         WelcomeLine5(32, "Choose an option: ");
         try {
@@ -160,7 +166,7 @@ public class UI {
         return LMS.Login(username, password);
     }
 
-    public static void TeacherMenu(User teacher) {
+    public static int TeacherMenu(User teacher) {
         String welcomeLine = "Welcome, " + teacher.getUsername();
         int linehelper = (71 - welcomeLine.length())/2;
         if (welcomeLine.length() % 2 == 0) {
@@ -176,8 +182,20 @@ public class UI {
         WelcomeLine5(25, "4.) View Profile\n");
         WelcomeLine5(25, "5.) View Courses\n");
         WelcomeLine5(25, "9.) Exit LMS\n");
-
-
+        WelcomeLine5(32, "Choose an option: ");
+        try {
+            int value = INPUT.nextInt();
+            INPUT.nextLine();
+            System.out.println("\n\n\n\n\n");
+            return value;
+        } catch (Exception e) {
+            INPUT.nextLine();
+            System.out.println("\n\n\n\n\n");
+            System.out.println("You entered an invalid choice. Press Enter or to Continue");
+            INPUT.nextLine();
+            System.out.println("\n\n\n\n\n");
+            return TeacherMenu(teacher);
+        }
     }
     public static void StudentMenu(User student) {
         String welcomeLine = "Welcome, " + student.getUsername();
@@ -194,5 +212,12 @@ public class UI {
         WelcomeLine5(25, "3.) Access Certifications\n");
         WelcomeLine5(25, "4.) View Profile\n");
         WelcomeLine5(25, "9.) Exit LMS\n");
+    }
+
+    private static void Quit() {
+        for (int i = 0; i < 32; i++)
+            System.out.print(" ");
+        System.out.println("Quitting the LMS...");
+        System.exit(0);
     }
 }
