@@ -126,6 +126,7 @@ public abstract class User {
         this.DOB = DOB;
     }
 
+    /* 
     public int getAge() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(DOB);
@@ -146,6 +147,7 @@ public abstract class User {
         }
         return age;
     }
+    */
     // Return the type of user.
     public abstract String getType();
 }
