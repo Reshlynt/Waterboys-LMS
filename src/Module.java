@@ -43,11 +43,11 @@ public class Module {
   public ArrayList<Comment> getComments() {
     return comments;
   }
-  public void printComments(){
+  public void printComments(Comment comment){
     for(int i = 0; i<comments.size();i++){
       System.out.println(comments.get(i));
       for (int j = 0; j < comments.get(i).getComments().size(); j++) {
-        System.out.println(comments.get(i).getComments().get(j));
+        printComments(comments.get(i).getComments().get(j));
       }
     }
   }
