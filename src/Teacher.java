@@ -29,4 +29,7 @@ public class Teacher extends User {
     public String getType() {
         return "teacher";
     }
+    public void getCoursesCreated(User user) {
+        
+    }
 }
