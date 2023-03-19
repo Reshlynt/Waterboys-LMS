@@ -32,6 +32,7 @@ public class DataLoader extends DataConstants {
         String password = (String) userJSONObject.get(PASSWORD);
         Date dateOfBirth = parseDate((String) userJSONObject.get(DOB_DATE));
         String userType = (String) userJSONObject.get(TYPE);
+        //JSONArray createdCourses = (JSONArray) userJSONObject.get(CREATED_COURSES);
 
         if (userType.equalsIgnoreCase("student"))
           users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));

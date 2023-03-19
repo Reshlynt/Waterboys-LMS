@@ -61,8 +61,9 @@
     "password": "x14FGdh.sZl",
     "dateOfBirth": "04201900",
     "type": "teacher",
-    "createdCourses": {
-      "Intro to JavaScript": {
+    "createdCourses": [
+      {
+        "name": "Intro to JavaScript",
         "difficulty": "BEGINNER",
         "description": "A short introduction into the language JavaScript",
         "teacher": "garycole144",
@@ -70,7 +71,7 @@
         "type": "JAVASCRIPT",
         "modules": "Intro_to_JavaScript.Mr._Cole.modules"
       }
-    },
+    ],
     "students": [
       "e58ed763-928c-4155-bee9-fdbaaadc15f3",
       "f16ed563-913a-4156-bee9-fdbcfgdc15g3"

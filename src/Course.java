@@ -31,8 +31,7 @@ public class Course {
   }
 
   public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
-      Assessment exam,
-      CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
+      Assessment exam, CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
     this.courseID = UUID.randomUUID();
     this.teacher = teacher;

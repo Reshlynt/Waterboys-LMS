@@ -43,16 +43,16 @@ public class UI {
                 continue;
             }
             if (user.getType().equalsIgnoreCase("teacher")) {
-                switch(TeacherMenu(user)) {
+                switch(TeacherMenu((Teacher)user)) {
                     case 4:
-                        ViewProfile(user);
+                        ViewTeacherProfile((Teacher)user);
                         break;
                     case 9:
                         Quit();
                         break;
                 }
             } else if (user.getType().equalsIgnoreCase("student")) {
-                StudentMenu(user);
+                StudentMenu((Student)user);
             } 
         }
     }
@@ -207,7 +207,7 @@ public class UI {
             return TeacherMenu(teacher);
         }
     }
-    public static void StudentMenu(User student) {
+    public static void StudentMenu(Student student) {
         String welcomeLine = "Welcome, " + student.getUsername();
         int linehelper = (71 - welcomeLine.length())/2;
         if (welcomeLine.length() % 2 == 0) {
@@ -224,7 +224,7 @@ public class UI {
         WelcomeLine5(25, "9.) Exit LMS\n");
     }
 
-    private static void ViewProfile(User user) {
+    private static void ViewTeacherProfile(Teacher user) {
         String header = (user.getUsername() + "\'s Profile");
         WelcomeLine1();
         WelcomeLine6(header);
@@ -233,7 +233,7 @@ public class UI {
         WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
         WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
         WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
-        WelcomeLine5(25, "Courses Created: ");
+        WelcomeLine5(25, "Courses Created: " + user.getCoursesCreated());
     }
     private static void Quit() {
         for (int i = 0; i < 32; i++)

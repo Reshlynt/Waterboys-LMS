@@ -33,7 +33,7 @@ public class LMSSystem {
                 new_user = new Student(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth);
                 
             } else if (job.equalsIgnoreCase("teacher")) {
-                new_user = new Teacher(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth);
+                new_user = new Teacher(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth, null);
             } else {
                 System.out.println("             You did not enter \"student\" or \"teacher\"");
                 return null;
