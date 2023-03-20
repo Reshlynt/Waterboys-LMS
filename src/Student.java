@@ -16,9 +16,8 @@ public class Student extends User {
   public void setCourseGrade(Course course, ArrayList<Long> grades) {
     // this method will get an array list of grades, which signify the grades for a
     // specific class(module quiz/exam grades
-    for (int i = 0; i < courseProgresses.size(); i++)
-      if (courseProgresses.get(i).getCourse().equals(course))
-        courseProgresses.get(i).setGrades(grades);
+    CourseStatus newCourseStatus = new CourseStatus(course, grades);
+    courseProgresses.add(newCourseStatus);
   }
 
   public void saveCourseProgress() {
@@ -42,7 +41,6 @@ public class Student extends User {
   public ArrayList<CourseStatus> getCourseProgresses() {
     return courseProgresses;
   }
-
 
   public String getType() {
     return "student";
