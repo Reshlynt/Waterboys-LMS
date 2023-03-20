@@ -34,8 +34,6 @@ public class UserList {
   }
 
   public User getUserByUUID(UUID id) {
-    System.out.print("userList size ");
-    System.out.println(userList.size());
     for (User user : userList) {
       if (user.equals(id)) {
         return user;
