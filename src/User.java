@@ -126,8 +126,7 @@ public abstract class User {
         this.DOB = DOB;
     }
 
-    /* 
-    public int getAge() {
+    public boolean ofAge() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(DOB);
         int year = cal.get(Calendar.YEAR);
@@ -145,9 +144,8 @@ public abstract class User {
                 age--;
             }
         }
-        return age;
+        return (age >= 13);
     }
-    */
     // Return the type of user.
     public abstract String getType();
 }
