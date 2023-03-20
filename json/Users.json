@@ -10,6 +10,16 @@
     "type": "student"
   },
   {
+    "id": "6ee074ab-189e-4508-9574-972f77fb2812",
+    "username": "LilBaby",
+    "firstName": "Little",
+    "lastName": "Baby",
+    "email": "lilbaby@gmail.com",
+    "password": "broidek",
+    "dateOfBirth": "12121912",
+    "type": "teacher"
+  },
+  {
     "id": "f16ed563-913a-4156-bee9-fdbcffdc15f3",
     "username": "scrimblo.bimblo",
     "firstName": "Anthony",
