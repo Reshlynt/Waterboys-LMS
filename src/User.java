@@ -126,7 +126,8 @@ public abstract class User {
         this.DOB = DOB;
     }
 
-    public boolean ofAge() {
+    /* 
+    public int getAge() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(DOB);
         int year = cal.get(Calendar.YEAR);
@@ -144,8 +145,11 @@ public abstract class User {
                 age--;
             }
         }
-        return (age >= 13);
+        return age;
     }
+    */
+    // Ask Portia if there would be a way to find the user's age when they sign up and diasable comment privilages if they
+    // are under 13 years old instead of checking each slide
     // Return the type of user.
     public abstract String getType();
 }
