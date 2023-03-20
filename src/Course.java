@@ -114,12 +114,15 @@ public class Course {
 
   public String toString() {
     String info = title + "\n" + difficulty + "\n" + teacher + "\n" + courseID + "\n" + courseType + "\n";
+    info+="lessons:\n";
     for (int i = 0; i < lessons.size(); i++) {
       info += (lessons.get(i) + "\n");
     }
+    info+="comments:\n";
     for (int i = 0; i < courseComments.size(); i++) {
       info += (courseComments.get(i) + "\n");
     }
+    info+="students:\n";
     for (int i = 0; i < students.size(); i++) {
       info += (students.get(i) + "\n");
     }
