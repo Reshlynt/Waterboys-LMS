@@ -38,6 +38,12 @@ public class Student extends User {
   // this.grades = Arrays.asList(grades);
   // }
 
+  // Returns the student's course status
+  public ArrayList<CourseStatus> getCourseProgresses() {
+    return courseProgresses;
+  }
+
+
   public String getType() {
     return "student";
   }

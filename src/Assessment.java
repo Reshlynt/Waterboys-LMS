@@ -22,7 +22,7 @@ public class Assessment extends Slide {
   public int getScore() {
     return this.score;
   }
-
+  // Returns the question label (perhaps the question itself)
   public String getLabel() {
     return "";
   }
