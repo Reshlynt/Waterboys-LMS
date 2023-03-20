@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import java.util.Date;
+  // Ask portia if we should add Comment IDs for replying
 
 public class Course {
   private UUID courseID;
@@ -68,6 +68,7 @@ public class Course {
 
   public boolean listComment() {
     return true;
+    // Check if current user is 13+ - maybe 
   }
   // Returns the course's difficulty
   public Difficulty getDifficulty() {
@@ -80,7 +81,7 @@ public class Course {
   }
 
   // Returns the course's title
-  public String getName() {
+  public String getTitle() {
     return title;
   }
 

@@ -148,6 +148,8 @@ public abstract class User {
         return age;
     }
     */
+    // Ask Portia if there would be a way to find the user's age when they sign up and diasable comment privilages if they
+    // are under 13 years old instead of checking each slide
     // Return the type of user.
     public abstract String getType();
 }

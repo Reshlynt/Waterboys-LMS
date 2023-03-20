@@ -5,7 +5,6 @@ public class Module {
   private ArrayList<TextSlide> slides;
   private ArrayList<Comment> comments;
   private Assessment lessonQuiz;
-
   public Module(String title, ArrayList<TextSlide> slides, ArrayList<Comment> comments, Assessment lessonQuiz) {
     this.title = title;
     this.slides = slides;
