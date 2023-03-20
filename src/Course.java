@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-  // Ask portia if we should add Comment IDs for replying
 
 public class Course {
   private UUID courseID;
@@ -14,6 +13,7 @@ public class Course {
   private CourseType courseType;
   private ArrayList<Module> lessons;
   private ArrayList<Comment> courseComments;
+  // Ask portia if we should add Comment IDs for replying
   private ArrayList<Student> students;
 
   public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description,
@@ -68,7 +68,9 @@ public class Course {
 
   public boolean listComment() {
     return true;
-    // Check if current user is 13+ - maybe 
+    // Check if current user is 13+ - maybe add User to parameters, add functionality
+    // in LMSSystem to check if user is 13+; when printing slides, check first and 
+    // only call printComments if user is 13+.
   }
   // Returns the course's difficulty
   public Difficulty getDifficulty() {
