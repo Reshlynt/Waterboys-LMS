@@ -52,7 +52,14 @@ public class UI {
                         break;
                 }
             } else if (user.getType().equalsIgnoreCase("student")) {
-                StudentMenu((Student)user);
+                switch(TeacherMenu((Student)user)) {
+                    case 4:
+                        //ViewStudentProfile((Student)user);
+                        break;
+                    case 9:
+                        Quit();
+                        break;
+                }
             } 
         }
     }
@@ -208,13 +215,8 @@ public class UI {
         }
     }
     public static void StudentMenu(Student student) {
-        String welcomeLine = "Welcome, " + student.getUsername();
-        int linehelper = (71 - welcomeLine.length())/2;
-        if (welcomeLine.length() % 2 == 0) {
-            linehelper -= 1;
-        }
         WelcomeLine1();
-        WelcomeLine4(FOURSTAR, welcomeLine, linehelper);
+        WelcomeLine6("Welcome, " + student.getUsername());
         WelcomeLine1();
         System.out.println();
         WelcomeLine5(25, "1.) Register for Course\n");
