@@ -30,7 +30,7 @@ public class Course {
     this.students = students;
   }
 
-  public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
+  public Course(Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
       Assessment exam, CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
     this.courseID = UUID.randomUUID();
