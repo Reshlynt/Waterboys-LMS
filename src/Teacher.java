@@ -50,7 +50,7 @@ public class Teacher extends User {
     }
     public ArrayList<Course> getCoursesCreated() {
         for (int i = 0; i < courses.size(); i++)
-            System.out.println(courses.get(i).getName());
+            System.out.println(courses.get(i).getTitle());
         return null;
     }
 }
