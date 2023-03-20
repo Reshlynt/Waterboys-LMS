@@ -283,12 +283,10 @@ public class DataLoader extends DataConstants {
     // System.out.println(printString);
     // }
     // }
-    // UserList myList = UserList.getInstance();
     ArrayList<Course> readCourses = getCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
       System.out.println(course);
     }
-
   }
 }
