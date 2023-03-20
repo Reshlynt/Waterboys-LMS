@@ -4,6 +4,10 @@ public class CourseStatus {
     private double progress;
     private Long totalGrade;
     private ArrayList<Long> grades;
+    public CourseStatus(Course course, ArrayList<Long> grades){
+      this.course = course;
+      this.grades = grades;
+    }
     public double getProgress() {
         return progress;
     }
