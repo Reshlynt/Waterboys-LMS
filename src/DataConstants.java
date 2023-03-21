@@ -64,8 +64,6 @@ public class DataConstants {
   public static final String LIKES = "likes";
   public static final String DISLIKES = "dislikes";
 
-  // Placeholder for now
-  public static final String CHILD_COMMENTS = "child_comments";
 
   // Student Constants
   public static final String STUDENTS = "students";

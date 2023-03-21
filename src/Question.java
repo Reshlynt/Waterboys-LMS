@@ -30,4 +30,9 @@ public class Question {
   public ArrayList<String> getAnswerChoices() {
     return answerChoices;
   }
+
+  // Return the question content
+  public String getQuestionContent() {
+    return question;
+  }
 }
