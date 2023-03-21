@@ -233,33 +233,50 @@ public class DataLoader extends DataConstants {
    */
   private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
     ArrayList<Question> questions = new ArrayList<Question>();
+
+    // for loop iterates through all of the questions in an assessment
     for (int i = 0; i < assessmentJSON.size(); i++) {
-      // questionJSON will consist of the question, answer choices, as well as the
+
+      // questionJSON is specific question: including question, answer choices, and
       // correct answer
       JSONObject questionJSON = (JSONObject) assessmentJSON.get(i);
 
+      // question
       String question = (String) questionJSON.get(QUESTION);
 
+      // answer choices will be a JSONArray/arraylist
       JSONArray answerChoicesJSON = (JSONArray) questionJSON.get(ANSWER_CHOICES);
       ArrayList<String> answerChoices = new ArrayList<String>();
+
       for (int j = 0; j < answerChoicesJSON.size(); j++) {
         JSONObject answerChoiceJSON = (JSONObject) answerChoicesJSON.get(j);
+
+        // adds chocies for a, b, c, and d
         answerChoices.add((String) answerChoiceJSON.get(A));
         answerChoices.add((String) answerChoiceJSON.get(B));
         answerChoices.add((String) answerChoiceJSON.get(C));
         answerChoices.add((String) answerChoiceJSON.get(D));
       }
 
+      // correct answer
       String correctAnswer = (String) questionJSON.get(CORRECT_ANSWER);
 
+      // pushes complete question object to questions arraylist
       questions.add(new Question(question, answerChoices, correctAnswer));
     }
+
+    // returns assessment with title, all questions, and type(exam or quiz)
     return new Assessment(label, questions, type);
   }
 
+  /**
+  package src; 
+  * 
+   * @param modulesJSON
+   * @return
+   */
   private static ArrayList<Module> readModules(JSONArray modulesJSON) {
-
-    ArrayList<Module> modules = new ArrayList<Module>();
+    ArrayList<Module> modules = new ArrayList<Module>();//to return
     for (int j = 0; j < modulesJSON.size(); j++) {
       JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
       String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);

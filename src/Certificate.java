@@ -1,3 +1,4 @@
+package src;
 import java.util.Date;
 public class Certificate {
     private Course course;
