@@ -16,7 +16,7 @@ public class Assessment extends Slide {
   }
 
   public void display() {
-
+    System.out.println("|\n|\t" + title + "\n|--------------------------------------------------------------------------------------\n");
     return;
   }
 
