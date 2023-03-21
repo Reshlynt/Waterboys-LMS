@@ -79,6 +79,11 @@ public class DataWriter extends DataConstants {
      */
     private static JSONObject StudentModifiedUserJSON(Student student) {
         JSONObject studentDetails = new JSONObject();
+        System.out.println("My name is " + student.getFullName());
+        for (int i = 0; i < student.getCourseProgresses().size(); i++) {
+            System.out.println(student.getCertificates().get(i));
+        }
+        System.out.println("---------------------");
         studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         getUserJSON(studentDetails, student);
         return studentDetails;
@@ -107,7 +112,6 @@ public class DataWriter extends DataConstants {
      * @return JSON object that contains User data.
      */
     private static void getUserJSON(JSONObject userDetails, User user) {
-
         userDetails.put(USER_ID, user.getID().toString());
 
         userDetails.put(USER_NAME, user.getUsername());
