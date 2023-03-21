@@ -17,13 +17,13 @@
         ],
         "quiz": [
           {
-            "question": "dsfawe",
+            "question": "question 1",
             "answer_choices": [
               {
-                "a": "dsafw",
-                "b": "sdafwe",
-                "c": "asdfasdf",
-                "d": "asdfasdf"
+                "a": "quiz answer choice 1",
+                "b": "quiz answer choice 2",
+                "c": "quiz answer choice 3",
+                "d": "quiz answer choice 4"
               }
             ],
             "correct_answer": "a"
@@ -32,7 +32,7 @@
         "module_comments": [
           {
             "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "adsfasdfasdfads",
+            "text": "This is a module comment",
             "replies": [
               {
                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
@@ -62,12 +62,15 @@
     "course_comments": [
       {
         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-        "text": "kasdpfjklhg",
+        "text": "This is a course comment",
         "replies": [
           {
             "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "bro chilllllllllll;qiweurqwioerupqwer",
-            "more_replies": []
+            "text": "This is a reply to a course comment",
+            "more_replies": [{
+              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+              "text": "This is a reply to reply to a comment"
+            }]
           }
         ]
       }
@@ -77,10 +80,10 @@
         "question": "question1",
         "answer_choices": [
           {
-            "a": "asdfasdf",
-            "b": ";lkjfdsa",
-            "c": "qweriuop",
-            "d": "poiurewq"
+            "a": "exam answer choice 1",
+            "b": "exam answer choice 2",
+            "c": "exam answer choice 3",
+            "d": "exam answer choice 4"
           }
         ],
         "correct_answer": "a"
