@@ -93,6 +93,9 @@ public class DataLoader extends DataConstants {
         // for each student in students, set their grades using a setGrades method or
         // soemthing.
         // This code definitely might be wrong, debug later if needed
+        System.out.println("COURSE:");
+        System.out.println(readCourse);
+        System.out.println("*************************************");
         for (int h = 0; h < students.size(); h++) {
           //System.out.print("students array list size: ");
           //System.out.println(students.size());
@@ -218,7 +221,9 @@ public class DataLoader extends DataConstants {
         JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
         String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
         String slideDescription = (String) slideJSONObject.get(CONTENT);
-
+        System.out.println("slide content:");
+        System.out.println(slideTitle + "    " + slideDescription);
+        System.out.println("******");
         TextSlide parsedSlide = new TextSlide(slideTitle, slideDescription);
         slides.add(parsedSlide);
       }
