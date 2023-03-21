@@ -420,15 +420,13 @@ public class DataLoader extends DataConstants {
   }
 
   public static void main(String[] args) {
-    // ArrayList<User> readUsers = getUsers();
-    // for (int i = 0; i < readUsers.size(); i++) {
-    // User user = readUsers.get(i);
-    // String printString = user.getEmail() + " " + user.getFirstName() + " " +
-    // user.getLastName() + " "
-    // + user.getPassword() + " " + user.getUserName() + " " + user.getID();
-    // System.out.println(printString);
-    // }
-    // }
+    ArrayList<User> readUsers = getUsers();
+    for (int i = 0; i < readUsers.size(); i++) {
+      System.out.println(readUsers.get(i).toString());
+      System.out.println();
+    }
+
+    System.out.println("COURSES");
     ArrayList<Course> readCourses = getCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
