@@ -270,7 +270,8 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-   * 
+  package src; 
+  * 
    * @param modulesJSON
    * @return
    */
