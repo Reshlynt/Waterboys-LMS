@@ -5,7 +5,6 @@
     "firstName": "Grichael",
     "lastName": "Crach",
     "certificates":[],
-    "courseProgress":[],
     "email": "gCrach2000@gmail.com",
     "password": "!password123",
     "dateOfBirth": "04142000",
@@ -16,7 +15,6 @@
     "username": "LilBaby",
     "firstName": "Little",
     "lastName": "Baby",
-    "createdCourses":[],
     "students":[],
     "email": "lilbaby@gmail.com",
     "password": "broidek",
@@ -30,13 +28,6 @@
     "lastName": "Bimblos",
     "email": "biblo444@gmail.com",
     "password": "12345678_",
-    "courseProgress": [
-      [
-        "Python 212",
-        "75.8",
-        "45"
-      ]
-    ],
     "certificates": [
       [
         "Intro to Python",
@@ -75,17 +66,6 @@
     "password": "x14FGdh.sZl",
     "dateOfBirth": "04201900",
     "type": "teacher",
-    "createdCourses": [
-      {
-        "name": "Intro to JavaScript",
-        "difficulty": "BEGINNER",
-        "description": "A short introduction into the language JavaScript",
-        "teacher": "garycole144",
-        "exam": "Intro_to_JavaScript.Mr._Cole.E",
-        "type": "JAVASCRIPT",
-        "modules": "Intro_to_JavaScript.Mr._Cole.modules"
-      }
-    ],
     "students": [
       "e58ed763-928c-4155-bee9-fdbaaadc15f3",
       "f16ed563-913a-4156-bee9-fdbcfgdc15g3"
