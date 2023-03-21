@@ -4,8 +4,6 @@
     "username": "UziThaGoat13",
     "firstName": "Grichael",
     "lastName": "Crach",
-    "certificates":[],
-    "courseProgress":[],
     "email": "gCrach2000@gmail.com",
     "password": "!password123",
     "dateOfBirth": "04142000",
@@ -16,8 +14,6 @@
     "username": "LilBaby",
     "firstName": "Little",
     "lastName": "Baby",
-    "createdCourses":[],
-    "students":[],
     "email": "lilbaby@gmail.com",
     "password": "broidek",
     "dateOfBirth": "12121912",
@@ -30,39 +26,6 @@
     "lastName": "Bimblos",
     "email": "biblo444@gmail.com",
     "password": "12345678_",
-    "courseProgress": [
-      [
-        "Python 212",
-        "75.8",
-        "45"
-      ]
-    ],
-    "certificates": [
-      [
-        "Intro to Python",
-        "Anthony Bimblos",
-        "03112020",
-        "Mr. Scott"
-      ],
-      [
-        "Python for Data Science",
-        "Anthony Bimblos",
-        "08022018",
-        "Mr. Kim"
-      ],
-      [
-        "JavaScript integration with HTML and CSS",
-        "Anthony Bimblos",
-        "01062023",
-        "Scumbo Scuzz"
-      ],
-      [
-        "Intro_to_JavaScript",
-        "Anthony Bimblos",
-        "01092021",
-        "Mr. Scott"
-      ]
-    ],
     "dateOfBirth": "07142000",
     "type": "student"
   },
@@ -74,21 +37,6 @@
     "email": "gcole1443@email.sc.edu",
     "password": "x14FGdh.sZl",
     "dateOfBirth": "04201900",
-    "type": "teacher",
-    "createdCourses": [
-      {
-        "name": "Intro to JavaScript",
-        "difficulty": "BEGINNER",
-        "description": "A short introduction into the language JavaScript",
-        "teacher": "garycole144",
-        "exam": "Intro_to_JavaScript.Mr._Cole.E",
-        "type": "JAVASCRIPT",
-        "modules": "Intro_to_JavaScript.Mr._Cole.modules"
-      }
-    ],
-    "students": [
-      "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-      "f16ed563-913a-4156-bee9-fdbcfgdc15g3"
-    ]
+    "type": "teacher"
   }
 ]
