@@ -1,30 +1,9 @@
-
+package src;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-<<<<<<<<< Temporary merge branch 1
-
-public class DataWriter extends DataConstants {
-    /**
-     *  Saves users to a json file.
-     */
-    public static void saveUsers() {
-        // (1) Get all the objects needed to write to a json
-        UserList all_users_list = UserList.getInstance();
-        ArrayList<User> userList = all_users_list.getUsers();
-        JSONArray jsonUsers = new JSONArray();
-
-        // (2) Create the json objects.
-        for (int i = 0; i < userList.size(); i++) {
-            jsonUsers.add(getUserJSON(userList.get(i)));
-        }
-
-        // (3) Write the JSON file given that array you got in
-        //     the JSON array file.
-=========
-import java.util.UUID;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -65,6 +44,7 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
     }
+
     /**
      * Course saving.
      */
@@ -419,6 +399,6 @@ public class DataWriter extends DataConstants {
 
     public static void main(String[] args) {
         saveUsers();
-
+        //saveCourses();
     }
 }
