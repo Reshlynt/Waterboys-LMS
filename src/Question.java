@@ -5,6 +5,7 @@ public class Question {
   String question;
   ArrayList<String> answerChoices = new ArrayList<String>();
   String correctAnswer;
+  // correct answer is a string - a, b, c, or d
 
   public Question(String question, ArrayList<String> answerChoices, String correctAnswer) {
     this.question = question;

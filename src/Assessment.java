@@ -16,7 +16,15 @@ public class Assessment extends Slide {
   }
 
   public void display() {
-
+    for (int i = 0; i < questions.size(); i++) {
+      System.out.println("|\n|\t" + title + "\n|--------------------------------------------------------------------------------------\n");
+      System.out.println("\t" + (i + 1) + ": " + questions.get(i).getQuestion() + "\n");
+      for(int j = 0; j<questions.get(i).getAnswerChoices().size();j++){
+        System.out.println("\t\t"+('a'+j)+": "+questions.get(i).getAnswerChoices().get(j));
+      }
+      inputtedAnswers += ;
+      System.out.println("|\n|--------------------------------------------------------------------------------------\n");
+    }
     return;
   }
 
@@ -39,7 +47,7 @@ public class Assessment extends Slide {
   }
 
   public String toString() {
-    String info = "label: " + title + " type" + type+"\n Questions: \n";
+    String info = "label: " + label + " type" + type+"\n Questions: \n";
     for(int i = 0; i<questions.size();i++){
       info+=(questions.get(i)+"\n");
     }
