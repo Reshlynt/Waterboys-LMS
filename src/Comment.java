@@ -49,17 +49,18 @@ public class Comment {
     Course.addcourseComments(comment);
   }
 
-  public boolean likeDislikePost() {
-    return true;
+  public void likeDislikePost(String entry) {
+    if(entry.equals("likes")) {
+      likes++;
+    }
+    else if(entry.equals("dislike")) {
+      dislikes++;
+    }
   }
 
   // create a method that 
   public void removePost() {
     
-  }
-
-  public boolean checkAge() {
-    return true;
   }
 
   // returns the comment's post
