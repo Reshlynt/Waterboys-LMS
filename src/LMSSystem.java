@@ -49,18 +49,18 @@ public class LMSSystem {
     }
 
     public void goToCourse(Course course) {
-        System.out.println("You are now in " + course.getName() + " course!");
+        System.out.println("You are now in " + course.getTitle() + " course!");
     }
 
     public void goToCourse(String name) {
         if (courseList.getCourseByKeyword(name).size() == 0) {
             System.out.println("Course not found!");
         } else if (courseList.getCourseByKeyword(name).size() == 1) {
-            System.out.println("You are now in " + courseList.getCourseByKeyword(name).get(0).getName() + " course!");
+            System.out.println("You are now in " + courseList.getCourseByKeyword(name).get(0).getTitle() + " course!");
         } else {
             System.out.println("There are more than one course with this name, please choose one:");
             for (Course course : courseList.getCourseByKeyword(name)) {
-                System.out.println(course.getName());
+                System.out.println(course.getTitle());
             }
         }
     }
