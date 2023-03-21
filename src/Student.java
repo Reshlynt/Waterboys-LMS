@@ -21,14 +21,10 @@ public class Student extends User {
     courseProgresses.add(newCourseStatus);
   }
 
-  public void saveCourseProgress() {
-    courseProgresses.add();
-  }
-
   public void registerCourse(Course course) {
     // this method will add a course to the student's list of courses
     // and add the student to the course's list of students
-    courseProgresses.add(new CourseStatus(course, grades));
+    courseProgresses.add(new CourseStatus(course, new ArrayList<Long>()));
     course.addStudent(this);
   }
 
