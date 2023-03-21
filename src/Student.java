@@ -33,6 +33,11 @@ public class Student extends User {
     return;
   }
 
+  // Return the student's certificates
+  public ArrayList<Certificate> getCertificates() {
+    return certificates;
+  }
+
   // public void setGrades(Integer[] grades) {
   // // set grades array list to array grades
   // this.grades = Arrays.asList(grades);
@@ -45,5 +50,10 @@ public class Student extends User {
 
   public String getType() {
     return "student";
+  }
+
+  // Gives a student a certificate
+  public void giveCertificate(Certificate certificate) {
+    certificates.add(certificate);
   }
 }

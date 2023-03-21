@@ -15,8 +15,12 @@ import java.text.DecimalFormat;
 
 public class DataWriter extends DataConstants {
 
+    // Global variables
+    private static final DecimalFormat gradeFormat = new DecimalFormat("#.#"); // format to 1 decimal place
+
+
     /**
-     * Saves users to a json file - Users.json
+     * Saves all User objects to a JSON file - Users.json
      */
     public static void saveUsers() {
         // (1) Get your UserList list and establish your
@@ -51,7 +55,7 @@ public class DataWriter extends DataConstants {
 
         // creating all the json objects
         for (int i = 0; i < all_courses_list.size(); i++) {
-            jsonCourses.add(getCourseJSON(all_courses_list.get(i)));
+            jsonCourses.add(getCourseJSON(all_courses_list.get(i), null));
         }
 
         // Write JSON file
@@ -90,21 +94,100 @@ public class DataWriter extends DataConstants {
 
         userDetails.put(DOB_DATE, DateFormatting(user.getDOB().toString()));
 
-
+        if(user instanceof Student) {
+            Student student = (Student) user;
+            userDetails.put(COURSE_PROGRESS, getCourseProgressJSONArray(student.getCourseProgresses()));
+            if (student.getCertificates() != null)
+                userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
+        } else if (user instanceof Teacher) {
+            Teacher teacher = (Teacher) user;
+            if (teacher.getCourses() != null)
+                userDetails.put(CREATED_COURSES, getCourseJSONArray(teacher.getCourses(), teacher));
+            JSONArray studentArray = new JSONArray();
+            for (int i = 0; i < teacher.getStudents().size(); i++) {
+                studentArray.add(teacher.getStudents().get(i).getID().toString());
+            }
+            userDetails.put(STUDENTS, studentArray);
+        }
         return userDetails;
     }
+
+    // ---------------------------------------------------------------------------------------------
+    // This is for the Certificate JSON arrays.
+    // ---------------------------------------------------------------------------------------------
+   
     /**
-     * Creates a CourseProgress JSON array.
-     * @param course
+     * Creates an array consisting of which course the certificate is for, who owns it, the date issued, and who issued it.
+     * @param certificates
      * @return
      */
+    private static JSONArray getCertificateDetails(Certificate certificate) {
+        JSONArray certificateDetails = new JSONArray();
+        certificateDetails.add(certificate.getCourse().getTitle()); // Course name
+        certificateDetails.add(certificate.getUser().getFullName()); // User name
+        certificateDetails.add(DateFormatting(certificate.getDate().toString())); // Date issued
+        certificateDetails.add(certificate.getTeacher().getFullName()); // Teacher name
+        return certificateDetails;
+    }
+
+    /**
+     * Creates a Certificate JSON array.
+     * @param courseProgresses
+     * @return
+     */
+    public static JSONArray getCertificateJSONArray(ArrayList<Certificate> certificates) {
+        JSONArray certificateArray = new JSONArray();
+        for (int i = 0; i < certificates.size(); i++) {
+            certificateArray.add(getCertificateDetails(certificates.get(i)));
+        }
+        return certificateArray;
+    }
+
+    // ---------------------------------------------------------------------------------------------
+    // This is for the CourseStatus JSON arrays.
+    // ---------------------------------------------------------------------------------------------
+   
+    /**
+     * Creates a JSON array of CourseStatus that holds an array consisting of the course name, progress, and grade.
+     * @param courseProgresses - ArrayList of CourseStatus objects.
+     * @return
+     */
+    private static JSONArray getCourseProgressJSONArray(ArrayList<CourseStatus> courseProgresses) {
+        JSONArray courseProgressArray = new JSONArray();
+        for (int i = 0; i < courseProgresses.size(); i++) {
+            JSONArray progressArray = new JSONArray();
+            progressArray.add(courseProgresses.get(i).getCourse().getTitle()); // Course name
+            progressArray.add(courseProgresses.get(i).getProgress()); // Course progress
+            progressArray.add(gradeFormat.format(courseProgresses.get(i).getGrade())); // Course total grade
+            courseProgressArray.add(progressArray);
+        }
+        return courseProgressArray;
+    }
+
+    // ---------------------------------------------------------------------------------------------
+    // This is for the Course JSON object, and all of its needed methods.
+    // ---------------------------------------------------------------------------------------------
+   
+    /**
+     * Creates a Course JSON object.
+     * @param courses
+     * @return
+     */
+    private static JSONArray getCourseJSONArray(ArrayList<Course> courses, Teacher teacher) {
+        JSONArray courseArray = new JSONArray();
+        for (int i = 0; i < courses.size(); i++) {
+            courseArray.add(getCourseJSON(courses.get(i), teacher));
+        }
+        return courseArray;
+    }
+
     /**
      * Creates Course JSON object.
      * 
      * @param user
      * @return
      */
-    private static JSONObject getCourseJSON(Course course) {
+    private static JSONObject getCourseJSON(Course course, Teacher teacher) {
         JSONObject courseDetails = new JSONObject();
 
         courseDetails.put(TITLE, course.getTitle());
@@ -113,14 +196,24 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(COURSE_ID, course.getID().toString());
 
+        courseDetails.put(DESCRIPTION, course.getDescription());
+
+        courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
+
+        if (teacher != null) {
+            courseDetails.put(TEACHER, teacher.getFullName());
+            courseDetails.put(EXAM, course.getAssessment().getLabel());
+            // courseDetails.put(MODULES, course.getModule. I don't know the structure of this yet.
+            return courseDetails;
+        }
+
         courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString()); // get author id
 
         // Gets the exam JSON array
         courseDetails.put(EXAM, getAssessmentJSONArray(course.getAssessment()));
 
-        courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
 
-        courseDetails.put(DESCRIPTION, course.getDescription());
+
 
         courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
 
@@ -133,9 +226,8 @@ public class DataWriter extends DataConstants {
         return courseDetails;
     }
 
-
     // ---------------------------------------------------------------------------------------------
-    // This below deals with the Student JSON object. (For the Course JSON object)
+    // This deals with the Student JSON object. (For the Course JSON object)
     // ---------------------------------------------------------------------------------------------
    
     /**
@@ -145,9 +237,9 @@ public class DataWriter extends DataConstants {
      */
     private static JSONArray getGradeJSONArray(ArrayList<CourseStatus> courseStatus) {
         JSONArray courseStatusArray = new JSONArray();
-        DecimalFormat grade_format = new DecimalFormat("#.#"); // format to 1 decimal place
+
         for (int i = 0; i < courseStatus.size(); i++) {
-            courseStatusArray.add(grade_format.format(courseStatus.get(i).getGrade()));
+            courseStatusArray.add(gradeFormat.format(courseStatus.get(i).getGrade()));
         }
         return courseStatusArray;
     }
@@ -177,7 +269,7 @@ public class DataWriter extends DataConstants {
     }
 
     // ---------------------------------------------------------------------------------------------
-    // This below deals with the TextSlide JSON object.
+    // This deals with the TextSlide JSON object.
     // ---------------------------------------------------------------------------------------------
     
     /**
@@ -206,7 +298,7 @@ public class DataWriter extends DataConstants {
     }
 
     // ---------------------------------------------------------------------------------------------
-    // This below deals with the Module JSON object.
+    // This deals with the Module JSON object.
     // ---------------------------------------------------------------------------------------------
 
     /**
@@ -236,7 +328,7 @@ public class DataWriter extends DataConstants {
     }
 
     // ---------------------------------------------------------------------------------------------
-    // This below deals with the Module JSON object.
+    // This deals with the Module JSON object.
     // ---------------------------------------------------------------------------------------------
 
     /**
@@ -358,6 +450,6 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-
+        saveUsers();
     }
 }
