@@ -7,28 +7,35 @@ public class Comment {
   private UUID postingUser;
   private int likes;
   private int dislikes;
-  private ArrayList<Comment> comments;
+  private ArrayList<Comment> replies;
 
-  public Comment(String post, UUID postingUser, ArrayList<Comment> comments) {
+  public Comment(String post, UUID postingUser, ArrayList<Comment> replies) {
     this.post = post;
     this.postingUser = postingUser;
-    this.comments = comments;
+    this.replies = replies;
   }
   // Recursively prints all comments
   public void printComments(){
     // if (user's age is 13+)
     // return null
-    for(int i = 0; i<comments.size();i++){
-      System.out.println(comments.get(i));
-      for (int j = 0; j < comments.get(i).getComments().size(); j++) {
-        comments.get(i).getComments().get(j).printComments();
+    for(int i = 0; i<replies.size();i++){
+      System.out.println(replies.get(i));
+      for (int j = 0; j < replies.get(i).getReplies().size(); j++) {
+        replies.get(i).getReplies().get(j).printComments();
       }
     }
     return;
   }
 
   public String toString() {
-    return "UUID: " + postingUser.toString() + " post: " + post;
+    String info =  "UUID: " + postingUser.toString() + " post: " + post +"\n";
+    if(replies!=null){
+      info+="replies\n";
+      for(int i = 0; i< replies.size();i++){
+        info += replies.get(i).toString();
+      }
+    }
+    return info;
   }
 
   public void viewPost() {
@@ -75,8 +82,8 @@ public class Comment {
     return dislikes;
   }
 
-  // Returns the comment's comments
-  public ArrayList<Comment> getComments() {
-    return comments;
+  // Returns the comment's repiles
+  public ArrayList<Comment> getReplies() {
+    return replies;
   }
 }
