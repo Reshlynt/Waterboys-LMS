@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 public class CourseStatus {
     private Course course;

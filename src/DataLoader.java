@@ -1,4 +1,4 @@
-
+package src;
 import java.util.ArrayList;
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -229,7 +229,7 @@ public class DataLoader extends DataConstants {
    * @param assessmentJSON
    * @param label
    * @param type
-   * @return
+   * @return an assessment object
    */
   private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
     ArrayList<Question> questions = new ArrayList<Question>();
@@ -270,7 +270,7 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-   * 
+   * Method is meant to parse a JSONArray of Modules and their info, and return an ArrayList of type module
    * @param modulesJSON
    * @return
    */

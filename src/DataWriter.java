@@ -1,4 +1,4 @@
-
+package src;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -96,15 +96,11 @@ public class DataWriter extends DataConstants {
 
         if(user instanceof Student) {
             Student student = (Student) user;
-            userDetails.put(COURSE_PROGRESS, getCourseProgressJSONArray(student.getCourseProgresses()));
-            if (student.getCertificates() != null)
-                userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
+            userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         } else if (user instanceof Teacher) {
             Teacher teacher = (Teacher) user;
-            if (teacher.getCourses() != null)
-                userDetails.put(CREATED_COURSES, getCourseJSONArray(teacher.getCourses(), teacher));
             JSONArray studentArray = new JSONArray();
-            for (int i = 0; i < teacher.getStudents().size(); i++) {
+            for (int i = 0;teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
                 studentArray.add(teacher.getStudents().get(i).getID().toString());
             }
             userDetails.put(STUDENTS, studentArray);
@@ -137,49 +133,16 @@ public class DataWriter extends DataConstants {
      */
     public static JSONArray getCertificateJSONArray(ArrayList<Certificate> certificates) {
         JSONArray certificateArray = new JSONArray();
-        for (int i = 0; i < certificates.size(); i++) {
+        for (int i = 0; certificates != null && i < certificates.size(); i++) {
             certificateArray.add(getCertificateDetails(certificates.get(i)));
         }
         return certificateArray;
     }
 
-    // ---------------------------------------------------------------------------------------------
-    // This is for the CourseStatus JSON arrays.
-    // ---------------------------------------------------------------------------------------------
-   
-    /**
-     * Creates a JSON array of CourseStatus that holds an array consisting of the course name, progress, and grade.
-     * @param courseProgresses - ArrayList of CourseStatus objects.
-     * @return
-     */
-    private static JSONArray getCourseProgressJSONArray(ArrayList<CourseStatus> courseProgresses) {
-        JSONArray courseProgressArray = new JSONArray();
-        for (int i = 0; i < courseProgresses.size(); i++) {
-            JSONArray progressArray = new JSONArray();
-            progressArray.add(courseProgresses.get(i).getCourse().getTitle()); // Course name
-            progressArray.add(courseProgresses.get(i).getProgress()); // Course progress
-            progressArray.add(gradeFormat.format(courseProgresses.get(i).getGrade())); // Course total grade
-            courseProgressArray.add(progressArray);
-        }
-        return courseProgressArray;
-    }
 
     // ---------------------------------------------------------------------------------------------
     // This is for the Course JSON object, and all of its needed methods.
     // ---------------------------------------------------------------------------------------------
-   
-    /**
-     * Creates a Course JSON object.
-     * @param courses
-     * @return
-     */
-    private static JSONArray getCourseJSONArray(ArrayList<Course> courses, Teacher teacher) {
-        JSONArray courseArray = new JSONArray();
-        for (int i = 0; i < courses.size(); i++) {
-            courseArray.add(getCourseJSON(courses.get(i), teacher));
-        }
-        return courseArray;
-    }
 
     /**
      * Creates Course JSON object.
@@ -202,7 +165,7 @@ public class DataWriter extends DataConstants {
 
         if (teacher != null) {
             courseDetails.put(TEACHER, teacher.getFullName());
-            courseDetails.put(EXAM, course.getAssessment().getLabel());
+            courseDetails.put(EXAM, course.getAssessment().getTitle());
             // courseDetails.put(MODULES, course.getModule. I don't know the structure of this yet.
             return courseDetails;
         }
@@ -321,7 +284,7 @@ public class DataWriter extends DataConstants {
      */
     private static JSONArray getCommentJSONArray(ArrayList<Comment> comments) {
         JSONArray commentArray = new JSONArray();
-        for (int i = 0; i < comments.size(); i++) {
+        for (int i = 0; comments != null && i < comments.size(); i++) {
             commentArray.add(getCommentJSON(comments.get(i)));
         }
         return commentArray;
@@ -407,21 +370,6 @@ public class DataWriter extends DataConstants {
         }
         return answerChoiceArray;
     }
-    /**
-     * Returns a date object from a string in the format: MMDDYYYY.
-     * @param dob
-     * @return
-     */
-    private static Date parseDate(String dob) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-        Date date = null;
-        try {
-            date = dateFormat.parse(dob);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
 
     /**
      * Converts the string acquired from the Date object to the format: MMDDYYYY.
@@ -451,5 +399,6 @@ public class DataWriter extends DataConstants {
 
     public static void main(String[] args) {
         saveUsers();
+        //saveCourses();
     }
 }
