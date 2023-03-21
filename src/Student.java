@@ -11,6 +11,7 @@ public class Student extends User {
 
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
+    courseProgresses = new ArrayList<CourseStatus>();
   }
 
   public void setCourseGrade(Course course, ArrayList<Long> grades) {
