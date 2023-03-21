@@ -24,7 +24,7 @@ public class Assessment extends Slide {
   }
   // Returns the question label (perhaps the question itself)
   public String getLabel() {
-    return "";
+    return label;
   }
 
   // Return the correct answers
@@ -38,7 +38,7 @@ public class Assessment extends Slide {
   }
 
   public String toString() {
-    String info = "label: " + label + " type" + type+"\n Questions: ";
+    String info = "label: " + label + " type" + type+"\n Questions: \n";
     for(int i = 0; i<questions.size();i++){
       info+=(questions.get(i)+"\n");
     }
