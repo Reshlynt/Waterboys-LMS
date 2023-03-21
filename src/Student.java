@@ -21,16 +21,15 @@ public class Student extends User {
     courseProgresses.add(newCourseStatus);
   }
 
-  public void saveCourseProgress() {
-    return;
+  public void registerCourse(Course course) {
+    // this method will add a course to the student's list of courses
+    // and add the student to the course's list of students
+    CourseStatus newCourseStatus = new CourseStatus(course, null);
+    courseProgresses.add(newCourseStatus);
   }
 
-  public void registerCourse() {
-    return;
-  }
-
-  public void makeComment() {
-    return;
+  public void makeComment(String comment) {
+    Comment.addPost(comment);
   }
 
   // Return the student's certificates

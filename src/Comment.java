@@ -38,13 +38,10 @@ public class Comment {
     }
     return info;
   }
-
-  public void viewPost() {
-    return;
-  }
-
-  public boolean commentOnPost() {
-    return true;
+  
+  public void commentOnPost() {
+    Comment comment = new Comment("comment", postingUser, null);
+    comment.addPost();
   }
 
   public boolean addPost() {
