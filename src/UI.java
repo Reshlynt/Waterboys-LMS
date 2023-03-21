@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.ArrayList;
 public class UI {
     public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
     public static final Scanner INPUT = new Scanner(System.in);
@@ -250,7 +251,16 @@ public class UI {
         WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
         WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
         WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
-        //WelcomeLine5(25, "Courses Created: " + user.getCoursesCreated());
+        ArrayList<Course> readCourses = DataLoader.getCourses();
+        System.out.println("\n");
+        WelcomeLine5(25, "Courses Created:\n");
+        for (int i = 0; i < readCourses.size(); i++) {
+            Course course = readCourses.get(i);
+            Teacher teacher = course.getAuthor();
+            if (user.getUsername().equals(teacher.getUsername())) {
+                WelcomeLine5(25, "\t" + course.getTitle());
+            }
+        }
     }
 
     private static void ViewStudentProfile(Student user) {
@@ -262,7 +272,18 @@ public class UI {
         WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
         WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
         WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
-        //WelcomeLine5(25, "Courses Created: " + user.getCoursesCreated());
+        System.out.println("\n");
+        WelcomeLine5(25, "Courses Enrolled:\n");
+        ArrayList<Course> readCourses = DataLoader.getCourses();
+        for (int i = 0; i < readCourses.size(); i++) {
+            Course course = readCourses.get(i);
+            ArrayList<Student> students = course.getStudents();
+            for (Student student : students) {
+                if (student.equals(user.getID())) {
+                    WelcomeLine5(25, "\t" + course.getTitle());
+                }
+            }
+        }
     }
     private static void Quit() {
         for (int i = 0; i < 32; i++)
