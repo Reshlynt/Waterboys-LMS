@@ -139,43 +139,10 @@ public class DataWriter extends DataConstants {
         return certificateArray;
     }
 
-    // ---------------------------------------------------------------------------------------------
-    // This is for the CourseStatus JSON arrays.
-    // ---------------------------------------------------------------------------------------------
-   
-    /**
-     * Creates a JSON array of CourseStatus that holds an array consisting of the course name, progress, and grade.
-     * @param courseProgresses - ArrayList of CourseStatus objects.
-     * @return
-     */
-    private static JSONArray getCourseProgressJSONArray(ArrayList<CourseStatus> courseProgresses) {
-        JSONArray courseProgressArray = new JSONArray();
-        for (int i = 0; i < courseProgresses.size(); i++) {
-            JSONArray progressArray = new JSONArray();
-            progressArray.add(courseProgresses.get(i).getCourse().getTitle()); // Course name
-            progressArray.add(courseProgresses.get(i).getProgress()); // Course progress
-            progressArray.add(gradeFormat.format(courseProgresses.get(i).getGrade())); // Course total grade
-            courseProgressArray.add(progressArray);
-        }
-        return courseProgressArray;
-    }
 
     // ---------------------------------------------------------------------------------------------
     // This is for the Course JSON object, and all of its needed methods.
     // ---------------------------------------------------------------------------------------------
-   
-    /**
-     * Creates a Course JSON object.
-     * @param courses
-     * @return
-     */
-    private static JSONArray getCourseJSONArray(ArrayList<Course> courses, Teacher teacher) {
-        JSONArray courseArray = new JSONArray();
-        for (int i = 0; courses != null && i < courses.size(); i++) {
-            courseArray.add(getCourseJSON(courses.get(i), teacher));
-        }
-        return courseArray;
-    }
 
     /**
      * Creates Course JSON object.
@@ -198,7 +165,7 @@ public class DataWriter extends DataConstants {
 
         if (teacher != null) {
             courseDetails.put(TEACHER, teacher.getFullName());
-            courseDetails.put(EXAM, course.getAssessment().getLabel());
+            courseDetails.put(EXAM, course.getAssessment().getTitle());
             // courseDetails.put(MODULES, course.getModule. I don't know the structure of this yet.
             return courseDetails;
         }
