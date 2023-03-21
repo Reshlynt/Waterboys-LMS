@@ -229,7 +229,7 @@ public class DataLoader extends DataConstants {
    * @param assessmentJSON
    * @param label
    * @param type
-   * @return
+   * @return an assessment object
    */
   private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
     ArrayList<Question> questions = new ArrayList<Question>();
@@ -270,8 +270,7 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-  package src; 
-  * 
+   * Method is meant to parse a JSONArray of Modules and their info, and return an ArrayList of type module
    * @param modulesJSON
    * @return
    */
