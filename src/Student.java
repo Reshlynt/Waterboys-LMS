@@ -24,8 +24,8 @@ public class Student extends User {
   public void registerCourse(Course course) {
     // this method will add a course to the student's list of courses
     // and add the student to the course's list of students
-    courseProgresses.add(new CourseStatus(course, new ArrayList<Long>()));
-    course.addStudent(this);
+    CourseStatus newCourseStatus = new CourseStatus(course, null);
+    courseProgresses.add(newCourseStatus);
   }
 
   public void makeComment(String comment) {
