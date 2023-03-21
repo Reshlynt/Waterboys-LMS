@@ -133,6 +133,11 @@ public class DataWriter extends DataConstants {
         return courseDetails;
     }
 
+
+    // ---------------------------------------------------------------------------------------------
+    // This below deals with the Student JSON object. (For the Course JSON object)
+    // ---------------------------------------------------------------------------------------------
+   
     /**
      * Creates a Grade JSON array.
      * @param courseStatus - A CourseStatus array list.
