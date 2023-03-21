@@ -1,0 +1,38 @@
+Introduction to Python
+
+Part 1 - History and General Information
+
+Python is what is considered to be a high-level, general programming language that is dynamically typed and supports a variety of programming paradigms such as procedural programming, object-oriented programming and functional programming. Originally released in 1991 by Guido van Rossum and is considered to be the most popular programming language used today and one of the easiest to teach individuals. For this course, we will discuss multiple aspects of python such as variables, logical operators, mathematical operators, conditionals, looping structures, functions, and File I/O.
+
+---------------------------------------------------------------------
+Part 2 - Variables
+
+A Variable is an alphanumeric identifier that holds values, like integers, strings of characters, and dates. When naming a variable in python, we are allowed to use uppercase and lowercase letters, digits, and underscore characters as part of the variable name. One of the restrictions is that that first character of a variable name cannot be a digit.
+
+	- age is a valid variable name
+	- AGE is a valid variable name
+	- _age is a valid variable name
+	- 7age is NOT a valid variable name
+
+In order to assign values to a variable, we use what is called the assignment operator (=) which is similar to an equal sign that we use in mathematical calculations. The following is the correct syntax for assigning values to a variable:
+
+                 variable_name = value
+      
+      example:   CSCE247 grade = 100
+
+Unlike some of the other popular programming languages, like java, this is all we need to assign values to a variable (Java requires each line to end with a semicolon to declare a command as complete).
+Deep inside the computer, everything is stored as 1s and 0s. There are combinations of these numbers that represent sequences that the computer knows to be different types of value types. There are a series of data types we are going to deal with in this course, to generalize them we will categorize them as either primitive or non-primitive data types. For now we will just concern ourselves with 
+the primitive data types, below are descriptions of each
+
+	- Integers - whole numbers such as 1, 2, 0, -1000, etc   
+         
+      - Floating point numbers - decimal numbers such as 
+        1.2, 2.3, etc    
+
+	- Strings - are character values that are tied together 
+        to form a chain of characters as one variable
+
+      - Boolean - values that represent either "true" or "false"
+
+These will be some of the most common values that you will interact with when dealing with Python at first. In our next lesson, we will
+go over logical operators.
