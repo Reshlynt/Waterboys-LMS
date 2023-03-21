@@ -22,9 +22,16 @@ public class Assessment extends Slide {
       for(int j = 0; j<questions.get(i).getAnswerChoices().size();j++){
         System.out.println("\t\t"+('a'+j)+": "+questions.get(i).getAnswerChoices().get(j));
       }
-      inputtedAnswers += ;
+      inputtedAnswers += UI.INPUT.nextLine();
       System.out.println("|\n|--------------------------------------------------------------------------------------\n");
     }
+    int numCorrect = 0;
+    for (int i = 0; i < questions.size(); i++) {
+      if (questions.get(i).getCorrectAnswer().equals(inputtedAnswers.charAt(i) + "")) {
+        numCorrect++;
+      }
+    }
+    score = (int) (numCorrect / questions.size() * 100);
     return;
   }
 
