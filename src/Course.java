@@ -28,6 +28,7 @@ public class Course {
     this.lessons = lessons;
     this.courseComments = courseComments;
     this.students = students;
+    this.exam = exam;
   }
 
   public Course(Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
@@ -126,6 +127,7 @@ public class Course {
     for (int i = 0; i < students.size(); i++) {
       info += (students.get(i) + "\n");
     }
+    info += exam.toString();
     return info;
   }
 
