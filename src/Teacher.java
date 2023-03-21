@@ -53,4 +53,9 @@ public class Teacher extends User {
             System.out.println(courses.get(i).getTitle());
         return null;
     }
+
+    // Returns the courses that the teacher has created
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 }

@@ -65,7 +65,7 @@ public class DataConstants {
   public static final String DISLIKES = "dislikes";
 
 
-  // Student Constants
+  // Student Constants (for Courses)
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
   public static final String GRADES = "grades";
@@ -80,4 +80,11 @@ public class DataConstants {
   public static final String DOB_DATE = "dateOfBirth";
   public static final String TYPE = "type";
   protected static final String USER_FILE_NAME = "./json/Users.json";
+
+  // Student User Constants
+  public static final String COURSE_PROGRESS = "courseProgress";
+  public static final String CERTIFICATES = "certificates";
+
+  // Teacher User Constants
+  public static final String TEACHER = "teacher";
 }
