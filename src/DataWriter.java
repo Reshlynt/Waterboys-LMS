@@ -97,25 +97,19 @@ public class DataWriter extends DataConstants {
         if(user instanceof Student) {
             Student student = (Student) user;
             userDetails.put(COURSE_PROGRESS, getCourseProgressJSONArray(student.getCourseProgresses()));
-            userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
+            if (student.getCertificates() != null)
+                userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         } else if (user instanceof Teacher) {
             Teacher teacher = (Teacher) user;
-            userDetails.put(CREATED_COURSES, getCourseJSONArray(teacher.getCourses()));
+            if (teacher.getCourses() != null)
+                userDetails.put(CREATED_COURSES, getCourseJSONArray(teacher.getCourses(), teacher));
+            JSONArray studentArray = new JSONArray();
+            for (int i = 0; i < teacher.getStudents().size(); i++) {
+                studentArray.add(teacher.getStudents().get(i).getID().toString());
+            }
+            userDetails.put(STUDENTS, studentArray);
         }
         return userDetails;
-    }
-
-    /**
-     * Creates a Course JSON object.
-     * @param courses
-     * @return
-     */
-    private static JSONArray getCourseJSONArray(ArrayList<Course> courses) {
-        JSONArray courseArray = new JSONArray();
-        for (int i = 0; i < courses.size(); i++) {
-            courseArray.add(getCourseJSON(courses.get(i)));
-        }
-        return courseArray;
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -175,6 +169,19 @@ public class DataWriter extends DataConstants {
     // ---------------------------------------------------------------------------------------------
    
     /**
+     * Creates a Course JSON object.
+     * @param courses
+     * @return
+     */
+    private static JSONArray getCourseJSONArray(ArrayList<Course> courses, Teacher teacher) {
+        JSONArray courseArray = new JSONArray();
+        for (int i = 0; i < courses.size(); i++) {
+            courseArray.add(getCourseJSON(courses.get(i), teacher));
+        }
+        return courseArray;
+    }
+
+    /**
      * Creates Course JSON object.
      * 
      * @param user
@@ -197,9 +204,7 @@ public class DataWriter extends DataConstants {
             courseDetails.put(TEACHER, teacher.getFullName());
             courseDetails.put(EXAM, course.getAssessment().getLabel());
             // courseDetails.put(MODULES, course.getModule. I don't know the structure of this yet.
-            
-
-            
+            return courseDetails;
         }
 
         courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString()); // get author id
@@ -445,6 +450,6 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-
+        saveUsers();
     }
 }

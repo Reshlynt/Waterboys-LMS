@@ -58,4 +58,9 @@ public class Teacher extends User {
     public ArrayList<Course> getCourses() {
         return courses;
     }
+
+    // Returns the teacher's students
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
 }

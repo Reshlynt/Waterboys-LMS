@@ -51,4 +51,9 @@ public class Student extends User {
   public String getType() {
     return "student";
   }
+
+  // Gives a student a certificate
+  public void giveCertificate(Certificate certificate) {
+    certificates.add(certificate);
+  }
 }
