@@ -46,7 +46,7 @@ public class Comment {
 
   public void addPost() {
     Comment comment = new Comment("comment", postingUser, null);
-    Course.addcourseComments(comment);
+    Course.courseComments(comment);
   }
 
   public void likeDislikePost(String entry) {
