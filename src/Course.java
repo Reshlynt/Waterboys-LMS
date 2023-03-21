@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public class Course {
   private UUID courseID;
-  // private UUID teacherID;
   private Teacher teacher;
   private String title;
   private Difficulty difficulty;
@@ -14,7 +13,6 @@ public class Course {
   private CourseType courseType;
   private ArrayList<Module> lessons;
   private ArrayList<Comment> courseComments;
-  // Ask portia if we should add Comment IDs for replying
   private ArrayList<Student> students;
 
   public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description,
@@ -46,17 +44,13 @@ public class Course {
     this.students = students;
   }
 
-  /* 
-  int minage = 13;
-
-  public boolean displayComments() {
-    if (User.getAge() < minage) {
-      return false;
-    } else {
-      return true;
-    }
+  public void addToCourse(Student student) {
+    students.add(student);
   }
-  */
+  public void addToCourseByUUID(UUID studentID) {
+    UserList userList = UserList.getInstance();
+    students.add((Student) userList.getUserByUUID(studentID));
+  }
 
   public void displaySlides() {
     for (Module lesson : lessons) {
@@ -132,6 +126,9 @@ public class Course {
     return info;
   }
 
+  public void addComment(Comment comment) {
+    courseComments.add(comment);
+  }
   // Return the course's comments
   public ArrayList<Comment> getComments() {
     return courseComments;

@@ -7,7 +7,11 @@ public class TextSlide extends Slide {
       this.contents = contents;
     }
     public void display() {
-        
+      
+        System.out.println("|\n|\t" + title + "\n|--------------------------------------------------------------------------------------\n\n");
+        System.out.println("\t\t" + contents);
+          
+        System.out.println("|\n|--------------------------------------------------------------------------------------\n");
         return;
     }
     public String toString(){

@@ -14,6 +14,7 @@ public class Question {
   }
 
   public Question() {
+    
   }
 
   public boolean createQuestion(ArrayList<String> answers, String prompt, String correctAnswer) {
