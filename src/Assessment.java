@@ -2,20 +2,21 @@ package src;
 import java.util.ArrayList;
 
 public class Assessment extends Slide {
-  private String label;
+  private String title;
   private ArrayList<Question> questions;
   private String correctAnswers;
   private String inputtedAnswers;
   private int score;
   private Type type;
 
-  public Assessment(String label, ArrayList<Question> questions, Type type) {
-    this.label = label;
+  public Assessment(String title, ArrayList<Question> questions, Type type) {
+    this.title = title;
     this.questions = questions;
     this.type = type;
   }
 
   public void display() {
+
     return;
   }
 
@@ -23,8 +24,8 @@ public class Assessment extends Slide {
     return this.score;
   }
   // Returns the question label (perhaps the question itself)
-  public String getLabel() {
-    return label;
+  public String getTitle() {
+    return title;
   }
 
   // Return the correct answers
