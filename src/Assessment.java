@@ -47,7 +47,7 @@ public class Assessment extends Slide {
   }
 
   public String toString() {
-    String info = "label: " + label + " type" + type+"\n Questions: \n";
+    String info = "title: " + title + " type" + type+"\n Questions: \n";
     for(int i = 0; i<questions.size();i++){
       info+=(questions.get(i)+"\n");
     }
