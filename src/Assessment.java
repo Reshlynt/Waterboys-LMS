@@ -38,7 +38,11 @@ public class Assessment extends Slide {
   }
 
   public String toString() {
-    return "label: " + label + " type" + type;   
+    String info = "label: " + label + " type" + type+"\n Questions: ";
+    for(int i = 0; i<questions.size();i++){
+      info+=(questions.get(i)+"\n");
+    }
+    return info;   
   }
   // Return the type of assessment
   public Type getType() {
