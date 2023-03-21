@@ -31,7 +31,11 @@ public class DataWriter extends DataConstants {
 
         // creating all the json objects
         for (int i = 0; i < all_users_list.size(); i++) {
-            jsonUsers.add(getUserJSON(all_users_list.get(i)));
+            if (all_users_list.get(i) instanceof Student)
+                jsonUsers.add(StudentModifiedUserJSON((Student) all_users_list.get(i)));
+            else
+                jsonUsers.add(TeacherModifiedUserJSON((Teacher) all_users_list.get(i)));
+            //    jsonUsers.add(getUserJSON(all_users_list.get(i)));
         }
 
         // Write JSON file
@@ -68,15 +72,41 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
     }
+    /**
+     * Creates a JSON object for a Student.
+     * @param student
+     * @return
+     */
+    private static JSONObject StudentModifiedUserJSON(Student student) {
+        JSONObject studentDetails = new JSONObject();
+        studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
+        getUserJSON(studentDetails, student);
+        return studentDetails;
 
+    }
+    /**
+     * Creates a JSON object for a Teacher.
+     * @param teacher
+     * @return
+     */
+    private static JSONObject TeacherModifiedUserJSON(Teacher teacher) {
+        JSONObject teacherDetails = new JSONObject();
+
+        JSONArray studentArray = new JSONArray();
+        for (int i = 0;teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
+            studentArray.add(teacher.getStudents().get(i).getID().toString());
+        }
+        teacherDetails.put(STUDENTS, studentArray);
+        getUserJSON(teacherDetails, teacher);
+        return teacherDetails;
+    }
     /**
      * Creates User JSON object.
      * 
      * @param user - User object.
      * @return JSON object that contains User data.
      */
-    private static JSONObject getUserJSON(User user) {
-        JSONObject userDetails = new JSONObject();
+    private static void getUserJSON(JSONObject userDetails, User user) {
 
         userDetails.put(USER_ID, user.getID().toString());
 
@@ -94,18 +124,6 @@ public class DataWriter extends DataConstants {
 
         userDetails.put(DOB_DATE, DateFormatting(user.getDOB().toString()));
 
-        if(user instanceof Student) {
-            Student student = (Student) user;
-            userDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
-        } else if (user instanceof Teacher) {
-            Teacher teacher = (Teacher) user;
-            JSONArray studentArray = new JSONArray();
-            for (int i = 0;teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
-                studentArray.add(teacher.getStudents().get(i).getID().toString());
-            }
-            userDetails.put(STUDENTS, studentArray);
-        }
-        return userDetails;
     }
 
     // ---------------------------------------------------------------------------------------------

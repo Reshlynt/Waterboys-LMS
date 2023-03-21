@@ -38,22 +38,24 @@ public class Comment {
     }
     return info;
   }
-  
-  public void commentOnPost() {
-    Comment comment = new Comment("comment", postingUser, null);
+
+  public void replyToComment() {
+    Comment comment = new Comment("comment", postingUser, replies);
     comment.addPost();
   }
 
-  public boolean addPost() {
-    return true;
+  public void addPost() {
+    Comment comment = new Comment("comment", postingUser, null);
+    Course.addcourseComments(comment);
   }
 
   public boolean likeDislikePost() {
     return true;
   }
 
-  public boolean removePost() {
-    return true;
+  // create a method that 
+  public void removePost() {
+    
   }
 
   public boolean checkAge() {
