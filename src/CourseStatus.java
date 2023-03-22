@@ -21,4 +21,7 @@ public class CourseStatus {
     public Course getCourse(){
       return this.course;
     }
+    public ArrayList<Long> getGradeList(){
+      return this.grades;
+    }
 }

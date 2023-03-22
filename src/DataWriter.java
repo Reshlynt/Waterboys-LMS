@@ -52,19 +52,17 @@ public class DataWriter extends DataConstants {
         CourseList courseList = CourseList.getInstance();
         ArrayList<Course> all_courses_list = courseList.getCourseList();
         JSONArray jsonCourses = new JSONArray();
-        JSONObject entireCourse = new JSONObject();
+
 
         // creating all the json objects
         for (int i = 0; i < all_courses_list.size(); i++) {
             jsonCourses.add(getCourseJSON(all_courses_list.get(i), null));
         }
 
-        entireCourse.put(COURSES, jsonCourses);
-
         // Write JSON file
         try (FileWriter file = new FileWriter(COURSE_FILE_NAME)) {
 
-            file.write(entireCourse.toJSONString());
+            file.write(jsonCourses.toJSONString());
             file.flush();
 
         } catch (IOException e) {
@@ -78,9 +76,12 @@ public class DataWriter extends DataConstants {
      */
     private static JSONObject StudentModifiedUserJSON(Student student) {
         JSONObject studentDetails = new JSONObject();
+        System.out.println("------------------------");
+        System.out.println("My name is " + student.getFullName());
         for (int i = 0; i < student.getCourseProgresses().size(); i++) {
             System.out.println(student.getCertificates().get(i));
         }
+        System.out.println("------------------------");
         studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         getUserJSON(studentDetails, student);
         return studentDetails;
@@ -176,6 +177,7 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(DIFFICULTY, course.getDifficulty().toString()); 
 
+        courseDetails.put(COURSE_ID, course.getID().toString());
 
         courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
 
@@ -191,16 +193,13 @@ public class DataWriter extends DataConstants {
         // Gets the exam JSON array
         courseDetails.put(EXAM, getAssessmentJSONArray(course.getAssessment()));
 
-
-
-
         courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
 
         // course comments
         courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments()));
 
         // enrolled students
-        courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents()));
+        courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents(), course));
 
         return courseDetails;
     }
@@ -214,23 +213,28 @@ public class DataWriter extends DataConstants {
      * @param courseStatus - A CourseStatus array list.
      * @return
      */
-    private static JSONArray getGradeJSONArray(ArrayList<CourseStatus> courseStatus) {
-        JSONArray courseStatusArray = new JSONArray();
-
-        for (int i = 0; i < courseStatus.size(); i++) {
-            courseStatusArray.add(courseStatus.get(i).getGrade());
+    private static JSONArray getGradeJSONArray(ArrayList<Long> grades) {
+        JSONArray gradeArray = new JSONArray();
+        for (int i = 0; i < grades.size(); i++) {
+            gradeArray.add(grades.get(i));
         }
-        return courseStatusArray;
+        return gradeArray;
     }
     /**
      * Creates a Student JSON object.
      * @param student - A Student object.
      * @return A JSON object representing a Student.
      */
-    private static JSONObject getStudentJSON(Student student) {
+    private static JSONObject getStudentJSON(Student student, Course course) {
         JSONObject studentDetails = new JSONObject();
         studentDetails.put(STUDENT_ID, student.getID().toString());
-        studentDetails.put(GRADES, getGradeJSONArray(student.getCourseProgresses()));
+        for (int i = 0; i < student.getCourseProgresses().size(); i++) {
+            if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
+                studentDetails.put(GRADES, getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
+                break;
+            }
+        }
+        
 
         return studentDetails;
     }
@@ -239,10 +243,10 @@ public class DataWriter extends DataConstants {
      * @param students - A Student array list.
      * @return A JSON array representing a Student.
      */
-    private static JSONArray getStudentJSONArray(ArrayList<Student> students) {
+    private static JSONArray getStudentJSONArray(ArrayList<Student> students, Course course) {
         JSONArray studentArray = new JSONArray();
         for (int i = 0; i < students.size(); i++) {
-            studentArray.add(getStudentJSON(students.get(i)));
+            studentArray.add(getStudentJSON(students.get(i), course));
         }
         return studentArray;
     }
@@ -379,11 +383,12 @@ public class DataWriter extends DataConstants {
      */
     private static JSONArray getAnswerChoiceJSONArray(ArrayList<String> answerChoices) {
         JSONArray answerChoiceArray = new JSONArray();
+        JSONObject answerChoiceDetails = new JSONObject();
         String[] choices = {A, B, C, D};
-        for (int i = 0; i < answerChoices.size(); i++) {
-            JSONObject answerChoiceDetails = new JSONObject();
+        for (int i = 0; i < answerChoices.size(); i++) {      
             answerChoiceDetails.put(choices[i], answerChoices.get(i));
         }
+        answerChoiceArray.add(answerChoiceDetails);
         return answerChoiceArray;
     }
 

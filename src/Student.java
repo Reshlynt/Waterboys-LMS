@@ -12,6 +12,7 @@ public class Student extends User {
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
     courseProgresses = new ArrayList<CourseStatus>();
+    certificates = new ArrayList<Certificate>();
   }
 
   public void setCourseGrade(Course course, ArrayList<Long> grades) {
@@ -54,6 +55,5 @@ public class Student extends User {
   // Gives a student a certificate
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);
-    System.out.println(certificate);
   }
 }
