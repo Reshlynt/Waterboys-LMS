@@ -164,23 +164,16 @@ public class DataWriter extends DataConstants {
      * @param user
      * @return
      */
-    private static JSONObject getCourseJSON(Course course, Teacher teacher) {
+    private static JSONObject getCourseJSON(Course course) {
         JSONObject courseDetails = new JSONObject();
 
         courseDetails.put(TITLE, course.getTitle());
 
-        courseDetails.put(DIFFICULTY, course.getDifficulty().toString()); 
+        courseDetails.put(DIFFICULTY, course.getDifficulty().toString().toUpperCase()); 
 
         courseDetails.put(COURSE_ID, course.getID().toString());
 
-        courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
-
-        if (teacher != null) {
-            courseDetails.put(TEACHER, teacher.getFullName());
-            courseDetails.put(EXAM, course.getAssessment().getTitle());
-            // courseDetails.put(MODULES, course.getModule. I don't know the structure of this yet.
-            return courseDetails;
-        }
+        courseDetails.put(COURSE_TYPE, course.getCourseType().toString().toUpperCase());
 
         courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString()); // get author id
 
@@ -413,7 +406,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        saveUsers();
-        //saveCourses();
+        //saveUsers();
+        saveCourses();
     }
 }
