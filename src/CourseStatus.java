@@ -24,4 +24,11 @@ public class CourseStatus {
     public ArrayList<Long> getGradeList(){
       return this.grades;
     }
+    public void calculateProgress(){
+      double total = 0;
+      for(int i = 0; i < grades.size(); i++){
+        total += grades.get(i);
+      }
+      progress = total / totalGrade;
+    }
 }
