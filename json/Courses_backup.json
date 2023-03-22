@@ -1,67 +1,93 @@
-{
-  "courses": [
-    {
-      "title": "Intro to JavaScript",
-      "difficulty": "BEGINNER",
-      "author": "Mr. Cole",
-      "courseType": "JAVASCRIPT",
-      "modules": [
-        {
-          "title": "For loops",
-          "slides": [
-            {
-              "title": "dsafwefew",
-              "descripton": "sdfawef"
-            }
-          ],
-          "quiz": [
-            {
-              "question": "dsfawe",
-              "answers": [
-                "dsafw",
-                "sdafwe"
-              ],
-              "corr-answer": 1
-            }
-          ],
-          "module_comments": [
-            {
-              "id": "asdfasdfasdfs",
-              "text": "adsfasdfasdfads",
-              "replies": [
-                {
-                  "id": "asdfasdfasdf1123412341234",
-                  "text": "asdfasdf;qiweurqwioerupqwer",
-                  "more_replies": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "students": [
-        {
-          "id": "",
-          "grades": [
-            5,
-            4,
-            7
-          ]
-        }
-      ],
-      "course_comments": [
-        {
-          "id": "12341i23048",
-          "text": "kasdpfjklhg",
-          "replies": [
-            {
-              "id": "478923",
-              "text": "bro chilllllllllll;qiweurqwioerupqwer",
-              "more_replies": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "title": "Intro to JavaScript",
+    "difficulty": "BEGINNER",
+    "author" : "Mr. Bro",
+    "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
+    "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
+    "courseType": "JAVASCRIPT",
+    "modules": [
+      {
+        "module_title": "Loops",
+        "slides": [
+          {
+            "slide_title": "For Loops",
+            "description": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
+          }
+        ],
+        "quiz": [
+          {
+            "question": "question 1",
+            "answer_choices": [
+              {
+                "a": "quiz answer choice 1",
+                "b": "quiz answer choice 2",
+                "c": "quiz answer choice 3",
+                "d": "quiz answer choice 4"
+              }
+            ],
+            "correct_answer": "a"
+          }
+        ],
+        "module_comments": [
+          {
+            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+            "text": "This is a module comment",
+            "replies": [
+              {
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "reply to a comment",
+                "more_replies": [
+                  {
+                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                    "text": "reply to a reply"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "students": [
+      {
+        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+        "grades": [
+          95,
+          94,
+          97
+        ]
+      }
+    ],
+    "course_comments": [
+      {
+        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+        "text": "This is a course comment",
+        "replies": [
+          {
+            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+            "text": "This is a reply to a course comment",
+            "more_replies": [{
+              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+              "text": "This is a reply to reply to a comment"
+            }]
+          }
+        ]
+      }
+    ],
+    "exam":[
+      {
+        "question": "question1",
+        "answer_choices": [
+          {
+            "a": "exam answer choice 1",
+            "b": "exam answer choice 2",
+            "c": "exam answer choice 3",
+            "d": "exam answer choice 4"
+          }
+        ],
+        "correct_answer": "a"
+      }
+    ]
+  }
+]
