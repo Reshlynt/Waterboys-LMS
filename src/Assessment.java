@@ -17,6 +17,7 @@ public class Assessment extends Slide {
 
   public void display() {
     for (int i = 0; i < questions.size(); i++) {
+      //add clear screen
       System.out.println("|\n|\t" + title + "\n|--------------------------------------------------------------------------------------\n");
       System.out.println("\t" + (i + 1) + ": " + questions.get(i).getQuestion() + "\n");
       for(int j = 0; j<questions.get(i).getAnswerChoices().size();j++){

@@ -35,6 +35,9 @@ public class Module {
     info += lessonQuiz;
     return info;
   }
+  public void addComment(Comment comment) {
+    comments.add(comment);
+  }
 
   // returns the module's title
   public String getTitle() {
