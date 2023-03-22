@@ -19,6 +19,15 @@ public class Teacher extends User {
     }
 
     public Course createCourse() {
+        System.out.println("What is the title of the course?");
+        String title = System.console().readLine();
+        System.out.println("What is the description of the course?");
+        String description = System.console().readLine();
+        System.out.println("What is the difficulty of the course?");
+        String difficulty = System.console().readLine();
+        System.out.println("What is the course type?");
+        String courseType = System.console().readLine();
+        Course new_course = new Course(this.id, this, title, difficulty, description, this, null, null, null, null, null);
         // ask for title
         // ask for description
         // ask for difficulty
