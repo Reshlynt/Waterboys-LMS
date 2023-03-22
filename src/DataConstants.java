@@ -28,6 +28,7 @@ public class DataConstants {
   public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
   protected static final String COURSE_FILE_NAME = "./json/Courses.json";
+  public static final String COURSES = "courses";
 
   // module things
   public static final String MODULE_TITLE = "module_title";

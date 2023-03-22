@@ -9,14 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Calendar;
-import java.text.DecimalFormat;
 
 @SuppressWarnings("unchecked")
 
 public class DataWriter extends DataConstants {
-
-    // Global variables
-    private static final DecimalFormat gradeFormat = new DecimalFormat("#.#"); // format to 1 decimal place
 
 
     /**
@@ -56,16 +52,19 @@ public class DataWriter extends DataConstants {
         CourseList courseList = CourseList.getInstance();
         ArrayList<Course> all_courses_list = courseList.getCourseList();
         JSONArray jsonCourses = new JSONArray();
+        JSONObject entireCourse = new JSONObject();
 
         // creating all the json objects
         for (int i = 0; i < all_courses_list.size(); i++) {
             jsonCourses.add(getCourseJSON(all_courses_list.get(i), null));
         }
 
+        entireCourse.put(COURSES, jsonCourses);
+
         // Write JSON file
         try (FileWriter file = new FileWriter(COURSE_FILE_NAME)) {
 
-            file.write(jsonCourses.toJSONString());
+            file.write(entireCourse.toJSONString());
             file.flush();
 
         } catch (IOException e) {
@@ -79,11 +78,9 @@ public class DataWriter extends DataConstants {
      */
     private static JSONObject StudentModifiedUserJSON(Student student) {
         JSONObject studentDetails = new JSONObject();
-        System.out.println("My name is " + student.getFullName());
         for (int i = 0; i < student.getCourseProgresses().size(); i++) {
             System.out.println(student.getCertificates().get(i));
         }
-        System.out.println("---------------------");
         studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         getUserJSON(studentDetails, student);
         return studentDetails;
@@ -179,9 +176,6 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(DIFFICULTY, course.getDifficulty().toString()); 
 
-        courseDetails.put(COURSE_ID, course.getID().toString());
-
-        courseDetails.put(DESCRIPTION, course.getDescription());
 
         courseDetails.put(COURSE_TYPE, course.getCourseType().toString()); // String shit
 
@@ -224,7 +218,7 @@ public class DataWriter extends DataConstants {
         JSONArray courseStatusArray = new JSONArray();
 
         for (int i = 0; i < courseStatus.size(); i++) {
-            courseStatusArray.add(gradeFormat.format(courseStatus.get(i).getGrade()));
+            courseStatusArray.add(courseStatus.get(i).getGrade());
         }
         return courseStatusArray;
     }
@@ -420,7 +414,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        saveUsers();
-        //saveCourses();
+        //saveUsers();
+        saveCourses();
     }
 }
