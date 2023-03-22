@@ -18,9 +18,8 @@ public class CourseList {
             courseList = new CourseList();
         return courseList;
     }
-    public void addCourse(Course course) {
-        courses.add(course);
-        return;
+    public boolean addCourse(Course course) {
+        return courses.add(course); 
     }
 
     public void deleteCourse(Course course) {
