@@ -138,4 +138,11 @@ public class Course {
   public ArrayList<Student> getStudents() {
     return students;
   }
+
+  public int TotalPoints(Assessment exam) {
+    int total = 0;
+    for (int i = 0; i < exam.getQuestions().size(); i++) {
+      total += exam.getQuestions().get(i).getPoints();
+    }
+  }
 }
