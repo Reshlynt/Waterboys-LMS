@@ -56,7 +56,7 @@ public class DataWriter extends DataConstants {
 
         // creating all the json objects
         for (int i = 0; i < all_courses_list.size(); i++) {
-            jsonCourses.add(getCourseJSON(all_courses_list.get(i), null));
+            jsonCourses.add(getCourseJSON(all_courses_list.get(i)));
         }
 
         // Write JSON file
@@ -183,7 +183,7 @@ public class DataWriter extends DataConstants {
         courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
 
         // course comments
-        courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments()));
+        courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments(), 1));
 
         // enrolled students
         courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents(), course));
@@ -276,11 +276,14 @@ public class DataWriter extends DataConstants {
      * @param comment - A Comment object.
      * @return A JSON object representing a Comment.
      */
-    private static JSONObject getCommentJSON(Comment comment) {
+    private static JSONObject getCommentJSON(Comment comment, int count) {
         JSONObject commentDetails = new JSONObject();
         commentDetails.put(COMMENTER_ID, comment.getPostingUser().toString());
         commentDetails.put(COMMENT_TEXT, comment.getPost());
-        commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies()));
+        if (count < 2)
+            commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies(), count + 1));
+        else if (count == 2)
+            commentDetails.put(SECOND_REPLIES, getCommentJSONArray(comment.getReplies(), count + 1));
         return commentDetails;
     }
 
@@ -289,10 +292,11 @@ public class DataWriter extends DataConstants {
      * @param comments - An array list of Comment objects.
      * @return A JSON array of Comment JSON objects.
      */
-    private static JSONArray getCommentJSONArray(ArrayList<Comment> comments) {
+    private static JSONArray getCommentJSONArray(ArrayList<Comment> comments, int count) {
+        
         JSONArray commentArray = new JSONArray();
         for (int i = 0; comments != null && i < comments.size(); i++) {
-            commentArray.add(getCommentJSON(comments.get(i)));
+            commentArray.add(getCommentJSON(comments.get(i), count));
         }
         return commentArray;
     }
@@ -314,7 +318,7 @@ public class DataWriter extends DataConstants {
         moduleDetails.put(SLIDES, getTextSlideJSONArray(module.getSlides()));
 
         // comments
-        moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments()));
+        moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments(), 1));
 
         moduleDetails.put(QUIZ, getAssessmentJSONArray(module.getQuiz()));;
         return moduleDetails;
@@ -406,7 +410,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        //saveUsers();
+        // saveUsers();
         saveCourses();
     }
 }
