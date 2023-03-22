@@ -1,7 +1,7 @@
 package src;
 import java.util.ArrayList;
 
-public class Assessment extends Slide {
+public class Assessment implements Slide {
   private String title;
   private ArrayList<Question> questions;
   private String correctAnswers;
