@@ -76,12 +76,6 @@ public class DataWriter extends DataConstants {
      */
     private static JSONObject StudentModifiedUserJSON(Student student) {
         JSONObject studentDetails = new JSONObject();
-        System.out.println("------------------------");
-        System.out.println("My name is " + student.getFullName());
-        for (int i = 0; i < student.getCourseProgresses().size(); i++) {
-            System.out.println(student.getCertificates().get(i));
-        }
-        System.out.println("------------------------");
         studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
         getUserJSON(studentDetails, student);
         return studentDetails;
@@ -419,7 +413,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        //saveUsers();
-        saveCourses();
+        saveUsers();
+        //saveCourses();
     }
 }
