@@ -1,5 +1,5 @@
 package src;
-public class TextSlide extends Slide {
+public class TextSlide implements Slide {
     private String title;
     private String contents;
     public TextSlide(String title, String contents){
