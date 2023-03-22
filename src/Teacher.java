@@ -19,7 +19,15 @@ public class Teacher extends User {
     }
 
     public Course createCourse() {
-        return new Course();
+        // ask for title
+        // ask for description
+        // ask for difficulty
+        // ask for course type
+        // go through modules one by one asking for each slide - save to ArrayList of slides
+        // at end of each module, create a quiz and ask if they want to add another module
+        // at end of course, go through quiz process but for exam
+
+        return null;
     }
     public boolean addToCourse(String userName) {
         
