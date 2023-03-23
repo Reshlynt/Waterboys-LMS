@@ -30,8 +30,8 @@ public class Course {
     this.exam = exam;
   }
 
-  public Course(Teacher teacher, String title, Difficulty difficulty, String description, Teacher author,
-      Assessment exam, CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
+  public Course(Teacher teacher, String title, Difficulty difficulty, String description,
+      Assessment exam, CourseType courseType, ArrayList<Module> lessons,
       ArrayList<Student> students) {
     this.courseID = UUID.randomUUID();
     this.teacher = teacher;
@@ -40,7 +40,6 @@ public class Course {
     this.description = description;
     this.courseType = courseType;
     this.lessons = lessons;
-    this.courseComments = courseComments;
     this.students = students;
   }
 

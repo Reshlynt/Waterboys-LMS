@@ -59,4 +59,8 @@ public class Module {
     return lessonQuiz;
   }
 
+  public void addSlide(TextSlide slide) {
+    slides.add(slide);
+  }
+
 }

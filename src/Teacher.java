@@ -25,9 +25,37 @@ public class Teacher extends User {
         String description = System.console().readLine();
         System.out.println("What is the difficulty of the course?");
         String difficulty = System.console().readLine();
-        System.out.println("What is the course type?");
-        String courseType = System.console().readLine();
-        Course new_course = new Course(this.id, this, title, difficulty, description, this, null, null, null, null, null);
+        System.out.println("What is the course type? JavaScript or Python?");
+        String response = "";
+        CourseType courseType = null;
+        do {
+            response = System.console().readLine();
+            response.toLowerCase()
+            if (response.equals("javascript")) {
+                courseType = CourseType.JAVASCRIPT;
+            } else if (response.equals("python")) {
+                courseType = CourseType.PYTHON;
+            } else {
+                System.out.println("Please enter JavaScript or Python");
+            }
+        } while (!System.console().readLine().equals("JavaScript") && !System.console().readLine().equals("Python"));
+
+        // Lesson creator:
+        ArrayList<Module> lessons = new ArrayList<Module>();
+        boolean addAnotherModule = true;
+        boolean addAnotherLesson = true;
+        System.out.println("What is the title of the module?");
+            String moduleTitle = System.console().readLine();
+            System.out.println("What do you want to print on the first slide of the module?");
+            lessons.get(0).
+
+        while (addAnotherModule) {
+            System.out.println("What is the title of the module?");
+            String moduleTitle = System.console().readLine();
+            System.out.println("What do you want to print on the first slide of the module?");
+        }
+
+        Course new_course = new Course(this, title, difficulty, description, null, courseType, null, null);
         return new_course;
         // ask for title
         // ask for description
@@ -61,7 +89,19 @@ public class Teacher extends User {
             String title = (String) courseJSONObject.get("title");
             Difficulty difficulty = (Difficulty) courseJSONObject.get("difficulty");
             String description = (String) courseJSONObject.get("description");
-            Course new_course = new Course(courseID, teacher, title, null, description, teacher, null, null, null, null, null);
+            Assessment exam = (Assessment) courseJSONObject.get("exam");
+            CourseType courseType = (CourseType) courseJSONObject.get("courseType");
+            // TODO get ArrayList instance variables
+            ArrayList<Module> lessons = new ArrayList<Module>();
+            for (int j = 0; j < courseJSONObject.get("lessons").size(); j++) {
+                
+            }
+
+            ArrayList<Module> lessons = (ArrayList<Module>) courseJSONObject.get("lessons");
+            ArrayList<Comment> courseComments = (ArrayList<Comment>) courseJSONObject.get("courseComments");
+            ArrayList<Student> students = (ArrayList<Student>) courseJSONObject.get("students");
+
+            Course new_course = new Course(courseID, teacher, title, difficulty, description, exam, courseType, lessons, courseComments, students);
             this.courses.add(new_course);
         }
         courses.toString();
