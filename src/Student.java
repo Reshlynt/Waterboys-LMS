@@ -15,9 +15,9 @@ public class Student extends User {
     certificates = new ArrayList<Certificate>();
   }
 
-  public void setCourseGrade(Course course, ArrayList<Double> grades, boolean completed) {
+  public void setCourseProgress(Course course, ArrayList<Double> grades, boolean completed) {
     // this method will get an array list of grades, which signify the grades for a
-    // specific class(module quiz/exam grades
+    // specific class (module quiz/exam grades
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
     newCourseStatus.setCompletion(completed);
     courseProgresses.add(newCourseStatus);
