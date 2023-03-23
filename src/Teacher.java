@@ -43,25 +43,33 @@ public class Teacher extends User {
         // Lesson creator:
         ArrayList<Module> lessons = new ArrayList<Module>();
         boolean addAnotherModule = true;
-        boolean  = true;
-        boolean 
-        // Create module loop
-        System.out.println("What is the title of the module?");
-            String moduleTitle = System.console().readLine();
-                // Create slide loop
-                System.out.println("What do you want to title the first slide of the module?");
-                String slideTitle = System.console().readLine();
-                System.out.println("What do you want to print on the first slide of the module?");
-                String slideContents = System.console().readLine();
-                TextSlide tSlide = new TextSlide(slideTitle, slideContents);
-                ArrayList<Slide> slides = new ArrayList<Slide>();
-                slides.add(tSlide);
-                Module aModule = new Module (moduleTitle, slides);
+        boolean addAnotherSlide = true;
+        
+        
 
         while (addAnotherModule) {
-            System.out.println("What is the title of the module?");
-            moduleTitle = System.console().readLine();
-            System.out.println("What do you want to print on the first slide of the module?");
+        System.out.println("What is the title of the module?");
+        String moduleTitle = System.console().readLine();
+        ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
+            // Create slide loop
+            while (addAnotherSlide) {
+                System.out.println("What do you want to title the slide?");
+                String slideTitle = System.console().readLine();
+                System.out.println("What do you want to print on the slide?");
+                String slideContents = System.console().readLine();
+                TextSlide tSlide = new TextSlide(slideTitle, slideContents);
+                slides.add(tSlide);
+                System.out.println("Do you want to add another slide? (Y/N)");
+                String addSlide = System.console().readLine();
+                addSlide.toUpperCase();
+                if (response.equals("N")) {
+                    addAnotherSlide = false;
+                }
+            }
+
+
+            Module aModule = new Module (moduleTitle, slides);
+                
         }
 
         Course new_course = new Course(this, title, difficulty, description, null, courseType, null, null);
@@ -75,6 +83,25 @@ public class Teacher extends User {
         // at end of course, go through quiz process but for exam
 
         return null;
+    }
+    public Assessment makeQuiz() {
+        System.out.println("What is the title of the assessment?");
+        String title = System.console().readLine();
+        System.out.println("What is the description of the assessment?");
+        String description = System.console().readLine();
+        for (int i = 0; i < 5; i++) {
+            Question new_question = new Question();
+            System.out.println("What is the question?");
+            String question = System.console().readLine();
+            System.out.println("What is the answer?");
+            String answer = System.console().readLine();
+            Question new_question = new Question(question, answer);
+        }
+    }
+    public Assessment makeExam() {
+        System.out.println("What is the title of the assessment?");
+        String title = System.console().readLine();
+        System.out.println("What is the description of the assessment?");
     }
     public boolean addToCourse(String userName) {
         

@@ -17,8 +17,7 @@ import java.util.Calendar;
  * 
  * @author Scott Do (Reshlynt)
  * @author Waterboys
- * @version 3/22/2023
- * 
+ * @version 1.0
  */
 @SuppressWarnings("unchecked")
 public class DataWriter extends DataConstants {
@@ -145,7 +144,7 @@ public class DataWriter extends DataConstants {
      * @param grades - An array list of Long values representing grades.
      * @return A JSON array that contains all the grades.
      */
-    private static JSONArray getGradeJSONArray(ArrayList<Long> grades) {
+    private static JSONArray getGradeJSONArray(ArrayList<Double> grades) {
         JSONArray gradeArray = new JSONArray();
         for (int i = 0; i < grades.size(); i++) {
             gradeArray.add(grades.get(i));
@@ -362,7 +361,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        //saveUsers();
-        // saveCourses();
+        // saveUsers();
+        saveCourses();
     }
 }
