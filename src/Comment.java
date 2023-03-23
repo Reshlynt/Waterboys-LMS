@@ -61,10 +61,6 @@ public class Comment {
     }
   }
 
-  public void removePost() {
-
-  }
-
   // returns the comment's post
   public String getPost() {
     return post;
