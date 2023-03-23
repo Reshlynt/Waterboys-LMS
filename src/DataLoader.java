@@ -45,11 +45,6 @@ public class DataLoader extends DataConstants {
         String password = (String) userJSON.get(PASSWORD);
         Date dateOfBirth = parseDate((String) userJSON.get(DOB_DATE));
         String userType = (String) userJSON.get(TYPE);
-        // JSONArray createdCourses = (JSONArray) userJSONObject.get(CREATED_COURSES);
-        // TODO: read in the certificate/student info from JSON
-        JSONArray certificatesJSON = (JSONArray) userJSON.get(CERTIFICATES);
-        ArrayList<Certificate> certificates = getCertificates(certificatesJSON);
-
         if (userType.equalsIgnoreCase("student"))
           users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
         else if (userType.equalsIgnoreCase("teacher"))
@@ -101,7 +96,7 @@ public class DataLoader extends DataConstants {
         // where each hashmap has 1 student and 1 arraylist of grades. getStudents
         // extracts the students arraylist from the arraylist of hashmaps
         JSONArray studentsJSON = (JSONArray) courseJSON.get(STUDENTS);
-        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudentGrades(studentsJSON);
+        ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps = readStudentGrades(studentsJSON);
         ArrayList<Student> students = getStudents(gradeMaps);
 
         // course comments will be a JSONArray, readComments parses and returns an array
@@ -335,15 +330,15 @@ public class DataLoader extends DataConstants {
    *         a singular student
    *         and their ArrayList of Grades
    */
-  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudentGrades(JSONArray studentsJSON) {
+  private static ArrayList<HashMap<Student, ArrayList<Double>>> readStudentGrades(JSONArray studentsJSON) {
     // to return
-    ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = new ArrayList<HashMap<Student, ArrayList<Long>>>();
+    ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps = new ArrayList<HashMap<Student, ArrayList<Double>>>();
 
     // for loop iterates through all of the students
     for (int i = 0; i < studentsJSON.size(); i++) {
 
       // creates a particular HashMap(student is the key, grades are the value)
-      HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
+      HashMap<Student, ArrayList<Double>> gradeMap = new HashMap<Student, ArrayList<Double>>();
 
       // particular student
       JSONObject studentJSONObject = (JSONObject) studentsJSON.get(i);
@@ -353,14 +348,21 @@ public class DataLoader extends DataConstants {
       UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
       Student student = (Student) UserList.getInstance().getUserByUUID(studentID);
 
+      boolean completed = (Boolean) studentJSONObject.get(COMPLETED);
+
       // grades is an array list of longs
       JSONArray gradesJSON = (JSONArray) studentJSONObject.get(GRADES);
-      ArrayList<Long> grades = new ArrayList<Long>();
+      ArrayList<Double> grades = new ArrayList<Double>();
 
       // goes through all of the grades and appends to the array list
       for (int j = 0; j < gradesJSON.size(); j++)
-        grades.add((Long) gradesJSON.get(j));
+        grades.add((Double) gradesJSON.get(j));
 
+      // if the course is completed there is a value of 1 added to the end
+      // this is not the best or cleanest way to do this, however, given the timeline
+      // we figured this would be the best way to store it
+      if (completed)
+        grades.add(Double.valueOf(1));
       // adds the student and grades to the HashMap, then adds the HashMap to the
       // array list
       gradeMap.put(student, grades);
@@ -379,16 +381,16 @@ public class DataLoader extends DataConstants {
    *                  and their ArrayList of Grades
    * @return ArrayList of type student
    */
-  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
+  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps) {
     ArrayList<Student> students = new ArrayList<Student>();// to return
 
     // method goes through all of the hashmaps
     for (int i = 0; i < gradeMaps.size(); i++) {
       // gets the particular hashmap
-      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(i);
+      HashMap<Student, ArrayList<Double>> gradeMap = gradeMaps.get(i);
 
       // 1 iteration for loop, adds the key of the hashmap to the arraylist
-      for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet())
+      for (Map.Entry<Student, ArrayList<Double>> set : gradeMap.entrySet())
         students.add(set.getKey());
     }
     return students;
@@ -405,7 +407,7 @@ public class DataLoader extends DataConstants {
    *                  and their ArrayList of Grades
    */
   private static void setCourseGrades(Course course, ArrayList<Student> students,
-      ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
+      ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps) {
     // goes through all of the students
     for (int i = 0; i < students.size(); i++) {
       // particular student(gets it from the UserList to prevent duplicate instances)
@@ -413,30 +415,16 @@ public class DataLoader extends DataConstants {
 
       // .get(h) get the particular HashMap from the ArrayList of HashMaps, and
       // .get(ListedStudent) hashes using the student as the key
-      ArrayList<Long> particularGrades = gradeMaps.get(i).get(listedStudent);
+      ArrayList<Double> particularGrades = gradeMaps.get(i).get(listedStudent);
 
+      int sizeOfGrades = particularGrades.size();
+      // checking if the last element of the array list is Double value 1, which means
+      // the course is completed
+      boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
       // calls setCourseGrade method which updates the students grade for the
       // particular course
-      listedStudent.setCourseGrade(course, particularGrades);
+      listedStudent.setCourseProgress(course, particularGrades, completed);
     }
-  }
-
-  private static ArrayList<Certificate> getCertificates(JSONArray certificatesJSON) {
-    ArrayList<Certificate> certificates = new ArrayList<Certificate>();
-    for (int i = 0; i < certificatesJSON.size(); i++) {
-      JSONArray certificateJSON = (JSONArray) certificatesJSON.get(i);
-      // [0] = course name
-      // TODO, change getCourseByKeyword return type
-
-      // 4 pieces of info in a certificate: courseName, student name, date as a
-      // string, teacher name
-      // to make a certificate, we need a Course, a User, a Date, and a Teacher
-      // how to get a course using course name, a student using their name, and a
-      // teacher using teacher name
-      // date as a string as easy
-      //
-    }
-    return certificates;
   }
 
   public static void main(String[] args) {
