@@ -138,6 +138,13 @@ public class Course {
     return students;
   }
 
+  public int totalPossible() {
+    int total = 0;
+    total += this.lessons.size();
+    total += this.exam.getQuestions().size();
+    return total;
+  }
+
   public int TotalPoints(Assessment exam) {
     int total = 0;
     for (int i = 0; i < exam.getQuestions().size(); i++) {

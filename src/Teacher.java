@@ -30,7 +30,7 @@ public class Teacher extends User {
         CourseType courseType = null;
         do {
             response = System.console().readLine();
-            response.toLowerCase()
+            response.toLowerCase();
             if (response.equals("javascript")) {
                 courseType = CourseType.JAVASCRIPT;
             } else if (response.equals("python")) {
@@ -47,7 +47,7 @@ public class Teacher extends User {
         System.out.println("What is the title of the module?");
             String moduleTitle = System.console().readLine();
             System.out.println("What do you want to print on the first slide of the module?");
-            lessons.get(0).
+            
 
         while (addAnotherModule) {
             System.out.println("What is the title of the module?");
@@ -91,7 +91,7 @@ public class Teacher extends User {
             String description = (String) courseJSONObject.get("description");
             Assessment exam = (Assessment) courseJSONObject.get("exam");
             CourseType courseType = (CourseType) courseJSONObject.get("courseType");
-            // TODO get ArrayList instance variables
+            // TODO: get ArrayList instance variables
             ArrayList<Module> lessons = new ArrayList<Module>();
             for (int j = 0; j < courseJSONObject.get("lessons").size(); j++) {
                 
