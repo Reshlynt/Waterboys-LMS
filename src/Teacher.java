@@ -43,18 +43,20 @@ public class Teacher extends User {
         // Lesson creator:
         ArrayList<Module> lessons = new ArrayList<Module>();
         boolean addAnotherModule = true;
-        boolean addAnotherLesson = true;
+        boolean  = true;
+        boolean 
+        // Create module loop
         System.out.println("What is the title of the module?");
             String moduleTitle = System.console().readLine();
-            System.out.println("What do you want to title the first slide of the module?");
-            String slideTitle = System.console().readLine();
-            System.out.println("What do you want to print on the first slide of the module?");
-            String slideContents = System.console().readLine();
-            TextSlide tSlide = new TextSlide(slideTitle, slideContents);
-            ArrayList<Slide> slides = new ArrayList<Slide>();
-            slides.add(tSlide);
-            Module aModule = new Module (moduleTitle, slides)
-            ;
+                // Create slide loop
+                System.out.println("What do you want to title the first slide of the module?");
+                String slideTitle = System.console().readLine();
+                System.out.println("What do you want to print on the first slide of the module?");
+                String slideContents = System.console().readLine();
+                TextSlide tSlide = new TextSlide(slideTitle, slideContents);
+                ArrayList<Slide> slides = new ArrayList<Slide>();
+                slides.add(tSlide);
+                Module aModule = new Module (moduleTitle, slides);
 
         while (addAnotherModule) {
             System.out.println("What is the title of the module?");

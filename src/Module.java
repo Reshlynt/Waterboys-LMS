@@ -3,17 +3,17 @@ import java.util.ArrayList;
 
 public class Module {
   private String title;
-  private ArrayList<Slide> slides;
+  private ArrayList<TextSlide> slides;
   private ArrayList<Comment> comments;
   private Assessment lessonQuiz;
 
-  public Module(String title, ArrayList<Slide> slides, ArrayList<Comment> comments, Assessment lessonQuiz) {
+  public Module(String title, ArrayList<TextSlide> slides, ArrayList<Comment> comments, Assessment lessonQuiz) {
     this.title = title;
     this.slides = slides;
     this.comments = comments;
     this.lessonQuiz = lessonQuiz;
   }
-  public Module(String title, ArrayList<Slide> slides) {
+  public Module(String title, ArrayList<TextSlide> slides) {
     this.title = title;
     this.slides = slides;
   }
