@@ -29,7 +29,7 @@ public class Comment {
   }
 
   public String toString() {
-    String info =  "UUID: " + postingUser.toString() + " post: " + post +"\n";
+    String info = +CID+ " UUID: " + postingUser.toString() + " post: " + post + "\n";
     if(replies!=null){
       info+="replies\n";
       for(int i = 0; i< replies.size();i++){
@@ -41,12 +41,15 @@ public class Comment {
 
   public void replyToComment() {
     Comment comment = new Comment("comment", postingUser, replies);
+    replies.add(comment);
+    CID += .1;
     comment.addPost();
   }
 
   public void addPost() {
     Comment comment = new Comment("comment", postingUser, null);
-    Course.addComment(comment);
+    CID += 1;
+    comment.addPost();
   }
 
   public void likeDislikePost(String entry) {
@@ -58,9 +61,8 @@ public class Comment {
     }
   }
 
-  // create a method that 
   public void removePost() {
-    
+
   }
 
   // returns the comment's post
