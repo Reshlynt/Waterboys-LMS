@@ -46,7 +46,9 @@ public class DataLoader extends DataConstants {
         Date dateOfBirth = parseDate((String) userJSON.get(DOB_DATE));
         String userType = (String) userJSON.get(TYPE);
         // JSONArray createdCourses = (JSONArray) userJSONObject.get(CREATED_COURSES);
-        // TODO: read in the certificate/course progress info from JSON
+        // TODO: read in the certificate/student info from JSON
+        JSONArray certificatesJSON = (JSONArray) userJSON.get(CERTIFICATES);
+        ArrayList<Certificate> certificates = getCertificates(certificatesJSON);
 
         if (userType.equalsIgnoreCase("student"))
           users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
@@ -417,6 +419,26 @@ public class DataLoader extends DataConstants {
       // particular course
       listedStudent.setCourseGrade(course, particularGrades);
     }
+  }
+
+  private static ArrayList<Certificate> getCertificates(JSONArray certificatesJSON) {
+    ArrayList<Certificate> certificates = new ArrayList<Certificate>();
+    for (int i = 0; i < certificatesJSON.size(); i++) {
+      JSONArray certificateJSON = (JSONArray) certificatesJSON.get(i);
+      //[0] = course name 
+      //TODO, change getCourseByKeyword return type
+      
+      for (int j = 0; j < certificateJSON.size(); j++) {
+        // 4 pieces of info in a certificate: courseName, student name, date as a
+        // string, teacher name
+        // to make a certificate, we need a Course, a User, a Date, and a Teacher
+        // how to get a course using course name, a student using their name, and a
+        // teacher using teacher name
+        // date as a string as easy
+        //
+      }
+    }
+    return certificates;
   }
 
   public static void main(String[] args) {
