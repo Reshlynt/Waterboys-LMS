@@ -133,6 +133,12 @@ public class Course {
     return courseComments;
   }
 
+  public void removeComment(Comment comment) {
+    while (courseComments.contains(comment)) {
+      courseComments.remove(comment);
+    }
+  }
+
   // Return the course's students
   public ArrayList<Student> getStudents() {
     return students;
@@ -145,10 +151,11 @@ public class Course {
     return total;
   }
 
-  public int TotalPoints(Assessment exam) {
+  public int getPercentage(Assessment exam) {
     int total = 0;
     for (int i = 0; i < exam.getQuestions().size(); i++) {
       total += exam.getQuestions().get(i).getPoints();
     }
+    return total / exam.getQuestions().size();
   }
 }
