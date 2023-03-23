@@ -1,4 +1,5 @@
 package src;
+
 public class DataConstants {
   // Assessment Constants
   /*
@@ -33,7 +34,6 @@ public class DataConstants {
   // module things
   public static final String MODULE_TITLE = "module_title";
 
-
   // Slides
   public static final String SLIDES = "slides";
   public static final String SLIDE_TITLE = "slide_title";
@@ -65,10 +65,10 @@ public class DataConstants {
   public static final String LIKES = "likes";
   public static final String DISLIKES = "dislikes";
 
-
   // Student Constants (for Courses)
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
+  public static final String COMPLETED = "completed";
   public static final String GRADES = "grades";
 
   // User Constants

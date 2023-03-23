@@ -13,6 +13,10 @@ public class Module {
     this.comments = comments;
     this.lessonQuiz = lessonQuiz;
   }
+  public Module(String title, ArrayList<TextSlide> slides) {
+    this.title = title;
+    this.slides = slides;
+  }
 
   public void displaySlides() {
     for (int i = 0; i < slides.size(); i++) {

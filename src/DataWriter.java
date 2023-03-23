@@ -33,10 +33,7 @@ public class DataWriter extends DataConstants {
         JSONArray jsonUsers = new JSONArray();
 
         for (int i = 0; i < all_users_list.size(); i++) {
-            if (all_users_list.get(i) instanceof Student)
-                jsonUsers.add(StudentModifiedUserJSON((Student) all_users_list.get(i)));
-            else
-                jsonUsers.add(TeacherModifiedUserJSON((Teacher) all_users_list.get(i)));
+            jsonUsers.add(getUserJSON(all_users_list.get(i)));
         }
         try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
 
@@ -72,37 +69,6 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    /**
-     * Creates a JSON object for a Student.
-     * 
-     * @param student - Student object.
-     * @return Student JSON object.
-     */
-    private static JSONObject StudentModifiedUserJSON(Student student) {
-        JSONObject studentDetails = new JSONObject();
-        studentDetails.put(CERTIFICATES, getCertificateJSONArray(student.getCertificates()));
-        getUserJSON(studentDetails, student);
-        return studentDetails;
-
-    }
-
-    /**
-     * Creates a JSON object for a Teacher.
-     * 
-     * @param teacher - Teacher object.
-     * @return Teacher JSON object.
-     */
-    private static JSONObject TeacherModifiedUserJSON(Teacher teacher) {
-        JSONObject teacherDetails = new JSONObject();
-
-        JSONArray studentArray = new JSONArray();
-        for (int i = 0; teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
-            studentArray.add(teacher.getStudents().get(i).getID().toString());
-        }
-        teacherDetails.put(STUDENTS, studentArray);
-        getUserJSON(teacherDetails, teacher);
-        return teacherDetails;
-    }
 
     /**
      * Creates User JSON object. All User objects have these attributes: ID, Username, First Name,
@@ -112,7 +78,9 @@ public class DataWriter extends DataConstants {
      * @param user - A reference to a User object.
      * @return JSON object that contains User data.
      */
-    private static void getUserJSON(JSONObject userDetails, User user) {
+    private static JSONObject getUserJSON(User user) {
+        JSONObject userDetails = new JSONObject();
+
         userDetails.put(USER_ID, user.getID().toString());
 
         userDetails.put(USER_NAME, user.getUsername());
@@ -129,42 +97,9 @@ public class DataWriter extends DataConstants {
 
         userDetails.put(DOB_DATE, DateFormatting(user.getDOB().toString()));
 
+        return userDetails;
+
     }
-
-    // ---------------------------------------------------------------------------------------------
-    // This is for the Certificate JSON arrays.
-    // ---------------------------------------------------------------------------------------------
-
-    /**
-     * Creates an array consisting of which course the certificate is for, who owns it, the date
-     * issued, and who issued it.
-     * 
-     * @param certificate - Certificate object.
-     * @return A JSON array that contains the certificate details noted above.
-     */
-    private static JSONArray getCertificateDetails(Certificate certificate) {
-        JSONArray certificateDetails = new JSONArray();
-        certificateDetails.add(certificate.getCourse().getTitle()); // Course name
-        certificateDetails.add(certificate.getUser().getFullName()); // User name
-        certificateDetails.add(DateFormatting(certificate.getDate().toString())); // Date issued
-        certificateDetails.add(certificate.getTeacher().getFullName()); // Teacher name
-        return certificateDetails;
-    }
-
-    /**
-     * Creates a Certificate JSON array.
-     * 
-     * @param certificates - An array list of Certificate objects.
-     * @return A JSON array that contains all the certificate details.
-     */
-    public static JSONArray getCertificateJSONArray(ArrayList<Certificate> certificates) {
-        JSONArray certificateArray = new JSONArray();
-        for (int i = 0; certificates != null && i < certificates.size(); i++) {
-            certificateArray.add(getCertificateDetails(certificates.get(i)));
-        }
-        return certificateArray;
-    }
-
 
     // ---------------------------------------------------------------------------------------------
     // This is for the Course JSON object, and all of its needed methods.
@@ -228,6 +163,7 @@ public class DataWriter extends DataConstants {
     private static JSONObject getStudentJSON(Student student, Course course) {
         JSONObject studentDetails = new JSONObject();
         studentDetails.put(STUDENT_ID, student.getID().toString());
+        studentDetails.put(COMPLETED, student.hasCertificate(course));
         for (int i = 0; i < student.getCourseProgresses().size(); i++) {
             if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
                 studentDetails.put(GRADES,
@@ -408,8 +344,6 @@ public class DataWriter extends DataConstants {
      * @return - String in the format: MMDDYYYY.
      */
     private static String DateFormatting(String date) {
-        // date = MonthToInt(date.substring(4, 7)) + date.substring(8, 10) + date.substring(24, 28);
-        // Assume that date is the date returned by calling toSting() on a Date object.
         Date month;
         try {
             month = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(date.substring(4, 7));
@@ -428,7 +362,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        // saveUsers();
-        saveCourses();
+        //saveUsers();
+        // saveCourses();
     }
 }

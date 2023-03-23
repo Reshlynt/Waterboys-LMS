@@ -56,4 +56,15 @@ public class Student extends User {
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);
   }
+
+  // Given a course, returns a boolean whether the student has a certificate for
+  // that course
+  public boolean hasCertificate(Course course) {
+    for (Certificate certificate : certificates) {
+      if (certificate.getCourse().equals(course)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
