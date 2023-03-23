@@ -8,7 +8,6 @@ import java.util.List;
 public class Student extends User {
   private ArrayList<CourseStatus> courseProgresses;// list of courses and respective grades
   private ArrayList<Certificate> certificates;
-  private boolean completed = false;
 
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
@@ -16,10 +15,11 @@ public class Student extends User {
     certificates = new ArrayList<Certificate>();
   }
 
-  public void setCourseGrade(Course course, ArrayList<Double> grades) {
+  public void setCourseProgress(Course course, ArrayList<Double> grades, boolean completed) {
     // this method will get an array list of grades, which signify the grades for a
-    // specific class(module quiz/exam grades
+    // specific class (module quiz/exam grades
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
+    newCourseStatus.setCompletion(completed);
     courseProgresses.add(newCourseStatus);
   }
 
@@ -67,8 +67,5 @@ public class Student extends User {
       }
     }
     return false;
-  }
-  public void setCompleted(boolean completed){
-    this.completed = completed;
   }
 }

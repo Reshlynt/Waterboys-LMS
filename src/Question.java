@@ -52,4 +52,11 @@ public class Question {
   public String getQuestionContent() {
     return question;
   }
+
+  public int getPoints() {
+    int points = 0;
+    // find the number of correct answers and add that to points
+    return points;
+
+  }
 }

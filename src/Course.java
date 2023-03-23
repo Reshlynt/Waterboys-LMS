@@ -152,10 +152,12 @@ public class Course {
   }
 
   public int getPercentage(Assessment exam) {
-    int total = 0;
+    int totalcorrect = 0;
     for (int i = 0; i < exam.getQuestions().size(); i++) {
-      total += exam.getQuestions().get(i).getPoints();
+      totalcorrect += exam.getQuestions().get(i).getPoints();
     }
-    return total / exam.getQuestions().size();
+    return totalcorrect / exam.getQuestions().size();
   }
+  // Print the cumulative grade on the course certificate? Must get 100% on the exam to pass
+  // Should there be a minimum grade to pass the quizzes?
 }
