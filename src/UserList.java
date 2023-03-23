@@ -61,4 +61,10 @@ public class UserList {
     return null;
   }
 
+  public void Print(){
+    for(int i = 0; i<userList.size();i++){
+      System.out.println(userList.get(i));
+    }
+  }
+
 }
