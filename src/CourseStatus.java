@@ -5,6 +5,7 @@ public class CourseStatus {
     private double progress;
     private Long totalGrade;
     private ArrayList<Double> grades;
+    private boolean completed;
     public CourseStatus(Course course, ArrayList<Double> grades){
       this.course = course;
       this.grades = grades;
@@ -30,5 +31,8 @@ public class CourseStatus {
         total += grades.get(i);
       }
       progress = total / totalGrade;
+    }
+    public void setCompletion(boolean completed){
+      this.completed = completed;
     }
 }
