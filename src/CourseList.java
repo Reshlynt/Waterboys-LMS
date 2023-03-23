@@ -1,7 +1,7 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.zip.GZIPOutputStream;
+//import java.util.zip.GZIPOutputStream;
 
 public class CourseList {
   private static CourseList courseList;
