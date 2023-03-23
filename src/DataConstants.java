@@ -1,4 +1,5 @@
 package src;
+
 public class DataConstants {
   // Assessment Constants
   /*
@@ -29,11 +30,9 @@ public class DataConstants {
   public static final String MODULES = "modules";
   protected static final String COURSE_FILE_NAME = "./json/Courses.json";
   public static final String COURSES = "courses";
-  public static final String COMPLETED = "completed";
 
   // module things
   public static final String MODULE_TITLE = "module_title";
-
 
   // Slides
   public static final String SLIDES = "slides";
@@ -66,10 +65,10 @@ public class DataConstants {
   public static final String LIKES = "likes";
   public static final String DISLIKES = "dislikes";
 
-
   // Student Constants (for Courses)
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
+  public static final String COMPLETED = "completed";
   public static final String GRADES = "grades";
 
   // User Constants
