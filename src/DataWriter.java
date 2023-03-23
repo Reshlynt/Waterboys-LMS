@@ -17,8 +17,7 @@ import java.util.Calendar;
  * 
  * @author Scott Do (Reshlynt)
  * @author Waterboys
- * @version 3/22/2023
- * 
+ * @version 1.0
  */
 @SuppressWarnings("unchecked")
 public class DataWriter extends DataConstants {
@@ -362,7 +361,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        //saveUsers();
-        // saveCourses();
+        // saveUsers();
+        saveCourses();
     }
 }
