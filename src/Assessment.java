@@ -13,6 +13,11 @@ public class Assessment implements Slide {
     this.title = title;
     this.questions = questions;
   }
+  public Assessment(String title, ArrayList<Question> questions, Type type) {
+    this.title = title;
+    this.questions = questions;
+    this.type = type;
+  }
 
   public void display() {
     for (int i = 0; i < questions.size(); i++) {
