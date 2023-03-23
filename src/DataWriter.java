@@ -22,10 +22,10 @@ import java.util.Calendar;
  */
 @SuppressWarnings("unchecked")
 public class DataWriter extends DataConstants {
+
     /**
-     * Saves all User objects to a JSON file - Users.json
-     * It will look through the singleton array list in
-     * UserList and save all the data to the JSON file.
+     * Saves all User objects to a JSON file - Users.json It will look through the singleton array
+     * list in UserList and save all the data to the JSON file.
      */
     public static void saveUsers() {
         UserList userList = UserList.getInstance();
@@ -38,8 +38,6 @@ public class DataWriter extends DataConstants {
             else
                 jsonUsers.add(TeacherModifiedUserJSON((Teacher) all_users_list.get(i)));
         }
-
-        // Write JSON file
         try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
 
             file.write(jsonUsers.toJSONString());
@@ -51,7 +49,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * Course saving.
+     * The method takes all Course objects from the singleton array list in CourseList and saves it
+     * to a JSON file - Courses.json.
      */
     public static void saveCourses() {
         CourseList courseList = CourseList.getInstance();
@@ -66,10 +65,8 @@ public class DataWriter extends DataConstants {
 
         // Write JSON file
         try (FileWriter file = new FileWriter(COURSE_FILE_NAME)) {
-
             file.write(jsonCourses.toJSONString());
             file.flush();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,8 +75,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a JSON object for a Student.
      * 
-     * @param student
-     * @return
+     * @param student - Student object.
+     * @return Student JSON object.
      */
     private static JSONObject StudentModifiedUserJSON(Student student) {
         JSONObject studentDetails = new JSONObject();
@@ -92,8 +89,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a JSON object for a Teacher.
      * 
-     * @param teacher
-     * @return
+     * @param teacher - Teacher object.
+     * @return Teacher JSON object.
      */
     private static JSONObject TeacherModifiedUserJSON(Teacher teacher) {
         JSONObject teacherDetails = new JSONObject();
@@ -108,9 +105,11 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * Creates User JSON object.
+     * Creates User JSON object. All User objects have these attributes: ID, Username, First Name,
+     * Last Name, Email, Password, Type, and Date Of Birth.
      * 
-     * @param user - User object.
+     * @param userDetails - A reference to a JSON object that holds either Teacher or Student data.
+     * @param user - A reference to a User object.
      * @return JSON object that contains User data.
      */
     private static void getUserJSON(JSONObject userDetails, User user) {
@@ -140,8 +139,8 @@ public class DataWriter extends DataConstants {
      * Creates an array consisting of which course the certificate is for, who owns it, the date
      * issued, and who issued it.
      * 
-     * @param certificates
-     * @return
+     * @param certificate - Certificate object.
+     * @return A JSON array that contains the certificate details noted above.
      */
     private static JSONArray getCertificateDetails(Certificate certificate) {
         JSONArray certificateDetails = new JSONArray();
@@ -155,8 +154,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a Certificate JSON array.
      * 
-     * @param courseProgresses
-     * @return
+     * @param certificates - An array list of Certificate objects.
+     * @return A JSON array that contains all the certificate details.
      */
     public static JSONArray getCertificateJSONArray(ArrayList<Certificate> certificates) {
         JSONArray certificateArray = new JSONArray();
@@ -172,10 +171,10 @@ public class DataWriter extends DataConstants {
     // ---------------------------------------------------------------------------------------------
 
     /**
-     * Creates Course JSON object.
+     * Creates a Course JSON object.
      * 
-     * @param user
-     * @return
+     * @param course - Course object.
+     * @return Course JSON object.
      */
     private static JSONObject getCourseJSON(Course course) {
         JSONObject courseDetails = new JSONObject();
@@ -188,17 +187,14 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(COURSE_TYPE, course.getCourseType().toString().toUpperCase());
 
-        courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString()); // get author id
+        courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString());
 
-        // Gets the exam JSON array
         courseDetails.put(EXAM, getAssessmentJSONArray(course.getAssessment()));
 
-        courseDetails.put(MODULES, getModuleJSONArray(course.getModules())); // JSON array
+        courseDetails.put(MODULES, getModuleJSONArray(course.getModules()));
 
-        // course comments
         courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments(), 1));
 
-        // enrolled students
         courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents(), course));
 
         return courseDetails;
@@ -211,8 +207,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a Grade JSON array.
      * 
-     * @param courseStatus - A CourseStatus array list.
-     * @return
+     * @param grades - An array list of Long values representing grades.
+     * @return A JSON array that contains all the grades.
      */
     private static JSONArray getGradeJSONArray(ArrayList<Long> grades) {
         JSONArray gradeArray = new JSONArray();
@@ -226,6 +222,7 @@ public class DataWriter extends DataConstants {
      * Creates a Student JSON object.
      * 
      * @param student - A Student object.
+     * @param course - A Course object. This is used to get the grades for the student.
      * @return A JSON object representing a Student.
      */
     private static JSONObject getStudentJSON(Student student, Course course) {
@@ -238,13 +235,11 @@ public class DataWriter extends DataConstants {
                 break;
             }
         }
-
-
         return studentDetails;
     }
 
     /**
-     * Creates a Student JSON array. (For the Course JSON object)
+     * Creates a Student JSON array.
      * 
      * @param students - A Student array list.
      * @return A JSON array representing a Student.
@@ -264,8 +259,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a TextSlide Json object.
      * 
-     * @param textSlides
-     * @return
+     * @param textSlides - A TextSlide object.
+     * @return A JSON object representing a TextSlide.
      */
     private static JSONObject getTextSlideJSON(TextSlide textSlide) {
         JSONObject textSlideDetails = new JSONObject();
@@ -338,13 +333,8 @@ public class DataWriter extends DataConstants {
     private static JSONObject getModuleJSON(Module module) {
         JSONObject moduleDetails = new JSONObject();
         moduleDetails.put(MODULE_TITLE, module.getTitle());
-
-        // slides
         moduleDetails.put(SLIDES, getTextSlideJSONArray(module.getSlides()));
-
-        // comments
         moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments(), 1));
-
         moduleDetails.put(QUIZ, getAssessmentJSONArray(module.getQuiz()));;
         return moduleDetails;
     }
@@ -363,7 +353,7 @@ public class DataWriter extends DataConstants {
     }
 
     // ---------------------------------------------------------------------------------------------
-    // This below deals with the Assessment JSON object.
+    // This deals with the Assessment JSON object.
     // ---------------------------------------------------------------------------------------------
 
     /**
@@ -397,8 +387,8 @@ public class DataWriter extends DataConstants {
     /**
      * Creates an JSON array of answer choices.
      * 
-     * @param
-     * @return
+     * @param answerChoices - A list of answer choices.
+     * @return A JSON array representing the answer choices.
      */
     private static JSONArray getAnswerChoiceJSONArray(ArrayList<String> answerChoices) {
         JSONArray answerChoiceArray = new JSONArray();
