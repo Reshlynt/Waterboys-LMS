@@ -1,4 +1,5 @@
 package src;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,28 +11,32 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Calendar;
 
+/**
+ * The class takes all data from array lists stored in UserList and CourseList and saves it to their
+ * respective JSON files - Users.json and Courses.json.
+ * 
+ * @author Scott Do (Reshlynt)
+ * @author Waterboys
+ * @version 3/22/2023
+ * 
+ */
 @SuppressWarnings("unchecked")
-
 public class DataWriter extends DataConstants {
-
-
     /**
      * Saves all User objects to a JSON file - Users.json
+     * It will look through the singleton array list in
+     * UserList and save all the data to the JSON file.
      */
     public static void saveUsers() {
-        // (1) Get your UserList list and establish your
-        // JSON array object.
         UserList userList = UserList.getInstance();
         ArrayList<User> all_users_list = userList.getUserList();
         JSONArray jsonUsers = new JSONArray();
 
-        // creating all the json objects
         for (int i = 0; i < all_users_list.size(); i++) {
             if (all_users_list.get(i) instanceof Student)
                 jsonUsers.add(StudentModifiedUserJSON((Student) all_users_list.get(i)));
             else
                 jsonUsers.add(TeacherModifiedUserJSON((Teacher) all_users_list.get(i)));
-            //    jsonUsers.add(getUserJSON(all_users_list.get(i)));
         }
 
         // Write JSON file
@@ -69,8 +74,10 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
     }
+
     /**
      * Creates a JSON object for a Student.
+     * 
      * @param student
      * @return
      */
@@ -81,8 +88,10 @@ public class DataWriter extends DataConstants {
         return studentDetails;
 
     }
+
     /**
      * Creates a JSON object for a Teacher.
+     * 
      * @param teacher
      * @return
      */
@@ -90,13 +99,14 @@ public class DataWriter extends DataConstants {
         JSONObject teacherDetails = new JSONObject();
 
         JSONArray studentArray = new JSONArray();
-        for (int i = 0;teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
+        for (int i = 0; teacher.getStudents() != null && i < teacher.getStudents().size(); i++) {
             studentArray.add(teacher.getStudents().get(i).getID().toString());
         }
         teacherDetails.put(STUDENTS, studentArray);
         getUserJSON(teacherDetails, teacher);
         return teacherDetails;
     }
+
     /**
      * Creates User JSON object.
      * 
@@ -125,9 +135,11 @@ public class DataWriter extends DataConstants {
     // ---------------------------------------------------------------------------------------------
     // This is for the Certificate JSON arrays.
     // ---------------------------------------------------------------------------------------------
-   
+
     /**
-     * Creates an array consisting of which course the certificate is for, who owns it, the date issued, and who issued it.
+     * Creates an array consisting of which course the certificate is for, who owns it, the date
+     * issued, and who issued it.
+     * 
      * @param certificates
      * @return
      */
@@ -142,6 +154,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Creates a Certificate JSON array.
+     * 
      * @param courseProgresses
      * @return
      */
@@ -169,7 +182,7 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(TITLE, course.getTitle());
 
-        courseDetails.put(DIFFICULTY, course.getDifficulty().toString().toUpperCase()); 
+        courseDetails.put(DIFFICULTY, course.getDifficulty().toString().toUpperCase());
 
         courseDetails.put(COURSE_ID, course.getID().toString());
 
@@ -194,9 +207,10 @@ public class DataWriter extends DataConstants {
     // ---------------------------------------------------------------------------------------------
     // This deals with the Student JSON object. (For the Course JSON object)
     // ---------------------------------------------------------------------------------------------
-   
+
     /**
      * Creates a Grade JSON array.
+     * 
      * @param courseStatus - A CourseStatus array list.
      * @return
      */
@@ -207,8 +221,10 @@ public class DataWriter extends DataConstants {
         }
         return gradeArray;
     }
+
     /**
      * Creates a Student JSON object.
+     * 
      * @param student - A Student object.
      * @return A JSON object representing a Student.
      */
@@ -217,16 +233,19 @@ public class DataWriter extends DataConstants {
         studentDetails.put(STUDENT_ID, student.getID().toString());
         for (int i = 0; i < student.getCourseProgresses().size(); i++) {
             if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
-                studentDetails.put(GRADES, getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
+                studentDetails.put(GRADES,
+                        getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
                 break;
             }
         }
-        
+
 
         return studentDetails;
     }
+
     /**
      * Creates a Student JSON array. (For the Course JSON object)
+     * 
      * @param students - A Student array list.
      * @return A JSON array representing a Student.
      */
@@ -241,9 +260,10 @@ public class DataWriter extends DataConstants {
     // ---------------------------------------------------------------------------------------------
     // This deals with the TextSlide JSON object.
     // ---------------------------------------------------------------------------------------------
-    
+
     /**
      * Creates a TextSlide Json object.
+     * 
      * @param textSlides
      * @return
      */
@@ -256,6 +276,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Create a JSON array of TextSlide objects.
+     * 
      * @param textSlide - A Text Slide array list.
      * @return A JSON array representing a Text Slide.
      */
@@ -273,6 +294,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Create a JSON objects for Comment objects.
+     * 
      * @param comment - A Comment object.
      * @return A JSON object representing a Comment.
      */
@@ -283,17 +305,19 @@ public class DataWriter extends DataConstants {
         if (count < 2)
             commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies(), count + 1));
         else if (count == 2)
-            commentDetails.put(SECOND_REPLIES, getCommentJSONArray(comment.getReplies(), count + 1));
+            commentDetails.put(SECOND_REPLIES,
+                    getCommentJSONArray(comment.getReplies(), count + 1));
         return commentDetails;
     }
 
     /**
      * Create a JSON array of Comment JSON objects.
+     * 
      * @param comments - An array list of Comment objects.
      * @return A JSON array of Comment JSON objects.
      */
     private static JSONArray getCommentJSONArray(ArrayList<Comment> comments, int count) {
-        
+
         JSONArray commentArray = new JSONArray();
         for (int i = 0; comments != null && i < comments.size(); i++) {
             commentArray.add(getCommentJSON(comments.get(i), count));
@@ -307,6 +331,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Creates a Module JSON object.
+     * 
      * @param module - A module object.
      * @return A JSON object of a module.
      */
@@ -326,6 +351,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Creates a Module JSON Array. This will store Module JSON objects.
+     * 
      * @param module - An array list of modules.
      * @return A JSON array of modules.
      */
@@ -367,16 +393,18 @@ public class DataWriter extends DataConstants {
         questionDetails.put(CORRECT_ANSWER, questions.getCorrectAnswer());
         return questionDetails;
     }
+
     /**
      * Creates an JSON array of answer choices.
-     * @param 
+     * 
+     * @param
      * @return
      */
     private static JSONArray getAnswerChoiceJSONArray(ArrayList<String> answerChoices) {
         JSONArray answerChoiceArray = new JSONArray();
         JSONObject answerChoiceDetails = new JSONObject();
         String[] choices = {A, B, C, D};
-        for (int i = 0; i < answerChoices.size(); i++) {      
+        for (int i = 0; i < answerChoices.size(); i++) {
             answerChoiceDetails.put(choices[i], answerChoices.get(i));
         }
         answerChoiceArray.add(answerChoiceDetails);
