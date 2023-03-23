@@ -13,7 +13,7 @@ public class CourseList {
 
   /**
    * 
-   * @return Instance of the UserList object.
+   * @return Instance of the CourseList object.
    */
   public static CourseList getInstance() {
     if (courseList == null)
