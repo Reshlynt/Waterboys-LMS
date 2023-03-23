@@ -16,7 +16,7 @@ public class Student extends User {
     certificates = new ArrayList<Certificate>();
   }
 
-  public void setCourseGrade(Course course, ArrayList<Long> grades) {
+  public void setCourseGrade(Course course, ArrayList<Double> grades) {
     // this method will get an array list of grades, which signify the grades for a
     // specific class(module quiz/exam grades
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
