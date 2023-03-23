@@ -10,11 +10,14 @@ public class Question {
   public Question(String question, ArrayList<String> answerChoices, String correctAnswer) {
     this.question = question;
     this.answerChoices = answerChoices;
-    this.correctAnswer = correctAnswer;
+    this.correctAnswer = "a";
+    if(correctAnswer.equals("b") || correctAnswer.equals("c") || correctAnswer.equals("d")){
+      this.correctAnswer = correctAnswer;
+    }
   }
 
   public Question() {
-    
+
   }
 
   public boolean createQuestion(ArrayList<String> answers, String prompt, String correctAnswer) {

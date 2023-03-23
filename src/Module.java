@@ -63,6 +63,10 @@ public class Module {
     return lessonQuiz;
   }
 
+  public void setLessonQuiz(Assessment lessonQuiz) {
+    this.lessonQuiz = lessonQuiz;
+  }
+
   public void addSlide(TextSlide slide) {
     slides.add(slide);
   }

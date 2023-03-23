@@ -9,10 +9,9 @@ public class Assessment implements Slide {
   private int score;
   private Type type;
 
-  public Assessment(String title, ArrayList<Question> questions, Type type) {
+  public Assessment(String title, ArrayList<Question> questions) {
     this.title = title;
     this.questions = questions;
-    this.type = type;
   }
 
   public void display() {
@@ -36,6 +35,7 @@ public class Assessment implements Slide {
     score = numCorrect;
     return;
   }
+
 
   public int getScore() {
     return this.score;
@@ -66,6 +66,11 @@ public class Assessment implements Slide {
   public Type getType() {
     return type;
   }
+
+  public void setType(Type type) {
+    this.type = type;
+  }
+
   // Return the questions
   public ArrayList<Question> getQuestions() {
     return questions;
