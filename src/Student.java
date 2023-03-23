@@ -8,6 +8,7 @@ import java.util.List;
 public class Student extends User {
   private ArrayList<CourseStatus> courseProgresses;// list of courses and respective grades
   private ArrayList<Certificate> certificates;
+  private boolean completed = false;
 
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
@@ -66,5 +67,8 @@ public class Student extends User {
       }
     }
     return false;
+  }
+  public void setCompleted(boolean completed){
+    this.completed = completed;
   }
 }
