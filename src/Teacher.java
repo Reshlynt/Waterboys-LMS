@@ -51,7 +51,7 @@ public class Teacher extends User {
 
         while (addAnotherModule) {
             System.out.println("What is the title of the module?");
-            String moduleTitle = System.console().readLine();
+            moduleTitle = System.console().readLine();
             System.out.println("What do you want to print on the first slide of the module?");
         }
 

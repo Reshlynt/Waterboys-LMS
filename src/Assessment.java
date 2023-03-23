@@ -17,7 +17,8 @@ public class Assessment implements Slide {
 
   public void display() {
     for (int i = 0; i < questions.size(); i++) {
-      //add clear screen
+      System.out.print("\033[H\033[2J");
+      System.out.flush();
       System.out.println("|\n|\t" + title + "\n|--------------------------------------------------------------------------------------\n");
       System.out.println("\t" + (i + 1) + ": " + questions.get(i).getQuestion() + "\n");
       for(int j = 0; j<questions.get(i).getAnswerChoices().size();j++){
@@ -32,7 +33,7 @@ public class Assessment implements Slide {
         numCorrect++;
       }
     }
-    score = (int) (numCorrect / questions.size() * 100);
+    score = numCorrect;
     return;
   }
 
