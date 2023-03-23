@@ -425,18 +425,16 @@ public class DataLoader extends DataConstants {
     ArrayList<Certificate> certificates = new ArrayList<Certificate>();
     for (int i = 0; i < certificatesJSON.size(); i++) {
       JSONArray certificateJSON = (JSONArray) certificatesJSON.get(i);
-      //[0] = course name 
-      //TODO, change getCourseByKeyword return type
-      
-      for (int j = 0; j < certificateJSON.size(); j++) {
-        // 4 pieces of info in a certificate: courseName, student name, date as a
-        // string, teacher name
-        // to make a certificate, we need a Course, a User, a Date, and a Teacher
-        // how to get a course using course name, a student using their name, and a
-        // teacher using teacher name
-        // date as a string as easy
-        //
-      }
+      // [0] = course name
+      // TODO, change getCourseByKeyword return type
+
+      // 4 pieces of info in a certificate: courseName, student name, date as a
+      // string, teacher name
+      // to make a certificate, we need a Course, a User, a Date, and a Teacher
+      // how to get a course using course name, a student using their name, and a
+      // teacher using teacher name
+      // date as a string as easy
+      //
     }
     return certificates;
   }
