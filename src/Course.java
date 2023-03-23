@@ -158,4 +158,6 @@ public class Course {
     }
     return totalcorrect / exam.getQuestions().size();
   }
+  // Print the cumulative grade on the course certificate? Must get 100% on the exam to pass
+  // Should there be a minimum grade to pass the quizzes?
 }
