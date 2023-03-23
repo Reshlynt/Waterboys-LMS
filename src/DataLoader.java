@@ -23,7 +23,7 @@ public class DataLoader extends DataConstants {
     ArrayList<User> users = new ArrayList<User>();// to be returned
     try {
       // opens json file, and intializes json parser(which will interpret the info)
-      FileReader reader = new FileReader("json/Users.json");
+      FileReader reader = new FileReader(USER_FILE_NAME);
       JSONParser parser = new JSONParser();
 
       // creates a json array of all of the users in the json file
@@ -68,7 +68,7 @@ public class DataLoader extends DataConstants {
     ArrayList<Course> courses = new ArrayList<Course>();// to be returned
     try {
       // opens json file, and intializes json parser(which will interpret the info)
-      FileReader reader = new FileReader("json/Courses.json");
+      FileReader reader = new FileReader(COURSE_FILE_NAME);
       JSONParser parser = new JSONParser();
 
       // creates a json array of all of the courses in the json file
