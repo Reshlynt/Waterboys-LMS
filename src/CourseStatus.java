@@ -35,4 +35,7 @@ public class CourseStatus {
     public void setCompletion(boolean completed){
       this.completed = completed;
     }
+    public boolean getCompletion(){
+      return completed;
+    }
 }
