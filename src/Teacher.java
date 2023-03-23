@@ -21,16 +21,23 @@ public class Teacher extends User {
     public Course createCourse() {
         System.out.println("What is the title of the course?");
         String title = System.console().readLine();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         System.out.println("What is the description of the course?");
         String description = System.console().readLine();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         System.out.println("What is the difficulty of the course?");
         String difficulty = System.console().readLine();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         System.out.println("What is the course type? JavaScript or Python?");
-        String response = "";
         CourseType courseType = null;
         do {
-            response = System.console().readLine();
+            String response = System.console().readLine();
             response.toLowerCase();
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             if (response.equals("javascript")) {
                 courseType = CourseType.JAVASCRIPT;
             } else if (response.equals("python")) {
@@ -44,8 +51,6 @@ public class Teacher extends User {
         ArrayList<Module> lessons = new ArrayList<Module>();
         boolean addAnotherModule = true;
         boolean addAnotherSlide = true;
-        
-        
 
         while (addAnotherModule) {
         System.out.println("What is the title of the module?");
@@ -62,15 +67,28 @@ public class Teacher extends User {
                 System.out.println("Do you want to add another slide? (Y/N)");
                 String addSlide = System.console().readLine();
                 addSlide.toUpperCase();
-                if (response.equals("N")) {
+                if (addSlide.equals("N")) {
                     addAnotherSlide = false;
                 }
             }
-
-
             Module aModule = new Module (moduleTitle, slides);
-                
+            System.out.println("Create the quiz for this module: ");
+            Assessment moduleQuiz = makeAssessment();
+            moduleQuiz.setType(Type.QUIZ);
+            aModule.setLessonQuiz(moduleQuiz);
+            System.out.println("Add another module? (Y/N)");
+            String addModule = System.console().readLine();
+            addModule.toUpperCase();
+            if (addModule.equals("N")) {
+                addAnotherModule = false;
+            } 
         }
+        // Create exam
+        System.out.println("Create the exam for this course: ");
+        Assessment exam = makeAssessment();
+        exam.setType(Type.EXAM);
+        System.out.println("Do you want to add any students? (Y/N)");
+        String addStudents = System.console().readLine();
 
         Course new_course = new Course(this, title, difficulty, description, null, courseType, null, null);
         return new_course;
@@ -84,24 +102,32 @@ public class Teacher extends User {
 
         return null;
     }
-    public Assessment makeQuiz() {
+    public Assessment makeAssessment() {
         System.out.println("What is the title of the assessment?");
         String title = System.console().readLine();
         System.out.println("What is the description of the assessment?");
-        String description = System.console().readLine();
-        for (int i = 0; i < 5; i++) {
-            Question new_question = new Question();
+        ArrayList<Question> questions = new ArrayList<Question>();
+        boolean addMoreQuestions = true;
+        while (addMoreQuestions) {
             System.out.println("What is the question?");
             String question = System.console().readLine();
-            System.out.println("What is the answer?");
-            String answer = System.console().readLine();
-            Question new_question = new Question(question, answer);
+            System.out.println("Enter 4 answer choices, pressing enter after each:");
+            ArrayList<String> answers = new ArrayList<String>();
+            for (int i = 0; i < 4; i++) {
+                answers.add(System.console().readLine());
+            }
+            System.out.println("What is the correct answer? a, b, c, or d?");
+            String correctAnswer = System.console().readLine();
+            correctAnswer.toLowerCase();
+            questions.add( new Question(question, answers, correctAnswer));
+            System.out.println("Do you want to add another question? (Y/N)");
+            String addQuestion = System.console().readLine();
+            addQuestion.toUpperCase();
+            if (addQuestion.equals("N")) {
+                addMoreQuestions = false;
+            }
         }
-    }
-    public Assessment makeExam() {
-        System.out.println("What is the title of the assessment?");
-        String title = System.console().readLine();
-        System.out.println("What is the description of the assessment?");
+        return new Assessment(title, questions);
     }
     public boolean addToCourse(String userName) {
         
