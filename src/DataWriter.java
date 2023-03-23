@@ -141,7 +141,7 @@ public class DataWriter extends DataConstants {
     /**
      * Creates a Grade JSON array.
      * 
-     * @param grades - An array list of Long values representing grades.
+     * @param grades - An array list of Double values representing grades.
      * @return A JSON array that contains all the grades.
      */
     private static JSONArray getGradeJSONArray(ArrayList<Double> grades) {

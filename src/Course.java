@@ -152,10 +152,10 @@ public class Course {
   }
 
   public int getPercentage(Assessment exam) {
-    int total = 0;
+    int totalcorrect = 0;
     for (int i = 0; i < exam.getQuestions().size(); i++) {
-      total += exam.getQuestions().get(i).getPoints();
+      totalcorrect += exam.getQuestions().get(i).getPoints();
     }
-    return total / exam.getQuestions().size();
+    return totalcorrect / exam.getQuestions().size();
   }
 }
