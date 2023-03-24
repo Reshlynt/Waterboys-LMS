@@ -1,110 +1,26 @@
 [
   {
-    "title": "Intro to JavaScript",
-    "difficulty": "BEGINNER",
-    "author" : "Mr. Bro",
-    "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
-    "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
-    "courseType": "JAVASCRIPT",
-    "modules": [
-      {
-        "module_title": "Loops",
-        "slides": [
-          {
-            "slide_title": "For Loops",
-            "description": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
-          }
-        ],
-        "quiz": [
-          {
-            "question": "question 1",
-            "answer_choices": [
-              {
-                "a": "quiz answer choice 1",
-                "b": "quiz answer choice 2",
-                "c": "quiz answer choice 3",
-                "d": "quiz answer choice 4"
-              }
-            ],
-            "correct_answer": "a"
-          }
-        ],
-        "module_comments": [
-          {
-            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "This is a module comment",
-            "replies": [
-              {
-                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                "text": "reply to a comment",
-                "more_replies": [
-                  {
-                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                    "text": "reply to a reply"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "students": [
-      {
-        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-        "completed": true,
-        "grades": [
-          95.0,
-          94.0,
-          97.0
-        ]
-      }
-    ],
-    "course_comments": [
-      {
-        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-        "text": "This is a course comment",
-        "replies": [
-          {
-            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "This is a reply to a course comment",
-            "more_replies": [{
-              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-              "text": "This is a reply to reply to a comment"
-            }]
-          }
-        ]
-      }
-    ],
-    "exam":[
-      {
-        "question": "question1",
-        "answer_choices": [
-          {
-            "a": "exam answer choice 1",
-            "b": "exam answer choice 2",
-            "c": "exam answer choice 3",
-            "d": "exam answer choice 4"
-          }
-        ],
-        "correct_answer": "a"
-      }
-    ]
-  },
-  {
     "title": "Introduction to Python",
     "difficulty": "BEGINNER",
-    "author" : "Mr. Cole",
+    "author": "Mr. Cole",
     "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
     "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
     "courseType": "PYTHON",
     "modules": [
       {
-        "module_title": "Loops",
+        "module_title": "Course Introduction",
         "slides": [
           {
-            "slide_title": "For Loops",
-            "description": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
+            "slide_title": "Course Introduction and Welcome",
+            "description": "Welcome to Introduction to Python course!\n\nIn this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n\nThroughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input/output, object-oriented programming, and working with libraries and modules.\n\nWe will also explore more advanced topics such as working with APIs, web scraping, and automation.\n\nBy the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n"
+          },
+          {
+            "slide_title": "Course Objectives and Outcomes",
+            "description": "In this section, we will discuss the objectives and outcomes of the course.\n\nBy the end of this course, you will be able to write Python programs to solve various real-world problems.\n\nYou will have a good understanding of the Python programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.\n\nYou will also be able to work with files, APIs, web scraping, and automation using Python.\n\nOverall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a Python programmer.\n"
+          },
+          {
+            "slide_title": "Course Outline",
+            "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python"
           }
         ],
         "quiz": [
@@ -160,15 +76,17 @@
           {
             "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
             "text": "This is a reply to a course comment",
-            "more_replies": [{
-              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-              "text": "This is a reply to reply to a comment"
-            }]
+            "more_replies": [
+              {
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a reply to reply to a comment"
+              }
+            ]
           }
         ]
       }
     ],
-    "exam":[
+    "exam": [
       {
         "question": "question1",
         "answer_choices": [

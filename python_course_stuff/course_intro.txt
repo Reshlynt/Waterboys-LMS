@@ -1,0 +1,10 @@
+Course Introduction and Welcome:\n 
+Welcome to Introduction to Python course!\n
+In this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n
+Throughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input/output, object-oriented programming, and working with libraries and modules.\n
+We will also explore more advanced topics such as working with APIs, web scraping, and automation. By the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n
+
+Course Objectives and Outcomes: The learning objectives and expected outcomes of the course, including what students will be able to do or know after completing the course.
+done
+
+Course Outline and Schedule: A detailed breakdown of the course outline and schedule, including the number of lessons, duration of each lesson, and any assignments or assessments.
