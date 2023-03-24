@@ -23,36 +23,30 @@
             "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python"
           }
         ],
-        "quiz": [
+        "quiz": [],
+        "module_comments": []
+      },
+      {
+        "module_title": "Getting Started with Python",
+        "slides": [
           {
-            "question": "question 1",
-            "answer_choices": [
-              {
-                "a": "quiz answer choice 1",
-                "b": "quiz answer choice 2",
-                "c": "quiz answer choice 3",
-                "d": "quiz answer choice 4"
-              }
-            ],
-            "correct_answer": "a"
+            "slide_title": "Another Introduction to Python",
+            "description": "Python is what is considered to be a high-level, general interpreted programming language that is dynamically typed and supports a variety of programming paradigms such as procedural programming, object-oriented programming and functional programming.\nOriginally released in 1991 by Guido van Rossum and is considered to be the most popular programming language used today and one of the easiest to teach individuals."
+          },
+          {
+            "slide_title": "Setting up your Python Workspace",
+            "description": "Setting up your workspace will require a few steps:\n First download/setup the anaconda installer following this link: https://www.anaconda.com/products/distribution\nMake sure that you have the bin in your global computer file path.\nMake sure you have Jupyter Notebook installed, and you will be able to open jupyter-notebook by typing 'jupyter-notebook' in your command terminal(cmd or terminal).\n Jupyter will be our primary mode of coding in python, so it is imperative that you install it properly and ask me if you have any questions https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#:~:text=1.,will%20contain%20all%20the%20notebooks.\n"
           }
         ],
-        "module_comments": [
+        "quiz": [],
+        "module_comments": []
+      },
+      {
+        "module_title": "Variables and Data Types",
+        "slides": [
           {
-            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "This is a module comment",
-            "replies": [
-              {
-                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                "text": "reply to a comment",
-                "more_replies": [
-                  {
-                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                    "text": "reply to a reply"
-                  }
-                ]
-              }
-            ]
+            "slide_title": "Working with Variables",
+            "slide_description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true/false value to it, such as hasFriends = false\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord."
           }
         ]
       }

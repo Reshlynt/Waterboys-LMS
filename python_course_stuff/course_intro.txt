@@ -8,3 +8,7 @@ Course Objectives and Outcomes: The learning objectives and expected outcomes of
 done
 
 Course Outline and Schedule: A detailed breakdown of the course outline and schedule, including the number of lessons, duration of each lesson, and any assignments or assessments.
+
+
+A variable is like a container for information: it stores values of different types depending on the use case.
+Variables are really important in programming because this storage of data allows use later in the program.
