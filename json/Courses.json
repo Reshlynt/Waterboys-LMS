@@ -193,6 +193,17 @@
           }
         ],
         "module_comments": []
+      },
+      {
+        "module_title": "Control Flow and Loops",
+        "slides": [
+          {
+            "slide_title": "Conditional Statements",
+            "description": "In Python, conditional statements are used to make decisions based on certain conditions.\nThe most common conditional statement is the \"if\" statement, which executes a block of code only if a specific condition is true.\nIn addition to the \"if\" statement, Python also has \"else\" and \"elif\" statements, which are used to create more complex decision-making structures.\n\n# Example 1: if statement\nx = 7\nif x > 5:\n    print("x is greater than 5")\n\n# Example 2: if-else statement\nx = 2\nif x > 5:\n    print("x is greater than 5")\nelse:\n    print("x is less than or equal to 5")\n\n# Example 3: if-elif-else statement\nx = 12\nif x < 5:\n    print("x is less than 5")\nelif x > 10:\n    print("x is greater than 10")\nelse:\n    print("x is between 5 and 10")\n\nThe following code outputs:\nx is greater than 5\nx is less than or equal to 5\nx is greater than 10"
+          }
+        ],
+        "quiz": [],
+        "module_comments": []
       }
     ],
     "students": [
