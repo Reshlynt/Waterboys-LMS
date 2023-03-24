@@ -12,3 +12,11 @@ Course Outline and Schedule: A detailed breakdown of the course outline and sche
 
 A variable is like a container for information: it stores values of different types depending on the use case.
 Variables are really important in programming because this storage of data allows use later in the program.
+
+
+Type conversion, also known as casting, refers to the process of converting one data type to another.\nIn Python, you can convert between primitive data types using built-in functions such as int(), float(), str(), and bool().\nFor example, you can use int() to convert a string containing a number to an integer, or float() to convert an integer or string to a floating-point number.\nSimilarly, you can use str() to convert a number to a string, or bool() to convert a value to either True or False.\nIt's important to note that some conversions may result in a loss of precision or information, so it's always best to use the appropriate conversion function for the desired result.
+
+"# Converting a string to an integer:\nage_str = '27'\nage_int = int(age_str)\nprint(age_int)  # Output: 27\n\n# Converting a float to an integer:\nprice_float = 9.99\nprice_int = int(price_float)\nprint(price_int)  # Output: 9\n\n# Converting an integer to a string:\ncount_int = 10\ncount_str = str(count_int)\nprint(count_str)  # Output: "10"\n\n# Converting a boolean to an integer:\nis_true = True\nis_false = False\nint_true = int(is_true)\nint_false = int(is_false)\nprint(int_true)   # Output: 1\nprint(int_false)  # Output: 0\n\n# Converting a string to a boolean:\nis_true_str = "True"\nis_false_str = "False"\nbool_true = bool(is_true_str)\nbool_false = bool(is_false_str)\nprint(bool_true)   # Output: True\nprint(bool_false)  # Output: True (any non-empty string is considered True)
+
+
+
