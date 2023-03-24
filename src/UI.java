@@ -323,12 +323,12 @@ public class UI {
     WelcomeLine5(25, "1.) Python\n");
     WelcomeLine5(25, "2.) JavaScript\n");
     WelcomeLine5(25, "Choose an option: ");
-    int value = 0;
+    int courseType = 0;
     try {
-      value = INPUT.nextInt();
-      while (!(value == 1 || value == 2)) {
+      courseType = INPUT.nextInt();
+      while (!(courseType == 1 || courseType == 2)) {
         WelcomeLine5(25, "Enter 1 or 2:");
-        value = INPUT.nextInt();
+        courseType = INPUT.nextInt();
       }
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
@@ -339,14 +339,28 @@ public class UI {
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
     }
-    if (value == 1)
+    if (courseType == 1)
       System.out.println("GREAT, you wanna learn python?");
-    else if (value == 2)
+    else if (courseType == 2)
       System.out.println("javascript it is");
 
-    
+    System.out.println("What diffculty like the course to be?");
+    System.out.println();
+    WelcomeLine5(25, "1.) Beginner\n");
+    WelcomeLine5(25, "2.) Intermediate\n");
+    WelcomeLine5(25, "3.) Expert\n");
+    WelcomeLine5(25, "Choose an option: ");
+    int difficulty = INPUT.nextInt();
+    while (!(difficulty == 1 || difficulty == 2 || difficulty == 3)) {
+      WelcomeLine5(25, "Enter 1,2, or 3:");
+      difficulty = INPUT.nextInt();
+    }
+    String difficultyString = (difficulty == 1) ? "Beginner" : ((difficulty == 2) ? "Intermediate" : "Expert");
+    Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     System.out
-        .println("We are going to provide you with our default modules for said course, if you want you can add more!");
+        .println(
+            "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
+    
 
     // What info to make a course? Difficulty,
   }
