@@ -35,12 +35,6 @@ public class TextSlide implements Slide {
   public String getContents() {
     return contents;
   }
-
-  public static void main(String[] args) {
-    TextSlide ts = new TextSlide("Title", f);
-    ts.display();
-  }
-
   /**
    * Using the contents of the slide, this method will replace a ' ' with a newline character every
    * 87 characters. This is to ensure that the text is not too long to fit on the screen.
