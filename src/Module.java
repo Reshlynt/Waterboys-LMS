@@ -32,7 +32,7 @@ public class Module {
       info += (slides.get(i) + "\n");
     }
     info += "module_comments:\n";
-    for (int i = 0; i < comments.size(); i++) {
+    for (int i = 0; comments != null && i < comments.size(); i++) {
       info += (comments.get(i) + "\n");
     }
     info += "lessonsquiz:\n";

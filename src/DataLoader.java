@@ -153,6 +153,7 @@ public class DataLoader extends DataConstants {
    * @return an array list of comments from the JSONArray
    */
   private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
+    if(commentsJSON == null) return null;
     ArrayList<Comment> comments = new ArrayList<Comment>();// to be returned
 
     /*
@@ -230,6 +231,8 @@ public class DataLoader extends DataConstants {
    * @return an assessment object
    */
   private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
+    if (assessmentJSON == null)
+      return null;
     ArrayList<Question> questions = new ArrayList<Question>();
 
     // for loop iterates through all of the questions in an assessment
