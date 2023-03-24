@@ -17,7 +17,6 @@ public class TextSlide implements Slide {
     System.out.println("|\n|\t" + title
         + "\n|--------------------------------------------------------------------------------------\n\n");
     System.out.println("\t\t" + contents);
-    // TODO: if the text is too long, split into multiple lines
     System.out.println(
         "|\n|--------------------------------------------------------------------------------------\n");
     return;
@@ -36,6 +35,12 @@ public class TextSlide implements Slide {
   public String getContents() {
     return contents;
   }
+
+  public static void main(String[] args) {
+    TextSlide ts = new TextSlide("Title", f);
+    ts.display();
+  }
+
   /**
    * Using the contents of the slide, this method will replace a ' ' with a newline character every
    * 87 characters. This is to ensure that the text is not too long to fit on the screen.
@@ -45,10 +50,8 @@ public class TextSlide implements Slide {
       return;
     // Prime the loop
     int i = 74;
-    if (contents.indexOf(' ', i) != -1) {
-      i = contents.indexOf(' ', i);
-      contents = contents.substring(0, i) + "\n" + contents.substring(i + 1, contents.length());
-    }
+    i = contents.indexOf(' ', i);
+    contents = contents.substring(0, i) + "\n" + contents.substring(i + 1, contents.length());
     i += 87;
     while (i < contents.length()) {
       if (contents.indexOf(' ', i) != -1) {
@@ -58,4 +61,5 @@ public class TextSlide implements Slide {
       i += 87;
     }
   }
+
 }
