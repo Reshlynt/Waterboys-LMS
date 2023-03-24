@@ -50,6 +50,14 @@ public class UI {
       }
       if (user.getType().equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
+          case 1:
+            break;
+          case 2:
+            // work on creating a course
+            CreateCourse((Teacher) user);
+            break;
+          case 3:
+            break;
           case 4:
             ViewTeacherProfile((Teacher) user);
             break;
@@ -304,6 +312,43 @@ public class UI {
         }
       }
     }
+  }
+
+  private static void CreateCourse(Teacher teacher) {
+    // ask questions
+    System.out.println("Lets create a course!");
+    WelcomeLine1();
+    System.out.println("What language would like the course to be taught in?");
+    System.out.println();
+    WelcomeLine5(25, "1.) Python\n");
+    WelcomeLine5(25, "2.) JavaScript\n");
+    WelcomeLine5(25, "Choose an option: ");
+    int value = 0;
+    try {
+      value = INPUT.nextInt();
+      while (!(value == 1 || value == 2)) {
+        WelcomeLine5(25, "Enter 1 or 2:");
+        value = INPUT.nextInt();
+      }
+      INPUT.nextLine();
+      System.out.println("\n\n\n\n\n");
+    } catch (Exception e) {
+      INPUT.nextLine();
+      System.out.println("\n\n\n\n\n");
+      System.out.println("You entered an invalid choice. Press Enter or to Continue");
+      INPUT.nextLine();
+      System.out.println("\n\n\n\n\n");
+    }
+    if (value == 1)
+      System.out.println("GREAT, you wanna learn python?");
+    else if (value == 2)
+      System.out.println("javascript it is");
+
+    
+    System.out
+        .println("We are going to provide you with our default modules for said course, if you want you can add more!");
+
+    // What info to make a course? Difficulty,
   }
 
   private static void Quit() {
