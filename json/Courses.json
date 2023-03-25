@@ -786,7 +786,7 @@
             },
             {
               "slide_title": "Another Introduction to Javascript",
-              "description": "Javascript has several primitive data types, including numbers, strings, booleans, null, and undefined.\nNumbers can be integers or floating-point numbers.\nBooleans are either true or false and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes ("").\nAdditionally, there are two more advanced primitive data types: arrays and objects, but we will cover these in depth later. \nArrays are ordered collections of items, and objects are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Javascript."
+              "description": "Javascript has several primitive data types, including numbers, strings, booleans, null, and undefined.\nNumbers can be integers or floating-point numbers.\nBooleans are either true or false and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes.\nAdditionally, there are two more advanced primitive data types: arrays and objects, but we will cover these in depth later. \nArrays are ordered collections of items, and objects are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Javascript."
             },
             {
               "slide_title": "Type Conversion and Casting",
@@ -886,7 +886,7 @@
           "slides": [
             {
               "slide_title": "Conditional Statements",
-              "description": "Conditional statements are used in JavaScript to make decisions based on certain conditions. The most common conditional statement in JavaScript is the "if" statement, which executes a block of code only if a specific condition is true. In addition to the "if" statement, JavaScript also has "else" and "else if" statements, which are used to create more complex decision-making structures.";
+              "description": "Conditional statements are used in JavaScript to make decisions based on certain conditions. The most common conditional statement in JavaScript is the if statement, which executes a block of code only if a specific condition is true. In addition to the if statement, JavaScript also has else and else if statements, which are used to create more complex decision-making structures."
             },
             {
               "slide_title": "Loops and Iterations",
@@ -894,7 +894,7 @@
             },
             {
               "slide_title": "Control Flow and Logical Operators",
-              "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: "&&" (logical AND), "||" (logical OR), and "!" (logical NOT). The "&&" operator returns true if both expressions being evaluated are true, otherwise it returns false. The "||" operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the "!" operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as if statements and while loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions."
+              "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: && (logical AND), || (logical OR), and ! (logical NOT). The && operator returns true if both expressions being evaluated are true, otherwise it returns false. The || operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the ! operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as if statements and while loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions."
             }
           ],
           "quiz": [
