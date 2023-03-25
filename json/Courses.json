@@ -894,7 +894,8 @@
             },
             {
               "slide_title": "Control Flow and Logical Operators",
-              "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: "&&" (logical AND), "||" (logical OR), and "!" (logical NOT). The "&&" operator returns true if both expressions being evaluated are true, otherwise it returns false. The "||" operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the "!" operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as "if" statements and "while" loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions."
+              "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: "&&" (logical AND), "||" (logical OR), and "!" (logical NOT). The "&&" operator returns true if both expressions being evaluated are true, otherwise it returns false. The "||" operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the "!" operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as if statements and while loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions."
+            }
           ],
           "quiz": [
             {
