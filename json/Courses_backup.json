@@ -1,61 +1,219 @@
 [
   {
-    "title": "Intro to JavaScript",
+    "title": "Introduction to Python",
     "difficulty": "BEGINNER",
-    "author" : "Mr. Bro",
+    "author": "Mr. Cole",
     "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
     "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
-    "courseType": "JAVASCRIPT",
+    "courseType": "PYTHON",
     "modules": [
       {
-        "module_title": "Loops",
+        "module_title": "Course Introduction",
         "slides": [
           {
-            "slide_title": "For Loops",
-            "description": "For loops are a type of loop in programming, blah blah blah, this is where the slide content goes"
+            "slide_title": "Course Introduction and Welcome",
+            "description": "Welcome to Introduction to Python course!\n\nIn this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n\nThroughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input/output, object-oriented programming, and working with libraries and modules.\n\nWe will also explore more advanced topics such as working with APIs, web scraping, and automation.\n\nBy the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n"
+          },
+          {
+            "slide_title": "Course Objectives and Outcomes",
+            "description": "In this section, we will discuss the objectives and outcomes of the course.\n\nBy the end of this course, you will be able to write Python programs to solve various real-world problems.\n\nYou will have a good understanding of the Python programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.\n\nYou will also be able to work with files, APIs, web scraping, and automation using Python.\n\nOverall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a Python programmer.\n"
+          },
+          {
+            "slide_title": "Course Outline",
+            "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python"
+          }
+        ],
+        "quiz": [],
+        "module_comments": []
+      },
+      {
+        "module_title": "Getting Started with Python",
+        "slides": [
+          {
+            "slide_title": "Another Introduction to Python",
+            "description": "Python is what is considered to be a high-level, general interpreted programming language that is dynamically typed and supports a variety of programming paradigms such as procedural programming, object-oriented programming and functional programming.\nOriginally released in 1991 by Guido van Rossum and is considered to be the most popular programming language used today and one of the easiest to teach individuals."
+          },
+          {
+            "slide_title": "Setting up your Python Workspace",
+            "description": "Setting up your workspace will require a few steps:\n First download/setup the anaconda installer following this link: https://www.anaconda.com/products/distribution\nMake sure that you have the bin in your global computer file path.\nMake sure you have Jupyter Notebook installed, and you will be able to open jupyter-notebook by typing 'jupyter-notebook' in your command terminal(cmd or terminal).\n Jupyter will be our primary mode of coding in python, so it is imperative that you install it properly and ask me if you have any questions https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#:~:text=1.,will%20contain%20all%20the%20notebooks.\n"
           }
         ],
         "quiz": [
           {
-            "question": "question 1",
+            "question": "What is Python?",
             "answer_choices": [
               {
-                "a": "quiz answer choice 1",
-                "b": "quiz answer choice 2",
-                "c": "quiz answer choice 3",
-                "d": "quiz answer choice 4"
+                "a": "A markup language",
+                "b": "A low-level programming language",
+                "c": "A compiled programming language",
+                "d": "A high-level, general interpreted programming language"
+              }
+            ],
+            "correct_answer": "d"
+          },
+          {
+            "question": "Who originally created Python?",
+            "answer_choices": [
+              {
+                "a": "Bill Gates",
+                "b": "Linus Torvalds",
+                "c": "Guido Von Rossum",
+                "d": "Steve Jobs"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the primary mode of coding in Python for this module?",
+            "answer_choices": [
+              {
+                "a": "Jupyter Notebook",
+                "b": "Visual Studio Code",
+                "c": "PyCharm",
+                "d": "Eclipse"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What are some programming paradigms supported by Python?",
+            "answer_choices": [
+              {
+                "a": "Procedural programming, object-oriented programming, and functional programming",
+                "b": "Imperative programming only",
+                "c": "Declarative programming only",
+                "d": "Object-oriented programming only"
               }
             ],
             "correct_answer": "a"
           }
         ],
-        "module_comments": [
+        "module_comments": []
+      },
+      {
+        "module_title": "Variables and Data Types",
+        "slides": [
           {
-            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "text": "This is a module comment",
-            "replies": [
-              {
-                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                "text": "reply to a comment",
-                "more_replies": [
-                  {
-                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-                    "text": "reply to a reply"
-                  }
-                ]
-              }
-            ]
+            "slide_title": "Working with Variables",
+            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what."
+          },
+          {
+            "slide_title": "Another Introduction to Python",
+            "description": "Python has several primitive data types, including integers, floats, booleans, and strings.\nIntegers are whole numbers without a decimal point, while floats are numbers with a decimal point.\nBooleans are either True or False and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes (\"\").\nAdditionally, there are two more advanced primitive data types: lists and dictionaries, but we will cover these in depth later. \nLists are ordered collections of items, and dictionaries are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Python."
+          },
+          {
+            "slide_title": "Type Conversion and Casting",
+            "description": "Type conversion, also known as casting, refers to the process of converting one data type to another.\nIn Python, you can convert between primitive data types using built-in functions such as int(), float(), str(), and bool().\nFor example, you can use int() to convert a string containing a number to an integer, or float() to convert an integer or string to a floating-point number.\nSimilarly, you can use str() to convert a number to a string, or bool() to convert a value to either True or False.\nIt's important to note that some conversions may result in a loss of precision or information, so it's always best to use the appropriate conversion function for the desired result.\n\nHere is some sample python code illustrating the capabilities of these functions:\n# Converting a string to an integer:\nage_str = '27'\nage_int = int(age_str)\nprint(age_int)  # Output: 27\n\n# Converting a float to an integer:\nprice_float = 9.99\nprice_int = int(price_float)\nprint(price_int)  # Output: 9\n\n# Converting an integer to a string:\ncount_int = 10\ncount_str = str(count_int)\nprint(count_str)  # Output: \"10\"\n\n# Converting a boolean to an integer:\nis_true = True\nis_false = False\nint_true = int(is_true)\nint_false = int(is_false)\nprint(int_true)   # Output: 1\nprint(int_false)  # Output: 0\n\n# Converting a string to a boolean:\nis_true_str = \"True\"\nis_false_str = \"False\"\nbool_true = bool(is_true_str)\nbool_false = bool(is_false_str)\nprint(bool_true)   # Output: True\nprint(bool_false)  # Output: True (any non-empty string is considered True)"
           }
-        ]
+        ],
+        "quiz": [
+          {
+            "question": "What is the naming convention for Python variables?",
+            "answer_choices": [
+              {
+                "a": "Start with a digit, followed by letters or underscores",
+                "b": "Start with a letter or underscore, followed by letters, digits or underscores",
+                "c": "Start with an underscore, followed by letters, digits or underscores",
+                "d": "Start with a letter, followed by letters or digits"
+              }
+            ],
+            "correct_answer": "b"
+          },
+          {
+            "question": "What data types are supported in Python?",
+            "answer_choices": [
+              {
+                "a": "Numeric types (integers and floats), strings, and booleans",
+                "b": "Numeric types (integers and floats) and strings",
+                "c": "Strings and booleans",
+                "d": "Numeric types (integers, floats, and complex numbers), strings, and booleans"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the difference between integers and floats?",
+            "answer_choices": [
+              {
+                "a": "Integers are whole numbers without a decimal point, while floats are numbers with a decimal point",
+                "b": "Integers are numbers with a decimal point, while floats are whole numbers without a decimal point",
+                "c": "Integers and floats are the same data type",
+                "d": "Integers and floats are only used in advanced Python programming"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What are lists and dictionaries in Python?",
+            "answer_choices": [
+              {
+                "a": "Lists are unordered collections of key-value pairs, and dictionaries are ordered collections of items",
+                "b": "Lists are ordered collections of items, and dictionaries are unordered collections of key-value pairs",
+                "c": "Lists and dictionaries are the same data type",
+                "d": "Lists and dictionaries are only used in advanced Python programming"
+              }
+            ],
+            "correct_answer": "b"
+          },
+          {
+            "question": "What is type conversion in Python?",
+            "answer_choices": [
+              {
+                "a": "It refers to the process of converting one data type to another",
+                "b": "It refers to the process of converting a string to an integer",
+                "c": "It refers to the process of converting a boolean to a string",
+                "d": "It refers to the process of converting an integer to a boolean"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "Which built-in function can be used to convert a string to an integer?",
+            "answer_choices": [
+              {
+                "a": "str()",
+                "b": "float()",
+                "c": "int()",
+                "d": "bool()"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the correct syntax to declare a variable in Python?",
+            "answer_choices": [
+              {
+                "a": "variable_name = value",
+                "b": "value = variable_name",
+                "c": "variable_name == value",
+                "d": "value == variable_name"
+              }
+            ],
+            "correct_answer": "a"
+          }
+        ],
+        "module_comments": []
+      },
+      {
+        "module_title": "Control Flow and Loops",
+        "slides": [
+          {
+            "slide_title": "Conditional Statements",
+            "description": "In Python, conditional statements are used to make decisions based on certain conditions.\nThe most common conditional statement is the \"if\" statement, which executes a block of code only if a specific condition is true.\nIn addition to the \"if\" statement, Python also has \"else\" and \"elif\" statements, which are used to create more complex decision-making structures.\n\n# Example 1: if statement\nx = 7\nif x > 5:\n    print("x is greater than 5")\n\n# Example 2: if-else statement\nx = 2\nif x > 5:\n    print("x is greater than 5")\nelse:\n    print("x is less than or equal to 5")\n\n# Example 3: if-elif-else statement\nx = 12\nif x < 5:\n    print("x is less than 5")\nelif x > 10:\n    print("x is greater than 10")\nelse:\n    print("x is between 5 and 10")\n\nThe following code outputs:\nx is greater than 5\nx is less than or equal to 5\nx is greater than 10"
+          }
+        ],
+        "quiz": [],
+        "module_comments": []
       }
     ],
     "students": [
       {
         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+        "completed": true,
         "grades": [
-          95,
-          94,
-          97
+          95.0,
+          94.0,
+          97.0
         ]
       }
     ],
@@ -67,15 +225,17 @@
           {
             "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
             "text": "This is a reply to a course comment",
-            "more_replies": [{
-              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-              "text": "This is a reply to reply to a comment"
-            }]
+            "more_replies": [
+              {
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a reply to reply to a comment"
+              }
+            ]
           }
         ]
       }
     ],
-    "exam":[
+    "exam": [
       {
         "question": "question1",
         "answer_choices": [
