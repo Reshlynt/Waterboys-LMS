@@ -166,7 +166,7 @@ public class UI {
   }
   public static void WelcomeLine7(String item1) {
     int line = 79 - item1.length();
-    for (int i = 0; i < line; i++)
+    for (int i = 0; i < line/2; i++)
       System.out.print(" ");
       System.out.println(item1);
   }
@@ -327,27 +327,27 @@ public class UI {
     // ask questions
     System.out.println("Lets create a course!");
     WelcomeLine1();
-    System.out.println("What language would like the course to be taught in?");
+    WelcomeLine7("What language would like the course to be taught in?");
     System.out.println();
     WelcomeLine5(25, "Choose an option: ");
     String courseType = INPUT.nextLine();
     while ((!courseType.equalsIgnoreCase("Python") && !courseType.equalsIgnoreCase("JavaScript"))) {
-        WelcomeLine5(25, "We currently do not support that language...\n");
-        WelcomeLine5(25, "Choose another language (we recommend JavaScript or Python)\n\n");
+        WelcomeLine7("We currently do not support that language...");
+        WelcomeLine7("Choose another language (we recommend JavaScript or Python)\n");
         WelcomeLine5(25, "Choose an option: ");
         courseType = INPUT.nextLine();
     }
     if (courseType.equalsIgnoreCase("Python"))
-      System.out.println("GREAT, you wanna teach Python?");
+      WelcomeLine7("GREAT, you wanna teach Python?");
     else if (courseType.equalsIgnoreCase("JavaScript"))
-      System.out.println("JavaScript it is");
+      WelcomeLine7("JavaScript it is");
 
-    System.out.println("What diffculty like the course to be?");
+    WelcomeLine7("What diffculty like the course to be?");
     System.out.println();
-    WelcomeLine5(25, "1.) Beginner\n");
-    WelcomeLine5(25, "2.) Intermediate\n");
-    WelcomeLine5(25, "3.) Expert\n");
-    WelcomeLine5(25, "Choose an option: ");
+    WelcomeLine7("1.) Beginner");
+    WelcomeLine7("2.) Intermediate");
+    WelcomeLine7("3.) Expert");
+    WelcomeLine5(31, "Choose an option: ");
     int difficulty = INPUT.nextInt();
     while (!(difficulty == 1 || difficulty == 2 || difficulty == 3)) {
       WelcomeLine5(25, "Enter 1,2, or 3:");
