@@ -164,7 +164,12 @@ public class UI {
       System.out.print(" ");
     System.out.println(FOURSTAR);
   }
-
+  private static void WelcomeLine7(String item1) {
+    int line = 79 - item1.length();
+    for (int i = 0; i < line; i++)
+      System.out.print(" ");
+      System.out.println(item1);
+  }
   private static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     Date date = null;
@@ -320,29 +325,18 @@ public class UI {
     WelcomeLine1();
     System.out.println("What language would like the course to be taught in?");
     System.out.println();
-    WelcomeLine5(25, "1.) Python\n");
-    WelcomeLine5(25, "2.) JavaScript\n");
     WelcomeLine5(25, "Choose an option: ");
-    int courseType = 0;
-    try {
-      courseType = INPUT.nextInt();
-      while (!(courseType == 1 || courseType == 2)) {
-        WelcomeLine5(25, "Enter 1 or 2:");
-        courseType = INPUT.nextInt();
-      }
-      INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
-    } catch (Exception e) {
-      INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
-      System.out.println("You entered an invalid choice. Press Enter or to Continue");
-      INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+    String courseType = INPUT.nextLine();
+    while ((!courseType.equalsIgnoreCase("Python") && !courseType.equalsIgnoreCase("JavaScript"))) {
+        WelcomeLine5(25, "We currently do not support that language...\n");
+        WelcomeLine5(25, "Choose another language (we recommend JavaScript or Python)\n\n");
+        WelcomeLine5(25, "Choose an option: ");
+        courseType = INPUT.nextLine();
     }
-    if (courseType == 1)
-      System.out.println("GREAT, you wanna learn python?");
-    else if (courseType == 2)
-      System.out.println("javascript it is");
+    if (courseType.equalsIgnoreCase("Python"))
+      System.out.println("GREAT, you wanna teach Python?");
+    else if (courseType.equalsIgnoreCase("JavaScript"))
+      System.out.println("JavaScript it is");
 
     System.out.println("What diffculty like the course to be?");
     System.out.println();
