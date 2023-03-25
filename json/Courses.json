@@ -199,9 +199,156 @@
         "slides": [
           {
             "slide_title": "Conditional Statements",
-            "description": "In Python, conditional statements are used to make decisions based on certain conditions.\nThe most common conditional statement is the \"if\" statement, which executes a block of code only if a specific condition is true.\nIn addition to the \"if\" statement, Python also has \"else\" and \"elif\" statements, which are used to create more complex decision-making structures.\n\n# Example 1: if statement\nx = 7\nif x > 5:\n    print("x is greater than 5")\n\n# Example 2: if-else statement\nx = 2\nif x > 5:\n    print("x is greater than 5")\nelse:\n    print("x is less than or equal to 5")\n\n# Example 3: if-elif-else statement\nx = 12\nif x < 5:\n    print("x is less than 5")\nelif x > 10:\n    print("x is greater than 10")\nelse:\n    print("x is between 5 and 10")\n\nThe following code outputs:\nx is greater than 5\nx is less than or equal to 5\nx is greater than 10"
+            "description": "In Python, conditional statements are used to make decisions based on certain conditions.\nThe most common conditional statement is the \"if\" statement, which executes a block of code only if a specific condition is true.\nIn addition to the \"if\" statement, Python also has \"else\" and \"elif\" statements, which are used to create more complex decision-making structures.\n\n# Example 1: if statement\nx = 7\nif x > 5:\n    print(\"x is greater than 5\")\n\n# Example 2: if-else statement\nx = 2\nif x > 5:\n    print(\"x is greater than 5\")\nelse:\n    print(\"x is less than or equal to 5\")\n\n# Example 3: if-elif-else statement\nx = 12\nif x < 5:\n    print(\"x is less than 5\")\nelif x > 10:\n    print(\"x is greater than 10\")\nelse:\n    print(\"x is between 5 and 10\")\n\nThe following code outputs:\nx is greater than 5\nx is less than or equal to 5\nx is greater than 10"
+          },
+          {
+            "slide_title": "Loops and Iterations",
+            "description": "# Example 1: For loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num)\n# Output: 1 2 3 4 5\n\nword = \"hello\"\nfor letter in word:\n    print(letter)\n# Output: h e l l o\n\n# Example 2: While loop\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n# Output: 0 1 2 3 4\n# Example 3: Range function with for loop\nfor i in range(5):\n    print(i)\n# Output: 0 1 2 3 4\n\n# Example 4: Enumerate function with for loop\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(i, fruit)\n# Output: 0 apple 1 banana 2 cherry\n\n# Example 5: Zip function with for loop\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nages = [25, 30, 35]\nfor name, age in zip(names, ages):\n    print(name, age)\n# Output: Alice 25 Bob 30 Charlie 35\n\n# Example 6: Break statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        break\n    print(num)\n# Output: 1 2\n\n# Example 7: Continue statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        continue\n    print(num)\n# Output: 1 2 4 5"
+          },
+          {
+            "slide_title": "Control Flow and Logical Operators",
+            "description": "In Python, logical operators are used to evaluate logical expressions and return a boolean value of either True or False.\nThere are three logical operators in Python: \"and\", \"or\", and \"not\".\nThe \"and\" operator returns True if both expressions being evaluated are True, otherwise it returns False.\nThe \"or\" operator returns True if at least one of the expressions being evaluated is True, otherwise it returns False.\nFinally, the \"not\" operator returns the opposite boolean value of the expression it is evaluating.\nLogical operators are often used in conditional statements such as \"if\" statements and \"while\" loops to control program flow based on logical conditions.\nThey can also be used in conjunction with comparison operators to create more complex logical expressions.\nOverall, logical operators are an essential tool for writing programs that can make decisions based on logical conditions.Here are some examples:\na = 5\nb = 10\nc = 15\n\n# using AND operator\nif a < b and b < c:\n    print(\"Both conditions are true.\")\n# output: Both conditions are true.\n\n# using OR operator\nif a < b or a > c:\n    print(\"At least one condition is true.\")\n# output: At least one condition is true.\n\n# using NOT operator\nif not(a > b):\n    print(\"a is not greater than b.\")\n# output: a is not greater than b."
           }
         ],
+        "quiz": [
+          {
+            "question": "What is the most common conditional statement in Python?",
+            "answer_choices": [
+              {
+                "a": "for",
+                "b": "while",
+                "c": "if",
+                "d": "break"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the purpose of the \"else\" statement in Python?",
+            "answer_choices": [
+              {
+                "a": "It is used to create more complex decision-making structures.",
+                "b": "It is used to execute a block of code if a specific condition is true.",
+                "c": "It is used to execute a block of code if a specific condition is false.",
+                "d": "It is used to loop through a sequence of code."
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "Which of the following is an example of an if statement in Python?",
+            "answer_choices": [
+              {
+                "a": "if-else",
+                "b": "if-elif-else",
+                "c": "while",
+                "d": "for"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the output of the following code?\nx = 3\nif x < 5:\n    print(\"x is less than 5\")\nelse:\n    print(\"x is greater than or equal to 5\")",
+            "answer_choices": [
+              {
+                "a": "x is less than 5",
+                "b": "x is greater than or equal to 5",
+                "c": "x is equal to 5",
+                "d": "There is a syntax error in the code."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the difference between a for loop and a while loop in Python?",
+            "answer_choices": [
+              {
+                "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+                "b": "A for loop and a while loop are the same thing.",
+                "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+                "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the output of the following code?\n\nnumbers = [2, 4, 6, 8]\nfor i in numbers:\n    print(i * 2)",
+            "answer_choices": [
+              {
+                "a": "4 8 12 16",
+                "b": "2 4 6 8",
+                "c": "8 16 24 32",
+                "d": "10 12 14 16"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the purpose of the break statement in a loop?",
+            "answer_choices": [
+              {
+                "a": "To terminate the loop and skip any remaining iterations",
+                "b": "To pause the loop and wait for user input",
+                "c": "To execute a block of code once before the loop begins",
+                "d": "To skip a single iteration of the loop and continue with the next one"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the output of the following code?\n\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1",
+            "answer_choices": [
+              {
+                "a": "0 1 2",
+                "b": "1 2 3",
+                "c": "0 2 4",
+                "d": "1 4 7"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What are the three logical operators in Python?",
+            "answer_choices": [
+              {
+                "a": "and, if, while",
+                "b": "if, else, not",
+                "c": "and, or, not",
+                "d": "or, for, while"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What does the \"and\" operator return in Python?",
+            "answer_choices": [
+              {
+                "a": "True if both expressions being evaluated are True",
+                "b": "True if at least one of the expressions being evaluated is True",
+                "c": "True if neither of the expressions being evaluated is True",
+                "d": "False if both expressions being evaluated are True"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the output of the following code snippet?\na = 5\nb = 10\nc = 15\nif a < b and b < c:\n    print(\"Both conditions are true.\")\nelse:\n    print(\"At least one condition is false.\")",
+            "answer_choices": [
+              {
+                "a": "Both conditions are true.",
+                "b": "At least one condition is false.",
+                "c": "Both conditions are false.",
+                "d": "The code snippet will produce an error."
+              }
+            ],
+            "correct_answer": "a"
+          }
+        ],
+        "module_comments": []
+      },
+      {
+        "module_title": "",
+        "slides": [],
         "quiz": [],
         "module_comments": []
       }
