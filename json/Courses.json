@@ -724,7 +724,20 @@
       },
       {
         "module_title": "Object-Oriented Programming (OOP)",
-        "slides": [],
+        "slides": [
+          {
+            "slide_title": "Introduction to OOP",
+            "description": ""
+          },
+          {
+            "slide_title": "Classes and Objects",
+            "description": ""
+          },
+          {
+            "slide_title": "Inheritance and Polymorphism",
+            "description": ""
+          }
+        ],
         "quiz": [],
         "module_comments": []
       },
