@@ -11,14 +11,14 @@ public class LMSSystem {
     public User Login(String username, String password) {
         if (userList.foundUser(username)) {
             if (userList.getUser(username).getPassword().equals(password)) {
-                System.out.println("Login successfully!");
+                UI.WelcomeLine7("Login successfully!");
                 return userList.getUser(username);
             } else {
-                System.out.println("Wrong password!");
+                UI.WelcomeLine7("Wrong password!");
                 return null;
             }
         } else {
-            System.out.println("User not found!");
+            UI.WelcomeLine7("User not found!");
             return null;
         }
     }
@@ -29,7 +29,7 @@ public class LMSSystem {
 
     public User SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
         if (userList.foundUser(username)) {
-            System.out.println("User already exists!");
+            UI.WelcomeLine7("User already exists!");
         } else {
             User new_user = null;
             if (job.equalsIgnoreCase("student")) {
@@ -38,11 +38,11 @@ public class LMSSystem {
             } else if (job.equalsIgnoreCase("teacher")) {
                 new_user = new Teacher(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth);
             } else {
-                System.out.println("             You did not enter \"student\" or \"teacher\"");
+                UI.WelcomeLine7("You did not enter \"student\" or \"teacher\"");
                 return null;
             }
             userList.addUser(new_user);
-            System.out.println("Sign up successfully!");
+            UI.WelcomeLine7("Sign up successfully!");
             return new_user;
         }
         return null;
