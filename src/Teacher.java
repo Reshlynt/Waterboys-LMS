@@ -28,7 +28,14 @@ public class Teacher extends User {
         System.out.print("\033[H\033[2J");
         System.out.flush();
         System.out.println("What is the difficulty of the course?");
-        String difficulty = System.console().readLine();
+        String difficultyString = System.console().readLine();
+        Difficulty difficulty = null;
+        difficultyString.toUpperCase();
+        if (difficultyString == "BEGINNER") {
+            difficulty = Difficulty.BEGINNER;
+        } else {
+            difficulty = Difficulty.INTERMEDIATE;
+        }
         System.out.print("\033[H\033[2J");
         System.out.flush();
         System.out.println("What is the course type? JavaScript or Python?");
@@ -89,9 +96,33 @@ public class Teacher extends User {
         exam.setType(Type.EXAM);
         System.out.println("Do you want to add any students? (Y/N)");
         String addStudents = System.console().readLine();
+        addStudents.toUpperCase();
+        if (addStudents.equals("Y")) {
+            System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
+            ArrayList<Student> students = new ArrayList<Student>();
+            boolean addMoreStudents = true;
+            while (addMoreStudents) {
+                String studentUsername = System.console().readLine();
+                UserList userList = UserList.getInstance();
+                if (!userList.foundUser(studentUsername)) {
+                    System.out.println("That user does not exist. Please try again.");
+                    continue;
+                }
+                else {
+                students.add((Student) userList.getUser(studentUsername));
+                System.out.println("Do you want to add another student? (Y/N)");
+                String addStudent = System.console().readLine();
+                addStudent.toUpperCase();
+                if (addStudent.equals("N")) {
+                    addMoreStudents = false;
+                }
+                }
+            }
+            Course newCourse = new Course(this, title, difficulty, description, exam, courseType, lessons, students);
+            return newCourse;
+        }
 
-        Course new_course = new Course(this, title, difficulty, description, null, courseType, null, null);
-        return new_course;
+        
         // ask for title
         // ask for description
         // ask for difficulty
@@ -129,8 +160,8 @@ public class Teacher extends User {
         }
         return new Assessment(title, questions);
     }
-    public boolean addToCourse(String userName) {
-        
+    public boolean addToCourse(Student student, Course course) {
+        course.addToCourse(student);
         return true;
     }
     public boolean removeFromCourse() {
