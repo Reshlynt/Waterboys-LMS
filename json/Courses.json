@@ -347,9 +347,143 @@
         "module_comments": []
       },
       {
-        "module_title": "",
-        "slides": [],
-        "quiz": [],
+        "module_title": "Functions and Modules",
+        "slides": [
+          {
+            "slide_title": "Introduction to Functions",
+            "description": "The concept of functions is one of the fundamental building blocks of programming in Python.\nFunctions are reusable blocks of code that perform a specific task, and they allow us to break up our programs into smaller, more manageable pieces.\nIn this module, we'll introduce you to the basics of functions in Python.\nYou'll learn how to define your own functions and call them from other parts of your code.\nWe'll also cover how to use parameters and return values in your functions, and how to handle errors that might occur during their execution.\nBy the end of this module, you'll have a solid understanding of how functions work in Python and why they're so important in programming."
+          },
+          {
+            "slide_title": "Creating and Calling Functions",
+            "description": "A function is defined using the \"def\" keyword, followed by the function name and parentheses.\nInside the parentheses, you can define parameters for the function to take as input.\nThe body of the function is indented and contains the code to be executed when the function is called.\nTo call a function, you simply need to write the function name followed by parentheses, and pass any necessary arguments inside the parentheses.\nFunctions can also return values using the \"return\" keyword.\nHere are some examples:\n# Function that prints a welcome message with a name parameter\ndef welcome(name):\n    print(f\"Welcome, {name}!\")\n\n# Function that calculates the sum of two numbers with two parameters\ndef add_numbers(num1, num2):\n    sum = num1 + num2\n    return sum\n\n# Call the welcome function with the name parameter \"Alice\"\nwelcome(\"Alice\") #Output: Welcome, Alice!\n\n# Call the add_numbers function with the parameters 3 and 5, and print the result\nresult = add_numbers(3, 5)\nprint(f\"The sum of 3 and 5 is: {result}\") #Output: The sum of 3 and 5 is: 8"
+          },
+          {
+            "slide_title": "Built-in Python Modules",
+            "description": "\nimport datetime\n\ncurrent_time = datetime.datetime.now()\nprint(\"Current date and time: \", current_time) #Output: Current date and time: 2023-25-03 13:45:32.123456\n\nimport random\n\nrandom_number = random.randint(1, 10)\nprint(\"Random number between 1 and 10: \", random_number) #Output: Random number between 1 and 10: 8\n\nimport math\na = 16\nprint(math.sqrt(a))  # Output: 4.0"
+          }
+        ],
+        "quiz": [
+          {
+            "question": "What is a function in Python?",
+            "answer_choices": [
+              {
+                "a": "A collection of variables",
+                "b": "A collection of loops",
+                "c": "A collection of code that performs a specific task and can be called from other parts of the program",
+                "d": "A collection of conditions"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the difference between a function definition and a function call?",
+            "answer_choices": [
+              {
+                "a": "A function definition defines a variable and a function call performs a specific task",
+                "b": "A function definition performs a specific task and a function call defines a variable",
+                "c": "A function definition is where you write the code for a function and a function call is where you use the function",
+                "d": "A function definition and a function call are the same thing"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "How do you define a function in Python?",
+            "answer_choices": [
+              {
+                "a": "def function_name():",
+                "b": "function_name():",
+                "c": "function_name = def():",
+                "d": "function_name = ()"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the purpose of the 'return' statement in a function?",
+            "answer_choices": [
+              {
+                "a": "To stop the execution of the function",
+                "b": "To print a message to the console",
+                "c": "To specify the input parameters of the function",
+                "d": "To return a value from the function"
+              }
+            ],
+            "correct_answer": "d"
+          },
+          {
+            "question": "Which of the following is NOT a built-in function in Python?",
+            "answer_choices": [
+              {
+                "a": "print()",
+                "b": "len()",
+                "c": "range()",
+                "d": "add()"
+              }
+            ],
+            "correct_answer": "d"
+          },
+          {
+            "question": "What keyword in Python is used to return a value from a function?",
+            "answer_choices": [
+              {
+                "a": "return",
+                "b": "output",
+                "c": "yield",
+                "d": "break"
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the output of this code?\ndef areaRectangle(a, b):\n    area = a * b\n    return 'The area of this rectangle is {area}'\nprint(areaRectangle(5,10))",
+            "answer_choices": [
+              {
+                "a": "The area of this rectangle is 10",
+                "b": "The area of this rectangle is 5",
+                "c": "The area of this rectangle is 50",
+                "d": "The area of this circle is 4pi"
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is a Python module?",
+            "answer_choices": [
+              {
+                "a": "A function that performs a specific task and can be called from other parts of the program.",
+                "b": "A collection of variables.",
+                "c": "A collection of code that performs a specific task and can be called from other parts of the program.",
+                "d": "A collection of conditions."
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What is the difference between a built-in module and a user-defined module?",
+            "answer_choices": [
+              {
+                "a": "A built-in module is included in Python by default, while a user-defined module is created by the programmer.",
+                "b": "A built-in module is used for math operations, while a user-defined module is used for string manipulation.",
+                "c": "A built-in module is used for string manipulation, while a user-defined module is used for math operations.",
+                "d": "There is no difference between a built-in module and a user-defined module."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is the purpose of the 'import' statement in Python?",
+            "answer_choices": [
+              {
+                "a": "To create a new module.",
+                "b": "To call a function.",
+                "c": "To load a module into a Python script.",
+                "d": "To print a message to the console."
+              }
+            ],
+            "correct_answer": "c"
+          }
+        ],
         "module_comments": []
       }
     ],
