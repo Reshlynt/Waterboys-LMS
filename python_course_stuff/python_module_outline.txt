@@ -38,25 +38,19 @@ Creating and Calling Functions: How to create and call functions in Python, incl
 Built-in Python Modules: An overview of the built-in modules in Python, including math, datetime, and random.
 
 
-
-
-
-
-
 Data Structures - Lists, Tuples,Sets and Dictionaries
 Working with Lists: How to create and manipulate lists in Python, including indexing, slicing, and list methods.
-
 Tuples and Sets: An introduction to tuples and sets in Python, including how they differ from lists and how to use them in programming.
-
 Dictionaries and Key-Value Pairs: An introduction to dictionaries in Python, including how to create and manipulate key-value pairs, and how to use dictionaries in programming.
 
 
 File Handling and Input/Output
 Reading and Writing Files: An introduction to file handling in Python, including how to open, read, write, and close files.
 
+User Input and Output: How to get user input and output in Python, including input() and print() functions.
+
 Handling Exceptions and Errors: How to handle exceptions and errors in Python, including try-except blocks and error messages.
 
-User Input and Output: How to get user input and output in Python, including input() and print() functions.
 
 
 Object-Oriented Programming (OOP)
