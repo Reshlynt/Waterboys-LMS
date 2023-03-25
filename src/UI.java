@@ -164,7 +164,7 @@ public class UI {
       System.out.print(" ");
     System.out.println(FOURSTAR);
   }
-  private static void WelcomeLine7(String item1) {
+  public static void WelcomeLine7(String item1) {
     int line = 79 - item1.length();
     for (int i = 0; i < line; i++)
       System.out.print(" ");
@@ -284,15 +284,19 @@ public class UI {
     WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
     WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
     WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
-    ArrayList<Course> readCourses = DataLoader.getCourses();
-    System.out.println("\n");
-    WelcomeLine5(25, "Courses Created:\n");
-    for (int i = 0; i < readCourses.size(); i++) {
-      Course course = readCourses.get(i);
-      Teacher teacher = course.getAuthor();
-      if (user.getUsername().equals(teacher.getUsername())) {
-        WelcomeLine5(25, "\t" + course.getTitle());
+    if (DataLoader.getCourses() != null) {
+      ArrayList<Course> readCourses = DataLoader.getCourses();
+      System.out.println("\n");
+      WelcomeLine5(25, "Courses Created:\n");
+      for (int i = 0; i < readCourses.size(); i++) {
+        Course course = readCourses.get(i);
+        Teacher teacher = course.getAuthor();
+        if (user.getUsername().equals(teacher.getUsername())) {
+          WelcomeLine5(25, "\t" + course.getTitle());
+        }
       }
+    } else {
+      WelcomeLine7("There are no courses currently");
     }
   }
 

@@ -120,11 +120,10 @@ public class DataLoader extends DataConstants {
         setCourseGrades(readCourse, students, gradeMaps);
 
       }
-      return courses;
     } catch (Exception e) {
-      e.printStackTrace();
+      //UI.WelcomeLine7("There was an error loading some of the courses.");
     }
-    return null;
+    return courses;
   }
 
   /**
