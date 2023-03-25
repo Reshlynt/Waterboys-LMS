@@ -355,7 +355,7 @@ public class UI {
       WelcomeLine5(25, "Enter 1,2, or 3:");
       difficulty = INPUT.nextInt();
     }
-    String difficultyString = (difficulty == 1) ? "Beginner" : ((difficulty == 2) ? "Intermediate" : "Expert");
+    String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
     Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     System.out
         .println(
