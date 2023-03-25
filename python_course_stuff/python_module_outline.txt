@@ -30,7 +30,6 @@ Loops and Iterations: How to use loops in Python, including for loops, while loo
 
 Control Flow and Logical Operators: How to use logical operators in Python to create complex control flow statements, including and, or, and not.
 
-
 Functions and Modules
 Introduction to Functions: An introduction to functions in Python, including how to define and call functions, and the importance of functions in programming.
 
@@ -39,7 +38,12 @@ Creating and Calling Functions: How to create and call functions in Python, incl
 Built-in Python Modules: An overview of the built-in modules in Python, including math, datetime, and random.
 
 
-Lists, Tuples, and Dictionaries
+
+
+
+
+
+Data Structures - Lists, Tuples,Sets and Dictionaries
 Working with Lists: How to create and manipulate lists in Python, including indexing, slicing, and list methods.
 
 Tuples and Sets: An introduction to tuples and sets in Python, including how they differ from lists and how to use them in programming.
