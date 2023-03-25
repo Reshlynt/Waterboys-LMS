@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.UUID;
 import java.util.ArrayList;
 
 public class UI {
@@ -70,6 +69,7 @@ public class UI {
           case 1:
             break;
           case 2:
+            getAccessCourse((Student) user);
             break;
           case 3:
             break;
@@ -85,7 +85,6 @@ public class UI {
   }
 
   public static int Welcome() {
-    String choice = null;
     WelcomeLine1();
     WelcomeLine2(FIVESTAR, SPACESTAR, 34);
     WelcomeLine3(FIVESTAR, " ", 69);
@@ -164,9 +163,9 @@ public class UI {
       System.out.print(" ");
     System.out.println(FOURSTAR);
   }
-  private static void WelcomeLine7(String item1) {
+  public static void WelcomeLine7(String item1) {
     int line = 79 - item1.length();
-    for (int i = 0; i < line; i++)
+    for (int i = 0; i < line/2; i++)
       System.out.print(" ");
       System.out.println(item1);
   }
@@ -254,12 +253,12 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(25, "1.) Register for Course\n");
-    WelcomeLine5(25, "2.) Access your Courses\n");
-    WelcomeLine5(25, "3.) Access Certifications\n");
-    WelcomeLine5(25, "4.) View Profile\n");
-    WelcomeLine5(25, "9.) Exit LMS\n");
-    WelcomeLine5(32, "Choose an option: ");
+    WelcomeLine7("1.) Register for Course");
+    WelcomeLine7("2.) Access your Courses");
+    WelcomeLine7("3.) Access Certifications");
+    WelcomeLine7("4.) View Profile");
+    WelcomeLine7("9.) Exit LMS");
+    WelcomeLine5(31, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
@@ -284,15 +283,19 @@ public class UI {
     WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
     WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
     WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
-    ArrayList<Course> readCourses = DataLoader.getCourses();
-    System.out.println("\n");
-    WelcomeLine5(25, "Courses Created:\n");
-    for (int i = 0; i < readCourses.size(); i++) {
-      Course course = readCourses.get(i);
-      Teacher teacher = course.getAuthor();
-      if (user.getUsername().equals(teacher.getUsername())) {
-        WelcomeLine5(25, "\t" + course.getTitle());
+    if (DataLoader.getCourses() != null) {
+      ArrayList<Course> readCourses = DataLoader.getCourses();
+      System.out.println("\n");
+      WelcomeLine5(25, "Courses Created:\n");
+      for (int i = 0; i < readCourses.size(); i++) {
+        Course course = readCourses.get(i);
+        Teacher teacher = course.getAuthor();
+        if (user.getUsername().equals(teacher.getUsername())) {
+          WelcomeLine5(25, "\t" + course.getTitle());
+        }
       }
+    } else {
+      WelcomeLine7("There are no courses currently");
     }
   }
 
@@ -323,27 +326,27 @@ public class UI {
     // ask questions
     System.out.println("Lets create a course!");
     WelcomeLine1();
-    System.out.println("What language would like the course to be taught in?");
+    WelcomeLine7("What language would like the course to be taught in?");
     System.out.println();
     WelcomeLine5(25, "Choose an option: ");
     String courseType = INPUT.nextLine();
     while ((!courseType.equalsIgnoreCase("Python") && !courseType.equalsIgnoreCase("JavaScript"))) {
-        WelcomeLine5(25, "We currently do not support that language...\n");
-        WelcomeLine5(25, "Choose another language (we recommend JavaScript or Python)\n\n");
+        WelcomeLine7("We currently do not support that language...");
+        WelcomeLine7("Choose another language (we recommend JavaScript or Python)\n");
         WelcomeLine5(25, "Choose an option: ");
         courseType = INPUT.nextLine();
     }
     if (courseType.equalsIgnoreCase("Python"))
-      System.out.println("GREAT, you wanna teach Python?");
+      WelcomeLine7("GREAT, you wanna teach Python?");
     else if (courseType.equalsIgnoreCase("JavaScript"))
-      System.out.println("JavaScript it is");
+      WelcomeLine7("JavaScript it is");
 
-    System.out.println("What diffculty like the course to be?");
+    WelcomeLine7("What diffculty like the course to be?");
     System.out.println();
-    WelcomeLine5(25, "1.) Beginner\n");
-    WelcomeLine5(25, "2.) Intermediate\n");
-    WelcomeLine5(25, "3.) Expert\n");
-    WelcomeLine5(25, "Choose an option: ");
+    WelcomeLine7("1.) Beginner");
+    WelcomeLine7("2.) Intermediate");
+    WelcomeLine7("3.) Expert");
+    WelcomeLine5(31, "Choose an option: ");
     int difficulty = INPUT.nextInt();
     while (!(difficulty == 1 || difficulty == 2 || difficulty == 3)) {
       WelcomeLine5(25, "Enter 1,2, or 3:");
@@ -351,14 +354,41 @@ public class UI {
     }
     String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
     Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
-    System.out
-        .println(
-            "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
+    WelcomeLine7("We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
     
 
     // What info to make a course? Difficulty,
   }
 
+  public static Course getAccessCourse(Student user) {
+    ArrayList<Course> student_courses = DataLoader.getCourses();
+    if (student_courses != null) {
+      int num = 1;
+      WelcomeLine7("What courses would you like to access?");
+      for (Course course : student_courses) {
+        WelcomeLine7(num + ".) " + course.getTitle());
+        num++;
+      }
+      WelcomeLine5(30 ,"Choose an option: ");
+      try {
+        num = INPUT.nextInt();
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        return student_courses.get(num-1);
+      } catch (Exception e) {
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        return getAccessCourse((Student) user);
+      }
+    } else {
+      WelcomeLine7("You have no courses!");
+      return null;
+    }
+  }
+  
   private static void Quit() {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
