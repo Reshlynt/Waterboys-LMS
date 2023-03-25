@@ -445,8 +445,8 @@
                 "c": "A compiled programming language",
                 "d": "A high-level, interpreted programming language"
             }
-          ],
-          "correct_answer": "d"
+            ],
+            "correct_answer": "d"
           },
           {
             "question": "Who created JavaScript?",
@@ -457,8 +457,8 @@
                 "c": "Guido Von Rossum",
                 "d": "Steve Jobs"
               }
-          ],
-          "correct_answer": "b"
+            ],
+            "correct_answer": "b"
           },
           {
             "question": "What are the two types of data types in JavaScript?",
@@ -469,8 +469,8 @@
                 "c": "Objects and arrays",
                 "d": "Numbers and objects"
               }
-          ],
-          "correct_answer": "c"
+            ],
+            "correct_answer": "c"
           },
           {
             "question": "Which of the following is not a looping structure in JavaScript?",
@@ -481,8 +481,8 @@
                 "c": "do-while loop",
                 "d": "goto loop"
               }
-          ],
-          "correct_answer": "d"
+            ],
+            "correct_answer": "d"
           }
           ],
           "module_comments": []
@@ -513,8 +513,8 @@
                   "c": "Start with an underscore, followed by letters, digits or underscores",
                   "d": "Start with a letter, followed by letters or digits"
                 }
-            ],
-            "correct_answer": "b"
+              ],
+              "correct_answer": "b"
             },
             {
               "question": "What data types are supported in JavaScript?",
@@ -525,8 +525,8 @@
                   "c": "Strings and booleans",
                   "d": "Numeric types (integers, floats, and complex numbers), strings, and booleans"
                 }
-            ],
-            "correct_answer": "a"
+              ],
+              "correct_answer": "a"
             },
             {
               "question": "What is the difference between null and undefined in JavaScript?",
@@ -537,8 +537,8 @@
                   "c": "Undefined represents the absence of a value while null represents a variable that has been declared but has not been assigned a value",
                   "d": "Null and undefined are the same data type"
                 }
-            ],
-            "correct_answer": "b"
+              ],
+              "correct_answer": "b"
             },
             {
               "question": "What is the difference between the == operator and the === operator in JavaScript?",
@@ -549,8 +549,8 @@
                   "c": "== compares the value and the data type of two variables, while === compares the value of two variables without considering the data type",
                   "d": "None of the above"
                 }
-            ],
-            "correct_answer": "b"
+              ],
+              "correct_answer": "b"
             },
             {
               "question": "What are arrays and objects in JavaScript?",
@@ -561,8 +561,8 @@
                   "c": "Arrays and objects are the same data type",
                   "d": "Arrays and objects are only used in advanced JavaScript programming"
                 }
-            ],
-            "correct_answer": "b"
+              ],
+              "correct_answer": "b"
             },
             {
               "question": "Which built-in function can be used to convert a string to an integer in JavaScript?",
@@ -573,8 +573,8 @@
                   "c": "parseInt()",
                   "d": "Boolean()"
                 }
-            ],
-            "correct_answer": "c"
+              ],
+              "correct_answer": "c"
             },
             {
               "question": "What is the correct syntax to declare a variable in JavaScript?",
@@ -585,8 +585,8 @@
                   "c": "var variable_name = value",
                   "d": "value == variable_name"
                 }
-            ],
-            "correct_answer": "c"
+              ],
+              "correct_answer": "c"
             }
             ],
             "module_comments": []
@@ -604,8 +604,145 @@
             },
             {
               "slide_title": "Control Flow and Logical Operators",
-              "description": 
+              "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: "&&" (logical AND), "||" (logical OR), and "!" (logical NOT). The "&&" operator returns true if both expressions being evaluated are true, otherwise it returns false. The "||" operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the "!" operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as "if" statements and "while" loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions."
           ],
-
+          "quiz": [
+            {
+              "question": "What is the purpose of JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "To make web pages more visually appealing.",
+                  "b": "To make web pages more interactive.",
+                  "c": "To make web pages load faster.",
+                  "d": "To make web pages more secure."
+                }
+              ],
+              "correct_answer": "b"
+            },
+            {
+              "question": "What is the correct syntax for declaring a variable in JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "var = myVariable;",
+                  "b": "variable myVariable;",
+                  "c": "myVariable = var;",
+                  "d": "var myVariable;"
+                }
+              ],
+            " correct_answer": "d"
+            },
+            {
+              "question": "What is the difference between == and === in JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "== compares both value and type, while === compares only value.",
+                  "b": "=== compares both value and type, while == compares only value.",
+                  "c": "== and === are equivalent.",
+                  "d": "== and === cannot be used in JavaScript."
+                }
+              ],
+              "correct_answer": "b"
+            },
+            {
+              "question": "What is the output of the following code?\nvar myVar = 3;\nmyVar = myVar + 1;\nconsole.log(myVar);",
+              "answer_choices": [
+                {
+                  "a": "1",
+                  "b": "2",
+                  "c": "3",
+                  "d": "4"
+                }
+              ],
+              "correct_answer": "d"
+            },
+            {
+              "question": "Which of the following is NOT a data type in JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "Boolean",
+                  "b": "String",
+                  "c": "Number",
+                  "d": "Character"
+                }
+              ],
+              "correct_answer": "d"
+            },
+            {
+              "question": "What is the purpose of a loop in JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "To define a function.",
+                  "b": "To declare a variable.",
+                  "c": "To execute a block of code repeatedly.",
+                  "d": "To add a style to an element."
+                }
+              ],
+              "correct_answer": "c"
+            },
+            {
+              "question": "What is the difference between the for and while loops in JavaScript?",
+              "answer_choices": [
+                {
+                  "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+                  "b": "A for loop and a while loop are the same thing.",
+                  "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+                  "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+                }
+              ],
+              "correct_answer": "a"
+            }
+          ],
+          "module_comments": []
+        },
+        {
+          "module_title": "",
+          "slides": [],
+          "quiz": [],
+          "module_comments": []
+        }
+      ],
+      "students": [
+        {
+          "id": "f60f1603-6dfe-49e3-b92f-3f63e9f69b61",
+          "completed": true,
+          "grades": [
+            95.0,
+            94.0,
+            97.0
+          ]
+        }
+      ],
+      "course_comments": [
+        {
+          "id": "1a5e5d5f-32d7-4492-9a7c-9ee9c331e188",
+          "text": "This is a course comment",
+          "replies": [
+            {
+              "id": "e75c7f1a-56f8-4a8b-a7da-c3e9f0b0f18b",
+              "text": "This is a reply to a course comment",
+              "more_replies": [
+                {
+                  "id": "7f1d4855-f99f-4212-8a7c-0e9d556e7c91",
+                  "text": "This is a reply to reply to a comment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "question": "question1",
+          "answer_choices": [
+            {
+              "a": "exam answer choice 1",
+              "b": "exam answer choice 2",
+              "c": "exam answer choice 3",
+              "d": "exam answer choice 4"
+            }
+          ],
+          "correct_answer": "a"
+        }
+      ]
   }
 ]
