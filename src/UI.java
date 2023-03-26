@@ -69,7 +69,12 @@ public class UI {
           case 1:
             break;
           case 2:
-            getAccessCourse((Student) user);
+            Course course = getAccessCourse((Student) user);
+            boolean quiz = AccessCourse(course);
+            if (quiz)
+              System.out.print(" ");
+            else
+              System.out.println("There are currently no assessments you can take for this course...");
             break;
           case 3:
             break;
@@ -110,7 +115,7 @@ public class UI {
     } catch (Exception e) {
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
-      System.out.println("You entered an invalid choice. Press Enter or to Continue");
+      System.out.println("You entered an invalid choice. Press Enter to Continue");
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
       return Welcome();
@@ -389,6 +394,25 @@ public class UI {
     }
   }
   
+  public static boolean AccessCourse(Course course) {
+    ArrayList<Module> modules = course.getModules();
+    if (modules != null) {
+      for (Module module : modules) {
+        System.out.println(module.getTitle());
+        for (Slide slide : module.getSlides()) {
+          System.out.println(slide);
+          System.out.println();
+          WelcomeLine7("Press Enter to Continue");
+        INPUT.nextLine();
+        }
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+
   private static void Quit() {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
