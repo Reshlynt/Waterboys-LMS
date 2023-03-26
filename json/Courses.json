@@ -727,18 +727,91 @@
         "slides": [
           {
             "slide_title": "Introduction to OOP",
-            "description": ""
+            "description": "Object-Oriented Programming (OOP) is a programming strategy that is based on the concept of objects.\nIn Python, everything data type and structure is an object, making OOP a fundamental aspect of the language.\nOOP allows programmers to structure their code in a way that is more modular, flexible, and reusable.\nThis is accomplished through the creation of classes, which define the properties and behavior of objects, and the creation of instances of those classes, which are the actual objects themselves.\nPython provides a wide range of OOP features, including inheritance, encapsulation, and polymorphism, which allow programmers to build complex systems that are easy to maintain and extend.\nWith OOP in Python, programmers can write more organized and efficient code that is also reusable.\nThis is arguably why OOP the most important a skill a developer/programmer should know and understand.\n "
           },
           {
             "slide_title": "Classes and Objects",
-            "description": ""
+            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in python:\n\n#please take note of the indentation(indentation is very important in python)\nclass Student:\n  #this is a constructor which is a method that is called when an object is created/constructed\n  #self is just a pointer to the own specific object, don't worry about it too much\n  def __init__(self, name, age, major):\n    self.name = name\n    self.age = age \n    self.major = major  \n\n  #this is a method that displays my info\n  def getStudentInfo(self):\n    print('name:', self.name)\n    print('age:', self.age)\n    print('major:', self.major)\n\n\nVansh = Student('Vansh Nagpal',20,'Computer Science')\nVansh.getStudentInfo()#Output'Vansh Nagpal'\n20\n'Computer Science'"
           },
           {
             "slide_title": "Inheritance and Polymorphism",
-            "description": ""
+            "description": "Inheritance and Polymorphism are the height of what one can achieve with OOP.\nInheritance allows you to declare a class that will act as the parent, and then declare a class that will act as the child.\nThe child class expands upon the capabilities of the parent, or 'inherits' the parent's capabilities.\nThis goes back to the concept of reusability in code.\nIf it is not necessary to write more code, then why should you?\nPolymorphism is a way for objects of different classes to implement certain capabilities in different ways.\nSpecificallyit refers to functions that child classes implement or override in different ways.\nHere is an example of both polymorphism and inheritance in python:\n\n#Here the cat and dog classes inherit from the animal class:\nclass Animal:\n  def __init__(self, name, age):\n    self.age = age\n    self.name = name\n\n  def makeASound(self)\n    print(\"this will be overriden\")\n\n#dog is a child of animal, hence (Animal)\nclass Dog(Animal):\n  def __init(self, name, age, breed)\n    super().__init(name, age)#calls parent constructor\n    self.breed = breed\n\n  def makeASound(self):\n    print(\"BARK\")\n\n#cat is a child of animal, hence (Animal)\nclass Cat(Animal):\n  def __init(self, name, age, color)\n    super().__init(name, age)#calls parent constructor\n    self.color = color\n\n  def makeASound(self):\n    print(\"MEOW MEOW\")  \n\ndog = Dog('rex', 3,'golden retriever')\ncat = Cat('jenna', 2, 'black and white')\ndog.makeASound()#Output: BARK\ncat.makeASound()#Ouput: MEOW MEOW"
           }
         ],
-        "quiz": [],
+        "quiz": [
+          {
+            "question": "What is the basic concept of Object-Oriented Programming (OOP)?",
+            "answer_choices": [
+              {
+                "a": "It is based on the concept of objects.",
+                "b": "It is based on the concept of functions.",
+                "c": "It is based on the concept of loops.",
+                "d": "It is based on the concept of arrays."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What are the benefits of using OOP in Python?",
+            "answer_choices": [
+              {
+                "a": "It allows for more modular, flexible, and reusable code.",
+                "b": "It makes programs more complex and harder to maintain.",
+                "c": "It reduces the efficiency of code.",
+                "d": "It is not compatible with other programming languages."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What are some of the OOP features provided by Python?",
+            "answer_choices": [
+              {
+                "a": "Inheritance, encapsulation, and polymorphism.",
+                "b": "Loops, functions, and arrays.",
+                "c": "Conditionals, exceptions, and file I/O.",
+                "d": "Networking, databases, and GUIs."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "How do you make a constructor and declare a class in Python?",
+            "answer_choices": [
+              {
+                "a": "Use the __init__() method to define the constructor and the class keyword to declare a class.",
+                "b": "Use the self keyword to define the constructor and the def keyword to declare a class.",
+                "c": "Use the __new__() method to define the constructor and the class keyword to declare a class.",
+                "d": "Use the class keyword to define the constructor and the __init__() method to declare a class."
+              }
+            ],
+            "correct_answer": "a"
+          },
+          {
+            "question": "What is inheritance in object-oriented programming?",
+            "answer_choices": [
+              {
+                "a": "A mechanism for treating different objects as if they were the same type of object",
+                "b": "A mechanism for sharing and reusing properties between related classes",
+                "c": "A mechanism for overriding the methods of a parent class",
+                "d": "A mechanism for encapsulating data within a class"
+              }
+            ],
+            "correct_answer": "b"
+          },
+          {
+            "question": "What is polymorphism in object-oriented programming?",
+            "answer_choices": [
+              {
+                "a": "A mechanism for treating different objects as if they were the same type of object",
+                "b": "A mechanism for sharing and reusing properties between related classes",
+                "c": "A mechanism for overriding the methods of a parent class",
+                "d": "A mechanism for encapsulating data within a class"
+              }
+            ],
+            "correct_answer": "a"
+          }
+        ],
         "module_comments": []
       },
       {
