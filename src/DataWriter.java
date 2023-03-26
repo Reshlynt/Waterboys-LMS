@@ -363,9 +363,4 @@ public class DataWriter extends DataConstants {
             return "01011990"; // Default date if error occurs. January 1, 1990.
         }
     }
-
-    public static void main(String[] args) {
-        //saveUsers();
-        saveCourses();
-    }
 }
