@@ -423,6 +423,10 @@ public class DataLoader extends DataConstants {
       // checking if the last element of the array list is Double value 1, which means
       // the course is completed
       boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
+
+      //removes the the last element 1, as it is not an actual grade
+      particularGrades.remove(Double.valueOf(1.0));
+      
       // calls setCourseGrade method which updates the students grade for the
       // particular course
       listedStudent.setCourseProgress(course, particularGrades, completed);
