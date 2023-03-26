@@ -117,11 +117,13 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(DIFFICULTY, course.getDifficulty().toString().toUpperCase());
 
+        courseDetails.put(COURSE_CREATOR, course.getAuthor().getFullName());
+
         courseDetails.put(COURSE_ID, course.getID().toString());
 
-        courseDetails.put(COURSE_TYPE, course.getCourseType().toString().toUpperCase());
-
         courseDetails.put(TEACHER_ID, course.getAuthor().getID().toString());
+
+        courseDetails.put(COURSE_TYPE, course.getCourseType().toString().toUpperCase());
 
         courseDetails.put(EXAM, getAssessmentJSONArray(course.getAssessment()));
 
@@ -287,6 +289,8 @@ public class DataWriter extends DataConstants {
         return moduleArray;
     }
 
+    
+
     // ---------------------------------------------------------------------------------------------
     // This deals with the Assessment JSON object.
     // ---------------------------------------------------------------------------------------------
@@ -361,7 +365,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        // saveUsers();
+        //saveUsers();
         saveCourses();
     }
 }
