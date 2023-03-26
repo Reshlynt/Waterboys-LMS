@@ -229,13 +229,13 @@ public class UI {
     WelcomeLine6("Welcome, " + teacher.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(25, "1.) Add Student to Course\n");
-    WelcomeLine5(25, "2.) Create a Course\n");
-    WelcomeLine5(25, "3.) Remove a Student from a course\n");
-    WelcomeLine5(25, "4.) View Profile\n");
-    WelcomeLine5(25, "5.) View Courses\n");
-    WelcomeLine5(25, "9.) Exit LMS\n\n");
-    WelcomeLine5(32, "Choose an option: ");
+    WelcomeLine7("1.) Add Student to Course");
+    WelcomeLine7("2.) Create a Course");
+    WelcomeLine7("3.) Remove a Student from a course");
+    WelcomeLine7("4.) View Profile");
+    WelcomeLine7("5.) View Courses");
+    WelcomeLine7("9.) Exit LMS\n");
+    WelcomeLine7("Choose an option: ");
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
@@ -260,7 +260,7 @@ public class UI {
     WelcomeLine7("2.) Access your Courses");
     WelcomeLine7("3.) Access Certifications");
     WelcomeLine7("4.) View Profile");
-    WelcomeLine7("9.) Exit LMS");
+    WelcomeLine7("9.) Exit LMS\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
@@ -270,7 +270,7 @@ public class UI {
     } catch (Exception e) {
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
-      System.out.println("You entered an invalid choice. Press Enter or to Continue");
+      WelcomeLine5(11, "You entered an invalid choice. Press Enter or to Continue");
       INPUT.nextLine();
       System.out.println("\n\n\n\n\n");
       return StudentMenu(student);
@@ -393,9 +393,11 @@ public class UI {
   }
   
   public static boolean AccessCourse(Course course) {
+    WelcomeLine1();
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       for (Module module : modules) {
+        WelcomeLine1();
         System.out.println(module.getTitle());
         for (Slide slide : module.getSlides()) {
           System.out.println(slide);
@@ -408,7 +410,24 @@ public class UI {
             WelcomeLine5(14 ,"Would you like to take a Quiz? (Enter Yes or No): ");
             String choice = INPUT.nextLine();
             if (choice.equalsIgnoreCase("yes")) {
-              module.getQuiz().display();              
+              for (Question question : module.getQuiz().getQuestions()) {
+                WelcomeLine7(question.getQuestionContent());
+                System.out.println();
+                char num = 'A';
+                for (String answer_choice : question.getAnswerChoices()) {
+                  System.out.println(num + ".) " + answer_choice);
+                  num++;
+                }
+                System.out.println("\nWhat is your answer?");
+                String answer = INPUT.nextLine();
+                if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
+                  System.out.println("Correct!");
+                } else {
+                  System.out.println("Incorrect!");
+                }
+                WelcomeLine7("Press Enter to continue to the next question");
+                INPUT.nextLine();
+              }
               takequiz = false;
             } else if (choice.equalsIgnoreCase("no")) {
               WelcomeLine7("Moving on...");
