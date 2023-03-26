@@ -402,9 +402,33 @@ public class UI {
         for (Slide slide : module.getSlides()) {
           System.out.println(slide);
           System.out.println();
-          WelcomeLine7("Press Enter to Continue");
-        INPUT.nextLine();
         }
+        WelcomeLine7("Press Enter to Continue");
+        INPUT.nextLine();
+        if (module.getQuiz() != null &&
+            module.getQuiz().getQuestions().size() != 0) {
+          boolean takequiz = true;
+          while(takequiz) {
+            WelcomeLine5(14 ,"Would you like to take a Quiz? (Enter Yes or No): ");
+            String choice = INPUT.nextLine();
+            if (choice.equalsIgnoreCase("yes")) {
+              Assessment quiz = module.getQuiz();
+              System.out.println(quiz.getTitle());
+              System.out.println(quiz.getQuestions());
+              System.out.println(quiz.getCorrectAnswers());
+              //System.out.println(quiz);
+              takequiz = false;
+            } else if (choice.equalsIgnoreCase("no")) {
+              WelcomeLine7("Moving on...");
+              takequiz = false;
+            } else {
+              WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+              INPUT.nextLine();
+            }
+          }
+        }
+        WelcomeLine7("Press Enter to Continue");
+        INPUT.nextLine();
       }
       return true;
     } else {
