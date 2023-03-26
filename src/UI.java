@@ -393,6 +393,7 @@ public class UI {
   }
   
   public static boolean AccessCourse(Course course) {
+    int final_score = 0, final_correct = 0;
     WelcomeLine1();
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
@@ -410,7 +411,9 @@ public class UI {
             WelcomeLine5(14 ,"Would you like to take a Quiz? (Enter Yes or No): ");
             String choice = INPUT.nextLine();
             if (choice.equalsIgnoreCase("yes")) {
+              int size = 0, score = 0, correct = 0;
               for (Question question : module.getQuiz().getQuestions()) {
+                size += 1;
                 WelcomeLine7(question.getQuestionContent());
                 System.out.println();
                 char num = 'A';
@@ -422,11 +425,22 @@ public class UI {
                 String answer = INPUT.nextLine();
                 if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
                   System.out.println("Correct!");
+                  correct += 1;
                 } else {
                   System.out.println("Incorrect!");
                 }
-                WelcomeLine7("Press Enter to continue to the next question");
-                INPUT.nextLine();
+                score += 1;
+                if (size != module.getQuiz().getQuestions().size()) {
+                  WelcomeLine7("Press Enter to continue to the next question");
+                  INPUT.nextLine();
+                } else {
+                  WelcomeLine7("You have finished this module's quiz!");
+                  WelcomeLine7("You scored " + correct + " out of " + score + " points!");
+                  final_score += score;
+                  final_correct += correct;
+                  score = 0;
+                  correct = 0;
+                }
               }
               takequiz = false;
             } else if (choice.equalsIgnoreCase("no")) {
@@ -438,9 +452,11 @@ public class UI {
             }
           }
         }
-        WelcomeLine7("Press Enter to Continue");
+        WelcomeLine7("Press Enter to continue");
         INPUT.nextLine();
       }
+      WelcomeLine7("You have finished the course!");
+      WelcomeLine7("You scored " + final_correct + " out of " + final_score + " points!");
       return true;
     } else {
       return false;
