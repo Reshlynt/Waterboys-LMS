@@ -405,8 +405,8 @@ public class UI {
           WelcomeLine7("Press Enter to Continue");
         INPUT.nextLine();
         }
-        return true;
       }
+      return true;
     } else {
       return false;
     }
