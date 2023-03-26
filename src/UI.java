@@ -31,9 +31,7 @@ public class UI {
           Quit();
         default:
           System.out.println("\n\n\n\n\n");
-          for (int i = 0; i < 13; i++)
-            System.out.print(" ");
-          System.out.println("You entered an invalid choice. Press Enter to Continue");
+          WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           INPUT.nextLine();
           run();
           break;
@@ -43,7 +41,7 @@ public class UI {
         // DataWriter.saveUsers();
         quit = true;
       } else {
-        System.out.println("Press Enter to Continue");
+        WelcomeLine7("Press Enter to Continue");
         INPUT.nextLine();
         continue;
       }
@@ -403,8 +401,6 @@ public class UI {
           System.out.println(slide);
           System.out.println();
         }
-        WelcomeLine7("Press Enter to Continue");
-        INPUT.nextLine();
         if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
           boolean takequiz = true;
@@ -412,11 +408,7 @@ public class UI {
             WelcomeLine5(14 ,"Would you like to take a Quiz? (Enter Yes or No): ");
             String choice = INPUT.nextLine();
             if (choice.equalsIgnoreCase("yes")) {
-              Assessment quiz = module.getQuiz();
-              System.out.println(quiz.getTitle());
-              System.out.println(quiz.getQuestions());
-              System.out.println(quiz.getCorrectAnswers());
-              //System.out.println(quiz);
+              module.getQuiz().display();              
               takequiz = false;
             } else if (choice.equalsIgnoreCase("no")) {
               WelcomeLine7("Moving on...");
