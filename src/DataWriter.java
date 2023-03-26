@@ -167,8 +167,7 @@ public class DataWriter extends DataConstants {
         studentDetails.put(COMPLETED, student.hasCertificate(course));
         for (int i = 0; i < student.getCourseProgresses().size(); i++) {
             if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
-                studentDetails.put(GRADES,
-                        getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
+                studentDetails.put(GRADES, getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
                 break;
             }
         }
@@ -362,5 +361,10 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
             return "01011990"; // Default date if error occurs. January 1, 1990.
         }
+    }
+
+    public static void main(String[] args) {
+        //saveUsers();
+        saveCourses();
     }
 }
