@@ -80,7 +80,7 @@ public class LMSSystem {
         return courseList;
     }
 
-    public boolean createCourse(String name, String description, String teacherName) {
+    /*public boolean createCourse(String name, String description, String teacherName) {
         if (courseList.found(name)) {
             System.out.println("Course already exists!");
             return false;
@@ -90,5 +90,5 @@ public class LMSSystem {
             System.out.println("Course created successfully!");
             return true;
         }
-    }
+    }*/
 }
