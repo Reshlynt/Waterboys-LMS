@@ -10,10 +10,10 @@ public class Comment {
   private int dislikes;
   private ArrayList<Comment> replies;
 
-  public Comment(String post, UUID postingUser, ArrayList<Comment> replies) {
+  public Comment(String post, UUID postingUser) {
     this.post = post;
     this.postingUser = postingUser;
-    this.replies = replies;
+    this.replies = new ArrayList<Comment>();
   }
   // Recursively prints all comments
   public void printComments() {
