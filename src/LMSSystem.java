@@ -53,8 +53,6 @@ public class LMSSystem {
         return null;
     }
 
-
-
     public void goToCourse(Course course) {
         System.out.println("You are now in " + course.getTitle() + " course!");
     }

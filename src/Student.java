@@ -30,9 +30,9 @@ public class Student extends User {
     courseProgresses.add(newCourseStatus);
   }
 
-  public void makeComment(String comment) {
-    Comment.addPost(comment);
-  }
+  // public void makeComment(String comment) {
+  //   Comment.addPost(comment);
+  // }
 
   // Return the student's certificates
   public ArrayList<Certificate> getCertificates() {

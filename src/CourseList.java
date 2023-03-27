@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 //import java.util.zip.GZIPOutputStream;
+import java.util.UUID;
 
 public class CourseList {
   private static CourseList courseList;
@@ -59,7 +60,14 @@ public class CourseList {
     }
     return null;
   }
-
+  public Course getCourseByUUID(UUID id) {
+    for (Course course : courses) {
+      if (course.getID().equals(id)) {
+        return course;
+      }
+    }
+    return null;
+  }
   public ArrayList<Course> getCourseList() {
     return courses;
   }

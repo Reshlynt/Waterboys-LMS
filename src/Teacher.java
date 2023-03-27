@@ -42,11 +42,6 @@ public class Teacher extends User {
             String description = (String) courseJSONObject.get("description");
             Assessment exam = (Assessment) courseJSONObject.get("exam");
             CourseType courseType = (CourseType) courseJSONObject.get("courseType");
-            // TODO: get ArrayList instance variables
-            ArrayList<Module> lessons = new ArrayList<Module>();
-            for (int j = 0; j < courseJSONObject.get("lessons").size(); j++) {
-                
-            }
 
             ArrayList<Module> lessons = (ArrayList<Module>) courseJSONObject.get("lessons");
             ArrayList<Comment> courseComments = (ArrayList<Comment>) courseJSONObject.get("courseComments");

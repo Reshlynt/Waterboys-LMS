@@ -327,7 +327,7 @@ public class UI {
     }
   }
 
-  public Course createCourseFromScratch() {
+  public static Course createCourseFromScratch(Teacher teacher) {
     System.out.println("What is the title of the course?");
     String title = System.console().readLine();
     System.out.print("\033[H\033[2J");
@@ -429,23 +429,14 @@ public class UI {
             }
             }
         }
-        Course newCourse = new Course(this, title, difficulty, description, exam, courseType, lessons, students);
+        Course newCourse = new Course(teacher, title, difficulty, description, exam, courseType, lessons, students);
         return newCourse;
     }
-
-    
-    // ask for title
-    // ask for description
-    // ask for difficulty
-    // ask for course type
-    // go through modules one by one asking for each slide - save to ArrayList of slides
-    // at end of each module, create a quiz and ask if they want to add another module
-    // at end of course, go through quiz process but for exam
 
     return null;
 }
 
-public Assessment makeAssessment() {
+public static Assessment makeAssessment() {
     System.out.println("What is the title of the assessment?");
     String title = System.console().readLine();
     System.out.println("What is the description of the assessment?");
@@ -473,7 +464,29 @@ public Assessment makeAssessment() {
     return new Assessment(title, questions);
 }
 
-  private static void CreateCourse(Teacher teacher) {
+    private static void CreateCourse(Teacher teacher) {
+        boolean valid = false;
+        while (!valid) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            System.out.println("Would you like to create a course from scratch or from a template?");
+            System.out.println("1.) Create from scratch");
+            System.out.println("2.) Create from template");
+            switch (INPUT.nextLine()) {
+                case "1":
+                    createCourseFromScratch(teacher);
+                    break;
+                case "2":
+                    createCourseFromTemplate(teacher);
+                    break;
+                default:
+                    System.out.println("Invalid input");
+                    break;
+            }
+        }
+    }
+
+  private static void createCourseFromTemplate(Teacher teacher) {
     // ask questions
     System.out.println("Lets create a course!");
     WelcomeLine1();
