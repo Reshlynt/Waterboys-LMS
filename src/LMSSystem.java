@@ -77,10 +77,6 @@ public class LMSSystem {
         return courseList.addCourse(course);
     }
 
-    public boolean addModule(Module module) {
-        return courseList.addModule(module);
-    }
-
     public CourseList getCourseList() {
         return courseList;
     }

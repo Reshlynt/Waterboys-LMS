@@ -29,6 +29,8 @@ public class Teacher extends User {
         System.out.flush();
         System.out.println("What is the difficulty of the course?");
         String difficultyString = System.console().readLine();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         Difficulty difficulty = null;
         difficultyString.toUpperCase();
         if (difficultyString == "BEGINNER") {
