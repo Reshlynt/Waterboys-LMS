@@ -134,8 +134,10 @@ public class Course {
   }
 
   public void removeComment(Comment comment) {
-    while (courseComments.contains(comment)) {
-      courseComments.remove(comment);
+    for (int i = 0; i < courseComments.size(); i++) {
+      if (courseComments.get(i).equals(comment)) {
+        courseComments.remove(i);
+      }
     }
   }
 
