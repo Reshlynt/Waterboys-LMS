@@ -43,6 +43,15 @@ public class CourseList {
     return result;
   }
 
+  public boolean found(String name) {
+    for (Course course : courses) {
+      if (course.getTitle().equals(name)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public Course getEnrolledCourse(String name) {
     ArrayList<Course> possibleCourses = getCourseByKeyword(name);
     for (int i = 0; i < possibleCourses.size(); i++) {
