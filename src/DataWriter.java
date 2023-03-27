@@ -129,7 +129,7 @@ public class DataWriter extends DataConstants {
 
         courseDetails.put(MODULES, getModuleJSONArray(course.getModules()));
 
-        courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments(), 1));
+        courseDetails.put(COURSE_COMMENTS, getCommentJSONArray(course.getComments()));
 
         courseDetails.put(STUDENTS, getStudentJSONArray(course.getStudents(), course));
 
@@ -229,15 +229,12 @@ public class DataWriter extends DataConstants {
      * @param comment - A Comment object.
      * @return A JSON object representing a Comment.
      */
-    private static JSONObject getCommentJSON(Comment comment, int count) {
+    private static JSONObject getCommentJSON(Comment comment) {
         JSONObject commentDetails = new JSONObject();
         commentDetails.put(COMMENTER_ID, comment.getPostingUser().toString());
         commentDetails.put(COMMENT_TEXT, comment.getPost());
-        if (count < 2)
-            commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies(), count + 1));
-        else if (count == 2)
-            commentDetails.put(SECOND_REPLIES,
-                    getCommentJSONArray(comment.getReplies(), count + 1));
+        commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies()));
+
         return commentDetails;
     }
 
@@ -247,11 +244,10 @@ public class DataWriter extends DataConstants {
      * @param comments - An array list of Comment objects.
      * @return A JSON array of Comment JSON objects.
      */
-    private static JSONArray getCommentJSONArray(ArrayList<Comment> comments, int count) {
-
+    private static JSONArray getCommentJSONArray(ArrayList<Comment> comments) {
         JSONArray commentArray = new JSONArray();
         for (int i = 0; comments != null && i < comments.size(); i++) {
-            commentArray.add(getCommentJSON(comments.get(i), count));
+            commentArray.add(getCommentJSON(comments.get(i)));
         }
         return commentArray;
     }
@@ -270,7 +266,7 @@ public class DataWriter extends DataConstants {
         JSONObject moduleDetails = new JSONObject();
         moduleDetails.put(MODULE_TITLE, module.getTitle());
         moduleDetails.put(SLIDES, getTextSlideJSONArray(module.getSlides()));
-        moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments(), 1));
+        moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments()));
         moduleDetails.put(QUIZ, getAssessmentJSONArray(module.getQuiz()));;
         return moduleDetails;
     }
@@ -361,5 +357,8 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
             return "01011990"; // Default date if error occurs. January 1, 1990.
         }
+    }
+    public static void main(String[] args) {
+        saveCourses();
     }
 }
