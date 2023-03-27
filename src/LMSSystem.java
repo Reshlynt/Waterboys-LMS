@@ -27,11 +27,9 @@ public class LMSSystem {
         return;
     }
 
-    // method that adds a comment to a course by a user
     public void addComment(Course course, User user, String input) {
-        ArrayList<Comment> replies;
-        Comment comment = new Comment(input, user, replies)
-        course.addComment(user, comment);
+        Comment comment = new Comment(input, user.getID());
+        course.addComment(comment);
     }
 
     public User SignUp(String firstName, String lastName, String username, String email, String password, Date dateOfBirth, String job) {
