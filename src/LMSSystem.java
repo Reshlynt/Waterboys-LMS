@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class LMSSystem {
-    public static Scanner keyboard = new Scanner(System.in);
     public UserList userList = new UserList();
     public CourseList courseList;
 
