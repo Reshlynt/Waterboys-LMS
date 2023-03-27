@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -15,9 +16,16 @@ public class Comment {
     this.postingUser = postingUser;
     this.replies = new ArrayList<Comment>();
   }
+
+  public Comment(String post, UUID postingUser, ArrayList<Comment> replies) {
+    this.post = post;
+    this.postingUser = postingUser;
+    this.replies = replies;
+  }
+
   // Recursively prints all comments
   public void printComments() {
-    for(int i = 0; i<replies.size();i++){
+    for (int i = 0; i < replies.size(); i++) {
       System.out.println(replies.get(i));
       for (int j = 0; j < replies.get(i).getReplies().size(); j++) {
         replies.get(i).getReplies().get(j).printComments();
@@ -27,10 +35,10 @@ public class Comment {
   }
 
   public String toString() {
-    String info = +CID+ " UUID: " + postingUser.toString() + " post: " + post + "\n";
-    if(replies!=null){
-      info+="replies\n";
-      for(int i = 0; i< replies.size();i++){
+    String info = +CID + " UUID: " + postingUser.toString() + " post: " + post + "\n";
+    if (replies != null) {
+      info += "replies\n";
+      for (int i = 0; i < replies.size(); i++) {
         info += replies.get(i).toString();
       }
     }
@@ -45,10 +53,9 @@ public class Comment {
   }
 
   public void likeDislikePost(String entry) {
-    if(entry.equals("likes")) {
+    if (entry.equals("likes")) {
       likes++;
-    }
-    else if(entry.equals("dislike")) {
+    } else if (entry.equals("dislike")) {
       dislikes++;
     }
   }
