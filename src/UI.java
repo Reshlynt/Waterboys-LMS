@@ -166,12 +166,14 @@ public class UI {
       System.out.print(" ");
     System.out.println(FOURSTAR);
   }
+
   public static void WelcomeLine7(String item1) {
     int line = 79 - item1.length();
-    for (int i = 0; i < line/2; i++)
+    for (int i = 0; i < line / 2; i++)
       System.out.print(" ");
-      System.out.println(item1);
+    System.out.println(item1);
   }
+
   private static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     Date date = null;
@@ -334,10 +336,10 @@ public class UI {
     WelcomeLine5(25, "Choose an option: ");
     String courseType = INPUT.nextLine();
     while ((!courseType.equalsIgnoreCase("Python") && !courseType.equalsIgnoreCase("JavaScript"))) {
-        WelcomeLine7("We currently do not support that language...");
-        WelcomeLine7("Choose another language (we recommend JavaScript or Python)\n");
-        WelcomeLine5(25, "Choose an option: ");
-        courseType = INPUT.nextLine();
+      WelcomeLine7("We currently do not support that language...");
+      WelcomeLine7("Choose another language (we recommend JavaScript or Python)\n");
+      WelcomeLine5(25, "Choose an option: ");
+      courseType = INPUT.nextLine();
     }
     if (courseType.equalsIgnoreCase("Python"))
       WelcomeLine7("GREAT, you wanna teach Python?");
@@ -357,8 +359,8 @@ public class UI {
     }
     String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
     Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
-    WelcomeLine7("We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
-    
+    WelcomeLine7(
+        "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
 
     // What info to make a course? Difficulty,
   }
@@ -372,12 +374,12 @@ public class UI {
         WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
-      WelcomeLine5(30 ,"Choose an option: ");
+      WelcomeLine5(30, "Choose an option: ");
       try {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return student_courses.get(num-1);
+        return student_courses.get(num - 1);
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
@@ -391,7 +393,7 @@ public class UI {
       return null;
     }
   }
-  
+
   public static boolean AccessCourse(Course course) {
     int final_score = 0, final_correct = 0;
     WelcomeLine1();
@@ -407,8 +409,8 @@ public class UI {
         if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
           boolean takequiz = true;
-          while(takequiz) {
-            WelcomeLine5(14 ,"Would you like to take a Quiz? (Enter Yes or No): ");
+          while (takequiz) {
+            WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
             String choice = INPUT.nextLine();
             if (choice.equalsIgnoreCase("yes")) {
               int size = 0, score = 0, correct = 0;
@@ -462,7 +464,6 @@ public class UI {
       return false;
     }
   }
-
 
   private static void Quit() {
     for (int i = 0; i < 32; i++)
