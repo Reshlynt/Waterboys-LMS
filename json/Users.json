@@ -38,5 +38,15 @@
     "password": "x14FGdh.sZl",
     "dateOfBirth": "04201900",
     "type": "teacher"
+  },
+  {
+    "id": "98a7d10f-80e5-4e58-9025-fbc8c34f639d",
+    "username": "portiaportia",
+    "firstName": "Portia",
+    "lastName": "Plante",
+    "email": "portia@gmail.com",
+    "password": "portia",
+    "dateOfBirth": "04142000",
+    "type": "teacher"
   }
 ]
