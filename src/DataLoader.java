@@ -121,7 +121,7 @@ public class DataLoader extends DataConstants {
 
       }
     } catch (Exception e) {
-      //UI.WelcomeLine7("There was an error loading some of the courses.");
+      // UI.WelcomeLine7("There was an error loading some of the courses.");
     }
     return courses;
   }
@@ -152,7 +152,8 @@ public class DataLoader extends DataConstants {
    * @return an array list of comments from the JSONArray
    */
   private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
-    if(commentsJSON == null) return null;
+    if (commentsJSON == null)
+      return null;
     ArrayList<Comment> comments = new ArrayList<Comment>();// to be returned
 
     /*
@@ -424,9 +425,9 @@ public class DataLoader extends DataConstants {
       // the course is completed
       boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
 
-      //removes the the last element 1, as it is not an actual grade
+      // removes the the last element 1, as it is not an actual grade
       particularGrades.remove(Double.valueOf(1.0));
-      
+
       // calls setCourseGrade method which updates the students grade for the
       // particular course
       listedStudent.setCourseProgress(course, particularGrades, completed);
