@@ -18,33 +18,6 @@ public class Teacher extends User {
         this.id = UUID.randomUUID();
     }
 
-    public Assessment makeAssessment() {
-        System.out.println("What is the title of the assessment?");
-        String title = System.console().readLine();
-        System.out.println("What is the description of the assessment?");
-        ArrayList<Question> questions = new ArrayList<Question>();
-        boolean addMoreQuestions = true;
-        while (addMoreQuestions) {
-            System.out.println("What is the question?");
-            String question = System.console().readLine();
-            System.out.println("Enter 4 answer choices, pressing enter after each:");
-            ArrayList<String> answers = new ArrayList<String>();
-            for (int i = 0; i < 4; i++) {
-                answers.add(System.console().readLine());
-            }
-            System.out.println("What is the correct answer? a, b, c, or d?");
-            String correctAnswer = System.console().readLine();
-            correctAnswer.toLowerCase();
-            questions.add( new Question(question, answers, correctAnswer));
-            System.out.println("Do you want to add another question? (Y/N)");
-            String addQuestion = System.console().readLine();
-            addQuestion.toUpperCase();
-            if (addQuestion.equals("N")) {
-                addMoreQuestions = false;
-            }
-        }
-        return new Assessment(title, questions);
-    }
     public boolean addToCourse(Student student, Course course) {
         course.addToCourse(student);
         return true;
