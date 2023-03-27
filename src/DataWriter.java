@@ -245,8 +245,10 @@ public class DataWriter extends DataConstants {
      * @return A JSON array of Comment JSON objects.
      */
     private static JSONArray getCommentJSONArray(ArrayList<Comment> comments) {
+        if (comments == null)
+            return null;
         JSONArray commentArray = new JSONArray();
-        for (int i = 0; comments != null && i < comments.size(); i++) {
+        for (int i = 0; i < comments.size(); i++) {
             commentArray.add(getCommentJSON(comments.get(i)));
         }
         return commentArray;
