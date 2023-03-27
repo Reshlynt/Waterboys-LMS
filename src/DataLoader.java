@@ -152,11 +152,13 @@ public class DataLoader extends DataConstants {
    * @return an array list of comments from the JSONArray
    */
   private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
-    //base case(when a reply doesn't have any replies)
+    // base case(when a reply doesn't have any replies)
     if (commentsJSON == null)
       return null;
-    ArrayList<Comment> comments = new ArrayList<Comment>();// to be returned
-    
+
+    // to be returned
+    ArrayList<Comment> comments = new ArrayList<Comment>();
+
     // for loop iterates through all of the top level comments
     for (int i = 0; i < commentsJSON.size(); i++) {
       // particular top level comment is a JSONObject
@@ -169,10 +171,10 @@ public class DataLoader extends DataConstants {
       // Comment also has a list/JSONArray of first replies
       JSONArray repliesJSON = (JSONArray) commentJSON.get(REPLIES);
 
-      //recursivey calls method to get all of replies, replies to replies, etc, etc
+      // recursivey calls method to get all of replies, replies to replies, etc, etc
       ArrayList<Comment> replies = readComments(repliesJSON);
 
-      //constructs comment object
+      // constructs comment object
       Comment comment = new Comment(commentText, commenterID, replies);
 
       // add each comment to the array list of comments
