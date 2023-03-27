@@ -327,6 +327,124 @@ public class UI {
     }
   }
 
+  public Course createCourseFromScratch() {
+    System.out.println("What is the title of the course?");
+    String title = System.console().readLine();
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    System.out.println("What is the description of the course?");
+    String description = System.console().readLine();
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    System.out.println("What is the difficulty of the course?");
+    String difficultyString = System.console().readLine();
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    Difficulty difficulty = null;
+    difficultyString.toUpperCase();
+    if (difficultyString == "BEGINNER") {
+        difficulty = Difficulty.BEGINNER;
+    } else {
+        difficulty = Difficulty.INTERMEDIATE;
+    }
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    System.out.println("What is the course type? JavaScript or Python?");
+    CourseType courseType = null;
+    do {
+        String response = System.console().readLine();
+        response.toLowerCase();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        if (response.equals("javascript")) {
+            courseType = CourseType.JAVASCRIPT;
+        } else if (response.equals("python")) {
+            courseType = CourseType.PYTHON;
+        } else {
+            System.out.println("Please enter JavaScript or Python");
+        }
+    } while (!System.console().readLine().equals("JavaScript") && !System.console().readLine().equals("Python"));
+
+    // Lesson creator:
+    ArrayList<Module> lessons = new ArrayList<Module>();
+    boolean addAnotherModule = true;
+    boolean addAnotherSlide = true;
+
+    while (addAnotherModule) {
+    System.out.println("What is the title of the module?");
+    String moduleTitle = System.console().readLine();
+    ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
+        // Create slide loop
+        while (addAnotherSlide) {
+            System.out.println("What do you want to title the slide?");
+            String slideTitle = System.console().readLine();
+            System.out.println("What do you want to print on the slide?");
+            String slideContents = System.console().readLine();
+            TextSlide tSlide = new TextSlide(slideTitle, slideContents);
+            slides.add(tSlide);
+            System.out.println("Do you want to add another slide? (Y/N)");
+            String addSlide = System.console().readLine();
+            addSlide.toUpperCase();
+            if (addSlide.equals("N")) {
+                addAnotherSlide = false;
+            }
+        }
+        Module aModule = new Module (moduleTitle, slides);
+        System.out.println("Create the quiz for this module: ");
+        Assessment moduleQuiz = makeAssessment();
+        moduleQuiz.setType(Type.QUIZ);
+        aModule.setLessonQuiz(moduleQuiz);
+        System.out.println("Add another module? (Y/N)");
+        String addModule = System.console().readLine();
+        addModule.toUpperCase();
+        if (addModule.equals("N")) {
+            addAnotherModule = false;
+        } 
+    }
+    // Create exam
+    System.out.println("Create the exam for this course: ");
+    Assessment exam = makeAssessment();
+    exam.setType(Type.EXAM);
+    System.out.println("Do you want to add any students? (Y/N)");
+    String addStudents = System.console().readLine();
+    addStudents.toUpperCase();
+    if (addStudents.equals("Y")) {
+        System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
+        ArrayList<Student> students = new ArrayList<Student>();
+        boolean addMoreStudents = true;
+        while (addMoreStudents) {
+            String studentUsername = System.console().readLine();
+            UserList userList = UserList.getInstance();
+            if (!userList.foundUser(studentUsername)) {
+                System.out.println("That user does not exist. Please try again.");
+                continue;
+            }
+            else {
+            students.add((Student) userList.getUser(studentUsername));
+            System.out.println("Do you want to add another student? (Y/N)");
+            String addStudent = System.console().readLine();
+            addStudent.toUpperCase();
+            if (addStudent.equals("N")) {
+                addMoreStudents = false;
+            }
+            }
+        }
+        Course newCourse = new Course(this, title, difficulty, description, exam, courseType, lessons, students);
+        return newCourse;
+    }
+
+    
+    // ask for title
+    // ask for description
+    // ask for difficulty
+    // ask for course type
+    // go through modules one by one asking for each slide - save to ArrayList of slides
+    // at end of each module, create a quiz and ask if they want to add another module
+    // at end of course, go through quiz process but for exam
+
+    return null;
+}
+
   private static void CreateCourse(Teacher teacher) {
     // ask questions
     System.out.println("Lets create a course!");
