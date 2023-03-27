@@ -187,15 +187,15 @@ public class DataLoader extends DataConstants {
         String replyText = (String) replyJSON.get(REPLY_TEXT);
 
         // Reply also has a list/JSONArray of second replies
-        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(SECOND_REPLIES);
+        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(REPLIES);
         ArrayList<Comment> secondReplies = new ArrayList<Comment>();
 
         for (int k = 0; k < secondRepliesJSON.size(); k++) {
           // Second reply only consists of a UUID and text
           JSONObject secondReplyJSON = (JSONObject) secondRepliesJSON.get(k);
 
-          UUID second_replierID = UUID.fromString((String) secondReplyJSON.get(SECOND_REPLIER_ID));
-          String second_replyText = (String) secondReplyJSON.get(SECOND_REPLY_TEXT);
+          UUID second_replierID = UUID.fromString((String) secondReplyJSON.get(REPLIER_ID));
+          String second_replyText = (String) secondReplyJSON.get(REPLY_TEXT);
 
           // second reply will not have an array list of comments(it is the leaf of the
           // tree if you will)
