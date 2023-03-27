@@ -16,9 +16,7 @@ public class Comment {
     this.replies = replies;
   }
   // Recursively prints all comments
-  public void printComments(){
-    // if (user's age is 13+)
-    // return null
+  public void printComments() {
     for(int i = 0; i<replies.size();i++){
       System.out.println(replies.get(i));
       for (int j = 0; j < replies.get(i).getReplies().size(); j++) {
@@ -43,12 +41,6 @@ public class Comment {
     Comment comment = new Comment("comment", postingUser, replies);
     replies.add(comment);
     CID += .1;
-    comment.addPost();
-  }
-
-  public void addPost() {
-    Comment comment = new Comment("comment", postingUser, null);
-    CID += 1;
     comment.addPost();
   }
 
