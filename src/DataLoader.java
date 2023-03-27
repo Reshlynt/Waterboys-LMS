@@ -152,19 +152,11 @@ public class DataLoader extends DataConstants {
    * @return an array list of comments from the JSONArray
    */
   private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
+    //base case(when a reply doesn't have any replies)
     if (commentsJSON == null)
       return null;
     ArrayList<Comment> comments = new ArrayList<Comment>();// to be returned
-
-    /*
-     * note regarding comments: we are only representing 3 levels of comments: top
-     * level comments which will be the main comments to either a module or a
-     * course, first replies which will be replies to those main comments, and
-     * second replies which will be replies to those first replies
-     * Any more replies are disgusting to implement, and not representative of real
-     * life situations
-     */
-
+    
     // for loop iterates through all of the top level comments
     for (int i = 0; i < commentsJSON.size(); i++) {
       // particular top level comment is a JSONObject
@@ -176,43 +168,11 @@ public class DataLoader extends DataConstants {
 
       // Comment also has a list/JSONArray of first replies
       JSONArray repliesJSON = (JSONArray) commentJSON.get(REPLIES);
-      ArrayList<Comment> replies = new ArrayList<Comment>();
 
-      for (int j = 0; j < repliesJSON.size(); j++) {
-        // particular first reply is a JSONObject
-        JSONObject replyJSON = (JSONObject) repliesJSON.get(j);
+      //recursivey calls method to get all of replies, replies to replies, etc, etc
+      ArrayList<Comment> replies = readComments(repliesJSON);
 
-        // First reply also consists of a UUID and text
-        UUID replierID = UUID.fromString((String) replyJSON.get(REPLIER_ID));
-        String replyText = (String) replyJSON.get(REPLY_TEXT);
-
-        // Reply also has a list/JSONArray of second replies
-        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(REPLIES);
-        ArrayList<Comment> secondReplies = new ArrayList<Comment>();
-
-        for (int k = 0; k < secondRepliesJSON.size(); k++) {
-          // Second reply only consists of a UUID and text
-          JSONObject secondReplyJSON = (JSONObject) secondRepliesJSON.get(k);
-
-          UUID second_replierID = UUID.fromString((String) secondReplyJSON.get(REPLIER_ID));
-          String second_replyText = (String) secondReplyJSON.get(REPLY_TEXT);
-
-          // second reply will not have an array list of comments(it is the leaf of the
-          // tree if you will)
-          Comment secondReply = new Comment(second_replyText, second_replierID, null);
-
-          // add each second reply to the array list of second replies
-          secondReplies.add(secondReply);
-        }
-
-        // reply will have an array list of second replies underneath it
-        Comment reply = new Comment(replyText, replierID, secondReplies);
-
-        // add each reply to the array list of replies
-        replies.add(reply);
-      }
-
-      // comment will have an array list of replies underneath it
+      //constructs comment object
       Comment comment = new Comment(commentText, commenterID, replies);
 
       // add each comment to the array list of comments
