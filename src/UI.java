@@ -130,6 +130,12 @@ public class UI {
     }
   }
 
+  public static void enterToContinue() {
+    WelcomeLine7("Press Enter to continue");
+    INPUT.nextLine();
+    clearScreen();
+  }
+
   public static void clearScreen() {
     System.out.print("\033[H\033[2J");
     System.out.flush();
@@ -612,12 +618,35 @@ public class UI {
           clearScreen();
           WelcomeLine1();
           System.out.println(slide);
-          WelcomeLine5(28, "Press Enter to continue");
-          INPUT.nextLine();
+          enterToContinue();
         }
-        if (module.getQuiz() != null &&
+        WelcomeLine7("You have finished this module!");
+        boolean choice = true;
+        int value = 0;
+        while (choice) {
+          WelcomeLine7("What would you like to do?\n");
+          WelcomeLine5(15, "1.) View Comments\n");
+          WelcomeLine5(15, "2.) Take a Quiz\n");
+          WelcomeLine5(15, "3.) View Other Modules\n\n");
+          WelcomeLine7("Choose an option: ");
+          try {
+            value = INPUT.nextInt();
+            INPUT.nextLine();
+            clearScreen();
+            choice = false;
+          } catch (Exception e) {
+            INPUT.nextLine();
+            clearScreen();
+            System.out.println("You entered an invalid choice. Press Enter to Continue");
+            INPUT.nextLine();
+            clearScreen();
+          }
+        }
+        if (value == 2) {
+          if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
-          takeQuiz(course, module, student);
+            takeQuiz(course, module, student);
+          }
         }
         clearScreen();
         return true;
@@ -635,52 +664,39 @@ public class UI {
   }
 
   public static void takeQuiz(Course course, Module module, Student student) {
-    boolean takequiz = true;
-    while (takequiz) {
-      WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
-      String choice = INPUT.nextLine();
-      if (choice.equalsIgnoreCase("yes")) {
-        int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
-        for (Question question : module.getQuiz().getQuestions()) {
-          size += 1;
-          WelcomeLine7(question.getQuestionContent());
-          System.out.println();
-          char num = 'A';
-          for (String answer_choice : question.getAnswerChoices()) {
-            System.out.println(num + ".) " + answer_choice);
-            num++;
-          }
-          System.out.println("\nWhat is your answer?");
-          String answer = INPUT.nextLine();
-          if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
-            System.out.println("Correct!");
-            correct += 1;
-          } else {
-            System.out.println("Incorrect!");
-          }
-          if (size != module.getQuiz().getQuestions().size()) {
-            WelcomeLine7("Press Enter to continue to the next question");
-            INPUT.nextLine();
-          } else {
-            WelcomeLine7("You have finished this module's quiz!");
-            WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
-            // add student's grade to their courseProgress for this course
-            double score = (double) correct / numQuestions;
-            student.updateCourseProgress(course, score);
-            WelcomeLine7("Press Enter to continue");
-
-          }
+      int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
+      for (Question question : module.getQuiz().getQuestions()) {
+        size += 1;
+        WelcomeLine7(question.getQuestionContent());
+        System.out.println();
+        char num = 'A';
+        for (String answer_choice : question.getAnswerChoices()) {
+          System.out.println(num + ".) " + answer_choice);
+          num++;
         }
-        takequiz = false;
-      } else if (choice.equalsIgnoreCase("no")) {
-        WelcomeLine7("Moving on...");
-        takequiz = false;
-      } else {
-        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-        INPUT.nextLine();
+        System.out.println("\nWhat is your answer?");
+        String answer = INPUT.nextLine();
+        if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
+          System.out.println("Correct!");
+          correct += 1;
+        } else {
+          System.out.println("Incorrect!");
+        }
+        if (size != module.getQuiz().getQuestions().size()) {
+          WelcomeLine7("Press Enter to continue to the next question");
+          INPUT.nextLine();
+          clearScreen();
+        } else {
+          WelcomeLine7("You have finished this module's quiz!");
+          WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+          enterToContinue();
+          // add student's grade to their courseProgress for this course
+          double score = (double) correct / numQuestions;
+          student.updateCourseProgress(course, score);
+        }
       }
-    }
   }
+  
 
   private static void Quit() {
     for (int i = 0; i < 32; i++)

@@ -11,16 +11,16 @@ public class LMSSystem {
     if (userList.foundUser(username)) {
       if (userList.getUser(username).getPassword().equals(password)) {
         UI.WelcomeLine7("Login successfully!");
+        UI.enterToContinue();
         return userList.getUser(username);
       } else {
         UI.WelcomeLine7("Wrong password!");
+        UI.enterToContinue();
         return null;
       }
     } else {
       UI.WelcomeLine7("User not found!");
-      UI.WelcomeLine7("Press Enter to continue");
-      UI.INPUT.nextLine();
-      UI.clearScreen();
+      UI.enterToContinue();
       return null;
     }
   }
