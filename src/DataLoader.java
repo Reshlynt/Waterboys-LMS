@@ -133,7 +133,7 @@ public class DataLoader extends DataConstants {
    *            user
    * @return Converted Date object specifying date of birth
    */
-  private static Date parseDate(String dob) {
+  public static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     try {
       return dateFormat.parse(dob);

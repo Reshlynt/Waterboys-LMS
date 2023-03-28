@@ -12,10 +12,12 @@ public class UI {
   public static final LMSSystem LMS = new LMSSystem();
 
   public static void main(String[] args) {
-    run();
+    User user = run();
+    if (user != null)
+      run2(user);
   }
 
-  public static void run() {
+  public static User run() {
     boolean quit = false;
     // Part 1 - Logging in or Signing up
     while (!quit) {
@@ -42,8 +44,15 @@ public class UI {
       } else {
         WelcomeLine7("Press Enter to Continue");
         INPUT.nextLine();
-        continue;
       }
+      return user;
+    }  
+    return null;
+  }
+
+  public static void run2(User user) {
+    boolean quit = true;
+    while (quit) {
       if (user.getType().equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
@@ -178,17 +187,6 @@ public class UI {
     System.out.println(item1);
   }
 
-  private static Date parseDate(String dob) {
-    SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-    Date date = null;
-    try {
-      date = dateFormat.parse(dob);
-    } catch (ParseException e) {
-      System.out.println("             We cannot create a date based on the given input");
-    }
-    return date;
-  }
-
   public static User SignUp() {
     String first_name = "", last_name = "", email = "", username = "", password = "", confirm = "", birthday = "",
         job = "";
@@ -210,10 +208,17 @@ public class UI {
     password = INPUT.nextLine();
     WelcomeLine5(25, "Confirm Password: ");
     confirm = INPUT.nextLine();
+    if (!password.equals(confirm)) {
+      WelcomeLine7("Your password and confirm password do not match!");
+      WelcomeLine7("Press Enter to Continue");
+      INPUT.nextLine();
+      clearScreen();
+      return SignUp();
+    }
     WelcomeLine5(25, "Are you are Student or Teacher: ");
     job = INPUT.nextLine();
     clearScreen();
-    return LMS.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
+    return LMS.SignUp(first_name, last_name, username, email, password, DataLoader.parseDate(birthday), job);
   }
 
   public static User Login() {
@@ -573,7 +578,7 @@ public class UI {
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide);
-          WelcomeLine7("Press Enter to continue");
+          WelcomeLine5(28 ,"Press Enter to continue");
           INPUT.nextLine();
         }
         if (module.getQuiz() != null &&
