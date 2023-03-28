@@ -23,7 +23,7 @@ public class TextSlide implements Slide {
   }
 
   public String toString() {
-    return "TEXT SLIDE: " + title + ":\n" + contents;
+    return "\t\t" + title + ":\n" + contents;
   }
 
   // returns the slide's title

@@ -20,6 +20,8 @@ public class Module {
 
   public void displaySlides() {
     for (int i = 0; i < slides.size(); i++) {
+      System.out.print("\033[H\033[2J");
+      System.out.flush();
       slides.get(i).display();
     }
     return;
