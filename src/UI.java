@@ -130,6 +130,12 @@ public class UI {
     }
   }
 
+  public static void enterToContinue() {
+    WelcomeLine7("Press Enter to continue");
+    INPUT.nextLine();
+    clearScreen();
+  }
+
   public static void clearScreen() {
     System.out.print("\033[H\033[2J");
     System.out.flush();
@@ -612,12 +618,33 @@ public class UI {
           clearScreen();
           WelcomeLine1();
           System.out.println(slide);
-          WelcomeLine5(28, "Press Enter to continue");
-          INPUT.nextLine();
+          enterToContinue();
         }
-        if (module.getQuiz() != null &&
+        WelcomeLine7("You have finished this module!");
+        boolean choice = true;
+        while (choice) {
+          WelcomeLine7("What would you like to do?\n");
+          WelcomeLine5(15, "1.) View Comments\n");
+          WelcomeLine5(15, "2.) Take a Quiz\n");
+          WelcomeLine5(15, "3.) View Other Modules\n\n");
+          try {
+            int value = INPUT.nextInt();
+            INPUT.nextLine();
+            clearScreen();
+            choice = false;
+          } catch (Exception e) {
+            INPUT.nextLine();
+            clearScreen();
+            System.out.println("You entered an invalid choice. Press Enter to Continue");
+            INPUT.nextLine();
+            clearScreen();
+          }
+        }
+        if (value == 2) {
+          if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
-          takeQuiz(course, module, student);
+            takeQuiz(course, module, student);
+          }
         }
         clearScreen();
         return true;
