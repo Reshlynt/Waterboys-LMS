@@ -643,7 +643,7 @@ public class UI {
       WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
       String choice = INPUT.nextLine();
       if (choice.equalsIgnoreCase("yes")) {
-        int size = 0, score = 0, correct = 0;
+        int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
         for (Question question : module.getQuiz().getQuestions()) {
           size += 1;
           WelcomeLine7(question.getQuestionContent());
@@ -661,13 +661,17 @@ public class UI {
           } else {
             System.out.println("Incorrect!");
           }
-          score += 1;
           if (size != module.getQuiz().getQuestions().size()) {
             WelcomeLine7("Press Enter to continue to the next question");
             INPUT.nextLine();
           } else {
             WelcomeLine7("You have finished this module's quiz!");
-            WelcomeLine7("You scored " + correct + " out of " + score + " points!");
+            WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+            // add student's grade to their courseProgress for this course
+            double score = (double) correct / numQuestions;
+            
+            WelcomeLine7("Press Enter to continue");
+
           }
         }
         takequiz = false;

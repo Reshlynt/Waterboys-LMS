@@ -50,6 +50,10 @@ public class CourseStatus {
     return completed;
   }
 
+  public void addGrade(double grade) {
+    grades.add(grade);
+  }
+
   public Certificate getCertificate(Student student) {
     if (!completed)
       return null;
