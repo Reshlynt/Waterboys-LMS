@@ -58,5 +58,4 @@ public class TextSlide implements Slide {
       i += 87;
     }
   }
-
 }
