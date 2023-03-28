@@ -645,6 +645,16 @@ public class UI {
             clearScreen();
           }
         }
+        if (value == 1) {
+          if (module.getComments() != null && module.getComments().size() != 0) {
+            module.printComments();
+          } else {
+            clearScreen();
+            WelcomeLine7("There are no comments for this module!");
+            
+            enterToContinue();
+          }
+        } else
         if (value == 2) {
           if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {

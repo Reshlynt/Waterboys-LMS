@@ -53,6 +53,16 @@ public class Module {
     return title;
   }
 
+  public void printComments() {
+    for (int i = 0; i < comments.size(); i++) {
+      System.out.println(comments.get(i));
+      for (int j = 0; j < comments.get(i).getReplies().size(); j++) {
+        comments.get(i).getReplies().get(j).printComments();
+      }
+    }
+    return;
+  }
+
   // returns the module's slides
   public ArrayList<TextSlide> getSlides() {
     return slides;

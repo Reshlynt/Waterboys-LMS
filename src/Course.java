@@ -129,6 +129,16 @@ public class Course {
     return info;
   }
 
+  public void printComments() {
+    for (int i = 0; i < courseComments.size(); i++) {
+      System.out.println(courseComments.get(i));
+      for (int j = 0; j < courseComments.get(i).getReplies().size(); j++) {
+        courseComments.get(i).getReplies().get(j).printComments();
+      }
+    }
+    return;
+  }
+
   public void addComment(Comment comment) {
     courseComments.add(comment);
   }
