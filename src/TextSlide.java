@@ -9,7 +9,7 @@ public class TextSlide implements Slide {
   public TextSlide(String title, String contents) {
     this.title = title;
     this.contents = contents;
-    formatText();
+    //formatText();
 
   }
 

@@ -509,6 +509,7 @@ public class UI {
   private static void CreateCourse(Teacher teacher) {
     boolean valid = false;
     while (!valid) {
+      valid = true;
       System.out.print("\033[H\033[2J");
       System.out.flush();
       System.out.println("Would you like to create a course from scratch or from a template?");
@@ -522,6 +523,7 @@ public class UI {
           createCourseFromTemplate(teacher);
           break;
         default:
+          valid = false;
           System.out.println("Invalid input");
           break;
       }
