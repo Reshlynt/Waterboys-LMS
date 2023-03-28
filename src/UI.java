@@ -690,7 +690,7 @@ public class UI {
           // add student's grade to their courseProgress for this course
           double score = (double) correct / numQuestions;
           student.updateCourseProgress(course, score);
-          WelcomeLine7("Press Enter to continue");
+          clearScreen();
         }
       }
   }
