@@ -54,6 +54,14 @@ public class Student extends User {
     return "student";
   }
 
+  public void updateCourseProgress(Course course, Double score) {
+    for (CourseStatus courseStatus : courseProgresses) {
+      if (courseStatus.getCourse().equals(course)) {
+        courseStatus.updateScore(score);
+      }
+    }
+  }
+
   // Gives a student a certificate
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);

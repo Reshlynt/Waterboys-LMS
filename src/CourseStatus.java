@@ -42,12 +42,21 @@ public class CourseStatus {
     progress = total / totalGrade;
   }
 
+  public void updateScore(double score) {
+    grades.add(score);
+    calculateProgress();
+  };
+
   public void setCompletion(boolean completed) {
     this.completed = completed;
   }
 
   public boolean getCompleted() {
     return completed;
+  }
+
+  public void addGrade(double grade) {
+    grades.add(grade);
   }
 
   public Certificate getCertificate(Student student) {

@@ -26,7 +26,6 @@ public class UI {
       switch (Welcome()) {
         case 1:
           while (user == null) {
-            clearScreen();
             user = Login();
           }
           break;
@@ -80,7 +79,7 @@ public class UI {
             break;
           case 2:
             Course course = getAccessCourse((Student) user);
-            boolean quiz = AccessCourse(course);
+            boolean quiz = AccessCourse(course, (Student) user);
             if (quiz)
               System.out.print(" ");
             else
@@ -114,8 +113,7 @@ public class UI {
     System.out.print("\n\n\n");
     WelcomeLine5(35, "1.) Login\n");
     WelcomeLine5(35, "2.) Sign Up\n");
-    WelcomeLine5(35, "9.) Quit LMS");
-    System.out.print("\n\n");
+    WelcomeLine5(35, "9.) Quit LMS\n\n");
     WelcomeLine5(32, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
@@ -132,7 +130,7 @@ public class UI {
     }
   }
 
-  private static void clearScreen() {
+  public static void clearScreen() {
     System.out.print("\033[H\033[2J");
     System.out.flush();
   }
@@ -591,7 +589,7 @@ public class UI {
     }
   }
 
-  public static boolean AccessCourse(Course course) {
+  public static boolean AccessCourse(Course course, Student student) {
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       clearScreen();
@@ -619,7 +617,7 @@ public class UI {
         }
         if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
-          takeQuiz(module);
+          takeQuiz(course, module, student);
         }
         clearScreen();
         return true;
@@ -629,20 +627,20 @@ public class UI {
         WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
-        return AccessCourse(course);
+        return AccessCourse(course, student);
       }
     } else {
       return false;
     }
   }
 
-  public static void takeQuiz(Module module) {
+  public static void takeQuiz(Course course, Module module, Student student) {
     boolean takequiz = true;
     while (takequiz) {
       WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
       String choice = INPUT.nextLine();
       if (choice.equalsIgnoreCase("yes")) {
-        int size = 0, score = 0, correct = 0;
+        int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
         for (Question question : module.getQuiz().getQuestions()) {
           size += 1;
           WelcomeLine7(question.getQuestionContent());
@@ -660,13 +658,17 @@ public class UI {
           } else {
             System.out.println("Incorrect!");
           }
-          score += 1;
           if (size != module.getQuiz().getQuestions().size()) {
             WelcomeLine7("Press Enter to continue to the next question");
             INPUT.nextLine();
           } else {
             WelcomeLine7("You have finished this module's quiz!");
-            WelcomeLine7("You scored " + correct + " out of " + score + " points!");
+            WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+            // add student's grade to their courseProgress for this course
+            double score = (double) correct / numQuestions;
+            student.updateCourseProgress(course, score);
+            WelcomeLine7("Press Enter to continue");
+
           }
         }
         takequiz = false;
