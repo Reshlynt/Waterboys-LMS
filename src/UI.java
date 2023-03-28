@@ -684,13 +684,14 @@ public class UI {
         if (size != module.getQuiz().getQuestions().size()) {
           WelcomeLine7("Press Enter to continue to the next question");
           INPUT.nextLine();
+          clearScreen();
         } else {
           WelcomeLine7("You have finished this module's quiz!");
           WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+          enterToContinue();
           // add student's grade to their courseProgress for this course
           double score = (double) correct / numQuestions;
           student.updateCourseProgress(course, score);
-          clearScreen();
         }
       }
   }
