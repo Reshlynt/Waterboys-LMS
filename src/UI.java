@@ -684,6 +684,8 @@ public class UI {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
+    DataWriter.saveUsers();
+    DataWriter.saveCourses();
     System.exit(0);
   }
 }
