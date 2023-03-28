@@ -12,8 +12,7 @@ import java.util.Locale;
 import java.util.Calendar;
 
 /**
- * The class takes all data from array lists stored in UserList and CourseList
- * and saves it to their
+ * The class takes all data from array lists stored in UserList and CourseList and saves it to their
  * respective JSON files - Users.json and Courses.json.
  * 
  * @author Scott Do (Reshlynt)
@@ -24,8 +23,7 @@ import java.util.Calendar;
 public class DataWriter extends DataConstants {
 
   /**
-   * Saves all User objects to a JSON file - Users.json It will look through the
-   * singleton array
+   * Saves all User objects to a JSON file - Users.json It will look through the singleton array
    * list in UserList and save all the data to the JSON file.
    */
   public static void saveUsers() {
@@ -47,9 +45,8 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * The method takes all Course objects from the singleton array list in
-   * CourseList and saves it
-   * to a JSON file - Courses.json.
+   * The method takes all Course objects from the singleton array list in CourseList and saves it to
+   * a JSON file - Courses.json.
    */
   public static void saveCourses() {
     CourseList courseList = CourseList.getInstance();
@@ -71,13 +68,11 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * Creates User JSON object. All User objects have these attributes: ID,
-   * Username, First Name,
+   * Creates User JSON object. All User objects have these attributes: ID, Username, First Name,
    * Last Name, Email, Password, Type, and Date Of Birth.
    * 
-   * @param userDetails - A reference to a JSON object that holds either Teacher
-   *                    or Student data.
-   * @param user        - A reference to a User object.
+   * @param userDetails - A reference to a JSON object that holds either Teacher or Student data.
+   * @param user - A reference to a User object.
    * @return JSON object that contains User data.
    */
   private static JSONObject getUserJSON(User user) {
@@ -161,8 +156,7 @@ public class DataWriter extends DataConstants {
    * Creates a Student JSON object.
    * 
    * @param student - A Student object.
-   * @param course  - A Course object. This is used to get the grades for the
-   *                student.
+   * @param course - A Course object. This is used to get the grades for the student.
    * @return A JSON object representing a Student.
    */
   private static JSONObject getStudentJSON(Student student, Course course) {
@@ -171,7 +165,8 @@ public class DataWriter extends DataConstants {
     studentDetails.put(COMPLETED, student.hasCertificate(course));
     for (int i = 0; i < student.getCourseProgresses().size(); i++) {
       if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
-        studentDetails.put(GRADES, getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
+        studentDetails.put(GRADES,
+            getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
         break;
       }
     }
@@ -273,8 +268,7 @@ public class DataWriter extends DataConstants {
     moduleDetails.put(MODULE_TITLE, module.getTitle());
     moduleDetails.put(SLIDES, getTextSlideJSONArray(module.getSlides()));
     moduleDetails.put(MODULE_COMMENTS, getCommentJSONArray(module.getComments()));
-    moduleDetails.put(QUIZ, getAssessmentJSONArray(module.getQuiz()));
-    ;
+    moduleDetails.put(QUIZ, getAssessmentJSONArray(module.getQuiz()));;
     return moduleDetails;
   }
 
@@ -332,7 +326,7 @@ public class DataWriter extends DataConstants {
   private static JSONArray getAnswerChoiceJSONArray(ArrayList<String> answerChoices) {
     JSONArray answerChoiceArray = new JSONArray();
     JSONObject answerChoiceDetails = new JSONObject();
-    String[] choices = { A, B, C, D };
+    String[] choices = {A, B, C, D};
     for (int i = 0; i < answerChoices.size(); i++) {
       answerChoiceDetails.put(choices[i], answerChoices.get(i));
     }
@@ -364,7 +358,24 @@ public class DataWriter extends DataConstants {
     }
   }
 
-  public static void main(String[] args) {
-    saveCourses();
+  /**
+   * Writies a certificate to a text file.
+   */
+  public void WriteCertificateToFile(Student student) {
+    try {
+      ArrayList<Certificate> certificateList = student.getCertificates();
+      for (int i = 0; certificateList != null && i < certificateList.size(); i++) {
+        Certificate studentCertificate = certificateList.get(i);
+        Course certificateCourse = studentCertificate.getCourse();
+        FileWriter certificateWriter = new FileWriter(student.getLastName() + "-" + certificateCourse.getTitle() + "-Certificate.txt");
+        certificateWriter.write(studentCertificate.toString());
+        certificateWriter.close();
+      }
+
+
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
