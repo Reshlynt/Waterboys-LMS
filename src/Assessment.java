@@ -81,7 +81,10 @@ public class Assessment implements Slide {
     this.type = type;
   }
 
-  // Return the questions
+  /**
+   * Getter for ArrayList of Questions
+   * @return ArrayList of Questions
+   */
   public ArrayList<Question> getQuestions() {
     return questions;
   }
