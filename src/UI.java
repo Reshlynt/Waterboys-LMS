@@ -25,7 +25,10 @@ public class UI {
       User user = null;
       switch (Welcome()) {
         case 1:
-          user = Login();
+          while (user == null) {
+            clearScreen();
+            user = Login();
+          }
           break;
         case 2:
           user = SignUp();
@@ -43,8 +46,7 @@ public class UI {
       if (user != null) {
         quit = true;
       } else {
-        WelcomeLine7("Press Enter to Continue");
-        INPUT.nextLine();
+        
       }
       return user;
     }  
@@ -591,7 +593,8 @@ public class UI {
             module.getQuiz().getQuestions().size() != 0) {
           takeQuiz(module);
         }
-      return true;
+        clearScreen();
+        return true;
       } catch (Exception e) {
         INPUT.nextLine();
         clearScreen();
