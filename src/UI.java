@@ -132,7 +132,7 @@ public class UI {
   }
 
   public static void enterToContinue() {
-    WelcomeLine7("Press Enter to continue");
+    WelcomeLine5(28, "Press Enter to continue");
     INPUT.nextLine();
     clearScreen();
   }
@@ -631,7 +631,7 @@ public class UI {
           WelcomeLine5(15, "1.) View Comments\n");
           WelcomeLine5(15, "2.) Take a Quiz\n");
           WelcomeLine5(15, "3.) View Other Modules\n\n");
-          WelcomeLine7("Choose an option: ");
+          WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
             INPUT.nextLine();
@@ -687,7 +687,7 @@ public class UI {
           System.out.println(num + ".) " + answer_choice);
           num++;
         }
-        System.out.println("\nWhat is your answer?");
+        System.out.print("\nWhat is your answer? ");
         String answer = INPUT.nextLine();
         if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
           System.out.println("Correct!");
