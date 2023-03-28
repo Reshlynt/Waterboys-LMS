@@ -435,7 +435,7 @@ public class UI {
     return null;
 }
 
-public static Assessment makeAssessment() {
+  public static Assessment makeAssessment() {
     System.out.println("What is the title of the assessment?");
     String title = System.console().readLine();
     System.out.println("What is the description of the assessment?");
@@ -461,29 +461,29 @@ public static Assessment makeAssessment() {
         }
     }
     return new Assessment(title, questions);
-}
+  }
 
-    private static void CreateCourse(Teacher teacher) {
-        boolean valid = false;
-        while (!valid) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            System.out.println("Would you like to create a course from scratch or from a template?");
-            System.out.println("1.) Create from scratch");
-            System.out.println("2.) Create from template");
-            switch (INPUT.nextLine()) {
-                case "1":
-                    createCourseFromScratch(teacher);
-                    break;
-                case "2":
-                    createCourseFromTemplate(teacher);
-                    break;
-                default:
-                    System.out.println("Invalid input");
-                    break;
-            }
-        }
+  private static void CreateCourse(Teacher teacher) {
+    boolean valid = false;
+    while (!valid) {
+      System.out.print("\033[H\033[2J");
+      System.out.flush();
+      System.out.println("Would you like to create a course from scratch or from a template?");
+      System.out.println("1.) Create from scratch");
+      System.out.println("2.) Create from template");
+      switch (INPUT.nextLine()) {
+        case "1":
+          createCourseFromScratch(teacher);
+      break;
+        case "2":
+          createCourseFromTemplate(teacher);
+          break;
+        default:
+          System.out.println("Invalid input");
+          break;
+      }
     }
+  }
 
   private static void createCourseFromTemplate(Teacher teacher) {
     // ask questions
@@ -593,6 +593,7 @@ public static Assessment makeAssessment() {
       return false;
     }
   }
+
   public static void takeQuiz(Module module) {
     boolean takequiz = true;
     while (takequiz) {
@@ -636,6 +637,7 @@ public static Assessment makeAssessment() {
       }
     }
   }
+
   private static void Quit() {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
