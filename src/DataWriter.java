@@ -161,9 +161,16 @@ public class DataWriter extends DataConstants {
    */
   private static JSONObject getStudentJSON(Student student, Course course) {
     JSONObject studentDetails = new JSONObject();
-    WriteCertificateToFile(student);
     studentDetails.put(STUDENT_ID, student.getID().toString());
-    studentDetails.put(COMPLETED, student.hasCertificate(course));
+    // Check if the student completed the course.
+    studentDetails.put(COMPLETED, false);
+    for (int i = 0; i < student.getCourseProgresses().size(); i++) {
+      CourseStatus studentStatus = student.getCourseProgresses().get(i);
+      if (studentStatus.getCourse().equals(course) && studentStatus.getCompleted()) {
+        studentDetails.put(COMPLETED, true);
+        break;
+      }
+    }
     for (int i = 0; i < student.getCourseProgresses().size(); i++) {
       if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
         studentDetails.put(GRADES,
@@ -370,9 +377,10 @@ public class DataWriter extends DataConstants {
         CourseStatus studentStatus = courseStatusList.get(i);
         if (studentStatus.getCompleted()) {
           Course completedCourse = studentStatus.getCourse();
-          String pathName = "./certificate/" + student.getLastName() + "-" + completedCourse.getTitle() + "-Certificate.txt";
+          String pathName = "./certificate/" + student.getLastName() + "-" + (completedCourse.getTitle()).replace(' ', '-') + "-Certificate.txt";
           FileWriter certificateWriter = new FileWriter(pathName);
-          certificateWriter.write((new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor())).toString());
+          String certificateString = (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor())).toString();
+          certificateWriter.write(certificateString);
           certificateWriter.close();
         }
         
