@@ -1,4 +1,5 @@
 package src;
+
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -31,7 +32,7 @@ public class Student extends User {
   }
 
   // public void makeComment(String comment) {
-  //   Comment.addPost(comment);
+  // Comment.addPost(comment);
   // }
 
   // Return the student's certificates

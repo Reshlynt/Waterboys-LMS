@@ -65,7 +65,7 @@ public class DataConstants {
   // replies
   // public static final String SECOND_REPLIER_ID = "id";
   // public static final String SECOND_REPLY_TEXT = "text";
-  
+
   public static final String LIKES = "likes";
   public static final String DISLIKES = "dislikes";
 

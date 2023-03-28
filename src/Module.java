@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 
 public class Module {
@@ -13,6 +14,7 @@ public class Module {
     this.comments = comments;
     this.lessonQuiz = lessonQuiz;
   }
+
   public Module(String title, ArrayList<TextSlide> slides) {
     this.title = title;
     this.slides = slides;
@@ -41,6 +43,7 @@ public class Module {
     info += lessonQuiz;
     return info;
   }
+
   public void addComment(Comment comment) {
     comments.add(comment);
   }

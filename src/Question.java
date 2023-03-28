@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 
 public class Question {
@@ -11,7 +12,7 @@ public class Question {
     this.question = question;
     this.answerChoices = answerChoices;
     this.correctAnswer = "a";
-    if(correctAnswer.equals("b") || correctAnswer.equals("c") || correctAnswer.equals("d")){
+    if (correctAnswer.equals("b") || correctAnswer.equals("c") || correctAnswer.equals("d")) {
       this.correctAnswer = correctAnswer;
     }
   }

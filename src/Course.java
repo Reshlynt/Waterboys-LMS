@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -46,6 +47,7 @@ public class Course {
   public void addToCourse(Student student) {
     students.add(student);
   }
+
   public void addToCourseByUUID(UUID studentID) {
     UserList userList = UserList.getInstance();
     students.add((Student) userList.getUserByUUID(studentID));
@@ -63,10 +65,12 @@ public class Course {
 
   public boolean listComment() {
     return true;
-    // Check if current user is 13+ - maybe add User to parameters, add functionality
-    // in LMSSystem to check if user is 13+; when printing slides, check first and 
+    // Check if current user is 13+ - maybe add User to parameters, add
+    // functionality
+    // in LMSSystem to check if user is 13+; when printing slides, check first and
     // only call printComments if user is 13+.
   }
+
   // Returns the course's difficulty
   public Difficulty getDifficulty() {
     return difficulty;
@@ -109,15 +113,15 @@ public class Course {
 
   public String toString() {
     String info = title + "\n" + difficulty + "\n" + teacher + "\n" + courseID + "\n" + courseType + "\n";
-    info+="lessons:\n";
+    info += "lessons:\n";
     for (int i = 0; i < lessons.size(); i++) {
       info += (lessons.get(i) + "\n");
     }
-    info+="comments:\n";
+    info += "comments:\n";
     for (int i = 0; i < courseComments.size(); i++) {
       info += (courseComments.get(i) + "\n");
     }
-    info+="students:\n";
+    info += "students:\n";
     for (int i = 0; i < students.size(); i++) {
       info += (students.get(i) + "\n");
     }
@@ -128,6 +132,7 @@ public class Course {
   public void addComment(Comment comment) {
     courseComments.add(comment);
   }
+
   // Return the course's comments
   public ArrayList<Comment> getComments() {
     return courseComments;
@@ -160,6 +165,7 @@ public class Course {
     }
     return totalcorrect / exam.getQuestions().size();
   }
-  // Print the cumulative grade on the course certificate? Must get 100% on the exam to pass
+  // Print the cumulative grade on the course certificate? Must get 100% on the
+  // exam to pass
   // Should there be a minimum grade to pass the quizzes?
 }
