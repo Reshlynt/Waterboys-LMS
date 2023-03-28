@@ -628,6 +628,7 @@ public class UI {
           WelcomeLine5(15, "1.) View Comments\n");
           WelcomeLine5(15, "2.) Take a Quiz\n");
           WelcomeLine5(15, "3.) View Other Modules\n\n");
+          WelcomeLine7("Choose an option: ");
           try {
             value = INPUT.nextInt();
             INPUT.nextLine();
