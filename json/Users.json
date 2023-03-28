@@ -58,5 +58,15 @@
     "type": "student",
     "email": "jrtanner@email.sc.edu",
     "username": "jrtanner"
+  },
+  {
+    "firstName": "Pushpendra",
+    "lastName": "Shekhawat",
+    "password": "4",
+    "dateOfBirth": "03061996",
+    "id": "662bc837-e323-4226-9ed0-f878d1011e84",
+    "type": "student",
+    "email": "shekhawp@email.sc.edu",
+    "username": "shekhawp"
   }
 ]
