@@ -49,12 +49,15 @@ public class LMSSystem {
         new_user = new Teacher(UUID.randomUUID(), username, firstName, lastName, email, password, dateOfBirth);
       } else {
         UI.WelcomeLine7("You did not enter \"student\" or \"teacher\"");
+        UI.enterToContinue();
         return null;
       }
       userList.addUser(new_user);
       UI.WelcomeLine7("Sign up successfully!");
+      UI.enterToContinue();
       return new_user;
     }
+    UI.enterToContinue();
     return null;
   }
 

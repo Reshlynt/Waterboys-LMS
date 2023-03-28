@@ -25,9 +25,7 @@ public class UI {
       User user = null;
       switch (Welcome()) {
         case 1:
-          while (user == null) {
-            user = Login();
-          }
+          user = Login();
           break;
         case 2:
           user = SignUp();
@@ -38,16 +36,13 @@ public class UI {
           clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           INPUT.nextLine();
-          run();
           break;
       }
       clearScreen();
       if (user != null) {
         quit = true;
-      } else {
-
+        return user;
       }
-      return user;
     }
     return null;
   }
@@ -215,9 +210,7 @@ public class UI {
     confirm = INPUT.nextLine();
     if (!password.equals(confirm)) {
       WelcomeLine7("Your password and confirm password do not match!");
-      WelcomeLine7("Press Enter to Continue");
-      INPUT.nextLine();
-      clearScreen();
+      enterToContinue();
       return SignUp();
     }
     WelcomeLine5(25, "Are you are Student or Teacher: ");
@@ -604,9 +597,10 @@ public class UI {
       System.out.println("\n");
       int num = 1;
       for (Module module : modules) {
-        WelcomeLine5(15, (num + ".) " + module.getTitle() + "\n"));
+        WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
         num++;
       }
+      System.out.println();
       WelcomeLine5(31, "Choose an option: ");
       try {
         num = INPUT.nextInt();
@@ -657,6 +651,8 @@ public class UI {
           } else {
             WelcomeLine7("There are currently no quizzes for this module.");
           }
+        } else if (value == 3) {
+          return AccessCourse(course, student);
         }
         enterToContinue();
         return true;

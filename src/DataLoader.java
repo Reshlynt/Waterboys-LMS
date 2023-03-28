@@ -138,7 +138,7 @@ public class DataLoader extends DataConstants {
     try {
       return dateFormat.parse(dob);
     } catch (ParseException e) {
-      e.printStackTrace();
+      UI.WelcomeLine7("There was an error with your birthday...");
     }
     return null;
   }
