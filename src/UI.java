@@ -663,9 +663,6 @@ public class UI {
   }
 
   public static void takeQuiz(Course course, Module module, Student student) {
-    WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
-    String choice = INPUT.nextLine();
-    if (choice.equalsIgnoreCase("yes")) {
       int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
       for (Question question : module.getQuiz().getQuestions()) {
         size += 1;
@@ -696,12 +693,6 @@ public class UI {
           WelcomeLine7("Press Enter to continue");
         }
       }
-    } else if (choice.equalsIgnoreCase("no")) {
-      WelcomeLine7("Moving on...");
-    } else {
-      WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-      INPUT.nextLine();
-    }
   }
   
 
