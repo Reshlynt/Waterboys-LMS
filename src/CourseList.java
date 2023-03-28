@@ -56,10 +56,11 @@ public class CourseList {
   public Course getEnrolledCourse(String name) {
     ArrayList<Course> possibleCourses = getCourseByKeyword(name);
     for (int i = 0; i < possibleCourses.size(); i++) {
-         
+
     }
     return null;
   }
+
   public Course getCourseByUUID(UUID id) {
     for (Course course : courses) {
       if (course.getID().equals(id)) {
@@ -68,6 +69,7 @@ public class CourseList {
     }
     return null;
   }
+
   public ArrayList<Course> getCourseList() {
     return courses;
   }

@@ -46,10 +46,10 @@ public class UI {
       if (user != null) {
         quit = true;
       } else {
-        
+
       }
       return user;
-    }  
+    }
     return null;
   }
 
@@ -133,7 +133,7 @@ public class UI {
   }
 
   private static void clearScreen() {
-    System.out.print("\033[H\033[2J");  
+    System.out.print("\033[H\033[2J");
     System.out.flush();
   }
 
@@ -244,13 +244,13 @@ public class UI {
     WelcomeLine6("Welcome, " + teacher.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(15 ,"1.) Add Student to Course\n");
-    WelcomeLine5(15 ,"2.) Create a Course\n");
-    WelcomeLine5(15 ,"3.) Remove a Student from a course\n");
-    WelcomeLine5(15 ,"4.) View Profile\n");
-    WelcomeLine5(15 ,"5.) View Courses\n");
-    WelcomeLine5(15 ,"9.) Exit LMS\n\n");
-    WelcomeLine5(15 ,"Choose an option: ");
+    WelcomeLine5(15, "1.) Add Student to Course\n");
+    WelcomeLine5(15, "2.) Create a Course\n");
+    WelcomeLine5(15, "3.) Remove a Student from a course\n");
+    WelcomeLine5(15, "4.) View Profile\n");
+    WelcomeLine5(15, "5.) View Courses\n");
+    WelcomeLine5(15, "9.) Exit LMS\n\n");
+    WelcomeLine5(15, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
@@ -271,11 +271,11 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(15 ,"1.) Register for Course\n");
-    WelcomeLine5(15 ,"2.) Access your Courses\n");
-    WelcomeLine5(15 ,"3.) Access Certifications\n");
-    WelcomeLine5(15 ,"4.) View Profile\n");
-    WelcomeLine5(15 ,"9.) Exit LMS\n\n");
+    WelcomeLine5(15, "1.) Register for Course\n");
+    WelcomeLine5(15, "2.) Access your Courses\n");
+    WelcomeLine5(15, "3.) Access Certifications\n");
+    WelcomeLine5(15, "4.) View Profile\n");
+    WelcomeLine5(15, "9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
@@ -384,24 +384,24 @@ public class UI {
     Difficulty difficulty = null;
     difficultyString.toUpperCase();
     if (difficultyString == "BEGINNER") {
-        difficulty = Difficulty.BEGINNER;
+      difficulty = Difficulty.BEGINNER;
     } else {
-        difficulty = Difficulty.INTERMEDIATE;
+      difficulty = Difficulty.INTERMEDIATE;
     }
     clearScreen();
     System.out.println("What is the course type? JavaScript or Python?");
     CourseType courseType = null;
     do {
-        String response = System.console().readLine();
-        response.toLowerCase();
-        clearScreen();
-        if (response.equals("javascript")) {
-            courseType = CourseType.JAVASCRIPT;
-        } else if (response.equals("python")) {
-            courseType = CourseType.PYTHON;
-        } else {
-            System.out.println("Please enter JavaScript or Python");
-        }
+      String response = System.console().readLine();
+      response.toLowerCase();
+      clearScreen();
+      if (response.equals("javascript")) {
+        courseType = CourseType.JAVASCRIPT;
+      } else if (response.equals("python")) {
+        courseType = CourseType.PYTHON;
+      } else {
+        System.out.println("Please enter JavaScript or Python");
+      }
     } while (!System.console().readLine().equals("JavaScript") && !System.console().readLine().equals("Python"));
 
     // Lesson creator:
@@ -410,35 +410,35 @@ public class UI {
     boolean addAnotherSlide = true;
 
     while (addAnotherModule) {
-    System.out.println("What is the title of the module?");
-    String moduleTitle = System.console().readLine();
-    ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
-        // Create slide loop
-        while (addAnotherSlide) {
-            System.out.println("What do you want to title the slide?");
-            String slideTitle = System.console().readLine();
-            System.out.println("What do you want to print on the slide?");
-            String slideContents = System.console().readLine();
-            TextSlide tSlide = new TextSlide(slideTitle, slideContents);
-            slides.add(tSlide);
-            System.out.println("Do you want to add another slide? (Y/N)");
-            String addSlide = System.console().readLine();
-            addSlide.toUpperCase();
-            if (addSlide.equals("N")) {
-                addAnotherSlide = false;
-            }
+      System.out.println("What is the title of the module?");
+      String moduleTitle = System.console().readLine();
+      ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
+      // Create slide loop
+      while (addAnotherSlide) {
+        System.out.println("What do you want to title the slide?");
+        String slideTitle = System.console().readLine();
+        System.out.println("What do you want to print on the slide?");
+        String slideContents = System.console().readLine();
+        TextSlide tSlide = new TextSlide(slideTitle, slideContents);
+        slides.add(tSlide);
+        System.out.println("Do you want to add another slide? (Y/N)");
+        String addSlide = System.console().readLine();
+        addSlide.toUpperCase();
+        if (addSlide.equals("N")) {
+          addAnotherSlide = false;
         }
-        Module aModule = new Module (moduleTitle, slides);
-        System.out.println("Create the quiz for this module: ");
-        Assessment moduleQuiz = makeAssessment();
-        moduleQuiz.setType(Type.QUIZ);
-        aModule.setLessonQuiz(moduleQuiz);
-        System.out.println("Add another module? (Y/N)");
-        String addModule = System.console().readLine();
-        addModule.toUpperCase();
-        if (addModule.equals("N")) {
-            addAnotherModule = false;
-        } 
+      }
+      Module aModule = new Module(moduleTitle, slides);
+      System.out.println("Create the quiz for this module: ");
+      Assessment moduleQuiz = makeAssessment();
+      moduleQuiz.setType(Type.QUIZ);
+      aModule.setLessonQuiz(moduleQuiz);
+      System.out.println("Add another module? (Y/N)");
+      String addModule = System.console().readLine();
+      addModule.toUpperCase();
+      if (addModule.equals("N")) {
+        addAnotherModule = false;
+      }
     }
     // Create exam
     System.out.println("Create the exam for this course: ");
@@ -448,32 +448,31 @@ public class UI {
     String addStudents = System.console().readLine();
     addStudents.toUpperCase();
     if (addStudents.equals("Y")) {
-        System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
-        ArrayList<Student> students = new ArrayList<Student>();
-        boolean addMoreStudents = true;
-        while (addMoreStudents) {
-            String studentUsername = System.console().readLine();
-            UserList userList = UserList.getInstance();
-            if (!userList.foundUser(studentUsername)) {
-                System.out.println("That user does not exist. Please try again.");
-                continue;
-            }
-            else {
-            students.add((Student) userList.getUser(studentUsername));
-            System.out.println("Do you want to add another student? (Y/N)");
-            String addStudent = System.console().readLine();
-            addStudent.toUpperCase();
-            if (addStudent.equals("N")) {
-                addMoreStudents = false;
-            }
-            }
+      System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
+      ArrayList<Student> students = new ArrayList<Student>();
+      boolean addMoreStudents = true;
+      while (addMoreStudents) {
+        String studentUsername = System.console().readLine();
+        UserList userList = UserList.getInstance();
+        if (!userList.foundUser(studentUsername)) {
+          System.out.println("That user does not exist. Please try again.");
+          continue;
+        } else {
+          students.add((Student) userList.getUser(studentUsername));
+          System.out.println("Do you want to add another student? (Y/N)");
+          String addStudent = System.console().readLine();
+          addStudent.toUpperCase();
+          if (addStudent.equals("N")) {
+            addMoreStudents = false;
+          }
         }
-        Course newCourse = new Course(teacher, title, difficulty, description, exam, courseType, lessons, students);
-        return newCourse;
+      }
+      Course newCourse = new Course(teacher, title, difficulty, description, exam, courseType, lessons, students);
+      return newCourse;
     }
 
     return null;
-}
+  }
 
   public static Assessment makeAssessment() {
     System.out.println("What is the title of the assessment?");
@@ -482,23 +481,23 @@ public class UI {
     ArrayList<Question> questions = new ArrayList<Question>();
     boolean addMoreQuestions = true;
     while (addMoreQuestions) {
-        System.out.println("What is the question?");
-        String question = System.console().readLine();
-        System.out.println("Enter 4 answer choices, pressing enter after each:");
-        ArrayList<String> answers = new ArrayList<String>();
-        for (int i = 0; i < 4; i++) {
-            answers.add(System.console().readLine());
-        }
-        System.out.println("What is the correct answer? a, b, c, or d?");
-        String correctAnswer = System.console().readLine();
-        correctAnswer.toLowerCase();
-        questions.add( new Question(question, answers, correctAnswer));
-        System.out.println("Do you want to add another question? (Y/N)");
-        String addQuestion = System.console().readLine();
-        addQuestion.toUpperCase();
-        if (addQuestion.equals("N")) {
-            addMoreQuestions = false;
-        }
+      System.out.println("What is the question?");
+      String question = System.console().readLine();
+      System.out.println("Enter 4 answer choices, pressing enter after each:");
+      ArrayList<String> answers = new ArrayList<String>();
+      for (int i = 0; i < 4; i++) {
+        answers.add(System.console().readLine());
+      }
+      System.out.println("What is the correct answer? a, b, c, or d?");
+      String correctAnswer = System.console().readLine();
+      correctAnswer.toLowerCase();
+      questions.add(new Question(question, answers, correctAnswer));
+      System.out.println("Do you want to add another question? (Y/N)");
+      String addQuestion = System.console().readLine();
+      addQuestion.toUpperCase();
+      if (addQuestion.equals("N")) {
+        addMoreQuestions = false;
+      }
     }
     return new Assessment(title, questions);
   }
@@ -514,7 +513,7 @@ public class UI {
       switch (INPUT.nextLine()) {
         case "1":
           createCourseFromScratch(teacher);
-      break;
+          break;
         case "2":
           createCourseFromTemplate(teacher);
           break;
@@ -609,13 +608,13 @@ public class UI {
       try {
         num = INPUT.nextInt();
         INPUT.nextLine();
-        clearScreen();  
-        Module module = modules.get(num-1);
+        clearScreen();
+        Module module = modules.get(num - 1);
         for (Slide slide : module.getSlides()) {
           clearScreen();
           WelcomeLine1();
           System.out.println(slide);
-          WelcomeLine5(28 ,"Press Enter to continue");
+          WelcomeLine5(28, "Press Enter to continue");
           INPUT.nextLine();
         }
         if (module.getQuiz() != null &&
@@ -689,6 +688,8 @@ public class UI {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
+    DataWriter.saveUsers();
+    DataWriter.saveCourses();
     System.exit(0);
   }
 }
