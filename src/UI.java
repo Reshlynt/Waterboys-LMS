@@ -32,6 +32,8 @@ public class UI {
           break;
         case 2:
           user = SignUp();
+          UserList.getInstance().addUser(user);
+          DataWriter.saveUsers();
           break;
         case 9:
           Quit();
@@ -87,6 +89,7 @@ public class UI {
               System.out.println("There are currently no assessments you can take for this course...");
             break;
           case 3:
+              viewCertificates((Student) user);
             break;
           case 4:
             ViewStudentProfile((Student) user);
