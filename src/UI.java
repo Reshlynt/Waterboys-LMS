@@ -70,7 +70,7 @@ public class UI {
           case 1:
             break;
           case 2:
-            Course course = getCourse((Student) user);
+            Course course = getCourses((Student) user);
             AccessCourse(course, (Student) user);
             break;
           case 3:
@@ -555,15 +555,16 @@ public class UI {
     // What info to make a course? Difficulty,
   }
 
-  public static Course getCourse(Student user) {
+  public static Course getCourses(Student user) {
     ArrayList<Course> student_courses = DataLoader.getCourses();
     if (student_courses != null) {
       int num = 1;
-      WelcomeLine7("What courses would you like to access?");
+      WelcomeLine7("What courses would you like to access?\n");
       for (Course course : student_courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
+      System.out.println();
       WelcomeLine5(30, "Choose an option: ");
       try {
         num = INPUT.nextInt();
@@ -576,7 +577,7 @@ public class UI {
         WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return getCourse((Student) user);
+        return getCourses((Student) user);
       }
     } else {
       WelcomeLine7("You have no courses!");
@@ -584,14 +585,14 @@ public class UI {
     }
   }
 
-  public static boolean AccessCourse(Course course, Student student) {
+  public static void AccessCourse(Course course, Student student) {
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       clearScreen();
       WelcomeLine1();
       WelcomeLine6(course.getTitle());
       WelcomeLine1();
-      System.out.println("\n");
+      System.out.println();
       int num = 1;
       for (Module module : modules) {
         WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
@@ -606,7 +607,7 @@ public class UI {
         Module module = modules.get(num - 1);
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
-          System.out.println(slide);
+          System.out.println(slide + "\n");
           enterToContinue();
         }
         WelcomeLine7("You have finished this module!");
@@ -616,7 +617,8 @@ public class UI {
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(15, "1.) View Comments\n");
           WelcomeLine5(15, "2.) Take a Quiz\n");
-          WelcomeLine5(15, "3.) View Other Modules\n\n");
+          WelcomeLine5(15, "3.) View Other Modules\n");
+          WelcomeLine5(15, "4.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
@@ -630,38 +632,43 @@ public class UI {
             INPUT.nextLine();
             clearScreen();
           }
-        }
-        if (value == 1) {
-          if (module.getComments() != null && module.getComments().size() != 0) {
-            module.printComments();
+
+          if (value == 1) {
+            if (module.getComments() != null && module.getComments().size() != 0) {
+              module.printComments();
+            } else {
+              clearScreen();
+              WelcomeLine7("There are no comments for this module!");
+            }
+          } else if (value == 2) {
+            if (module.getQuiz() != null &&
+              module.getQuiz().getQuestions().size() != 0) {
+              takeQuiz(course, module, student);
+            } else {
+              WelcomeLine7("There are currently no quizzes for this module.");
+            }
+          } else if (value == 3) {
+            AccessCourse(course, student);
+          } else if (value == 4) {
+            return;
           } else {
+            System.out.println("You entered an invalid choice. Press Enter to Continue");
+            INPUT.nextLine();
             clearScreen();
-            WelcomeLine7("There are no comments for this module!");
-            
-            enterToContinue();
           }
-        } else if (value == 2) {
-          if (module.getQuiz() != null &&
-            module.getQuiz().getQuestions().size() != 0) {
-            takeQuiz(course, module, student);
-          } else {
-            WelcomeLine7("There are currently no quizzes for this module.");
-          }
-        } else if (value == 3) {
-          return AccessCourse(course, student);
         }
         enterToContinue();
-        return true;
+        return;
       } catch (Exception e) {
         INPUT.nextLine();
         clearScreen();
         WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
-        return AccessCourse(course, student);
+        AccessCourse(course, student);
       }
     } else {
-      return false;
+      return;
     }
   }
 
@@ -697,7 +704,6 @@ public class UI {
         }
       }
   }
-  
 
   private static void Quit() {
     for (int i = 0; i < 32; i++)
