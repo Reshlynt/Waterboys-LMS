@@ -586,7 +586,7 @@ public class UI {
         WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return getAccessCourse((Student) user);
+        return getCourse((Student) user);
       }
     } else {
       WelcomeLine7("You have no courses!");
