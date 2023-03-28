@@ -31,8 +31,6 @@ public class UI {
           break;
         case 2:
           user = SignUp();
-          UserList.getInstance().addUser(user);
-          DataWriter.saveUsers();
           break;
         case 9:
           Quit();
@@ -88,7 +86,6 @@ public class UI {
               System.out.println("There are currently no assessments you can take for this course...");
             break;
           case 3:
-              viewCertificates((Student) user);
             break;
           case 4:
             ViewStudentProfile((Student) user);
@@ -625,13 +622,14 @@ public class UI {
         }
         WelcomeLine7("You have finished this module!");
         boolean choice = true;
+        int value = 0;
         while (choice) {
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(15, "1.) View Comments\n");
           WelcomeLine5(15, "2.) Take a Quiz\n");
           WelcomeLine5(15, "3.) View Other Modules\n\n");
           try {
-            int value = INPUT.nextInt();
+            value = INPUT.nextInt();
             INPUT.nextLine();
             clearScreen();
             choice = false;
@@ -665,52 +663,47 @@ public class UI {
   }
 
   public static void takeQuiz(Course course, Module module, Student student) {
-    boolean takequiz = true;
-    while (takequiz) {
-      WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
-      String choice = INPUT.nextLine();
-      if (choice.equalsIgnoreCase("yes")) {
-        int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
-        for (Question question : module.getQuiz().getQuestions()) {
-          size += 1;
-          WelcomeLine7(question.getQuestionContent());
-          System.out.println();
-          char num = 'A';
-          for (String answer_choice : question.getAnswerChoices()) {
-            System.out.println(num + ".) " + answer_choice);
-            num++;
-          }
-          System.out.println("\nWhat is your answer?");
-          String answer = INPUT.nextLine();
-          if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
-            System.out.println("Correct!");
-            correct += 1;
-          } else {
-            System.out.println("Incorrect!");
-          }
-          if (size != module.getQuiz().getQuestions().size()) {
-            WelcomeLine7("Press Enter to continue to the next question");
-            INPUT.nextLine();
-          } else {
-            WelcomeLine7("You have finished this module's quiz!");
-            WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
-            // add student's grade to their courseProgress for this course
-            double score = (double) correct / numQuestions;
-            student.updateCourseProgress(course, score);
-            WelcomeLine7("Press Enter to continue");
-
-          }
+    WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
+    String choice = INPUT.nextLine();
+    if (choice.equalsIgnoreCase("yes")) {
+      int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
+      for (Question question : module.getQuiz().getQuestions()) {
+        size += 1;
+        WelcomeLine7(question.getQuestionContent());
+        System.out.println();
+        char num = 'A';
+        for (String answer_choice : question.getAnswerChoices()) {
+          System.out.println(num + ".) " + answer_choice);
+          num++;
         }
-        takequiz = false;
-      } else if (choice.equalsIgnoreCase("no")) {
-        WelcomeLine7("Moving on...");
-        takequiz = false;
-      } else {
-        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-        INPUT.nextLine();
+        System.out.println("\nWhat is your answer?");
+        String answer = INPUT.nextLine();
+        if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
+          System.out.println("Correct!");
+          correct += 1;
+        } else {
+          System.out.println("Incorrect!");
+        }
+        if (size != module.getQuiz().getQuestions().size()) {
+          WelcomeLine7("Press Enter to continue to the next question");
+          INPUT.nextLine();
+        } else {
+          WelcomeLine7("You have finished this module's quiz!");
+          WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+          // add student's grade to their courseProgress for this course
+          double score = (double) correct / numQuestions;
+          student.updateCourseProgress(course, score);
+          WelcomeLine7("Press Enter to continue");
+        }
       }
+    } else if (choice.equalsIgnoreCase("no")) {
+      WelcomeLine7("Moving on...");
+    } else {
+      WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+      INPUT.nextLine();
     }
   }
+  
 
   private static void Quit() {
     for (int i = 0; i < 32; i++)
