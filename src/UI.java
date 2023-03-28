@@ -336,10 +336,39 @@ public class UI {
       ArrayList<Student> students = course.getStudents();
       for (Student student : students) {
         if (student.equals(user.getID())) {
-          WelcomeLine5(25, "\t" + course.getTitle());
+          WelcomeLine5(25, "\t- " + course.getTitle());
         }
       }
     }
+    System.out.println("\n\n");
+    WelcomeLine7("Press Enter to Continue");
+    INPUT.nextLine();
+    clearScreen();
+  }
+
+  public static void viewCertificates(Student user) {
+    clearScreen();
+    String header = (user.getUsername() + "\'s Certificates");
+    WelcomeLine1();
+    WelcomeLine6(header);
+    WelcomeLine1();
+    System.out.println("\n");
+    ArrayList<Certificate> certificates = user.getCertificates();
+    if (certificates.size() > 0) {
+      for (int i = 0; i < certificates.size(); i++) {
+        Certificate certificate = certificates.get(i);
+        WelcomeLine5(25, "Certificate " + (i + 1) + ":\n");
+        WelcomeLine5(25, "\tCourse: " + certificate.getCourse().getTitle() + "\n");
+        WelcomeLine5(25, "\tDate: " + certificate.getDate() + "\n");
+        WelcomeLine5(25, "\tGrade: " + certificate.getGrade() + "\n");
+      }
+    } else {
+      WelcomeLine7("You have no certificates");
+    }
+    System.out.println("\n\n");
+    WelcomeLine7("Press Enter to Continue");
+    INPUT.nextLine();
+    clearScreen();
   }
 
   public static Course createCourseFromScratch(Teacher teacher) {
