@@ -42,6 +42,11 @@ public class CourseStatus {
     progress = total / totalGrade;
   }
 
+  public void updateScore(double score) {
+    grades.add(score);
+    calculateProgress();
+  };
+
   public void setCompletion(boolean completed) {
     this.completed = completed;
   }
