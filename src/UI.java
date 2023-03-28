@@ -113,8 +113,7 @@ public class UI {
     System.out.print("\n\n\n");
     WelcomeLine5(35, "1.) Login\n");
     WelcomeLine5(35, "2.) Sign Up\n");
-    WelcomeLine5(35, "9.) Quit LMS");
-    System.out.print("\n\n");
+    WelcomeLine5(35, "9.) Quit LMS\n\n");
     WelcomeLine5(32, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
