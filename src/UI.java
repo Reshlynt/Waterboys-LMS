@@ -30,15 +30,14 @@ public class UI {
         case 9:
           Quit();
         default:
-          System.out.println("\n\n\n\n\n");
+          clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           INPUT.nextLine();
           run();
           break;
       }
-      System.out.print("\n\n\n\n\n\n");
+      clearScreen();
       if (user != null) {
-        // DataWriter.saveUsers();
         quit = true;
       } else {
         WelcomeLine7("Press Enter to Continue");
@@ -108,16 +107,21 @@ public class UI {
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return value;
     } catch (Exception e) {
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       System.out.println("You entered an invalid choice. Press Enter to Continue");
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return Welcome();
     }
+  }
+
+  private static void clearScreen() {
+    System.out.print("\033[H\033[2J");  
+    System.out.flush();
   }
 
   private static void WelcomeLine1() {
@@ -208,7 +212,7 @@ public class UI {
     confirm = INPUT.nextLine();
     WelcomeLine5(25, "Are you are Student or Teacher: ");
     job = INPUT.nextLine();
-    System.out.println("\n\n\n\n\n");
+    clearScreen();
     return LMS.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
   }
 
@@ -222,7 +226,7 @@ public class UI {
     username = INPUT.nextLine();
     WelcomeLine5(25, "Password: ");
     password = INPUT.nextLine();
-    System.out.println("\n\n\n\n\n");
+    clearScreen();
     return LMS.Login(username, password);
   }
 
@@ -231,24 +235,24 @@ public class UI {
     WelcomeLine6("Welcome, " + teacher.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine7("1.) Add Student to Course");
-    WelcomeLine7("2.) Create a Course");
-    WelcomeLine7("3.) Remove a Student from a course");
-    WelcomeLine7("4.) View Profile");
-    WelcomeLine7("5.) View Courses");
-    WelcomeLine7("9.) Exit LMS\n");
-    WelcomeLine7("Choose an option: ");
+    WelcomeLine5(15 ,"1.) Add Student to Course\n");
+    WelcomeLine5(15 ,"2.) Create a Course\n");
+    WelcomeLine5(15 ,"3.) Remove a Student from a course\n");
+    WelcomeLine5(15 ,"4.) View Profile\n");
+    WelcomeLine5(15 ,"5.) View Courses\n");
+    WelcomeLine5(15 ,"9.) Exit LMS\n\n");
+    WelcomeLine5(15 ,"Choose an option: ");
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return value;
     } catch (Exception e) {
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       System.out.println("You entered an invalid choice. Press Enter or to Continue");
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return TeacherMenu(teacher);
     }
   }
@@ -258,23 +262,23 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine7("1.) Register for Course");
-    WelcomeLine7("2.) Access your Courses");
-    WelcomeLine7("3.) Access Certifications");
-    WelcomeLine7("4.) View Profile");
-    WelcomeLine7("9.) Exit LMS\n");
+    WelcomeLine5(15 ,"1.) Register for Course\n");
+    WelcomeLine5(15 ,"2.) Access your Courses\n");
+    WelcomeLine5(15 ,"3.) Access Certifications\n");
+    WelcomeLine5(15 ,"4.) View Profile\n");
+    WelcomeLine5(15 ,"9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return value;
     } catch (Exception e) {
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       WelcomeLine5(11, "You entered an invalid choice. Press Enter or to Continue");
       INPUT.nextLine();
-      System.out.println("\n\n\n\n\n");
+      clearScreen();
       return StudentMenu(student);
     }
   }
@@ -330,16 +334,13 @@ public class UI {
   public static Course createCourseFromScratch(Teacher teacher) {
     System.out.println("What is the title of the course?");
     String title = System.console().readLine();
-    System.out.print("\033[H\033[2J");
-    System.out.flush();
+    clearScreen();
     System.out.println("What is the description of the course?");
     String description = System.console().readLine();
-    System.out.print("\033[H\033[2J");
-    System.out.flush();
+    clearScreen();
     System.out.println("What is the difficulty of the course?");
     String difficultyString = System.console().readLine();
-    System.out.print("\033[H\033[2J");
-    System.out.flush();
+    clearScreen();
     Difficulty difficulty = null;
     difficultyString.toUpperCase();
     if (difficultyString == "BEGINNER") {
@@ -347,15 +348,13 @@ public class UI {
     } else {
         difficulty = Difficulty.INTERMEDIATE;
     }
-    System.out.print("\033[H\033[2J");
-    System.out.flush();
+    clearScreen();
     System.out.println("What is the course type? JavaScript or Python?");
     CourseType courseType = null;
     do {
         String response = System.console().readLine();
         response.toLowerCase();
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        clearScreen();
         if (response.equals("javascript")) {
             courseType = CourseType.JAVASCRIPT;
         } else if (response.equals("python")) {
@@ -554,76 +553,89 @@ public static Assessment makeAssessment() {
   }
 
   public static boolean AccessCourse(Course course) {
-    int final_score = 0, final_correct = 0;
-    WelcomeLine1();
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
+      WelcomeLine1();
+      WelcomeLine6(course.getTitle());
+      WelcomeLine1();
+      System.out.println("\n");
+      int num = 1;
       for (Module module : modules) {
-        WelcomeLine1();
-        System.out.println(module.getTitle());
+        WelcomeLine5(15, (num + ".) " + module.getTitle() + "\n"));
+        num++;
+      }
+      WelcomeLine5(31, "Choose an option: ");
+      try {
+        num = INPUT.nextInt();
+        INPUT.nextLine();
+        clearScreen();  
+        Module module = modules.get(num-1);
         for (Slide slide : module.getSlides()) {
+          WelcomeLine1();
           System.out.println(slide);
-          System.out.println();
+          WelcomeLine7("Press Enter to continue");
+          INPUT.nextLine();
         }
         if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
-          boolean takequiz = true;
-          while (takequiz) {
-            WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
-            String choice = INPUT.nextLine();
-            if (choice.equalsIgnoreCase("yes")) {
-              int size = 0, score = 0, correct = 0;
-              for (Question question : module.getQuiz().getQuestions()) {
-                size += 1;
-                WelcomeLine7(question.getQuestionContent());
-                System.out.println();
-                char num = 'A';
-                for (String answer_choice : question.getAnswerChoices()) {
-                  System.out.println(num + ".) " + answer_choice);
-                  num++;
-                }
-                System.out.println("\nWhat is your answer?");
-                String answer = INPUT.nextLine();
-                if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
-                  System.out.println("Correct!");
-                  correct += 1;
-                } else {
-                  System.out.println("Incorrect!");
-                }
-                score += 1;
-                if (size != module.getQuiz().getQuestions().size()) {
-                  WelcomeLine7("Press Enter to continue to the next question");
-                  INPUT.nextLine();
-                } else {
-                  WelcomeLine7("You have finished this module's quiz!");
-                  WelcomeLine7("You scored " + correct + " out of " + score + " points!");
-                  final_score += score;
-                  final_correct += correct;
-                  score = 0;
-                  correct = 0;
-                }
-              }
-              takequiz = false;
-            } else if (choice.equalsIgnoreCase("no")) {
-              WelcomeLine7("Moving on...");
-              takequiz = false;
-            } else {
-              WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-              INPUT.nextLine();
-            }
-          }
+          takeQuiz(module);
         }
-        WelcomeLine7("Press Enter to continue");
-        INPUT.nextLine();
-      }
-      WelcomeLine7("You have finished the course!");
-      WelcomeLine7("You scored " + final_correct + " out of " + final_score + " points!");
       return true;
+      } catch (Exception e) {
+        INPUT.nextLine();
+        clearScreen();
+        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        return AccessCourse(course);
+      }
     } else {
       return false;
     }
   }
-
+  public static void takeQuiz(Module module) {
+    boolean takequiz = true;
+    while (takequiz) {
+      WelcomeLine5(14, "Would you like to take a Quiz? (Enter Yes or No): ");
+      String choice = INPUT.nextLine();
+      if (choice.equalsIgnoreCase("yes")) {
+        int size = 0, score = 0, correct = 0;
+        for (Question question : module.getQuiz().getQuestions()) {
+          size += 1;
+          WelcomeLine7(question.getQuestionContent());
+          System.out.println();
+          char num = 'A';
+          for (String answer_choice : question.getAnswerChoices()) {
+            System.out.println(num + ".) " + answer_choice);
+            num++;
+          }
+          System.out.println("\nWhat is your answer?");
+          String answer = INPUT.nextLine();
+          if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
+            System.out.println("Correct!");
+            correct += 1;
+          } else {
+            System.out.println("Incorrect!");
+          }
+          score += 1;
+          if (size != module.getQuiz().getQuestions().size()) {
+            WelcomeLine7("Press Enter to continue to the next question");
+            INPUT.nextLine();
+          } else {
+            WelcomeLine7("You have finished this module's quiz!");
+            WelcomeLine7("You scored " + correct + " out of " + score + " points!");
+          }
+        }
+        takequiz = false;
+      } else if (choice.equalsIgnoreCase("no")) {
+        WelcomeLine7("Moving on...");
+        takequiz = false;
+      } else {
+        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+        INPUT.nextLine();
+      }
+    }
+  }
   private static void Quit() {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
