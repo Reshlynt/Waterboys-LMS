@@ -78,12 +78,8 @@ public class UI {
           case 1:
             break;
           case 2:
-            Course course = getAccessCourse((Student) user);
-            boolean quiz = AccessCourse(course, (Student) user);
-            if (quiz)
-              System.out.print(" ");
-            else
-              System.out.println("There are currently no assessments you can take for this course...");
+            Course course = getCourse((Student) user);
+            AccessCourse(course, (Student) user);
             break;
           case 3:
             viewCertificates((Student) user);
@@ -569,7 +565,7 @@ public class UI {
     // What info to make a course? Difficulty,
   }
 
-  public static Course getAccessCourse(Student user) {
+  public static Course getCourse(Student user) {
     ArrayList<Course> student_courses = DataLoader.getCourses();
     if (student_courses != null) {
       int num = 1;
