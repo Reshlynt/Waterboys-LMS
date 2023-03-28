@@ -608,7 +608,6 @@ public class UI {
         clearScreen();
         Module module = modules.get(num - 1);
         for (Slide slide : module.getSlides()) {
-          clearScreen();
           WelcomeLine1();
           System.out.println(slide);
           enterToContinue();
