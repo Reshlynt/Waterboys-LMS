@@ -26,7 +26,6 @@ public class UI {
       switch (Welcome()) {
         case 1:
           while (user == null) {
-            clearScreen();
             user = Login();
           }
           break;
@@ -132,7 +131,7 @@ public class UI {
     }
   }
 
-  private static void clearScreen() {
+  public static void clearScreen() {
     System.out.print("\033[H\033[2J");
     System.out.flush();
   }
