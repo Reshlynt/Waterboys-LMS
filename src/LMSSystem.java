@@ -18,6 +18,9 @@ public class LMSSystem {
       }
     } else {
       UI.WelcomeLine7("User not found!");
+      UI.WelcomeLine7("Press Enter to continue");
+      UI.INPUT.nextLine();
+      UI.clearScreen();
       return null;
     }
   }
