@@ -161,6 +161,7 @@ public class DataWriter extends DataConstants {
    */
   private static JSONObject getStudentJSON(Student student, Course course) {
     JSONObject studentDetails = new JSONObject();
+    WriteCertificateToFile(student);
     studentDetails.put(STUDENT_ID, student.getID().toString());
     studentDetails.put(COMPLETED, student.hasCertificate(course));
     for (int i = 0; i < student.getCourseProgresses().size(); i++) {
@@ -170,6 +171,7 @@ public class DataWriter extends DataConstants {
         break;
       }
     }
+
     return studentDetails;
   }
 
@@ -361,21 +363,25 @@ public class DataWriter extends DataConstants {
   /**
    * Writies a certificate to a text file.
    */
-  public void WriteCertificateToFile(Student student) {
+  public static void WriteCertificateToFile(Student student) {
     try {
-      ArrayList<Certificate> certificateList = student.getCertificates();
-      for (int i = 0; certificateList != null && i < certificateList.size(); i++) {
-        Certificate studentCertificate = certificateList.get(i);
-        Course certificateCourse = studentCertificate.getCourse();
-        FileWriter certificateWriter = new FileWriter(student.getLastName() + "-" + certificateCourse.getTitle() + "-Certificate.txt");
-        certificateWriter.write(studentCertificate.toString());
-        certificateWriter.close();
+      ArrayList<CourseStatus> courseStatusList = student.getCourseProgresses();
+      for (int i = 0; courseStatusList != null && i < courseStatusList.size(); i++) {
+        CourseStatus studentStatus = courseStatusList.get(i);
+        if (studentStatus.getCompleted()) {
+          Course completedCourse = studentStatus.getCourse();
+          String pathName = "./certificate/" + student.getLastName() + "-" + completedCourse.getTitle() + "-Certificate.txt";
+          FileWriter certificateWriter = new FileWriter(pathName);
+          certificateWriter.write((new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor())).toString());
+          certificateWriter.close();
+        }
+        
       }
-
-
-
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+  public static void main(String[] args) {
+    saveCourses();
   }
 }
