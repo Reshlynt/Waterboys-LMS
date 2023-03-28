@@ -12,6 +12,7 @@ public class UI {
   public static final LMSSystem LMS = new LMSSystem();
 
   public static void main(String[] args) {
+    clearScreen();
     User user = run();
     if (user != null)
       run2(user);
@@ -51,6 +52,7 @@ public class UI {
   }
 
   public static void run2(User user) {
+    clearScreen();
     boolean quit = true;
     while (quit) {
       if (user.getType().equalsIgnoreCase("teacher")) {
@@ -289,6 +291,7 @@ public class UI {
   }
 
   private static void ViewTeacherProfile(Teacher user) {
+    clearScreen();
     String header = (user.getUsername() + "\'s Profile");
     WelcomeLine1();
     WelcomeLine6(header);
@@ -314,6 +317,7 @@ public class UI {
   }
 
   private static void ViewStudentProfile(Student user) {
+    clearScreen();
     String header = (user.getUsername() + "\'s Profile");
     WelcomeLine1();
     WelcomeLine6(header);
@@ -560,6 +564,7 @@ public class UI {
   public static boolean AccessCourse(Course course) {
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
+      clearScreen();
       WelcomeLine1();
       WelcomeLine6(course.getTitle());
       WelcomeLine1();
@@ -576,6 +581,7 @@ public class UI {
         clearScreen();  
         Module module = modules.get(num-1);
         for (Slide slide : module.getSlides()) {
+          clearScreen();
           WelcomeLine1();
           System.out.println(slide);
           WelcomeLine5(28 ,"Press Enter to continue");
