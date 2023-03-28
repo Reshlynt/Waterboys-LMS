@@ -650,14 +650,15 @@ public class UI {
             
             enterToContinue();
           }
-        } else
-        if (value == 2) {
+        } else if (value == 2) {
           if (module.getQuiz() != null &&
             module.getQuiz().getQuestions().size() != 0) {
             takeQuiz(course, module, student);
+          } else {
+            WelcomeLine7("There are currently no quizzes for this module.");
           }
         }
-        clearScreen();
+        enterToContinue();
         return true;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -698,7 +699,6 @@ public class UI {
         } else {
           WelcomeLine7("You have finished this module's quiz!");
           WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
-          enterToContinue();
           // add student's grade to their courseProgress for this course
           double score = (double) correct / numQuestions;
           student.updateCourseProgress(course, score);
