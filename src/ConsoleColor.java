@@ -1,3 +1,4 @@
+package src;
 public enum ConsoleColor {
   RESET {
     public String toString() {
