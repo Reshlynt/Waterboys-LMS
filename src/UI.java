@@ -12,7 +12,7 @@ public class UI {
     clearScreen();
     User user = promptUser();
     if (user != null)
-      userMenu(user);
+      presentMenu(user);
   }
 
   public static User promptUser() {
@@ -47,7 +47,7 @@ public class UI {
     return null;
   }
 
-  public static void userMenu(User user) {
+  public static void presentMenu(User user) {
     clearScreen();
     String userType = user.getType();
     boolean quit = true;
@@ -648,7 +648,7 @@ public class UI {
               module.printComments();
             } else if (student.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
-            } else {
+            }else {
               clearScreen();
               WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
               WelcomeLine7("Enter \"Yes\" or \"No\"\n");
@@ -731,8 +731,8 @@ public class UI {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
-    UserList.getInstance().saveUsers();
-    CourseList.getInstance().saveCourses();
+    DataWriter.saveUsers();
+    DataWriter.saveCourses();
     System.exit(0);
   }
 }
