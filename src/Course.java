@@ -12,10 +12,24 @@ public class Course {
   private String description;
   private Assessment exam;
   private CourseType courseType;
-  private ArrayList<Module> lessons;
-  private ArrayList<Comment> courseComments;
-  private ArrayList<Student> students;
+  private ArrayList<Module> lessons = new ArrayList<Module>();
+  private ArrayList<Comment> courseComments = new ArrayList<Comment>();
+  private ArrayList<Student> students = new ArrayList<Student>();
 
+  /**
+   * Constructor for loading from json
+   * 
+   * @param courseID       course UUID
+   * @param teacher        teacher that teaches the course
+   * @param title          title of the course
+   * @param difficulty     difficulty of the course
+   * @param description    description of the course
+   * @param exam           final exam of the course
+   * @param courseType     what language the class will be taught in
+   * @param lessons        the modules that will be covered in the course
+   * @param courseComments the course comments
+   * @param students       the students in the course
+   */
   public Course(UUID courseID, Teacher teacher, String title, Difficulty difficulty, String description,
       Assessment exam, CourseType courseType, ArrayList<Module> lessons, ArrayList<Comment> courseComments,
       ArrayList<Student> students) {
@@ -31,6 +45,18 @@ public class Course {
     this.exam = exam;
   }
 
+  /**
+   * Constructor for creating from UI
+   * 
+   * @param teacher     teacher that teaches the course
+   * @param title       title of the course
+   * @param difficulty  difficulty of the course
+   * @param description description of the course
+   * @param exam        final exam of the course
+   * @param courseType  what language the class will be taught in
+   * @param lessons     the modules that will be covered in the course
+   * @param students    the students in the course
+   */
   public Course(Teacher teacher, String title, Difficulty difficulty, String description,
       Assessment exam, CourseType courseType, ArrayList<Module> lessons,
       ArrayList<Student> students) {
@@ -44,21 +70,40 @@ public class Course {
     this.students = students;
   }
 
+  /**
+   * Method adds a given student to the course
+   * 
+   * @param student to be added to the course
+   */
   public void addToCourse(Student student) {
-    students.add(student);
+    if (student != null)
+      students.add(student);
   }
 
-  public void addToCourseByUUID(UUID studentID) {
+  /**
+   * Method adds a given student to the course
+   * 
+   * @param studentID to be added to the course
+   */
+  public void addToCourse(UUID studentID) {
     UserList userList = UserList.getInstance();
     students.add((Student) userList.getUserByUUID(studentID));
   }
 
+  /**
+   * Method displays the slides of each lesson
+   */
   public void displaySlides() {
     for (Module lesson : lessons) {
       lesson.displaySlides();
     }
   }
 
+  /**
+   * Creates a new Certificate for a user
+   * @param user that has completed the course
+   * @return a new certificate
+   */
   public Certificate createCertificate(User user) {
     return new Certificate(this, user, new Date(), this.teacher);
   }
