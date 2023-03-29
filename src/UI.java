@@ -55,15 +55,21 @@ public class UI {
       if (user.getType().equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
+            // add student to course
             break;
           case 2:
             // work on creating a course
             CreateCourse((Teacher) user);
             break;
           case 3:
+            // remove student from course
             break;
           case 4:
             ViewTeacherProfile((Teacher) user);
+            break;
+          case 5:
+            // view courses
+            viewCourses((Teacher) user);
             break;
           case 9:
             Quit();
@@ -311,6 +317,30 @@ public class UI {
     } else {
       WelcomeLine7("There are no courses currently");
     }
+    enterToContinue();
+  }
+  public void removeStudentFromClass() {
+    clearScreen();
+    WelcomeLine7("Which course would you like to remove a student from?");
+
+  }
+
+  public static void viewCourses(Teacher teacher) {
+    clearScreen();
+    WelcomeLine1();
+    WelcomeLine6("Courses");
+    WelcomeLine1();
+    System.out.println("\n");
+    ArrayList<Course> courses = teacher.getCourses();
+    for (int i = 0; i < courses.size(); i++) {
+      Course course = courses.get(i);
+      WelcomeLine5(10, "Course " + (i + 1) + ": " + course.getTitle() + "\n");
+      WelcomeLine5(20, "Description: " + course.getDescription() + "\n");
+      WelcomeLine5(20, "Author: " + course.getAuthor().getUsername() + "\n");
+      WelcomeLine5(20, "Students Enrolled: " + course.getStudents().size() + "\n");
+      System.out.println("\n");
+    }
+    enterToContinue();
   }
 
   private static void ViewStudentProfile(Student user) {
@@ -336,9 +366,7 @@ public class UI {
       }
     }
     System.out.println("\n\n");
-    WelcomeLine7("Press Enter to Continue");
-    INPUT.nextLine();
-    clearScreen();
+    enterToContinue();
   }
 
   public static void viewCertificates(Student user) {
