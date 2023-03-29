@@ -35,6 +35,10 @@ public class LMSSystem {
     course.addComment(input, user);
   }
 
+  public void addComment(Module module, User user, String input) {
+    module.addComment(input, user);
+  }
+
   public User SignUp(String firstName, String lastName, String username, String email, String password,
       Date dateOfBirth, String job) {
     if (userList.foundUser(username)) {
