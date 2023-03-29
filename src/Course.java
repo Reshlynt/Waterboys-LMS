@@ -206,7 +206,7 @@ public class Course {
   }
 
   public void addComment(String input, User user) {
-    courseComments.add();
+    courseComments.add(new Comment(input, user));
   }
 
   /**
