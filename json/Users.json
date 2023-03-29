@@ -68,5 +68,15 @@
     "type": "student",
     "email": "shekhawp@email.sc.edu",
     "username": "shekhawp"
+  },
+  {
+    "firstName": "Allie",
+    "lastName": "Anderson",
+    "password": "allie",
+    "dateOfBirth": "11182001",
+    "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
+    "type": "student",
+    "email": "anderson@gmail.com",
+    "username": "anders10"
   }
 ]
