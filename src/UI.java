@@ -647,7 +647,9 @@ public class UI {
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
               module.printComments();
-            } else {
+            } else if (student.ofAge() == false) {
+              WelcomeLine7("Comments cannot be viewed by users 13+");
+            }else {
               clearScreen();
               WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
               WelcomeLine7("Enter \"Yes\" or \"No\"\n");
