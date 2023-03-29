@@ -6,31 +6,44 @@ public class Comment {
   private double CID;
   private String post;
   private User postingUser;
-  private int likes;
-  private int dislikes;
-  private ArrayList<Comment> replies;
+  private ArrayList<Comment> replies = new ArrayList<Comment>();
 
+  /**
+   * Constructor
+   * 
+   * @param post        posted comment
+   * @param postingUser person who posted it
+   */
   public Comment(String post, User postingUser) {
     this.post = post;
     this.postingUser = postingUser;
-    this.replies = new ArrayList<Comment>();
   }
 
+  /**
+   * Constructor
+   * 
+   * @param post        posted comment
+   * @param postingUser person who posted it
+   * @param replies     the replies
+   */
   public Comment(String post, User postingUser, ArrayList<Comment> replies) {
     this.post = post;
     this.postingUser = postingUser;
     this.replies = replies;
   }
 
-  // Recursively prints all comments
+  /**
+   * Recursively prints the replies
+   */
   public void printComments() {
+    if (replies == null)
+      return;
     for (int i = 0; i < replies.size(); i++) {
       System.out.println(replies.get(i));
       for (int j = 0; j < replies.get(i).getReplies().size(); j++) {
         replies.get(i).getReplies().get(j).printComments();
       }
     }
-    return;
   }
 
   public String toString() {
@@ -50,35 +63,29 @@ public class Comment {
     this.replies.add(comment);
   }
 
-  public void likeDislikePost(String entry) {
-    if (entry.equals("likes")) {
-      likes++;
-    } else if (entry.equals("dislike")) {
-      dislikes++;
-    }
-  }
-
-  // returns the comment's post
+  /**
+   * Getter for the post
+   * 
+   * @return string that shows the post
+   */
   public String getPost() {
     return post;
   }
 
-  // Returns the comment's posting user id
+  /**
+   * Returns the comment's posting user
+   * 
+   * @return User object that posted the comment
+   */
   public User getPostingUser() {
     return postingUser;
   }
 
-  // Returns the comment's likes
-  public int getLikes() {
-    return likes;
-  }
-
-  // Returns the comment's dislikes
-  public int getDislikes() {
-    return dislikes;
-  }
-
-  // Returns the comment's repiles
+  /**
+   * Getter for replies
+   * 
+   * @return arraylist of type Comment
+   */
   public ArrayList<Comment> getReplies() {
     return replies;
   }
