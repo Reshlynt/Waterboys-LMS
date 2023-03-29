@@ -60,9 +60,8 @@ public class Comment {
 
   public void replyToComment() {
     Comment comment = new Comment("comment", postingUser, replies);
-    replies.add(comment);
-    CID += .1;
-    comment.addPost();
+    comment.CID = this.CID + .1;
+    this.replies.add(comment);
   }
 
   /**
