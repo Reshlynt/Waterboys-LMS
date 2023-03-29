@@ -139,8 +139,8 @@ public class Course {
     return;
   }
 
-  public void addComment(Comment comment) {
-    courseComments.add(comment);
+  public void addComment(String input, User user) {
+    courseComments.add();
   }
 
   // Return the course's comments
