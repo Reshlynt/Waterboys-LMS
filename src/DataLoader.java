@@ -165,8 +165,9 @@ public class DataLoader extends DataConstants {
       JSONObject commentJSON = (JSONObject) commentsJSON.get(i);
 
       // Comment consists of a UUID and text
-      UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
       String commentText = (String) commentJSON.get(COMMENT_TEXT);
+      UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
+      User commenter = UserList.getInstance().getUserByUUID(commenterID);
 
       // Comment also has a list/JSONArray of first replies
       JSONArray repliesJSON = (JSONArray) commentJSON.get(REPLIES);
@@ -175,7 +176,7 @@ public class DataLoader extends DataConstants {
       ArrayList<Comment> replies = readComments(repliesJSON);
 
       // constructs comment object
-      Comment comment = new Comment(commentText, commenterID, replies);
+      Comment comment = new Comment(commentText, commenter, replies);
 
       // add each comment to the array list of comments
       comments.add(comment);
@@ -396,6 +397,11 @@ public class DataLoader extends DataConstants {
     }
   }
 
+  /**
+   * Main method for debugging
+   * 
+   * @param args
+   */
   public static void main(String[] args) {
     ArrayList<User> readUsers = getUsers();
     for (int i = 0; i < readUsers.size(); i++) {
