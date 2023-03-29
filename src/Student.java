@@ -3,8 +3,6 @@ package src;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.Arrays;
-import java.util.List;
 
 public class Student extends User {
   private ArrayList<CourseStatus> courseProgresses;// list of courses and respective grades
