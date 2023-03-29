@@ -647,9 +647,7 @@ public class UI {
               String choice = INPUT.nextLine();
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
-                ArrayList<Comment> replies = new ArrayList<Comment>();
-                Comment comment = new Comment(INPUT.nextLine(), student.getID(), replies);
-                module.addComment(comment);
+                module.addComment(INPUT.nextLine(), student);
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("This comment section is looking awfully quiet...");
               } else {
