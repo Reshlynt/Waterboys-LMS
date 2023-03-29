@@ -44,8 +44,9 @@ public class Module {
     return info;
   }
 
-  public void addComment(Comment comment) {
-    comments.add(comment);
+  public void addComment(String input, User user) {
+    comments.add(new Comment(input, user));
+    return;
   }
 
   // returns the module's title

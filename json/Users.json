@@ -68,5 +68,35 @@
     "type": "student",
     "email": "shekhawp@email.sc.edu",
     "username": "shekhawp"
+  },
+  {
+    "firstName": "Allie",
+    "lastName": "Anderson",
+    "password": "allie",
+    "dateOfBirth": "11182001",
+    "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
+    "type": "student",
+    "email": "anderson@gmail.com",
+    "username": "anders10"
+  },
+  {
+    "firstName": "Scout",
+    "lastName": "Solace",
+    "password": "solace",
+    "dateOfBirth": "01182000",
+    "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+    "type": "student",
+    "email": "ssolace@gmail.com",
+    "username": "solace"
+  },
+  {
+    "firstName": "John",
+    "lastName": "Wisdom",
+    "password": "john",
+    "dateOfBirth": "03251971",
+    "id": "c105f1e7-8d20-4786-974f-4cf24d737d06",
+    "type": "teacher",
+    "email": "jwisdom@gmail.com",
+    "username": "wisdom"
   }
 ]

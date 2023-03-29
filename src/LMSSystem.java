@@ -32,8 +32,11 @@ public class LMSSystem {
   }
 
   public void addComment(Course course, User user, String input) {
-    Comment comment = new Comment(input, user.getID());
-    course.addComment(comment);
+    course.addComment(input, user);
+  }
+
+  public void addComment(Module module, User user, String input) {
+    module.addComment(input, user);
   }
 
   public User SignUp(String firstName, String lastName, String username, String email, String password,
