@@ -6,18 +6,18 @@ import java.util.UUID;
 public class Comment {
   private double CID;
   private String post;
-  private UUID postingUser;
+  private User postingUser;
   private int likes;
   private int dislikes;
   private ArrayList<Comment> replies;
 
-  public Comment(String post, UUID postingUser) {
+  public Comment(String post, User postingUser) {
     this.post = post;
     this.postingUser = postingUser;
     this.replies = new ArrayList<Comment>();
   }
 
-  public Comment(String post, UUID postingUser, ArrayList<Comment> replies) {
+  public Comment(String post, User postingUser, ArrayList<Comment> replies) {
     this.post = post;
     this.postingUser = postingUser;
     this.replies = replies;
@@ -66,7 +66,7 @@ public class Comment {
   }
 
   // Returns the comment's posting user id
-  public UUID getPostingUser() {
+  public User getPostingUser() {
     return postingUser;
   }
 
