@@ -1,9 +1,8 @@
 package src;
+
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.Arrays;
-import java.util.List;
 
 public class Student extends User {
   private ArrayList<CourseStatus> courseProgresses;// list of courses and respective grades
@@ -12,26 +11,27 @@ public class Student extends User {
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
     courseProgresses = new ArrayList<CourseStatus>();
+    certificates = new ArrayList<Certificate>();
   }
 
-  public void setCourseGrade(Course course, ArrayList<Long> grades) {
+  public void setCourseProgress(Course course, ArrayList<Double> grades, boolean completed) {
     // this method will get an array list of grades, which signify the grades for a
-    // specific class(module quiz/exam grades
+    // specific class (module quiz/exam grades
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
+    newCourseStatus.setCompletion(completed);
     courseProgresses.add(newCourseStatus);
   }
 
-  public void saveCourseProgress() {
-    return;
+  public void registerCourse(Course course) {
+    // this method will add a course to the student's list of courses
+    // and add the student to the course's list of students
+    CourseStatus newCourseStatus = new CourseStatus(course, null);
+    courseProgresses.add(newCourseStatus);
   }
 
-  public void registerCourse() {
-    return;
-  }
-
-  public void makeComment() {
-    return;
-  }
+  // public void makeComment(String comment) {
+  // Comment.addPost(comment);
+  // }
 
   // Return the student's certificates
   public ArrayList<Certificate> getCertificates() {
@@ -52,8 +52,17 @@ public class Student extends User {
     return "student";
   }
 
+  public void updateCourseProgress(Course course, Double score) {
+    for (CourseStatus courseStatus : courseProgresses) {
+      if (courseStatus.getCourse().equals(course)) {
+        courseStatus.updateScore(score);
+      }
+    }
+  }
+
   // Gives a student a certificate
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);
   }
+
 }

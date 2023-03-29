@@ -1,0 +1,32 @@
+"quiz": [
+          {
+            "question": "question 1",
+            "answer_choices": [
+              {
+                "a": "quiz answer choice 1",
+                "b": "quiz answer choice 2",
+                "c": "quiz answer choice 3",
+                "d": "quiz answer choice 4"
+              }
+            ],
+            "correct_answer": "a"
+          }
+        ],
+        "module_comments": [
+          {
+            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+            "text": "This is a module comment",
+            "replies": [
+              {
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "reply to a comment",
+                "more_replies": [
+                  {
+                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                    "text": "reply to a reply"
+                  }
+                ]
+              }
+            ]
+          }
+        ]

@@ -1,18 +1,24 @@
 package src;
+
 import java.util.ArrayList;
 
 public class Question {
   String question;
   ArrayList<String> answerChoices = new ArrayList<String>();
   String correctAnswer;
+  // correct answer is a string - a, b, c, or d
 
   public Question(String question, ArrayList<String> answerChoices, String correctAnswer) {
     this.question = question;
     this.answerChoices = answerChoices;
-    this.correctAnswer = correctAnswer;
+    this.correctAnswer = "a";
+    if (correctAnswer.equals("b") || correctAnswer.equals("c") || correctAnswer.equals("d")) {
+      this.correctAnswer = correctAnswer;
+    }
   }
 
   public Question() {
+
   }
 
   public boolean createQuestion(ArrayList<String> answers, String prompt, String correctAnswer) {
@@ -46,5 +52,12 @@ public class Question {
   // Return the question content
   public String getQuestionContent() {
     return question;
+  }
+
+  public int getPoints() {
+    int points = 0;
+    // find the number of correct answers and add that to points
+    return points;
+
   }
 }

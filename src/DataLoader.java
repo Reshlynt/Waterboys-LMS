@@ -1,3 +1,4 @@
+package src;
 
 import java.util.ArrayList;
 import java.io.FileReader;
@@ -22,7 +23,7 @@ public class DataLoader extends DataConstants {
     ArrayList<User> users = new ArrayList<User>();// to be returned
     try {
       // opens json file, and intializes json parser(which will interpret the info)
-      FileReader reader = new FileReader("json/Users.json");
+      FileReader reader = new FileReader(USER_FILE_NAME);
       JSONParser parser = new JSONParser();
 
       // creates a json array of all of the users in the json file
@@ -44,9 +45,6 @@ public class DataLoader extends DataConstants {
         String password = (String) userJSON.get(PASSWORD);
         Date dateOfBirth = parseDate((String) userJSON.get(DOB_DATE));
         String userType = (String) userJSON.get(TYPE);
-        // JSONArray createdCourses = (JSONArray) userJSONObject.get(CREATED_COURSES);
-        // TODO: read in the certificate/course progress info from JSON
-
         if (userType.equalsIgnoreCase("student"))
           users.add(new Student(id, userName, firstName, lastName, email, password, dateOfBirth));
         else if (userType.equalsIgnoreCase("teacher"))
@@ -70,7 +68,7 @@ public class DataLoader extends DataConstants {
     ArrayList<Course> courses = new ArrayList<Course>();// to be returned
     try {
       // opens json file, and intializes json parser(which will interpret the info)
-      FileReader reader = new FileReader("json/Courses.json");
+      FileReader reader = new FileReader(COURSE_FILE_NAME);
       JSONParser parser = new JSONParser();
 
       // creates a json array of all of the courses in the json file
@@ -98,7 +96,7 @@ public class DataLoader extends DataConstants {
         // where each hashmap has 1 student and 1 arraylist of grades. getStudents
         // extracts the students arraylist from the arraylist of hashmaps
         JSONArray studentsJSON = (JSONArray) courseJSON.get(STUDENTS);
-        ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = readStudentGrades(studentsJSON);
+        ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps = readStudentGrades(studentsJSON);
         ArrayList<Student> students = getStudents(gradeMaps);
 
         // course comments will be a JSONArray, readComments parses and returns an array
@@ -122,11 +120,10 @@ public class DataLoader extends DataConstants {
         setCourseGrades(readCourse, students, gradeMaps);
 
       }
-      return courses;
     } catch (Exception e) {
-      e.printStackTrace();
+      // UI.WelcomeLine7("There was an error loading some of the courses.");
     }
-    return null;
+    return courses;
   }
 
   /**
@@ -136,12 +133,12 @@ public class DataLoader extends DataConstants {
    *            user
    * @return Converted Date object specifying date of birth
    */
-  private static Date parseDate(String dob) {
+  public static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     try {
       return dateFormat.parse(dob);
     } catch (ParseException e) {
-      e.printStackTrace();
+      UI.WelcomeLine7("There was an error with your birthday...");
     }
     return null;
   }
@@ -155,16 +152,12 @@ public class DataLoader extends DataConstants {
    * @return an array list of comments from the JSONArray
    */
   private static ArrayList<Comment> readComments(JSONArray commentsJSON) {
-    ArrayList<Comment> comments = new ArrayList<Comment>();// to be returned
+    // base case(when a reply doesn't have any replies)
+    if (commentsJSON == null)
+      return null;
 
-    /*
-     * note regarding comments: we are only representing 3 levels of comments: top
-     * level comments which will be the main comments to either a module or a
-     * course, first replies which will be replies to those main comments, and
-     * second replies which will be replies to those first replies
-     * Any more replies are disgusting to implement, and not representative of real
-     * life situations
-     */
+    // to be returned
+    ArrayList<Comment> comments = new ArrayList<Comment>();
 
     // for loop iterates through all of the top level comments
     for (int i = 0; i < commentsJSON.size(); i++) {
@@ -172,49 +165,18 @@ public class DataLoader extends DataConstants {
       JSONObject commentJSON = (JSONObject) commentsJSON.get(i);
 
       // Comment consists of a UUID and text
-      UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
       String commentText = (String) commentJSON.get(COMMENT_TEXT);
+      UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
+      User commenter = UserList.getInstance().getUserByUUID(commenterID);
 
       // Comment also has a list/JSONArray of first replies
       JSONArray repliesJSON = (JSONArray) commentJSON.get(REPLIES);
-      ArrayList<Comment> replies = new ArrayList<Comment>();
 
-      for (int j = 0; j < repliesJSON.size(); j++) {
-        // particular first reply is a JSONObject
-        JSONObject replyJSON = (JSONObject) repliesJSON.get(j);
+      // recursivey calls method to get all of replies, replies to replies, etc, etc
+      ArrayList<Comment> replies = readComments(repliesJSON);
 
-        // First reply also consists of a UUID and text
-        UUID replierID = UUID.fromString((String) replyJSON.get(REPLIER_ID));
-        String replyText = (String) replyJSON.get(REPLY_TEXT);
-
-        // Reply also has a list/JSONArray of second replies
-        JSONArray secondRepliesJSON = (JSONArray) replyJSON.get(SECOND_REPLIES);
-        ArrayList<Comment> secondReplies = new ArrayList<Comment>();
-
-        for (int k = 0; k < secondRepliesJSON.size(); k++) {
-          // Second reply only consists of a UUID and text
-          JSONObject secondReplyJSON = (JSONObject) secondRepliesJSON.get(k);
-
-          UUID second_replierID = UUID.fromString((String) secondReplyJSON.get(SECOND_REPLIER_ID));
-          String second_replyText = (String) secondReplyJSON.get(SECOND_REPLY_TEXT);
-
-          // second reply will not have an array list of comments(it is the leaf of the
-          // tree if you will)
-          Comment secondReply = new Comment(second_replyText, second_replierID, null);
-
-          // add each second reply to the array list of second replies
-          secondReplies.add(secondReply);
-        }
-
-        // reply will have an array list of second replies underneath it
-        Comment reply = new Comment(replyText, replierID, secondReplies);
-
-        // add each reply to the array list of replies
-        replies.add(reply);
-      }
-
-      // comment will have an array list of replies underneath it
-      Comment comment = new Comment(commentText, commenterID, replies);
+      // constructs comment object
+      Comment comment = new Comment(commentText, commenter, replies);
 
       // add each comment to the array list of comments
       comments.add(comment);
@@ -226,12 +188,14 @@ public class DataLoader extends DataConstants {
    * Method is meant to be given JSON information regarding the exam/quiz, and
    * return a created Assessment object
    * 
-   * @param assessmentJSON
-   * @param label
-   * @param type
-   * @return
+   * @param assessmentJSON JSONArray of assessment questions
+   * @param label          assessment title
+   * @param type           assessment type, check Type.java
+   * @return an assessment object
    */
   private static Assessment readAssessment(JSONArray assessmentJSON, String label, Type type) {
+    if (assessmentJSON == null)
+      return null;
     ArrayList<Question> questions = new ArrayList<Question>();
 
     // for loop iterates through all of the questions in an assessment
@@ -270,110 +234,182 @@ public class DataLoader extends DataConstants {
   }
 
   /**
-  package src; 
-  * 
-   * @param modulesJSON
-   * @return
+   * Method is meant to parse a JSONArray of Modules and their info, and return an
+   * ArrayList of type module
+   * 
+   * @param modulesJSON JSONArray of modules
+   * @return an array list of type Module
    */
   private static ArrayList<Module> readModules(JSONArray modulesJSON) {
-    ArrayList<Module> modules = new ArrayList<Module>();//to return
-    for (int j = 0; j < modulesJSON.size(); j++) {
-      JSONObject moduleJSONObject = (JSONObject) modulesJSON.get(j);
-      String moduleTitle = (String) moduleJSONObject.get(MODULE_TITLE);
+    ArrayList<Module> modules = new ArrayList<Module>();// to return
 
-      // slides will also be a JSONArray
+    // for loop iterates through all of the modules
+    for (int i = 0; i < modulesJSON.size(); i++) {
+      // particular module
+      JSONObject moduleJSON = (JSONObject) modulesJSON.get(i);
+
+      // title
+      String moduleTitle = (String) moduleJSON.get(MODULE_TITLE);
+
+      // module will have an array list of slides
+
+      JSONArray slidesJSON = (JSONArray) moduleJSON.get(SLIDES);
       ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
-      JSONArray slidesJSON = (JSONArray) moduleJSONObject.get(SLIDES);
-      for (int k = 0; k < slidesJSON.size(); k++) {
-        JSONObject slideJSONObject = (JSONObject) slidesJSON.get(k);
-        String slideTitle = (String) slideJSONObject.get(SLIDE_TITLE);
-        String slideDescription = (String) slideJSONObject.get(CONTENT);
+
+      // for loop iterates through all of the slides
+      for (int j = 0; j < slidesJSON.size(); j++) {
+
+        // particular slide is a json object
+        JSONObject slideJSON = (JSONObject) slidesJSON.get(j);
+
+        // title and description
+        String slideTitle = (String) slideJSON.get(SLIDE_TITLE);
+        String slideDescription = (String) slideJSON.get(CONTENT);
+
+        // creates a new text slide object, and adds it to the slide arraylist
         TextSlide parsedSlide = new TextSlide(slideTitle, slideDescription);
         slides.add(parsedSlide);
       }
 
-      JSONArray quizJSON = (JSONArray) moduleJSONObject.get(QUIZ);
+      // gets quiz(array of question stuff) and calls readAssessment method to create
+      // a Assessment object
+      JSONArray quizJSON = (JSONArray) moduleJSON.get(QUIZ);
       Assessment readQuiz = readAssessment(quizJSON, moduleTitle + " quiz", Type.QUIZ);
 
-      // parse comments here
-      JSONArray moduleCommentsJSON = (JSONArray) moduleJSONObject.get(MODULE_COMMENTS);
+      // module comments will be a JSONArray, readComments parses and returns an array
+      // list of type Comment
+      JSONArray moduleCommentsJSON = (JSONArray) moduleJSON.get(MODULE_COMMENTS);
       ArrayList<Comment> moduleComments = readComments(moduleCommentsJSON);
-      // modules has a module_title and slides, now add an array list of comments as
-      // well as a lessonQuiz
+
+      // creates new module with title, slides of info, comments, and a quiz
       modules.add(new Module(moduleTitle, slides, moduleComments, readQuiz));
     }
     return modules;
   }
 
-  private static ArrayList<HashMap<Student, ArrayList<Long>>> readStudentGrades(JSONArray studentsJSON) {
-    // Arraylist of HashMaps, Each HashMap is gonna hash between a singular student
-    // and an ArrayList of Grades
-    // convoluted, i know
-    ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps = new ArrayList<HashMap<Student, ArrayList<Long>>>();
+  /**
+   * Method is meant to link the grades of the students to the correct students
+   *
+   * @param studentsJSON JSONArray of students(which has their ids and their
+   *                     grades)
+   * @return Returns an Arraylist of HashMaps, Each HashMap is gonna hash between
+   *         a singular student
+   *         and their ArrayList of Grades
+   */
+  private static ArrayList<HashMap<Student, ArrayList<Double>>> readStudentGrades(JSONArray studentsJSON) {
+    // to return
+    ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps = new ArrayList<HashMap<Student, ArrayList<Double>>>();
+
+    // for loop iterates through all of the students
     for (int i = 0; i < studentsJSON.size(); i++) {
-      HashMap<Student, ArrayList<Long>> gradeMap = new HashMap<Student, ArrayList<Long>>();
 
+      // creates a particular HashMap(student is the key, grades are the value)
+      HashMap<Student, ArrayList<Double>> gradeMap = new HashMap<Student, ArrayList<Double>>();
+
+      // particular student
       JSONObject studentJSONObject = (JSONObject) studentsJSON.get(i);
+
+      // gets the student UUID, and calls existing UserList to get the existing
+      // instance of student
       UUID studentID = UUID.fromString((String) studentJSONObject.get(STUDENT_ID));
-
-      // System.out.print("read student UUID: ");
-      // System.out.println(studentID);
-
       Student student = (Student) UserList.getInstance().getUserByUUID(studentID);
 
-      // System.out.println("student with that UUID");
-      // System.out.println(student);
+      boolean completed = (Boolean) studentJSONObject.get(COMPLETED);
 
+      // grades is an array list of longs
       JSONArray gradesJSON = (JSONArray) studentJSONObject.get(GRADES);
-      ArrayList<Long> grades = new ArrayList<Long>();
-      for (int g = 0; g < gradesJSON.size(); g++) {
-        grades.add((Long) gradesJSON.get(g));
-      }
+      ArrayList<Double> grades = new ArrayList<Double>();
+
+      // goes through all of the grades and appends to the array list
+      for (int j = 0; j < gradesJSON.size(); j++)
+        grades.add((Double) gradesJSON.get(j));
+
+      // if the course is completed there is a value of 1 added to the end
+      // this is not the best or cleanest way to do this, however, given the timeline
+      // we figured this would be the best way to store it
+      if (completed)
+        grades.add(Double.valueOf(1));
+      // adds the student and grades to the HashMap, then adds the HashMap to the
+      // array list
       gradeMap.put(student, grades);
       gradeMaps.add(gradeMap);
     }
     return gradeMaps;
   }
 
-  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
-    ArrayList<Student> students = new ArrayList<Student>();
-    for (int k = 0; k < gradeMaps.size(); k++) {
-      HashMap<Student, ArrayList<Long>> gradeMap = gradeMaps.get(k);
-      for (Map.Entry<Student, ArrayList<Long>> set : gradeMap.entrySet()) {
+  /**
+   * Method is meant to parse the ArrayList of HashMaps from the readStudentGrades
+   * method
+   * and return an array list of just the students
+   * 
+   * @param gradeMaps Arraylist of HashMaps, Each HashMap is gonna hash between
+   *                  a singular student
+   *                  and their ArrayList of Grades
+   * @return ArrayList of type student
+   */
+  private static ArrayList<Student> getStudents(ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps) {
+    ArrayList<Student> students = new ArrayList<Student>();// to return
+
+    // method goes through all of the hashmaps
+    for (int i = 0; i < gradeMaps.size(); i++) {
+      // gets the particular hashmap
+      HashMap<Student, ArrayList<Double>> gradeMap = gradeMaps.get(i);
+
+      // 1 iteration for loop, adds the key of the hashmap to the arraylist
+      for (Map.Entry<Student, ArrayList<Double>> set : gradeMap.entrySet())
         students.add(set.getKey());
-      }
     }
     return students;
   }
 
+  /**
+   * Method is meant to set the correct grades in a course for each student in the
+   * course
+   * 
+   * @param course    which course the students grades are in
+   * @param students  array list of the students
+   * @param gradeMaps Arraylist of HashMaps, Each HashMap is gonna hash between
+   *                  a singular student
+   *                  and their ArrayList of Grades
+   */
   private static void setCourseGrades(Course course, ArrayList<Student> students,
-      ArrayList<HashMap<Student, ArrayList<Long>>> gradeMaps) {
+      ArrayList<HashMap<Student, ArrayList<Double>>> gradeMaps) {
+    // goes through all of the students
     for (int i = 0; i < students.size(); i++) {
-      Student particularStudent = students.get(i);
-      Student listedStudent = (Student) UserList.getInstance().getUserByUUID(particularStudent.getID());
+      // particular student(gets it from the UserList to prevent duplicate instances)
+      Student listedStudent = (Student) UserList.getInstance().getUserByUUID(students.get(i).getID());
 
       // .get(h) get the particular HashMap from the ArrayList of HashMaps, and
       // .get(ListedStudent) hashes using the student as the key
-      ArrayList<Long> particularGrades = gradeMaps.get(i).get(listedStudent);
+      ArrayList<Double> particularGrades = gradeMaps.get(i).get(listedStudent);
+
+      int sizeOfGrades = particularGrades.size();
+      // checking if the last element of the array list is Double value 1, which means
+      // the course is completed
+      boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
+
+      // removes the the last element 1, as it is not an actual grade
+      particularGrades.remove(Double.valueOf(1.0));
 
       // calls setCourseGrade method which updates the students grade for the
       // particular course
-      // TODO, ask about courselist/get course by uuid, setting grades for only one
-      // course and not creating a duplicate course
-      listedStudent.setCourseGrade(course, particularGrades);
+      listedStudent.setCourseProgress(course, particularGrades, completed);
     }
   }
 
+  /**
+   * Main method for debugging
+   * 
+   * @param args
+   */
   public static void main(String[] args) {
-    // ArrayList<User> readUsers = getUsers();
-    // for (int i = 0; i < readUsers.size(); i++) {
-    // User user = readUsers.get(i);
-    // String printString = user.getEmail() + " " + user.getFirstName() + " " +
-    // user.getLastName() + " "
-    // + user.getPassword() + " " + user.getUserName() + " " + user.getID();
-    // System.out.println(printString);
-    // }
-    // }
+    ArrayList<User> readUsers = getUsers();
+    for (int i = 0; i < readUsers.size(); i++) {
+      System.out.println(readUsers.get(i).toString());
+      System.out.println();
+    }
+
+    System.out.println("COURSES");
     ArrayList<Course> readCourses = getCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);

@@ -1,4 +1,5 @@
 package src;
+
 public class DataConstants {
   // Assessment Constants
   /*
@@ -19,6 +20,7 @@ public class DataConstants {
   public static final String ASSESSMENT_TYPE = "type";
 
   // Course Constants
+  public static final String COURSE_CREATOR = "author";
   public static final String TITLE = "title";
   public static final String DIFFICULTY = "difficulty";
   public static final String COURSE_ID = "course_id";
@@ -28,10 +30,10 @@ public class DataConstants {
   public static final String DESCRIPTION = "description";
   public static final String MODULES = "modules";
   protected static final String COURSE_FILE_NAME = "./json/Courses.json";
+  public static final String COURSES = "courses";
 
   // module things
   public static final String MODULE_TITLE = "module_title";
-
 
   // Slides
   public static final String SLIDES = "slides";
@@ -58,16 +60,19 @@ public class DataConstants {
   public static final String REPLIES = "replies";// replies to comments
   public static final String REPLIER_ID = "id";
   public static final String REPLY_TEXT = "text";
-  public static final String SECOND_REPLIES = "more_replies";// replies to replies
-  public static final String SECOND_REPLIER_ID = "id";
-  public static final String SECOND_REPLY_TEXT = "text";
+
+  // public static final String SECOND_REPLIES = "more_replies";// replies to
+  // replies
+  // public static final String SECOND_REPLIER_ID = "id";
+  // public static final String SECOND_REPLY_TEXT = "text";
+
   public static final String LIKES = "likes";
   public static final String DISLIKES = "dislikes";
-
 
   // Student Constants (for Courses)
   public static final String STUDENTS = "students";
   public static final String STUDENT_ID = "id";
+  public static final String COMPLETED = "completed";
   public static final String GRADES = "grades";
 
   // User Constants

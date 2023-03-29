@@ -1,4 +1,5 @@
 package src;
+
 import java.util.ArrayList;
 
 public class Module {
@@ -14,8 +15,15 @@ public class Module {
     this.lessonQuiz = lessonQuiz;
   }
 
+  public Module(String title, ArrayList<TextSlide> slides) {
+    this.title = title;
+    this.slides = slides;
+  }
+
   public void displaySlides() {
     for (int i = 0; i < slides.size(); i++) {
+      System.out.print("\033[H\033[2J");
+      System.out.flush();
       slides.get(i).display();
     }
     return;
@@ -28,7 +36,7 @@ public class Module {
       info += (slides.get(i) + "\n");
     }
     info += "module_comments:\n";
-    for (int i = 0; i < comments.size(); i++) {
+    for (int i = 0; comments != null && i < comments.size(); i++) {
       info += (comments.get(i) + "\n");
     }
     info += "lessonsquiz:\n";
@@ -36,9 +44,24 @@ public class Module {
     return info;
   }
 
+  public void addComment(String input, User user) {
+    comments.add(new Comment(input, user));
+    return;
+  }
+
   // returns the module's title
   public String getTitle() {
     return title;
+  }
+
+  public void printComments() {
+    for (int i = 0; i < comments.size(); i++) {
+      System.out.println(comments.get(i));
+      for (int j = 0; j < comments.get(i).getReplies().size(); j++) {
+        comments.get(i).getReplies().get(j).printComments();
+      }
+    }
+    return;
   }
 
   // returns the module's slides
@@ -54,6 +77,14 @@ public class Module {
   // returns the module's quiz
   public Assessment getQuiz() {
     return lessonQuiz;
+  }
+
+  public void setLessonQuiz(Assessment lessonQuiz) {
+    this.lessonQuiz = lessonQuiz;
+  }
+
+  public void addSlide(TextSlide slide) {
+    slides.add(slide);
   }
 
 }
