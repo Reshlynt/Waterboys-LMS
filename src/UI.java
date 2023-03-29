@@ -638,7 +638,7 @@ public class UI {
               module.printComments();
             } else {
               clearScreen();
-              WelcomeLine7("There are no comments for this module!");
+              WelcomeLine7("There are no comments for this module! Would you like to add one?");
             }
           } else if (value == 2) {
             if (module.getQuiz() != null &&
