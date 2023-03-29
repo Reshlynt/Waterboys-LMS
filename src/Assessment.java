@@ -51,7 +51,7 @@ public class Assessment {
   }
 
   /**
-   * To String method for printing the assessment
+   * To String method for printing the assessment(debugging method)
    * 
    * @return String with title, type, questions
    */

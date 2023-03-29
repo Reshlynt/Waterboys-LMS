@@ -9,6 +9,14 @@ public class Certificate {
   private int grade;
   private Teacher teacher;
 
+  /**
+   * Constructor
+   * 
+   * @param course  which course the user has completed
+   * @param user    which user has completed the course
+   * @param date    on what date they completed the course
+   * @param teacher of the course
+   */
   public Certificate(Course course, User user, Date date, Teacher teacher) {
     this.course = course;
     this.user = user;
@@ -16,33 +24,58 @@ public class Certificate {
     this.teacher = teacher;
   }
 
-  // Return the grade that the user recieved
+  /**
+   * Getter for Grade
+   * 
+   * @return a double specifying the final grade in the class
+   */
   public double getGrade() {
     return grade;
   }
 
-  // Return the course that the certificate is for
+  /**
+   * Getter for Course
+   * 
+   * @return the course that was completed
+   */
   public Course getCourse() {
     return course;
   }
 
-  // Return the user that recieved the certificate
+  /**
+   * Getter for User
+   * 
+   * @return the user that completed the course
+   */
   public User getUser() {
     return user;
   }
 
-  // Return the date that the certificate was issued
+  /**
+   * Getter for Date
+   * 
+   * @return the date that the certificate was completed
+   */
   public Date getDate() {
     return date;
   }
 
-  // Return the teacher that issued the certificate
+  /**
+   * Getter for Teacher
+   * 
+   * @return the teacher that taught the course
+   */
   public Teacher getTeacher() {
     return teacher;
   }
 
+  /**
+   * toString method for printing
+   * 
+   * @return a string with all of the necessary info of the certificate
+   */
   public String toString() {
-    return user.getFullName() + " recieved this certificate for completing " + course.getTitle() + " by "
-        + teacher.getFullName() + " on " + date + ".";
+    return this.user.getFullName() + " recieved this certificate for completing " + this.course.getTitle() + " by "
+        + this.teacher.getFullName() + " on " + this.date + ".\nFinal Grade: " + this.grade;
   }
 }
