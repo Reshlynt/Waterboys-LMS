@@ -1,5 +1,6 @@
 package src;
 
+import java.util.UUID;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -235,12 +236,12 @@ public class UI {
     WelcomeLine6("Welcome, " + teacher.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(15, "1.) Add Student to Course\n");
-    WelcomeLine5(15, "2.) Create a Course\n");
-    WelcomeLine5(15, "3.) Remove a Student from a course\n");
-    WelcomeLine5(15, "4.) View Profile\n");
-    WelcomeLine5(15, "5.) View Courses\n");
-    WelcomeLine5(15, "9.) Exit LMS\n\n");
+    WelcomeLine5(10, "1.) Add Student to Course\n");
+    WelcomeLine5(10, "2.) Create a Course\n");
+    WelcomeLine5(10, "3.) Remove a Student from a course\n");
+    WelcomeLine5(10, "4.) View Profile\n");
+    WelcomeLine5(10, "5.) View Courses\n");
+    WelcomeLine5(10, "9.) Exit LMS\n\n");
     WelcomeLine5(15, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
@@ -262,11 +263,11 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(15, "1.) Register for Course\n");
-    WelcomeLine5(15, "2.) Access your Courses\n");
-    WelcomeLine5(15, "3.) Access Certifications\n");
-    WelcomeLine5(15, "4.) View Profile\n");
-    WelcomeLine5(15, "9.) Exit LMS\n\n");
+    WelcomeLine5(10, "1.) Register for Course\n");
+    WelcomeLine5(10, "2.) Access your Courses\n");
+    WelcomeLine5(10, "3.) Access Certifications\n");
+    WelcomeLine5(10, "4.) View Profile\n");
+    WelcomeLine5(10, "9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
       int value = INPUT.nextInt();
@@ -290,18 +291,18 @@ public class UI {
     WelcomeLine6(header);
     WelcomeLine1();
     System.out.println("\n");
-    WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
-    WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
-    WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
+    WelcomeLine5(10, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
+    WelcomeLine5(10, "Email: " + user.getEmail() + "\n");
+    WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
     if (DataLoader.getCourses() != null) {
       ArrayList<Course> readCourses = DataLoader.getCourses();
       System.out.println("\n");
-      WelcomeLine5(25, "Courses Created:\n");
+      WelcomeLine5(10, "Courses Created:\n");
       for (int i = 0; i < readCourses.size(); i++) {
         Course course = readCourses.get(i);
         Teacher teacher = course.getAuthor();
         if (user.getUsername().equals(teacher.getUsername())) {
-          WelcomeLine5(25, "\t" + course.getTitle());
+          WelcomeLine5(20, "\t" + course.getTitle());
         }
       }
     } else {
@@ -316,18 +317,18 @@ public class UI {
     WelcomeLine6(header);
     WelcomeLine1();
     System.out.println("\n");
-    WelcomeLine5(25, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
-    WelcomeLine5(25, "Email: " + user.getEmail() + "\n");
-    WelcomeLine5(25, "Date of Birth: " + user.getDOB() + "\n");
+    WelcomeLine5(10, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
+    WelcomeLine5(10, "Email: " + user.getEmail() + "\n");
+    WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
     System.out.println("\n");
-    WelcomeLine5(25, "Courses Enrolled:\n");
+    WelcomeLine5(10, "Courses Enrolled:\n");
     ArrayList<Course> readCourses = DataLoader.getCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
       ArrayList<Student> students = course.getStudents();
       for (Student student : students) {
         if (student.equals(user.getID())) {
-          WelcomeLine5(25, "\t- " + course.getTitle());
+          WelcomeLine5(20, "\t- " + course.getTitle());
         }
       }
     }
@@ -611,20 +612,20 @@ public class UI {
           enterToContinue();
         }
         WelcomeLine7("You have finished this module!");
-        boolean choice = true;
+        boolean option = true;
         int value = 0;
-        while (choice) {
+        while (option) {
           WelcomeLine7("What would you like to do?\n");
-          WelcomeLine5(15, "1.) View Comments\n");
-          WelcomeLine5(15, "2.) Take a Quiz\n");
-          WelcomeLine5(15, "3.) View Other Modules\n");
-          WelcomeLine5(15, "4.) Go Back to Main Menu\n\n");
+          WelcomeLine5(10, "1.) View Comments\n");
+          WelcomeLine5(10, "2.) Take a Quiz\n");
+          WelcomeLine5(10, "3.) View Other Modules\n");
+          WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
             INPUT.nextLine();
             clearScreen();
-            choice = false;
+            option = false;
           } catch (Exception e) {
             INPUT.nextLine();
             clearScreen();
@@ -638,7 +639,19 @@ public class UI {
               module.printComments();
             } else {
               clearScreen();
-              WelcomeLine7("There are no comments for this module! Would you like to add one?");
+              WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
+              WelcomeLine7("Enter \"Yes\" or \"No\"\n");
+              String choice = INPUT.nextLine();
+              if (choice.equalsIgnoreCase("yes")) {
+                WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
+                ArrayList<Comment> replies = new ArrayList<Comment>();
+                Comment comment = new Comment(INPUT.nextLine(), student.getID(), replies);
+                module.addComment(comment);
+              } else if (choice.equalsIgnoreCase("no")) {
+                WelcomeLine7("This comment section is looking awfully quiet...");
+              } else {
+                WelcomeLine7("You entered an invalid choice, moving on...");
+              }
             }
           } else if (value == 2) {
             if (module.getQuiz() != null &&
