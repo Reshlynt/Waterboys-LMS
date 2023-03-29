@@ -373,7 +373,7 @@ public class UI {
     System.out.println("What is the description of the course?");
     String description = System.console().readLine();
     clearScreen();
-    System.out.println("What is the difficulty of the course?");
+    System.out.println("What is the difficulty of the course? Beginner or Intermediate?");
     String difficultyString = System.console().readLine();
     clearScreen();
     Difficulty difficulty = null;
@@ -398,12 +398,50 @@ public class UI {
         System.out.println("Please enter JavaScript or Python");
       }
     } while (!System.console().readLine().equals("JavaScript") && !System.console().readLine().equals("Python"));
+    ArrayList<Module> lessons = createModules();
+    // Create exam
+    System.out.println("Create the exam for this course: ");
+    Assessment exam = makeAssessment();
+    exam.setType(Type.EXAM);
+    Course newCourse = new Course(teacher, title, difficulty, description, exam, courseType, lessons, populateClass());
+    return newCourse;
+  }
 
+  public static ArrayList<Student> populateClass() {
+    System.out.println("Do you want to add any students? (Y/N)");
+    String addStudents = System.console().readLine();
+    addStudents.toUpperCase();
+    if (addStudents.equals("Y")) {
+      System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
+      ArrayList<Student> students = new ArrayList<Student>();
+      boolean addMoreStudents = true;
+      while (addMoreStudents) {
+        String studentUsername = System.console().readLine();
+        UserList userList = UserList.getInstance();
+        if (!userList.foundUser(studentUsername)) {
+          System.out.println("That user does not exist. Please try again.");
+          continue;
+        } else {
+          students.add((Student) userList.getUser(studentUsername));
+          System.out.println("Do you want to add another student? (Y/N)");
+          String addStudent = System.console().readLine();
+          addStudent.toUpperCase();
+          if (addStudent.equals("N")) {
+            addMoreStudents = false;
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  public static ArrayList<Module> createModules() {
+    clearScreen();
     // Lesson creator:
     ArrayList<Module> lessons = new ArrayList<Module>();
     boolean addAnotherModule = true;
     boolean addAnotherSlide = true;
-
+    System.out.println("Moving on now to the modules;");
     while (addAnotherModule) {
       System.out.println("What is the title of the module?");
       String moduleTitle = System.console().readLine();
@@ -435,38 +473,7 @@ public class UI {
         addAnotherModule = false;
       }
     }
-    // Create exam
-    System.out.println("Create the exam for this course: ");
-    Assessment exam = makeAssessment();
-    exam.setType(Type.EXAM);
-    System.out.println("Do you want to add any students? (Y/N)");
-    String addStudents = System.console().readLine();
-    addStudents.toUpperCase();
-    if (addStudents.equals("Y")) {
-      System.out.println("Enter the usernames of the students you want to add, pressing enter after each:");
-      ArrayList<Student> students = new ArrayList<Student>();
-      boolean addMoreStudents = true;
-      while (addMoreStudents) {
-        String studentUsername = System.console().readLine();
-        UserList userList = UserList.getInstance();
-        if (!userList.foundUser(studentUsername)) {
-          System.out.println("That user does not exist. Please try again.");
-          continue;
-        } else {
-          students.add((Student) userList.getUser(studentUsername));
-          System.out.println("Do you want to add another student? (Y/N)");
-          String addStudent = System.console().readLine();
-          addStudent.toUpperCase();
-          if (addStudent.equals("N")) {
-            addMoreStudents = false;
-          }
-        }
-      }
-      Course newCourse = new Course(teacher, title, difficulty, description, exam, courseType, lessons, students);
-      return newCourse;
-    }
-
-    return null;
+    return lessons;
   }
 
   public static Assessment makeAssessment() {
@@ -656,7 +663,7 @@ public class UI {
             }
           } else if (value == 2) {
             if (module.getQuiz() != null &&
-              module.getQuiz().getQuestions().size() != 0) {
+                module.getQuiz().getQuestions().size() != 0) {
               takeQuiz(course, module, student);
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
@@ -687,36 +694,36 @@ public class UI {
   }
 
   public static void takeQuiz(Course course, Module module, Student student) {
-      int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
-      for (Question question : module.getQuiz().getQuestions()) {
-        size += 1;
-        WelcomeLine7(question.getQuestionContent());
-        System.out.println();
-        char num = 'A';
-        for (String answer_choice : question.getAnswerChoices()) {
-          System.out.println(num + ".) " + answer_choice);
-          num++;
-        }
-        System.out.print("\nWhat is your answer? ");
-        String answer = INPUT.nextLine();
-        if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
-          System.out.println("Correct!");
-          correct += 1;
-        } else {
-          System.out.println("Incorrect!");
-        }
-        if (size != module.getQuiz().getQuestions().size()) {
-          WelcomeLine7("Press Enter to continue to the next question");
-          INPUT.nextLine();
-          clearScreen();
-        } else {
-          WelcomeLine7("You have finished this module's quiz!");
-          WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
-          // add student's grade to their courseProgress for this course
-          double score = (double) correct / numQuestions;
-          student.updateCourseProgress(course, score);
-        }
+    int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
+    for (Question question : module.getQuiz().getQuestions()) {
+      size += 1;
+      WelcomeLine7(question.getQuestionContent());
+      System.out.println();
+      char num = 'A';
+      for (String answer_choice : question.getAnswerChoices()) {
+        System.out.println(num + ".) " + answer_choice);
+        num++;
       }
+      System.out.print("\nWhat is your answer? ");
+      String answer = INPUT.nextLine();
+      if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
+        System.out.println("Correct!");
+        correct += 1;
+      } else {
+        System.out.println("Incorrect!");
+      }
+      if (size != module.getQuiz().getQuestions().size()) {
+        WelcomeLine7("Press Enter to continue to the next question");
+        INPUT.nextLine();
+        clearScreen();
+      } else {
+        WelcomeLine7("You have finished this module's quiz!");
+        WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+        // add student's grade to their courseProgress for this course
+        double score = (double) correct / numQuestions;
+        student.updateCourseProgress(course, score);
+      }
+    }
   }
 
   private static void Quit() {
