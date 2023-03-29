@@ -1,6 +1,5 @@
 package src;
 
-import java.util.UUID;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -13,7 +12,7 @@ public class UI {
     clearScreen();
     User user = promptUser();
     if (user != null)
-      run2(user);
+      userMenu(user);
   }
 
   public static User promptUser() {
@@ -48,16 +47,16 @@ public class UI {
     return null;
   }
 
-  public static void run2(User user) {
+  public static void userMenu(User user) {
     clearScreen();
+    String userType = user.getType();
     boolean quit = true;
     while (quit) {
-      if (user.getType().equalsIgnoreCase("teacher")) {
+      if (userType.equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
             break;
           case 2:
-            // work on creating a course
             CreateCourse((Teacher) user);
             break;
           case 3:
@@ -69,7 +68,7 @@ public class UI {
             Quit();
             break;
         }
-      } else if (user.getType().equalsIgnoreCase("student")) {
+      } else if (userType.equalsIgnoreCase("student")) {
         switch (StudentMenu((Student) user)) {
           case 1:
             break;
