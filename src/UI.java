@@ -11,12 +11,12 @@ public class UI {
 
   public static void main(String[] args) {
     clearScreen();
-    User user = run();
+    User user = promptUser();
     if (user != null)
       run2(user);
   }
 
-  public static User run() {
+  public static User promptUser() {
     boolean quit = false;
     // Part 1 - Logging in or Signing up
     while (!quit) {
