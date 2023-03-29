@@ -1,8 +1,9 @@
 package src;
-
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.Date;
 public class UI {
   public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
   public static final Scanner INPUT = new Scanner(System.in);
@@ -216,7 +217,7 @@ public class UI {
     WelcomeLine5(25, "Are you are Student or Teacher: ");
     job = INPUT.nextLine();
     clearScreen();
-    return LMS.SignUp(first_name, last_name, username, email, password, DataLoader.parseDate(birthday), job);
+    return LMS.SignUp(first_name, last_name, username, email, password, parseDate(birthday), job);
   }
 
   public static User Login() {
@@ -734,5 +735,15 @@ public class UI {
     DataWriter.saveUsers();
     DataWriter.saveCourses();
     System.exit(0);
+  }
+
+  private static Date parseDate(String dob) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+    try {
+      return dateFormat.parse(dob);
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 }
