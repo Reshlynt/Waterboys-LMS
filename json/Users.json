@@ -108,5 +108,15 @@
     "type": "student",
     "email": "aChild@gmail.com",
     "username": "child"
+  },
+  {
+    "firstName": "Vansh",
+    "lastName": "Nagpal",
+    "password": "godmode",
+    "dateOfBirth": "12022002",
+    "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
+    "type": "student",
+    "email": "vnagpal@email.sc.edu",
+    "username": "vnagpal25"
   }
 ]
