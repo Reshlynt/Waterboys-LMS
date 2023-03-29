@@ -98,5 +98,15 @@
     "type": "teacher",
     "email": "jwisdom@gmail.com",
     "username": "wisdom"
+  },
+  {
+    "firstName": "Aiden",
+    "lastName": "Child",
+    "password": "child",
+    "dateOfBirth": "01012015",
+    "id": "cbc169b2-7045-4a42-8bbd-ede023b977e5",
+    "type": "student",
+    "email": "aChild@gmail.com",
+    "username": "child"
   }
 ]

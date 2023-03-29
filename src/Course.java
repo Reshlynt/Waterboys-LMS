@@ -108,54 +108,73 @@ public class Course {
     return new Certificate(this, user, new Date(), this.teacher);
   }
 
-  public boolean listComment() {
-    return true;
-    // Check if current user is 13+ - maybe add User to parameters, add
-    // functionality
-    // in LMSSystem to check if user is 13+; when printing slides, check first and
-    // only call printComments if user is 13+.
-  }
-
-  // Returns the course's difficulty
+  /**
+   * Getter for difficulty
+   * @return difficulty of the course
+   */
   public Difficulty getDifficulty() {
     return difficulty;
   }
 
-  // Returns the course's UUID
+  /**
+   * Getter for Course UUID
+   * @return course uuid
+   */
   public UUID getID() {
     return courseID;
   }
 
-  // Returns the course's title
+  /**
+   * Getter for Course Title
+   * @return string representing course title
+   */
   public String getTitle() {
     return title;
   }
 
-  // Return course description
+  /**
+   * Getter for course Description
+   * @return 
+   */
   public String getDescription() {
     return description;
   }
 
-  // Return course author.
+  /**
+   * Getter for course teacher
+   * @return Teacher object
+   */
   public Teacher getAuthor() {
     return teacher;
   }
 
-  // Return course type
+  /**
+   * Getter for type of course (language that course is taught in)
+   * @return CourseType
+   */
   public CourseType getCourseType() {
     return courseType;
   }
 
-  // Return course assessment
+  /**
+   * Getter for final exam
+   * @return Assessment object that is the final exam
+   */
   public Assessment getAssessment() {
     return exam;
   }
 
-  // Return the course's modules
+  /**
+   * Getter for course lessons
+   * @return ArrayList of type Module
+   */
   public ArrayList<Module> getModules() {
     return lessons;
   }
 
+  /**
+   * toString method for debugging
+   */
   public String toString() {
     String info = title + "\n" + difficulty + "\n" + teacher + "\n" + courseID + "\n" + courseType + "\n";
     info += "lessons:\n";
@@ -174,6 +193,9 @@ public class Course {
     return info;
   }
 
+  /**
+   * Method prints course comments
+   */
   public void printComments() {
     for (int i = 0; i < courseComments.size(); i++) {
       System.out.println(courseComments.get(i));
@@ -181,18 +203,24 @@ public class Course {
         courseComments.get(i).getReplies().get(j).printComments();
       }
     }
-    return;
   }
 
   public void addComment(String input, User user) {
     courseComments.add();
   }
 
-  // Return the course's comments
+  /**
+   * Getter for course Comments
+   * @return ArrayList of type Comment
+   */
   public ArrayList<Comment> getComments() {
     return courseComments;
   }
 
+  /**
+   * Method removes comment from the comment list
+   * @param comment that needs to be removed
+   */
   public void removeComment(Comment comment) {
     for (int i = 0; i < courseComments.size(); i++) {
       if (courseComments.get(i).equals(comment)) {
@@ -201,7 +229,10 @@ public class Course {
     }
   }
 
-  // Return the course's students
+  /**
+   * Getter for students
+   * @return ArrayList of all of the Students
+   */
   public ArrayList<Student> getStudents() {
     return students;
   }
