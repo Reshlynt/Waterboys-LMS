@@ -331,30 +331,32 @@ public class UI {
     WelcomeLine6("Courses:");
     WelcomeLine1();
     System.out.println("\n");
-    ArrayList<Course> courses = teacher.getCourses();
+    ArrayList<Course> courses = DataLoader.getCourses();
     for (int i = 0; i < courses.size(); i++) {
-      System.out.println(i);
-      Course course = courses.get(i);
-      WelcomeLine5(10, "Course " + (i + 1) + ": " + course.getTitle() + "\n");
-      System.out.println("\n\n");
-      WelcomeLine7("Enter the number of the course you want to view; enter 0 to go back");
-      int choice = INPUT.nextInt();
-      if (choice == 0) {
-        clearScreen();
-        return;
-      }
-      if (choice > 0 && choice <= courses.size()) {
-        Course course1 = courses.get(choice - 1);
-        viewCourse(course1);
-      } else {
-        clearScreen();
-        WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
-        INPUT.nextLine();
-        clearScreen();
-        viewCourses(teacher);
+      if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
+        WelcomeLine5(10, "Course " + (i + 1) + ": " + courses.get(i).getTitle() + "\n");
       }
     }
+    WelcomeLine7("Enter the number of the course you want to view;");
+    WelcomeLine7("Enter 0 to go back to the main menu");
+    int choice = INPUT.nextInt();
+    if (choice == 0) {
+      clearScreen();
+      return;
+    }
+    if (choice > 0 && choice <= courses.size()) {
+      clearScreen();
+      viewCourse(courses.get(choice - 1));
+    } else {
+      clearScreen();
+      WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
+      INPUT.nextLine();
+      clearScreen();
+      viewCourses(teacher);
+    }
+    for (int i = 0; i < courses.size(); i++) {
     enterToContinue();
+    }
   }
 
   private static void ViewStudentProfile(Student user) {
@@ -608,11 +610,6 @@ public class UI {
     // What info to make a course? Difficulty,
   }
 
-<<<<<<< HEAD
-  public static Course getCourses(User user) {
-    ArrayList<Course> courses = DataLoader.getCourses();
-    if (courses != null) {
-=======
   public static Course getCourses(Student user) {
     ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> courses = new ArrayList<Course>();
@@ -624,7 +621,6 @@ public class UI {
       }
     }
     if (!(courses.size() == 0)) {
->>>>>>> 89008c5819363ed1bd56ff44745a7b577518ea06
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
