@@ -28,6 +28,10 @@
           94.0,
           97.0
         ]
+      },{
+        "id":"9e38f751-9524-4e62-9acf-5c70c644a988",
+        "completed": false,
+        "grades":[]
       }
     ],
     "title": "Introduction to Python",
