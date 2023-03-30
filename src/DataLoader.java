@@ -383,7 +383,7 @@ public class DataLoader extends DataConstants {
       // .get(h) get the particular HashMap from the ArrayList of HashMaps, and
       // .get(ListedStudent) hashes using the student as the key
       ArrayList<Double> particularGrades = gradeMaps.get(i).get(listedStudent);
-      if (particularGrades != null) {
+      if (particularGrades != null && !particularGrades.isEmpty()) {
         int sizeOfGrades = particularGrades.size();
         // checking if the last element of the array list is Double value 1, which means
         // the course is completed
