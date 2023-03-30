@@ -6,8 +6,8 @@ import java.util.UUID;
 import java.util.Date;
 
 public class Teacher extends User {
-  private ArrayList<Course> courses;
-  private ArrayList<Student> students;
+  private ArrayList<Course> courses = new ArrayList<Course>();
+  private ArrayList<Student> students = new ArrayList<Student>();
 
   public Teacher(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
