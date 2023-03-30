@@ -147,7 +147,6 @@ public class DataWriter extends DataConstants {
   private static JSONArray getGradeJSONArray(ArrayList<Double> grades) {
     JSONArray gradeArray = new JSONArray();
     for (int i = 0; i < grades.size(); i++) {
-      System.out.print(grades.get(i)+ " ");
       gradeArray.add(grades.get(i));
     }
     System.out.println();
