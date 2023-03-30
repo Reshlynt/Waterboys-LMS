@@ -954,10 +954,11 @@ public class UI {
 
         if (user.getType().equalsIgnoreCase("student")) {
           if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
+            double gradeDouble = Math.round(((Student) user).getCourseGradeList(course).get(i - 1).doubleValue());
+            grade += gradeDouble;
           }
         }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"  + grade + "\n"));
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
         grade = "";
       }
@@ -1103,7 +1104,7 @@ public class UI {
         WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
         // double score = (double) correct / (double) numQuestions;
-        student.updateCourseProgress(course,numCorrect, numQuestions);
+        student.updateCourseProgress(course, numCorrect, numQuestions);
         System.out
             .println(ConsoleColor.RED + "Current Course Grade: " + student.getCourseGrade(course) + ConsoleColor.RESET);
       }
