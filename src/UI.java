@@ -895,9 +895,19 @@ public class UI {
       WelcomeLine1();
       System.out.println();
       int num = 1;
-      for (Module module : modules) {
-        WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
+      String grade = "";
+      
+      for (int i = 0; i < modules.size(); i++) {
+        
+        if (user.getType().equalsIgnoreCase("student")) {
+          if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
+            grade = ((Student) user).getCourseGradeList(course).get(i-1).toString();
+          }
+        }
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"
+                                       + grade + "\n"));
         num++;
+        grade = "";
       }
       System.out.println();
       WelcomeLine5(31, "Choose an option: ");
@@ -942,21 +952,21 @@ public class UI {
               int[] count = {0, 0, 0};
               for (Comment comment : comments) {
                 count[0]++;
-                System.out.println(count[0] + " " + comment.getPostingUser().getFullName());
+                System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
                 System.out.println("\t\"" + comment.getPost() + "\"");
                 if (comment.getReplies().size() !=0) {
                   ArrayList<Comment> replies = comment.getReplies();
                   for (Comment reply : replies) {
                     count[1]++;
                     System.out.println("\t|");
-                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getFullName());
+                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
                     System.out.println("\t\t\"" + reply.getPost() + "\"");
                     if (reply.getReplies().size() !=0) {
                       ArrayList<Comment> replies2 = comment.getReplies();
                       for (Comment reply2 : replies2) {
                         count[2]++;
                         System.out.println("\t\t|");
-                        System.out.println((count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getFullName());
+                        System.out.println((count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
                         System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
                       }
                     }
@@ -1041,7 +1051,7 @@ public class UI {
         // add student's grade to their courseProgress for this course
         //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.GREEN+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(ConsoleColor.GREEN+"Current Course Grade: "+ student.getCourseGrade(course) + ConsoleColor.RESET);
         ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
         System.out.println("Grades so far in the class:");
         for(int i = 0; i<currentCourseGrades.size();i++){
