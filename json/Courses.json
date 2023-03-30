@@ -23,12 +23,18 @@
       {
         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
         "completed": true,
-        "grades": [95.0, 94.0, 97.0]
+        "grades": [
+          95.0,
+          94.0,
+          97.0
+        ]
       },
       {
         "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
         "completed": false,
-        "grades": []
+        "grades": [
+          100.0
+        ]
       },
       {
         "id": "662bc837-e323-4226-9ed0-f878d1011e84",
@@ -80,7 +86,7 @@
         "quiz": [],
         "slides": [
           {
-            "description": "Welcome to Introduction to Python course!\n\nIn this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n\nThroughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input/output, object-oriented programming, and working with libraries and modules.\n\nWe will also explore more advanced topics such as working with APIs, web scraping, and automation.\n\nBy the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n",
+            "description": "Welcome to Introduction to Python course!\n\nIn this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n\nThroughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input\/output, object-oriented programming, and working with libraries and modules.\n\nWe will also explore more advanced topics such as working with APIs, web scraping, and automation.\n\nBy the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n",
             "slide_title": "Course Introduction and Welcome"
           },
           {
@@ -88,7 +94,7 @@
             "slide_title": "Course Objectives and Outcomes"
           },
           {
-            "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python",
+            "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input\/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python",
             "slide_title": "Course Outline"
           }
         ],
@@ -152,7 +158,7 @@
             "slide_title": "Another Introduction to Python"
           },
           {
-            "description": "Setting up your workspace will require a few steps:\n First download/setup the anaconda installer following this link: https://www.anaconda.com/products/distribution\nMake sure that you have the bin in your global computer file path.\nMake sure you have Jupyter Notebook installed, and you will be able to open jupyter-notebook by typing 'jupyter-notebook' in your command terminal(cmd or terminal).\n Jupyter will be our primary mode of coding in python, so it is imperative that you install it properly and ask me if you have any questions https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#:~:text=1.,will%20contain%20all%20the%20notebooks.\n",
+            "description": "Setting up your workspace will require a few steps:\n First download\/setup the anaconda installer following this link: https:\/\/www.anaconda.com\/products\/distribution\nMake sure that you have the bin in your global computer file path.\nMake sure you have Jupyter Notebook installed, and you will be able to open jupyter-notebook by typing 'jupyter-notebook' in your command terminal(cmd or terminal).\n Jupyter will be our primary mode of coding in python, so it is imperative that you install it properly and ask me if you have any questions https:\/\/jupyter-notebook-beginner-guide.readthedocs.io\/en\/latest\/execute.html#:~:text=1.,will%20contain%20all%20the%20notebooks.\n",
             "slide_title": "Setting up your Python Workspace"
           }
         ],
@@ -223,7 +229,12 @@
           },
           {
             "answer_choices": [
-              { "a": "str()", "b": "float()", "c": "int()", "d": "bool()" }
+              {
+                "a": "str()",
+                "b": "float()",
+                "c": "int()",
+                "d": "bool()"
+              }
             ],
             "question": "Which built-in function can be used to convert a string to an integer?",
             "correct_answer": "c"
@@ -243,7 +254,7 @@
         ],
         "slides": [
           {
-            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
+            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true\/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
             "slide_title": "Working with Variables"
           },
           {
@@ -262,7 +273,12 @@
         "quiz": [
           {
             "answer_choices": [
-              { "a": "for", "b": "while", "c": "if", "d": "break" }
+              {
+                "a": "for",
+                "b": "while",
+                "c": "if",
+                "d": "break"
+              }
             ],
             "question": "What is the most common conditional statement in Python?",
             "correct_answer": "c"
@@ -281,7 +297,12 @@
           },
           {
             "answer_choices": [
-              { "a": "if-else", "b": "if-elif-else", "c": "while", "d": "for" }
+              {
+                "a": "if-else",
+                "b": "if-elif-else",
+                "c": "while",
+                "d": "for"
+              }
             ],
             "question": "Which of the following is an example of an if statement in Python?",
             "correct_answer": "a"
@@ -336,7 +357,12 @@
           },
           {
             "answer_choices": [
-              { "a": "0 1 2", "b": "1 2 3", "c": "0 2 4", "d": "1 4 7" }
+              {
+                "a": "0 1 2",
+                "b": "1 2 3",
+                "c": "0 2 4",
+                "d": "1 4 7"
+              }
             ],
             "question": "What is the output of the following code?\n\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1",
             "correct_answer": "a"
@@ -447,14 +473,24 @@
           },
           {
             "answer_choices": [
-              { "a": "print()", "b": "len()", "c": "range()", "d": "add()" }
+              {
+                "a": "print()",
+                "b": "len()",
+                "c": "range()",
+                "d": "add()"
+              }
             ],
             "question": "Which of the following is NOT a built-in function in Python?",
             "correct_answer": "d"
           },
           {
             "answer_choices": [
-              { "a": "return", "b": "output", "c": "yield", "d": "break" }
+              {
+                "a": "return",
+                "b": "output",
+                "c": "yield",
+                "d": "break"
+              }
             ],
             "question": "What keyword in Python is used to return a value from a function?",
             "correct_answer": "a"
@@ -565,14 +601,24 @@
           },
           {
             "answer_choices": [
-              { "a": "0", "b": "1", "c": "n", "d": "None of the above" }
+              {
+                "a": "0",
+                "b": "1",
+                "c": "n",
+                "d": "None of the above"
+              }
             ],
             "question": "What is the index of the first element in a list?",
             "correct_answer": "a"
           },
           {
             "answer_choices": [
-              { "a": "[2, 4]", "b": "[4, 6]", "c": "[6, 8]", "d": "[2, 4, 6]" }
+              {
+                "a": "[2, 4]",
+                "b": "[4, 6]",
+                "c": "[6, 8]",
+                "d": "[2, 4, 6]"
+              }
             ],
             "question": "What is the output of the following code: \n\nmy_list = [2, 4, 6, 8] \nprint(my_list[1:3])",
             "correct_answer": "b"
@@ -744,11 +790,11 @@
             "slide_title": "User Input and Output"
           },
           {
-            "description": "\nIn Python, errors that occur during program execution are known as exceptions.\nThese can arise due to a variety of reasons, such as incorrect input, unexpected data, or system failures.\nTo ensure that our programs handle these exceptions gracefully, we can use Python's built-in exception handling mechanism.\nThis involves enclosing the code that might raise an exception in a try block and using except blocks to catch and handle any specific types of exceptions that might occur.\nAdditionally, we can use the finally block to specify code that should be executed regardless of whether an exception occurred or not.\nBy handling exceptions in this way, we can prevent our programs from crashing unexpectedly and provide helpful error messages to users.\nWe can also use Python's logging module to log errors and other information about program execution, which can be useful for debugging and monitoring program behavior.\nKnowing how to handle exceptions is imperative when your code has to deal with situations that can cause a lot of problems (for example, reading or writing from a file).\nHere's an example that tries to take two numbers as user input, and tries to divide them:\n2try:\n    num1 = int(input(\"Enter a number: \"))\n    num2 = int(input(\"Enter another number: \"))\n    result = num1 / num2\n    print(\"The result is:\", result)\nexcept ValueError:\n    print(\"Invalid input. Please enter a valid integer.\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero.\")\nfinally:\n    print(\"Exiting program.\")",
+            "description": "\nIn Python, errors that occur during program execution are known as exceptions.\nThese can arise due to a variety of reasons, such as incorrect input, unexpected data, or system failures.\nTo ensure that our programs handle these exceptions gracefully, we can use Python's built-in exception handling mechanism.\nThis involves enclosing the code that might raise an exception in a try block and using except blocks to catch and handle any specific types of exceptions that might occur.\nAdditionally, we can use the finally block to specify code that should be executed regardless of whether an exception occurred or not.\nBy handling exceptions in this way, we can prevent our programs from crashing unexpectedly and provide helpful error messages to users.\nWe can also use Python's logging module to log errors and other information about program execution, which can be useful for debugging and monitoring program behavior.\nKnowing how to handle exceptions is imperative when your code has to deal with situations that can cause a lot of problems (for example, reading or writing from a file).\nHere's an example that tries to take two numbers as user input, and tries to divide them:\n2try:\n    num1 = int(input(\"Enter a number: \"))\n    num2 = int(input(\"Enter another number: \"))\n    result = num1 \/ num2\n    print(\"The result is:\", result)\nexcept ValueError:\n    print(\"Invalid input. Please enter a valid integer.\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero.\")\nfinally:\n    print(\"Exiting program.\")",
             "slide_title": "Handling Exceptions and Errors"
           }
         ],
-        "module_title": "File Writing/Reading, Input/Output, and Exception Handling"
+        "module_title": "File Writing\/Reading, Input\/Output, and Exception Handling"
       },
       {
         "module_comments": [],
@@ -782,7 +828,7 @@
               {
                 "a": "Inheritance, encapsulation, and polymorphism.",
                 "b": "Loops, functions, and arrays.",
-                "c": "Conditionals, exceptions, and file I/O.",
+                "c": "Conditionals, exceptions, and file I\/O.",
                 "d": "Networking, databases, and GUIs."
               }
             ],
@@ -828,11 +874,11 @@
         ],
         "slides": [
           {
-            "description": "Object-Oriented Programming (OOP) is a programming strategy that is based on the concept of objects.\nIn Python, everything data type and structure is an object, making OOP a fundamental aspect of the language.\nOOP allows programmers to structure their code in a way that is more modular, flexible, and reusable.\nThis is accomplished through the creation of classes, which define the properties and behavior of objects, and the creation of instances of those classes, which are the actual objects themselves.\nPython provides a wide range of OOP features, including inheritance, encapsulation, and polymorphism, which allow programmers to build complex systems that are easy to maintain and extend.\nWith OOP in Python, programmers can write more organized and efficient code that is also reusable.\nThis is arguably why OOP the most important a skill a developer/programmer should know and understand.\n ",
+            "description": "Object-Oriented Programming (OOP) is a programming strategy that is based on the concept of objects.\nIn Python, everything data type and structure is an object, making OOP a fundamental aspect of the language.\nOOP allows programmers to structure their code in a way that is more modular, flexible, and reusable.\nThis is accomplished through the creation of classes, which define the properties and behavior of objects, and the creation of instances of those classes, which are the actual objects themselves.\nPython provides a wide range of OOP features, including inheritance, encapsulation, and polymorphism, which allow programmers to build complex systems that are easy to maintain and extend.\nWith OOP in Python, programmers can write more organized and efficient code that is also reusable.\nThis is arguably why OOP the most important a skill a developer\/programmer should know and understand.\n ",
             "slide_title": "Introduction to OOP"
           },
           {
-            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in python:\n\n#please take note of the indentation(indentation is very important in python)\nclass Student:\n  #this is a constructor which is a method that is called when an object is created/constructed\n  #self is just a pointer to the own specific object, don't worry about it too much\n  def __init__(self, name, age, major):\n    self.name = name\n    self.age = age \n    self.major = major  \n\n  #this is a method that displays my info\n  def getStudentInfo(self):\n    print('name:', self.name)\n    print('age:', self.age)\n    print('major:', self.major)\n\n\nVansh = Student('Vansh Nagpal',20,'Computer Science')\nVansh.getStudentInfo()#Output'Vansh Nagpal'\n20\n'Computer Science'",
+            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in python:\n\n#please take note of the indentation(indentation is very important in python)\nclass Student:\n  #this is a constructor which is a method that is called when an object is created\/constructed\n  #self is just a pointer to the own specific object, don't worry about it too much\n  def __init__(self, name, age, major):\n    self.name = name\n    self.age = age \n    self.major = major  \n\n  #this is a method that displays my info\n  def getStudentInfo(self):\n    print('name:', self.name)\n    print('age:', self.age)\n    print('major:', self.major)\n\n\nVansh = Student('Vansh Nagpal',20,'Computer Science')\nVansh.getStudentInfo()#Output'Vansh Nagpal'\n20\n'Computer Science'",
             "slide_title": "Classes and Objects"
           },
           {
@@ -847,7 +893,7 @@
         "quiz": [],
         "slides": [
           {
-            "description": "Now that we have covered the meat of programming, let's cover some advanced things you can do in python, starting with .... MACHINE LEARNING!!!\nPython is the premier language for data analysis in the modern world, which also makes it easy to implement simple machine learning algorithms on.\nLibraries and modules such as numpy, pandas, matplotlib, and so many more make statistical analysis of sets of data very user friendly.\nThe following is an example of an unsupervised machine learning algorithm that implements k means scattering.\nThe point of this algorithm is to seperate a given set of points into k subgroups.\nIt uses all of the techniques we have learned up to this point including OOP and functions\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.preprocessing import StandardScaler\nfrom numpy.random import uniform\nfrom sklearn.datasets import make_blobs\nimport seaborn as sns\nimport random\ndef euclidean(point, data):\n    \"\"\"\n    Euclidean distance between point & data.\n    Point has dimensions (m,), data has dimensions (n,m), and output will be of size (n,).\n    \"\"\"\n    return np.sqrt(np.sum((point - data)**2, axis=1))\nclass KMeans:\n    def __init__(self, n_clusters=8, max_iter=300):\n        self.n_clusters = n_clusters\n        self.max_iter = max_iter\n    def fit(self, X_train):\n        # Initialize the centroids, using the \"k-means++\" method, where a random datapoint is selected as the first,\n        # then the rest are initialized w/ probabilities proportional to their distances to the first\n        # Pick a random point from train data for first centroi\n        self.centroids = [random.choice(X_train)]\n        for _ in range(self.n_clusters-1):\n            # Calculate distances from points to the centroids\n            dists = np.sum([euclidean(centroid, X_train) for centroid in self.centroids], axis=0)\n            # Normalize the distances\n            dists /= np.sum(dists)\n            # Choose remaining points based on their distances\n            new_centroid_idx, = np.random.choice(range(len(X_train)), size=1, p=dists)\n            self.centroids += [X_train[new_centroid_idx]]\n        # This initial method of randomly selecting centroid starts is less effective\n        # min_, max_ = np.min(X_train, axis=0), np.max(X_train, axis=0)\n        # self.centroids = [uniform(min_, max_) for _ in range(self.n_clusters)]\n        # Iterate, adjusting centroids until converged or until passed max_iter\n        iteration = 0\n        prev_centroids = None\n        while np.not_equal(self.centroids, prev_centroids).any() and iteration < self.max_iter:\n            # Sort each datapoint, assigning to nearest centroid\n            sorted_points = [[] for _ in range(self.n_clusters)]\n            for x in X_train:\n                dists = euclidean(x, self.centroids)\n                centroid_idx = np.argmin(dists)\n                sorted_points[centroid_idx].append(x)\n            # Push current centroids to previous, reassign centroids as mean of the points belonging to them\n            prev_centroids = self.centroids\n            self.centroids = [np.mean(cluster, axis=0) for cluster in sorted_points]\n            for i, centroid in enumerate(self.centroids):\n                if np.isnan(centroid).any():  # Catch any np.nans, resulting from a centroid having no points\n                    self.centroids[i] = prev_centroids[i]\n            iteration += 1\n    def evaluate(self, X):\n        centroids = []\n        centroid_idxs = []\n        for x in X:\n            dists = euclidean(x, self.centroids)\n            centroid_idx = np.argmin(dists)\n            centroids.append(self.centroids[centroid_idx])\n            centroid_idxs.append(centroid_idx)\n        return centroids, centroid_idxs\n# Create a dataset of 2D distributions\ncenters = 5\nX_train, true_labels = make_blobs(n_samples=100, centers=centers, random_state=42)\nX_train = StandardScaler().fit_transform(X_train)\n# Fit centroids to dataset\nkmeans = KMeans(n_clusters=centers)\nkmeans.fit(X_train)\n# View results\nclass_centers, classification = kmeans.evaluate(X_train)\nsns.scatterplot(x=[X[0] for X in X_train],\n                y=[X[1] for X in X_train],\n                hue=true_labels,\n                style=classification,\n                palette=\"deep\",\n                legend=None\n                )\nplt.plot([x for x, _ in kmeans.centroids],\n         [y for _, y in kmeans.centroids],\n         'k+',\n         markersize=10,\n         )\nplt.show()",
+            "description": "Now that we have covered the meat of programming, let's cover some advanced things you can do in python, starting with .... MACHINE LEARNING!!!\nPython is the premier language for data analysis in the modern world, which also makes it easy to implement simple machine learning algorithms on.\nLibraries and modules such as numpy, pandas, matplotlib, and so many more make statistical analysis of sets of data very user friendly.\nThe following is an example of an unsupervised machine learning algorithm that implements k means scattering.\nThe point of this algorithm is to seperate a given set of points into k subgroups.\nIt uses all of the techniques we have learned up to this point including OOP and functions\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.preprocessing import StandardScaler\nfrom numpy.random import uniform\nfrom sklearn.datasets import make_blobs\nimport seaborn as sns\nimport random\ndef euclidean(point, data):\n    \"\"\"\n    Euclidean distance between point & data.\n    Point has dimensions (m,), data has dimensions (n,m), and output will be of size (n,).\n    \"\"\"\n    return np.sqrt(np.sum((point - data)**2, axis=1))\nclass KMeans:\n    def __init__(self, n_clusters=8, max_iter=300):\n        self.n_clusters = n_clusters\n        self.max_iter = max_iter\n    def fit(self, X_train):\n        # Initialize the centroids, using the \"k-means++\" method, where a random datapoint is selected as the first,\n        # then the rest are initialized w\/ probabilities proportional to their distances to the first\n        # Pick a random point from train data for first centroi\n        self.centroids = [random.choice(X_train)]\n        for _ in range(self.n_clusters-1):\n            # Calculate distances from points to the centroids\n            dists = np.sum([euclidean(centroid, X_train) for centroid in self.centroids], axis=0)\n            # Normalize the distances\n            dists \/= np.sum(dists)\n            # Choose remaining points based on their distances\n            new_centroid_idx, = np.random.choice(range(len(X_train)), size=1, p=dists)\n            self.centroids += [X_train[new_centroid_idx]]\n        # This initial method of randomly selecting centroid starts is less effective\n        # min_, max_ = np.min(X_train, axis=0), np.max(X_train, axis=0)\n        # self.centroids = [uniform(min_, max_) for _ in range(self.n_clusters)]\n        # Iterate, adjusting centroids until converged or until passed max_iter\n        iteration = 0\n        prev_centroids = None\n        while np.not_equal(self.centroids, prev_centroids).any() and iteration < self.max_iter:\n            # Sort each datapoint, assigning to nearest centroid\n            sorted_points = [[] for _ in range(self.n_clusters)]\n            for x in X_train:\n                dists = euclidean(x, self.centroids)\n                centroid_idx = np.argmin(dists)\n                sorted_points[centroid_idx].append(x)\n            # Push current centroids to previous, reassign centroids as mean of the points belonging to them\n            prev_centroids = self.centroids\n            self.centroids = [np.mean(cluster, axis=0) for cluster in sorted_points]\n            for i, centroid in enumerate(self.centroids):\n                if np.isnan(centroid).any():  # Catch any np.nans, resulting from a centroid having no points\n                    self.centroids[i] = prev_centroids[i]\n            iteration += 1\n    def evaluate(self, X):\n        centroids = []\n        centroid_idxs = []\n        for x in X:\n            dists = euclidean(x, self.centroids)\n            centroid_idx = np.argmin(dists)\n            centroids.append(self.centroids[centroid_idx])\n            centroid_idxs.append(centroid_idx)\n        return centroids, centroid_idxs\n# Create a dataset of 2D distributions\ncenters = 5\nX_train, true_labels = make_blobs(n_samples=100, centers=centers, random_state=42)\nX_train = StandardScaler().fit_transform(X_train)\n# Fit centroids to dataset\nkmeans = KMeans(n_clusters=centers)\nkmeans.fit(X_train)\n# View results\nclass_centers, classification = kmeans.evaluate(X_train)\nsns.scatterplot(x=[X[0] for X in X_train],\n                y=[X[1] for X in X_train],\n                hue=true_labels,\n                style=classification,\n                palette=\"deep\",\n                legend=None\n                )\nplt.plot([x for x, _ in kmeans.centroids],\n         [y for _, y in kmeans.centroids],\n         'k+',\n         markersize=10,\n         )\nplt.show()",
             "slide_title": "Machine Learning in Python"
           }
         ],
@@ -879,7 +925,11 @@
       {
         "id": "f16ed563-913a-4156-bee9-fdbcffdc15f3",
         "completed": true,
-        "grades": [95.0, 94.0, 97.0]
+        "grades": [
+          95.0,
+          94.0,
+          97.0
+        ]
       }
     ],
     "title": "Introduction to JavaScript",
@@ -1076,7 +1126,7 @@
         ],
         "slides": [
           {
-            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
+            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true\/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
             "slide_title": "Working with Variables"
           },
           {
@@ -1130,13 +1180,25 @@
             "correct_answer": "b"
           },
           {
-            "answer_choices": [{ "a": "1", "b": "2", "c": "3", "d": "4" }],
+            "answer_choices": [
+              {
+                "a": "1",
+                "b": "2",
+                "c": "3",
+                "d": "4"
+              }
+            ],
             "question": "What is the output of the following code?\nvar myVar = 3;\nmyVar = myVar + 1;\nconsole.log(myVar);",
             "correct_answer": "d"
           },
           {
             "answer_choices": [
-              { "a": "Boolean", "b": "String", "c": "Number", "d": "Character" }
+              {
+                "a": "Boolean",
+                "b": "String",
+                "c": "Number",
+                "d": "Character"
+              }
             ],
             "question": "Which of the following is NOT a data type in JavaScript?",
             "correct_answer": "d"
@@ -1247,7 +1309,12 @@
           },
           {
             "answer_choices": [
-              { "a": "return", "b": "output", "c": "yield", "d": "break" }
+              {
+                "a": "return",
+                "b": "output",
+                "c": "yield",
+                "d": "break"
+              }
             ],
             "question": "What keyword in JavaScript is used to return a value from a function?",
             "correct_answer": "a"
@@ -1311,7 +1378,7 @@
             "slide_title": "Creating and Calling Functions"
           },
           {
-            "description": "In JavaScript, we can use various built-in modules to perform different tasks. Here are some examples:\n// Import the 'date-fns' module to work with dates\nconst { format } = require('date-fns');\n// Get the current date and time\nconst currentDate = new Date();\nconsole.log('Current date and time:', format(currentDate, 'yyyy-MM-dd HH:mm:ss.SSS'));\n// Output: Current date and time: 2023-03-25 13:45:32.123\n// Import the 'lodash' module to work with arrays, numbers, and strings\nconst _ = require('lodash');\n// Generate a random number between 1 and 10\nconst randomNumber = _.random(1, 10);\nconsole.log('Random number between 1 and 10:', randomNumber); // Output: Random\n// Use the built-in 'Math' object to perform mathematical operations\nconst a = 16;\nconsole.log(Math.sqrt(a)); // Output: 4.0\n",
+            "description": "In JavaScript, we can use various built-in modules to perform different tasks. Here are some examples:\n\/\/ Import the 'date-fns' module to work with dates\nconst { format } = require('date-fns');\n\/\/ Get the current date and time\nconst currentDate = new Date();\nconsole.log('Current date and time:', format(currentDate, 'yyyy-MM-dd HH:mm:ss.SSS'));\n\/\/ Output: Current date and time: 2023-03-25 13:45:32.123\n\/\/ Import the 'lodash' module to work with arrays, numbers, and strings\nconst _ = require('lodash');\n\/\/ Generate a random number between 1 and 10\nconst randomNumber = _.random(1, 10);\nconsole.log('Random number between 1 and 10:', randomNumber); \/\/ Output: Random\n\/\/ Use the built-in 'Math' object to perform mathematical operations\nconst a = 16;\nconsole.log(Math.sqrt(a)); \/\/ Output: 4.0\n",
             "slide_title": "Built-in JavaScript Modules"
           }
         ],
@@ -1334,14 +1401,24 @@
           },
           {
             "answer_choices": [
-              { "a": "push()", "b": "add()", "c": "insert()", "d": "concat()" }
+              {
+                "a": "push()",
+                "b": "add()",
+                "c": "insert()",
+                "d": "concat()"
+              }
             ],
             "question": "What is the most common method used to add an element to an array in JavaScript?",
             "correct_answer": "a"
           },
           {
             "answer_choices": [
-              { "a": "number", "b": "string", "c": "boolean", "d": "object" }
+              {
+                "a": "number",
+                "b": "string",
+                "c": "boolean",
+                "d": "object"
+              }
             ],
             "question": "Which of the following is not a primitive data type in JavaScript?",
             "correct_answer": "d"
@@ -1360,7 +1437,12 @@
           },
           {
             "answer_choices": [
-              { "a": "O(n)", "b": "O(1)", "c": "O(log n)", "d": "O(n log n)" }
+              {
+                "a": "O(n)",
+                "b": "O(1)",
+                "c": "O(log n)",
+                "d": "O(n log n)"
+              }
             ],
             "question": "What is the time complexity of searching for an element in an array using indexOf() method in JavaScript?",
             "correct_answer": "a"
@@ -1379,7 +1461,12 @@
           },
           {
             "answer_choices": [
-              { "a": " O(n)", "b": "O(1)", "c": "O(log n)", "d": "O(n log n)" }
+              {
+                "a": " O(n)",
+                "b": "O(1)",
+                "c": "O(log n)",
+                "d": "O(n log n)"
+              }
             ],
             "question": "What is the time complexity of accessing an element in an array using its index in JavaScript?",
             "correct_answer": "b"
@@ -1447,7 +1534,7 @@
             "slide_title": "Linked Lists"
           },
           {
-            "description": "In JavaScript, a tree is a data structure that consists of nodes connected by edges, where each node can have zero or more child nodes. The topmost node in a tree is called the root, and the nodes without any children are called leaves. Trees are useful for representing hierarchical structures, such as file systems, organization charts, and XML/HTML documents. In JavaScript, trees can be implemented using classes and objects, where each node is represented as an object with properties for its value and its children. Traversing a tree can be done using depth-first search or breadth-first search algorithms. Trees are an important data structure in computer science and are used in many applications, such as databases, compilers, and artificial intelligence.",
+            "description": "In JavaScript, a tree is a data structure that consists of nodes connected by edges, where each node can have zero or more child nodes. The topmost node in a tree is called the root, and the nodes without any children are called leaves. Trees are useful for representing hierarchical structures, such as file systems, organization charts, and XML\/HTML documents. In JavaScript, trees can be implemented using classes and objects, where each node is represented as an object with properties for its value and its children. Traversing a tree can be done using depth-first search or breadth-first search algorithms. Trees are an important data structure in computer science and are used in many applications, such as databases, compilers, and artificial intelligence.",
             "slide_title": "Trees"
           }
         ],
@@ -1531,7 +1618,7 @@
             "slide_title": "Handling Exceptions and Errors"
           }
         ],
-        "module_title": "File Writing/Reading, Input/Output, and Exception Handling"
+        "module_title": "File Writing\/Reading, Input\/Output, and Exception Handling"
       },
       {
         "module_comments": [],
@@ -1565,7 +1652,7 @@
               {
                 "a": "A function that creates an object",
                 "b": "A method used to access object properties",
-                "c": "A method that is called when an object is created/constructed",
+                "c": "A method that is called when an object is created\/constructed",
                 "d": "A function that modifies object properties"
               }
             ],
@@ -1615,7 +1702,7 @@
             "slide_title": "Introduction to OOP"
           },
           {
-            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); // Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
+            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); \/\/ Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created\/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
             "slide_title": "Classes and Objects"
           },
           {
