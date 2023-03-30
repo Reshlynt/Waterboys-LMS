@@ -84,7 +84,8 @@ public class UI {
             break;
           case 2:
             Course course = getCourses((Student) user);
-            AccessCourse(course, (Student) user);
+            //AccessCourse(course, (Student) user);
+            AccessCourse(course, user);
             break;
           case 3:
             viewCertificates((Student) user);
@@ -790,20 +791,21 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    DataWriter.saveCourses();
-    ArrayList<Course> student_courses = courseList.getAllCourses();
-    ArrayList<Course> courses = new ArrayList<Course>();
-    for (Course course : student_courses) {
+    // DataWriter.saveCourses();
+    // ArrayList<Course> student_courses = DataLoader.getCourses();
+    ArrayList<Course> allCourses = CourseList.getInstance().getCourseList();
+    ArrayList<Course> studentCourses = new ArrayList<Course>();
+    for (Course course : allCourses) {
       for (Student student : course.getStudents()) {
         if (user.getID().equals(student.getID())) {
-          courses.add(course);
+          studentCourses.add(course);
         }
       }
     }
-    if (!(courses.size() == 0)) {
+    if (!(studentCourses.size() == 0)) {
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
-      for (Course course : courses) {
+      for (Course course : studentCourses) {
         WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
@@ -813,7 +815,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return courses.get(num - 1);
+        return studentCourses.get(num - 1);
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
@@ -928,7 +930,7 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-              takeQuiz(course, module, (Student) user);
+              takeQuiz(course, module, (Student)user);
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
             }
@@ -987,7 +989,7 @@ public class UI {
         // add student's grade to their courseProgress for this course
         //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.RED+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(ConsoleColor.GREEN+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
         ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
         System.out.println("Grades so far in the class:");
         for(int i = 0; i<currentCourseGrades.size();i++){

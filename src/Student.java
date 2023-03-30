@@ -52,11 +52,11 @@ public class Student extends User {
 
   public void updateCourseProgress(Course course, int numCorrect, int numQuestions) {
     System.out.println(this.username +" "+ this.getID());
-    for (CourseStatus courseStatus : courseProgresses) {
-      if (courseStatus.getCourse().equals(course)) {
+    for (int i = 0; i<courseProgresses.size();i++) {
+      if (courseProgresses.get(i).getCourse().equals(course)) {
         System.out.println("************************REACHED");
-        System.out.println("grade list size: " + courseStatus.getGradeList().size());
-        courseStatus.updateScore(numCorrect, numQuestions);
+        System.out.println("grade list size: " + courseProgresses.get(i).getGradeList().size());
+        courseProgresses.get(i).updateScore(numCorrect, numQuestions);
       }
     }
   }
@@ -75,9 +75,9 @@ public class Student extends User {
   }
 
   public ArrayList<Double> getCourseGradeList(Course course) {
-    for (CourseStatus courseStatus : courseProgresses) {
-      if (courseStatus.getCourse().equals(course))
-        return courseStatus.getGradeList();
+    for (int i = 0; i<courseProgresses.size();i++) {
+      if (courseProgresses.get(i).getCourse().equals(course))
+        return courseProgresses.get(i).getGradeList();
     }
     return null;
   }
