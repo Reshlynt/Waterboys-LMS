@@ -388,24 +388,29 @@ public class UI {
       WelcomeLine5(31, "Choose an option, or enter 'E' to add modules: ");
       try {
         String input = INPUT.nextLine();
+        int value;
         clearScreen();
         if (input.equalsIgnoreCase("e")) {
-          modules.add(num, createModules());
+          modules.add(num, createModule());
+          return;
         } else {
-          int value = Integer.parseInt(input);
-          if (value > 0 && value <= modules.size()) {
-            viewModule(course, value);
-          } else {
-            WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-            enterToContinue();
-            return;
-          }
+          value = Integer.parseInt(input);
         }
-        Module module = modules.get(num - 1);
+        if (value > 0 && value <= modules.size()) {
+          Module module = modules.get(num - 1);
+        } else {
+          WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+          enterToContinue();
+          return;
+        }
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
-          System.out.println(slide + "\n");
-          enterToContinue();
+          System.out.println(slide + "\n\n\n");
+          WelcomeLine7("Press Enter to Continue, or 'E' to edit the slides");
+          input = INPUT.nextLine();
+          if (input.equalsIgnoreCase("e")) {
+            slide.editSlide();
+          }
         }
         WelcomeLine7("You have finished this module!");
         boolean option = true;
