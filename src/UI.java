@@ -459,6 +459,10 @@ public class UI {
       WelcomeLine7("Enter 'E' to edit a course, or 'V' if you only want to view.");
       boolean edit = (INPUT.nextLine().equalsIgnoreCase("e") ? true : false);
       clearScreen();
+      if (!edit) {
+        AccessCourse(teacherCourses.get(num - 1), teacher);
+        return;
+      }
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
@@ -470,10 +474,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        if (edit)
-          editCourse(teacherCourses.get(num - 1), teacher);
-        else
-          AccessCourse(courses.get(num - 1), teacher);
+        editCourse(teacherCourses.get(num - 1), teacher);
         return;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -524,12 +525,15 @@ public class UI {
           return;
         } else {
           inputVal = Integer.parseInt(input);
+          System.out.println("Input: " + inputVal);
         }
         if (inputVal > 0 && inputVal <= modules.size()) {
-          module = modules.get(num - 1);
+          // module = modules.get(num - 1);
+          module = modules.get(inputVal-1);
         } else {
           clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+          System.out.println("input: " + inputVal);
           enterToContinue();
           return;
         }
@@ -541,7 +545,9 @@ public class UI {
           WelcomeLine7("Press Enter to Continue or 'I' to insert a slide after this one.");
           input = INPUT.nextLine();
           if (input.equalsIgnoreCase("i")) {
+            clearScreen();
             module.addSlide(slideIndex + 1, createSlide());
+            WelcomeLine7("Slide added. Press Enter to Continue");
             return;
           }
           slideIndex++;
@@ -935,6 +941,14 @@ public class UI {
     }
   }
 
+  public static void AccessModule(Module module) {
+    for (Slide slide : module.getSlides()) {
+      WelcomeLine1();
+      System.out.println(slide + "\n");
+      enterToContinue();
+    }
+  }
+
   public static void AccessCourse(Course course, User user) {
     if (course == null) {
       enterToContinue();
@@ -957,7 +971,7 @@ public class UI {
             grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           }
         }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"  + grade + "\n"));
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
         grade = "";
       }
@@ -977,11 +991,9 @@ public class UI {
         boolean option = true;
         int value = 0;
         while (option) {
-          if (user.getType().equals("teacher"))
-            return;
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(10, "1.) View Comments\n");
-          WelcomeLine5(10, "2.) Take a Quiz\n");
+          WelcomeLine5(10, "2.) View Module Quiz\n");
           WelcomeLine5(10, "3.) View Other Modules\n");
           WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
@@ -1043,6 +1055,9 @@ public class UI {
               }
             }
           } else if (value == 2) {
+            if (user.getType().equals("teacher")) {
+              editQuiz(module.getQuiz());
+            }
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
               takeQuiz(course, module, (Student) user);
@@ -1073,6 +1088,15 @@ public class UI {
       return;
     }
   }
+
+  private static void editQuiz(Assessment quiz) {
+    for (int i = 0; i < quiz.getQuestions().size(); i++) {
+      WelcomeLine7("Press enter to iterate through the questions\n");
+      System.out.println(i + ": " + quiz.getQuestions().get(i).toString() + "\n");
+      WelcomeLine7
+    }
+  }
+
 
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
