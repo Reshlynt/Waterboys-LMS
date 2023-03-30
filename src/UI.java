@@ -839,7 +839,7 @@ public class UI {
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide + "\n");
-          if ()
+          //if ()
           enterToContinue();
         }
         WelcomeLine7("You have finished this module!");
