@@ -10,6 +10,7 @@ public class UI {
   public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
   public static final Scanner INPUT = new Scanner(System.in);
   public static final LMSSystem LMS = new LMSSystem();
+  public static CourseList courseList = CourseList.getInstance();
 
   public static void main(String[] args) {
     clearScreen();
@@ -536,7 +537,7 @@ public class UI {
     WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
     System.out.println("\n");
     WelcomeLine5(10, "Courses Enrolled:\n");
-    ArrayList<Course> readCourses = DataLoader.getCourses();
+    ArrayList<Course> readCourses = CourseList.getInstance.getCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
       ArrayList<Student> students = course.getStudents();
