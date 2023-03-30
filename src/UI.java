@@ -529,7 +529,7 @@ public class UI {
         }
         if (inputVal > 0 && inputVal <= modules.size()) {
           // module = modules.get(num - 1);
-          module = modules.get(inputVal-1);
+          module = modules.get(inputVal - 1);
         } else {
           clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
@@ -917,7 +917,12 @@ public class UI {
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : studentCourses) {
-        WelcomeLine7(num + ".) " + course.getTitle());
+        if (user.completedCourse(course)) {
+          System.out.println(ConsoleColor.GREEN);
+          WelcomeLine7(num + ".) " + course.getTitle());
+          System.out.println(ConsoleColor.RESET);
+        } else
+          WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
       System.out.println();
@@ -1013,7 +1018,7 @@ public class UI {
 
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
-              getCommentsAndReplies(module.getComments(), (Student)user, 1);
+              getCommentsAndReplies(module.getComments(), (Student) user, 1);
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
@@ -1044,8 +1049,7 @@ public class UI {
             AccessCourse(course, user);
           } else if (value == 4) {
             DataWriter.WriteModule(module);
-          }
-          else if (value == 5) {
+          } else if (value == 5) {
             return;
           } else {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
@@ -1081,8 +1085,8 @@ public class UI {
       }
     }
   }
-  
-  //goes through comments array, prints out comments and replies
+
+  // goes through comments array, prints out comments and replies
   private static void getCommentsAndReplies(ArrayList<Comment> comments, Student user, int count) {
     if (comments != null && comments.size() != 0 && count < 4) {
       for (Comment comment : comments) {
@@ -1093,12 +1097,11 @@ public class UI {
           System.out.print('\t');
         System.out.println("\"" + comment.getPost() + "\"\n");
         if (comment.getReplies().size() != 0 && comment.getReplies() != null) {
-            getCommentsAndReplies(comment.getReplies(), user, count+1);
+          getCommentsAndReplies(comment.getReplies(), user, count + 1);
         }
       }
     }
   }
-
 
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
