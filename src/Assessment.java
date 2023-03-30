@@ -50,6 +50,10 @@ public class Assessment {
     return title;
   }
 
+  public void addQuestion(int index, Question question) {
+    questions.add(index, question);
+  }
+
   /**
    * To String method for printing the assessment(debugging method)
    * 
