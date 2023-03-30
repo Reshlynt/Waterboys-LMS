@@ -416,7 +416,7 @@ public class UI {
           enterToContinue();
           return;
         }
-        int slideIndex;
+        int slideIndex = 0;
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide + "\n\n\n");
@@ -839,7 +839,6 @@ public class UI {
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide + "\n");
-          if ()
           enterToContinue();
         }
         WelcomeLine7("You have finished this module!");
