@@ -370,7 +370,7 @@ public class DataWriter extends DataConstants {
    * 
    * @param student - A Student object whose certificate to be rewarded to.
    */
-  public static void WriteCertificateT(Student student) {
+  public static void WriteCertificate(Student student) {
     try {
       ArrayList<CourseStatus> courseStatusList = student.getCourseProgresses();
       for (int i = 0; courseStatusList != null && i < courseStatusList.size(); i++) {
