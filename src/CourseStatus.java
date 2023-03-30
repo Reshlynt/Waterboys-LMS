@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class CourseStatus {
   private Course course;
-  private double progress;
+  private Double progress;
 
   private Double courseGrade;
   private ArrayList<Double> grades = new ArrayList<Double>();
-  private boolean completed;
+  private Boolean completed;
 
   public CourseStatus(Course course, ArrayList<Double> grades) {
     this.course = course;
