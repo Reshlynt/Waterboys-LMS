@@ -73,7 +73,7 @@ public class CourseList {
   public ArrayList<Course> getCourseList() {
     return courses;
   }
-  public void saveCourses(){
+  public static void saveCourses(){
     DataWriter.saveCourses();
   }
 }
