@@ -1049,16 +1049,6 @@ public class UI {
                 WelcomeLine7("You entered an invalid choice, moving on...");
               }
             }
-          } else if (value == 2) {
-            if (user.getType().equals("teacher")) {
-              editQuiz(module.getQuiz());
-            }
-            if (module.getQuiz() != null &&
-                module.getQuiz().getQuestions().size() != 0) {
-              takeQuiz(course, module, (Student) user);
-            } else {
-              WelcomeLine7("There are currently no quizzes for this module.");
-            }
           } else if (value == 3) {
             AccessCourse(course, user);
           } else if (value == 4) {
