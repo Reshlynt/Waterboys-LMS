@@ -750,6 +750,7 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
+    DataWriter.saveCourses();
     ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> courses = new ArrayList<Course>();
     for (Course course : student_courses) {
@@ -920,6 +921,11 @@ public class UI {
         //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
         System.out.println(ConsoleColor.RED+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
+        System.out.println("Grades so far in the class:");
+        for(int i = 0; i<currentCourseGrades.size();i++){
+          System.out.println(currentCourseGrades.get(i) + ", ");
+        }
       }
     }
   }
