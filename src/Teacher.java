@@ -36,29 +36,13 @@ public class Teacher extends User {
     return "teacher";
   }
 
-  // public ArrayList<Course> setCoursesCreated(JSONArray courses) {
-  //   UUID courseID = UUID.randomUUID();
-  //   Teacher teacher = this;
-  //   this.courses = new ArrayList<Course>();
-  //   for (int i = 0; i < courses.size(); i++) {
-  //     JSONObject courseJSONObject = (JSONObject) courses.get(i);
-  //     String title = (String) courseJSONObject.get("title");
-  //     Difficulty difficulty = (Difficulty) courseJSONObject.get("difficulty");
-  //     String description = (String) courseJSONObject.get("description");
-  //     Assessment exam = (Assessment) courseJSONObject.get("exam");
-  //     CourseType courseType = (CourseType) courseJSONObject.get("courseType");
-
-  //     ArrayList<Module> lessons = (ArrayList<Module>) courseJSONObject.get("lessons");
-  //     ArrayList<Comment> courseComments = (ArrayList<Comment>) courseJSONObject.get("courseComments");
-  //     ArrayList<Student> students = (ArrayList<Student>) courseJSONObject.get("students");
-
-  //     Course new_course = new Course(courseID, teacher, title, difficulty, description, exam, courseType, lessons,
-  //         courseComments, students);
-  //     this.courses.add(new_course);
-  //   }
-  //   courses.toString();
-  //   return this.courses;
-  // }
+  public void editCourse(Course course) {
+    for (int i = 0; i < course.getModules.size(); i++) {
+      if (courses.get(i).equals(course)) {
+        courses.set(i, course);
+      }
+    }
+  }
 
   // Returns the courses that the teacher has created
   public ArrayList<Course> getCourses() {

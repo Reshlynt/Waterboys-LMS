@@ -332,30 +332,37 @@ public class UI {
     WelcomeLine1();
     System.out.println("\n");
     ArrayList<Course> courses = DataLoader.getCourses();
+    ArrayList<Course> teacherCourses = new ArrayList<Course>();
     for (int i = 0; i < courses.size(); i++) {
       if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
-        WelcomeLine5(10, "Course " + (i + 1) + ": " + courses.get(i).getTitle() + "\n");
+        teacherCourses.add(courses.get(i));
       }
     }
-    WelcomeLine7("Enter the number of the course you want to view;");
-    WelcomeLine7("Enter 0 to go back to the main menu");
-    int choice = INPUT.nextInt();
-    if (choice == 0) {
-      clearScreen();
-      return;
-    }
-    if (choice > 0 && choice <= courses.size()) {
-      clearScreen();
-      viewCourse(courses.get(choice - 1));
+    if (!(teacherCourses.size() == 0)) {
+      int num = 1;
+      WelcomeLine7("What courses would you like to access?\n");
+      for (Course course : courses) {
+        WelcomeLine7(num + ".) " + course.getTitle());
+        num++;
+      }
+      System.out.println();
+      WelcomeLine5(30, "Choose an option: ");
+      try {
+        num = INPUT.nextInt();
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        teacher.editCourse(teacherCourses.get(num - 1));
+      } catch (Exception e) {
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
+        INPUT.nextLine();
+        System.out.println("\n\n\n\n\n");
+        return getCourses((Student) user);
+      }
     } else {
-      clearScreen();
-      WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
-      INPUT.nextLine();
-      clearScreen();
-      viewCourses(teacher);
-    }
-    for (int i = 0; i < courses.size(); i++) {
-    enterToContinue();
+      WelcomeLine7("You have no courses!");
+      return null;
     }
   }
 
