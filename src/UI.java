@@ -1038,6 +1038,7 @@ public class UI {
           } else if (value == 2) {
             if (user.getType().equals("teacher")) {
               editQuiz(module.getQuiz());
+              return;
             }
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
@@ -1078,7 +1079,8 @@ public class UI {
       System.out.println((i + 1) + ": \n" + quiz.getQuestions().get(i).toString() + "\n");
       WelcomeLine7("Enter 'I' to insert a question\n");
       String input = INPUT.nextLine();
-      if (input.equals("I")) {
+      if (input.equalsIgnoreCase("I")) {
+        clearScreen();
         quiz.addQuestion(i, makeQuestion());
       }
     }
