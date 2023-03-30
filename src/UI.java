@@ -270,7 +270,7 @@ public class UI {
     } catch (Exception e) {
       INPUT.nextLine();
       clearScreen();
-      System.out.println("You entered an invalid choice. Press Enter or to Continue");
+      System.out.println("You entered an invalid choice. Press Enter to Continue");
       INPUT.nextLine();
       clearScreen();
       return TeacherMenu(teacher);
@@ -351,6 +351,9 @@ public class UI {
     }
     if (!(teacherCourses.size() == 0)) {
       int num = 1;
+      WelcomeLine7("Enter 'E' to edit a course, or 'V' if you only want to view.");
+      boolean edit = (INPUT.nextLine().equalsIgnoreCase("e") ? true : false);
+      clearScreen();
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
@@ -362,7 +365,9 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        editCourse(teacherCourses.get(num - 1), teacher);
+        if (edit)
+          editCourse(teacherCourses.get(num - 1), teacher);
+        else AccessCourse(courses.get(num - 1), teacher);
         return;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -398,13 +403,15 @@ public class UI {
         num++;
       }
       System.out.println();
-      WelcomeLine5(31, "Choose an option, or enter 'E' to add modules: ");
+      WelcomeLine7("Choose an option, or enter 'E' to add modules: ");
       try {
         String input = INPUT.nextLine();
         int inputVal;
-        clearScreen();
         Module module;
         if (checkIfE(input)) {
+          WelcomeLine7("At what index would you like to insert it? (1-" + (modules.size() + 1) + ");");
+          num = INPUT.nextInt();
+          INPUT.nextLine();
           modules.add(num, createModule());
           return;
         } else {
@@ -413,10 +420,12 @@ public class UI {
         if (inputVal > 0 && inputVal <= modules.size()) {
           module = modules.get(num - 1);
         } else {
+          clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           enterToContinue();
           return;
         }
+        clearScreen();
         int slideIndex = 0;
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
