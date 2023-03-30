@@ -1012,38 +1012,8 @@ public class UI {
           }
 
           if (value == 1) {
-            Comment student_comment = getCommentsAndReplies(module, (Student)user);
             if (module.getComments() != null && module.getComments().size() != 0) {
-              ArrayList<Comment> comments = module.getComments();
-              int[] count = { 0, 0, 0 };
-              for (Comment comment : comments) {
-                count[0]++;
-                System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
-                System.out.println("\t\"" + comment.getPost() + "\"");
-                if (comment.getReplies().size() != 0) {
-                  ArrayList<Comment> replies = comment.getReplies();
-                  for (Comment reply : replies) {
-                    count[1]++;
-                    System.out.println("\t|");
-                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
-                    System.out.println("\t\t\"" + reply.getPost() + "\"");
-                    if (reply.getReplies().size() != 0) {
-                      ArrayList<Comment> replies2 = comment.getReplies();
-                      for (Comment reply2 : replies2) {
-                        count[2]++;
-                        System.out.println("\t\t|");
-                        System.out.println(
-                            (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
-                        System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
-                      }
-                    }
-                  }
-                }
-              }
-              if (student_comment != null) {
-                System.out.println(count[0] + " " + student_comment.getPostingUser().getUsername());
-                System.out.println("\t\"" + student_comment.getPost() + "\"");
-              }
+              getCommentsAndReplies(module.getComments(), (Student)user, 1);
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
@@ -1117,32 +1087,17 @@ public class UI {
   }
   
   //goes through comments array, prints out comments and replies
-  private static Comment getCommentsAndReplies(Module module, Student user) {
-    if (module.getComments() != null && module.getComments().size() != 0) {
-      ArrayList<Comment> comments = module.getComments();
-      int[] count = { 0, 0, 0 };
+  private static void getCommentsAndReplies(ArrayList<Comment> comments, Student user, int count) {
+    if (comments != null && comments.size() != 0 && count < 4) {
       for (Comment comment : comments) {
-        count[0]++;
-        System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
-        System.out.println("\t\"" + comment.getPost() + "\"");
+        for (int i = 0; i < count; i++)
+          System.out.print('\t');
+        System.out.println(comment.getPostingUser().getUsername());
+        for (int i = 0; i <= count; i++)
+          System.out.print('\t');
+        System.out.println("\"" + comment.getPost() + "\"\n");
         if (comment.getReplies().size() != 0 && comment.getReplies() != null) {
-          ArrayList<Comment> replies = comment.getReplies();
-          for (Comment reply : replies) {
-            count[1]++;
-            System.out.println("\t|");
-            System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
-            System.out.println("\t\t\"" + reply.getPost() + "\"");
-            if (reply.getReplies().size() != 0) {
-              ArrayList<Comment> replies2 = comment.getReplies();
-              for (Comment reply2 : replies2) {
-                count[2]++;
-                System.out.println("\t\t|");
-                System.out.println(
-                    (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
-                System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
-              }
-            }
-          }
+            getCommentsAndReplies(comment.getReplies(), user, count+1);
         }
       }
     }
