@@ -98,5 +98,25 @@
     "type": "teacher",
     "email": "jwisdom@gmail.com",
     "username": "wisdom"
+  },
+  {
+    "firstName": "Aiden",
+    "lastName": "Child",
+    "password": "child",
+    "dateOfBirth": "01012015",
+    "id": "cbc169b2-7045-4a42-8bbd-ede023b977e5",
+    "type": "student",
+    "email": "aChild@gmail.com",
+    "username": "child"
+  },
+  {
+    "firstName": "Vansh",
+    "lastName": "Nagpal",
+    "password": "godmode",
+    "dateOfBirth": "12022002",
+    "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
+    "type": "student",
+    "email": "vnagpal@email.sc.edu",
+    "username": "vnagpal25"
   }
 ]

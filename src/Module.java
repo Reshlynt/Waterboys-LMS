@@ -83,8 +83,8 @@ public class Module {
     this.lessonQuiz = lessonQuiz;
   }
 
-  public void addSlide(TextSlide slide) {
-    slides.add(slide);
+  public void addSlide(int index, TextSlide slide) {
+    slides.add(index, slide);
   }
 
 }

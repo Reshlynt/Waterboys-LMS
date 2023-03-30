@@ -17,13 +17,23 @@
     ],
     "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
     "courseType": "PYTHON",
-    "author": "Mr. Cole",
-    "teacher_id": "eff4390c-47db-428a-9178-66bf7ed2e7c1",
+    "author": "John Wisdom",
+    "teacher_id": "c105f1e7-8d20-4786-974f-4cf24d737d06",
     "students": [
       {
         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
         "completed": true,
         "grades": [95.0, 94.0, 97.0]
+      },
+      {
+        "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
+        "completed": false,
+        "grades": []
+      },
+      {
+        "id": "662bc837-e323-4226-9ed0-f878d1011e84",
+        "completed": false,
+        "grades": []
       }
     ],
     "title": "Introduction to Python",
@@ -48,7 +58,25 @@
     ],
     "modules": [
       {
-        "module_comments": [],
+        "module_comments": [
+          {
+            "replies": [
+              {
+                "replies": [
+                  {
+                    "replies": null,
+                    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                    "text": "This is a reply to reply to a comment"
+                  }
+                ],
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a reply to a course comment"
+              }
+            ],
+            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+            "text": "This is a course comment"
+          }
+        ],
         "quiz": [],
         "slides": [
           {
@@ -824,6 +852,789 @@
           }
         ],
         "module_title": "Python Advanced Topics and Applications"
+      }
+    ]
+  },
+  {
+    "difficulty": "BEGINNER",
+    "exam": [
+      {
+        "answer_choices": [
+          {
+            "a": "exam answer choice 1",
+            "b": "exam answer choice 2",
+            "c": "exam answer choice 3",
+            "d": "exam answer choice 4"
+          }
+        ],
+        "question": "question1",
+        "correct_answer": "a"
+      }
+    ],
+    "course_id": "a5a5e5c5-e5f5-8a3b-29cb-a65a2d578fa5",
+    "courseType": "JAVASCRIPT",
+    "author": "Little Baby",
+    "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
+    "students": [
+      {
+        "id": "f16ed563-913a-4156-bee9-fdbcffdc15f3",
+        "completed": true,
+        "grades": [95.0, 94.0, 97.0]
+      }
+    ],
+    "title": "Introduction to JavaScript",
+    "course_comments": [
+      {
+        "replies": [
+          {
+            "replies": [
+              {
+                "replies": null,
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a reply to reply to a comment"
+              }
+            ],
+            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+            "text": "This is a reply to a course comment"
+          }
+        ],
+        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+        "text": "This is a course comment"
+      }
+    ],
+    "modules": [
+      {
+        "module_comments": [],
+        "quiz": [],
+        "slides": [
+          {
+            "description": "Welcome to Introduction to JavaScript course!\n\nIn this course, we will learn the fundamentals of JavaScript programming language and how to use it to create dynamic and interactive web pages.\n\nThroughout the course, we will cover topics such as variables, data types, operators, control structures, functions, arrays, objects, and working with the Document Object Model (DOM).\n\nWe will also explore more advanced topics such as asynchronous programming, error handling, and working with third-party libraries and frameworks.\n\nBy the end of the course, you will have a solid understanding of JavaScript programming language and the skills to create dynamic and interactive web pages.\n",
+            "slide_title": "Course Introduction and Welcome"
+          },
+          {
+            "description": "In this section, we will discuss the objectives and outcomes of the course.\n\nBy the end of this course, you will be able to write JavaScript programs to create dynamic and interactive web pages.\n\nYou will have a good understanding of the JavaScript programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.\n\nYou will also be able to work with the Document Object Model (DOM), handle events, and manipulate web page content using JavaScript.\n\nOverall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a JavaScript developer.\n",
+            "slide_title": "Course Objectives and Outcomes"
+          },
+          {
+            "description": "1. Course Overview\n2. Introduction to JavaScript\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Arrays and Objects\n7. Working with the Document Object Model (DOM)\n8. Asynchronous Programming and Error Handling\n9. Working with Third-Party Libraries and Frameworks",
+            "slide_title": "Course Outline"
+          }
+        ],
+        "module_title": "Course Introduction"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "A markup language",
+                "b": "A low-level programming language",
+                "c": "A compiled programming language",
+                "d": "A high-level, interpreted programming language"
+              }
+            ],
+            "question": "What is JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Bill Gates",
+                "b": "Brendan Eich",
+                "c": "Guido Von Rossum",
+                "d": "Steve Jobs"
+              }
+            ],
+            "question": "Who created JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Numbers and strings",
+                "b": "Booleans and arrays",
+                "c": "Objects and arrays",
+                "d": "Numbers and objects"
+              }
+            ],
+            "question": "What are the two types of data types in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "while loop",
+                "b": "for loop",
+                "c": "do-while loop",
+                "d": "goto loop"
+              }
+            ],
+            "question": "Which of the following is not a looping structure in JavaScript?",
+            "correct_answer": "d"
+          }
+        ],
+        "slides": [
+          {
+            "description": "JavaScript is a high-level programming language that is widely used to create interactive and dynamic web pages. It is a versatile language that can be used for front-end development, back-end development, and even mobile app development.\nJavaScript was first released in 1995 and has since become one of the most popular programming languages in the world.\nIn this course, we will learn the basics of JavaScript programming and how to use it to create web applications.",
+            "slide_title": "Introduction to JavaScript"
+          },
+          {
+            "description": "Setting up your workspace for JavaScript programming will require a few steps:\nFirst, you need to have a code editor installed on your computer, such as Visual Studio Code, Sublime Text, or Atom. These editors provide a more user-friendly interface for coding.\nNext, you need to have a web browser installed on your computer, such as Google Chrome, Firefox, or Safari. This will be used to test and run your JavaScript code.\nYou can write JavaScript code directly in an HTML file or create a separate JavaScript file and link it to your HTML file using a script tag.\nLastly, you can also use online code editors like CodePen or JSFiddle to write and test your JavaScript code without the need for any installation.",
+            "slide_title": "Setting up your JavaScript Workspace"
+          }
+        ],
+        "module_title": "Getting Started with JavaScript"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "Start with a digit, followed by letters or underscores",
+                "b": "Start with a letter or underscore, followed by letters, digits or underscores",
+                "c": "Start with an underscore, followed by letters, digits or underscores",
+                "d": "Start with a letter, followed by letters or digits"
+              }
+            ],
+            "question": "What is the naming convention for JavaScript variables?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Numeric types (integers and floats), strings, and booleans",
+                "b": "Numeric types (integers and floats) and strings",
+                "c": "Strings and booleans",
+                "d": "Numeric types (integers, floats, and complex numbers), strings, and booleans"
+              }
+            ],
+            "question": "What data types are supported in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "There is no difference, they both represent the absence of a value",
+                "b": "Null represents the absence of a value while undefined represents a variable that has been declared but has not been assigned a value",
+                "c": "Undefined represents the absence of a value while null represents a variable that has been declared but has not been assigned a value",
+                "d": "Null and undefined are the same data type"
+              }
+            ],
+            "question": "What is the difference between null and undefined in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "They are the same operator",
+                "b": "== compares the value of two variables without considering the data type, while === compares the value and the data type of two variables",
+                "c": "== compares the value and the data type of two variables, while === compares the value of two variables without considering the data type",
+                "d": "None of the above"
+              }
+            ],
+            "question": "What is the difference between the == operator and the === operator in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Arrays are unordered collections of key-value pairs, and objects are ordered collections of items",
+                "b": "Arrays are ordered collections of items, and objects are unordered collections of key-value pairs",
+                "c": "Arrays and objects are the same data type",
+                "d": "Arrays and objects are only used in advanced JavaScript programming"
+              }
+            ],
+            "question": "What are arrays and objects in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "str()",
+                "b": "parseFloat()",
+                "c": "parseInt()",
+                "d": "Boolean()"
+              }
+            ],
+            "question": "Which built-in function can be used to convert a string to an integer in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "variable_name = value",
+                "b": "value = variable_name",
+                "c": "var variable_name = value",
+                "d": "value == variable_name"
+              }
+            ],
+            "question": "What is the correct syntax to declare a variable in JavaScript?",
+            "correct_answer": "c"
+          }
+        ],
+        "slides": [
+          {
+            "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
+            "slide_title": "Working with Variables"
+          },
+          {
+            "description": "Javascript has several primitive data types, including numbers, strings, booleans, null, and undefined.\nNumbers can be integers or floating-point numbers.\nBooleans are either true or false and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes.\nAdditionally, there are two more advanced primitive data types: arrays and objects, but we will cover these in depth later. \nArrays are ordered collections of items, and objects are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Javascript.",
+            "slide_title": "Another Introduction to Javascript"
+          },
+          {
+            "description": "Type conversion, also known as casting, refers to the process of converting one data type to another.\nIn Python, you can convert between primitive data types using built-in functions such as int(), float(), str(), and bool().\nFor example, you can use int() to convert a string containing a number to an integer, or float() to convert an integer or string to a floating-point number.\nSimilarly, you can use str() to convert a number to a string, or bool() to convert a value to either True or False.\nIt's important to note that some conversions may result in a loss of precision or information, so it's always best to use the appropriate conversion function for the desired result.\n\nHere is some sample python code illustrating the capabilities of these functions:\n# Converting a string to an integer:\nage_str = '27'\nage_int = int(age_str)\nprint(age_int)  # Output: 27\n\n# Converting a float to an integer:\nprice_float = 9.99\nprice_int = int(price_float)\nprint(price_int)  # Output: 9\n\n# Converting an integer to a string:\ncount_int = 10\ncount_str = str(count_int)\nprint(count_str)  # Output: \"10\"\n\n# Converting a boolean to an integer:\nis_true = True\nis_false = False\nint_true = int(is_true)\nint_false = int(is_false)\nprint(int_true)   # Output: 1\nprint(int_false)  # Output: 0\n\n# Converting a string to a boolean:\nis_true_str = \"True\"\nis_false_str = \"False\"\nbool_true = bool(is_true_str)\nbool_false = bool(is_false_str)\nprint(bool_true)   # Output: True\nprint(bool_false)  # Output: True (any non-empty string is considered True)",
+            "slide_title": "Type Conversion and Casting"
+          }
+        ],
+        "module_title": "Variables and Data Types"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "To make web pages more visually appealing.",
+                "b": "To make web pages more interactive.",
+                "c": "To make web pages load faster.",
+                "d": "To make web pages more secure."
+              }
+            ],
+            "question": "What is the purpose of JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "var = myVariable;",
+                "b": "variable myVariable;",
+                "c": "myVariable = var;",
+                "d": "var myVariable;"
+              }
+            ],
+            "question": "What is the correct syntax for declaring a variable in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "== compares both value and type, while === compares only value.",
+                "b": "=== compares both value and type, while == compares only value.",
+                "c": "== and === are equivalent.",
+                "d": "== and === cannot be used in JavaScript."
+              }
+            ],
+            "question": "What is the difference between == and === in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [{ "a": "1", "b": "2", "c": "3", "d": "4" }],
+            "question": "What is the output of the following code?\nvar myVar = 3;\nmyVar = myVar + 1;\nconsole.log(myVar);",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              { "a": "Boolean", "b": "String", "c": "Number", "d": "Character" }
+            ],
+            "question": "Which of the following is NOT a data type in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "To define a function.",
+                "b": "To declare a variable.",
+                "c": "To execute a block of code repeatedly.",
+                "d": "To add a style to an element."
+              }
+            ],
+            "question": "What is the purpose of a loop in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+                "b": "A for loop and a while loop are the same thing.",
+                "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+                "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+              }
+            ],
+            "question": "What is the difference between the for and while loops in JavaScript?",
+            "correct_answer": "a"
+          }
+        ],
+        "slides": [
+          {
+            "description": "Conditional statements are used in JavaScript to make decisions based on certain conditions. The most common conditional statement in JavaScript is the if statement, which executes a block of code only if a specific condition is true. In addition to the if statement, JavaScript also has else and else if statements, which are used to create more complex decision-making structures.",
+            "slide_title": "Conditional Statements"
+          },
+          {
+            "description": "# Example 1: For loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num)\n# Output: 1 2 3 4 5\n\nword = \"hello\"\nfor letter in word:\n    print(letter)\n# Output: h e l l o\n\n# Example 2: While loop\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n# Output: 0 1 2 3 4\n# Example 3: Range function with for loop\nfor i in range(5):\n    print(i)\n# Output: 0 1 2 3 4\n\n# Example 4: Enumerate function with for loop\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(i, fruit)\n# Output: 0 apple 1 banana 2 cherry\n\n# Example 5: Zip function with for loop\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nages = [25, 30, 35]\nfor name, age in zip(names, ages):\n    print(name, age)\n# Output: Alice 25 Bob 30 Charlie 35\n\n# Example 6: Break statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        break\n    print(num)\n# Output: 1 2\n\n# Example 7: Continue statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        continue\n    print(num)\n# Output: 1 2 4 5",
+            "slide_title": "Loops and Iterations"
+          },
+          {
+            "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: && (logical AND), || (logical OR), and ! (logical NOT). The && operator returns true if both expressions being evaluated are true, otherwise it returns false. The || operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the ! operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as if statements and while loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions.",
+            "slide_title": "Control Flow and Logical Operators"
+          }
+        ],
+        "module_title": "Control Flow and Loops"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "A collection of variables",
+                "b": "A collection of loops",
+                "c": "A collection of code that performs a specific task and can be called from other parts of the program",
+                "d": "A collection of conditions"
+              }
+            ],
+            "question": "What is a function in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A function definition defines a variable and a function call performs a specific task",
+                "b": "A function definition performs a specific task and a function call defines a variable",
+                "c": "A function definition is where you write the code for a function and a function call is where you use the function",
+                "d": "A function definition and a function call are the same thing"
+              }
+            ],
+            "question": "What is the difference between a function definition and a function call in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "function functionName() {}",
+                "b": "functionName() {}",
+                "c": "functionName = function() {}",
+                "d": "functionName = ()"
+              }
+            ],
+            "question": "How do you define a function in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "To stop the execution of the function",
+                "b": "To print a message to the console",
+                "c": "To specify the input parameters of the function",
+                "d": "To return a value from the function"
+              }
+            ],
+            "question": "What is the purpose of the 'return' statement in a function in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "console.log()",
+                "b": "parseInt()",
+                "c": "Math.random()",
+                "d": "add()"
+              }
+            ],
+            "question": "Which of the following is NOT a built-in function in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              { "a": "return", "b": "output", "c": "yield", "d": "break" }
+            ],
+            "question": "What keyword in JavaScript is used to return a value from a function?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "The area of this rectangle is 10",
+                "b": "The area of this rectangle is 5",
+                "c": "The area of this rectangle is 50",
+                "d": "The area of this circle is 4pi"
+              }
+            ],
+            "question": "What is the output of this code in JavaScript?\nfunction areaRectangle(a, b) {\nvar area = a * b;\nreturn 'The area of this rectangle is ' + area;\n}\nconsole.log(areaRectangle(5,10));",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A function that performs a specific task and can be called from other parts of the program.",
+                "b": "A collection of variables.",
+                "c": "A collection of code that performs a specific task and can be called from other parts of the program.",
+                "d": "A collection of conditions."
+              }
+            ],
+            "question": "What is a JavaScript module?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A built-in module is included in JavaScript by default, while a user-defined module is created by the programmer.",
+                "b": "A built-in module is used for math operations, while a user-defined module is used for string manipulation.",
+                "c": "A built-in module is used for string manipulation, while a user-defined module is used for math operations.",
+                "d": "There is no difference between a built-in module and a user-defined module."
+              }
+            ],
+            "question": "What is the difference between a built-in module and a user-defined module?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "To create a new module.",
+                "b": "To call a function.",
+                "c": "To load a module into a JavaScript script.",
+                "d": "To print a message to the console."
+              }
+            ],
+            "question": "What is the purpose of the 'import' statement in JavaScript?",
+            "correct_answer": "c"
+          }
+        ],
+        "slides": [
+          {
+            "description": "The concept of functions is one of the fundamental building blocks of programming in JavaScript. Functions are reusable blocks of code that perform a specific task, and they allow us to break up our programs into smaller, more manageable pieces. In this module, we'll introduce you to the basics of functions in JavaScript. You'll learn how to define your own functions and call them from other parts of your code. We'll also cover how to use parameters and return values in your functions, and how to handle errors that might occur during their execution. By the end of this module, you'll have a solid understanding of how functions work in JavaScript and why they're so important in programming.",
+            "slide_title": "Introduction to Functions"
+          },
+          {
+            "description": "A function is defined using the \"def\" keyword, followed by the function name and parentheses.\nInside the parentheses, you can define parameters for the function to take as input.\nThe body of the function is indented and contains the code to be executed when the function is called.\nTo call a function, you simply need to write the function name followed by parentheses, and pass any necessary arguments inside the parentheses.\nFunctions can also return values using the \"return\" keyword.\nHere are some examples:\n# Function that prints a welcome message with a name parameter\ndef welcome(name):\n    print(f\"Welcome, {name}!\")\n\n# Function that calculates the sum of two numbers with two parameters\ndef add_numbers(num1, num2):\n    sum = num1 + num2\n    return sum\n\n# Call the welcome function with the name parameter \"Alice\"\nwelcome(\"Alice\") #Output: Welcome, Alice!\n\n# Call the add_numbers function with the parameters 3 and 5, and print the result\nresult = add_numbers(3, 5)\nprint(f\"The sum of 3 and 5 is: {result}\") #Output: The sum of 3 and 5 is: 8",
+            "slide_title": "Creating and Calling Functions"
+          },
+          {
+            "description": "In JavaScript, we can use various built-in modules to perform different tasks. Here are some examples:\n// Import the 'date-fns' module to work with dates\nconst { format } = require('date-fns');\n// Get the current date and time\nconst currentDate = new Date();\nconsole.log('Current date and time:', format(currentDate, 'yyyy-MM-dd HH:mm:ss.SSS'));\n// Output: Current date and time: 2023-03-25 13:45:32.123\n// Import the 'lodash' module to work with arrays, numbers, and strings\nconst _ = require('lodash');\n// Generate a random number between 1 and 10\nconst randomNumber = _.random(1, 10);\nconsole.log('Random number between 1 and 10:', randomNumber); // Output: Random\n// Use the built-in 'Math' object to perform mathematical operations\nconst a = 16;\nconsole.log(Math.sqrt(a)); // Output: 4.0\n",
+            "slide_title": "Built-in JavaScript Modules"
+          }
+        ],
+        "module_title": "Functions and Modules"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "For loop",
+                "b": "If statement",
+                "c": "Array",
+                "d": "Function"
+              }
+            ],
+            "question": "Which of the following is a data structure in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              { "a": "push()", "b": "add()", "c": "insert()", "d": "concat()" }
+            ],
+            "question": "What is the most common method used to add an element to an array in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              { "a": "number", "b": "string", "c": "boolean", "d": "object" }
+            ],
+            "question": "Which of the following is not a primitive data type in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A type of function",
+                "b": "A data structure that stores data in key-value pairs",
+                "c": "A method used to manipulate arrays",
+                "d": "A type of loop"
+              }
+            ],
+            "question": "What is an object in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              { "a": "O(n)", "b": "O(1)", "c": "O(log n)", "d": "O(n log n)" }
+            ],
+            "question": "What is the time complexity of searching for an element in an array using indexOf() method in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Constant time insertion and deletion of elements",
+                "b": "Dynamic memory allocation",
+                "c": "Linear access time",
+                "d": "Inefficient random access"
+              }
+            ],
+            "question": "Which of the following is a disadvantage of linked lists in JavaScript?",
+            "correct_answer": "d"
+          },
+          {
+            "answer_choices": [
+              { "a": " O(n)", "b": "O(1)", "c": "O(log n)", "d": "O(n log n)" }
+            ],
+            "question": "What is the time complexity of accessing an element in an array using its index in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A tree where each node has at most two children",
+                "b": "A tree where each node has three children",
+                "c": "A tree where each node has at most one child",
+                "d": "A tree where each node has four children"
+              }
+            ],
+            "question": "What is a binary tree in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "unshift()",
+                "b": "splice()",
+                "c": "pop()",
+                "d": "slice()"
+              }
+            ],
+            "question": "Which of the following methods can be used to remove the last element of an array in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Efficient searching, insertion, and deletion operations",
+                "b": "Ability to represent hierarchical data structures",
+                "c": "Guaranteed logarithmic time complexity for all operations",
+                "d": "Ability to represent cyclic data structures"
+              }
+            ],
+            "question": "Which of the following is not an advantage of using trees in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A linked list where each node has two children",
+                "b": "A linked list where each node has three children",
+                "c": "A linked list where each node has two pointers, one to its previous node and one to its next node",
+                "d": "A linked list where each node has only one pointer to its next node"
+              }
+            ],
+            "question": "What is a doubly linked list in JavaScript?",
+            "correct_answer": "c"
+          }
+        ],
+        "slides": [
+          {
+            "description": "In JavaScript, there are several built-in data structures, including arrays, objects, maps, sets, and more. Each data structure has its own unique characteristics and use cases. For example, arrays are used to store and manipulate ordered collections of data, while objects are used to store data in key-value pairs.",
+            "slide_title": "Introduction to Data Structures"
+          },
+          {
+            "description": "In JavaScript, arrays and objects are two of the most commonly used data structures. An array is a collection of data elements that are ordered and accessible by index, where each index represents a unique position in the array. Arrays can store data of any type, including strings, numbers, and other arrays. Objects, on the other hand, are a collection of key-value pairs, where each key is a unique identifier and each value can be any data type. Objects can store data that is not ordered, and the data can be accessed using the keys. Arrays and objects are both useful in different scenarios, and being able to work with both effectively is essential for building complex applications in JavaScript.",
+            "slide_title": "Arrays and Object"
+          },
+          {
+            "description": "A linked list is a data structure consisting of a group of nodes, each containing a value and a reference to the next node in the sequence. The first node is called the head, and the last node is called the tail, with the tail's reference pointing to null. Linked lists can be used to implement dynamic data structures where the size is not known beforehand and can change during program execution. In JavaScript, linked lists can be implemented using object references and prototypes or with the ES6 class syntax. Although not as commonly used as arrays or objects in JavaScript, linked lists can provide benefits in certain use cases, such as for efficiently inserting and deleting elements in large data sets.",
+            "slide_title": "Linked Lists"
+          },
+          {
+            "description": "In JavaScript, a tree is a data structure that consists of nodes connected by edges, where each node can have zero or more child nodes. The topmost node in a tree is called the root, and the nodes without any children are called leaves. Trees are useful for representing hierarchical structures, such as file systems, organization charts, and XML/HTML documents. In JavaScript, trees can be implemented using classes and objects, where each node is represented as an object with properties for its value and its children. Traversing a tree can be done using depth-first search or breadth-first search algorithms. Trees are an important data structure in computer science and are used in many applications, such as databases, compilers, and artificial intelligence.",
+            "slide_title": "Trees"
+          }
+        ],
+        "module_title": "Data Structures in JavaScript"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "read()",
+                "b": "write()",
+                "c": "readFileSync()",
+                "d": "writeFileSync()"
+              }
+            ],
+            "question": "What method is used to read data from a file in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "write()",
+                "b": "read()",
+                "c": "writeFile()",
+                "d": "readFile()"
+              }
+            ],
+            "question": "How can you write data to a file in JavaScript?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "input()",
+                "b": "read()",
+                "c": "prompt()",
+                "d": "console.log()"
+              }
+            ],
+            "question": "What function is used to handle user input in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "To handle exceptions and errors",
+                "b": "To write data to a file",
+                "c": "To read data from a file",
+                "d": "To print output to the console"
+              }
+            ],
+            "question": "What is the purpose of the try-catch statement in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "TypeError",
+                "b": "IndexError",
+                "c": "ValueError",
+                "d": "FileNotFoundError"
+              }
+            ],
+            "question": "Which of the following is a common error that can occur when working with files in JavaScript?",
+            "correct_answer": "d"
+          }
+        ],
+        "slides": [
+          {
+            "description": "In JavaScript, manipulating files is an essential part of many programming tasks, and it provides several built-in functions to perform these operations. To read data from a file, you first need to open the file using the fs module's fs.open() function, specifying the file name, and the mode in which you want to access the file (such as 'r' for reading or 'w' for writing). Once the file is open, you can read its contents using the fs.readFile() function, which returns the entire file's content as a string. Alternatively, you can read the file line by line using the readline module's createInterface() function. To write data to a file, you need to open the file in write mode, using the 'w' flag. You can then write data to the file using the fs.writeFile() function, which takes a string argument to write to the file. Finally, after reading from or writing to a file, you should always close the file using the fs.close() function to ensure that any changes are properly saved and to free up system resources. ",
+            "slide_title": "Reading and Writing Files"
+          },
+          {
+            "description": "User input and output are essential components of any interactive JavaScript program. Often times, software needs to be interactive (i.e. web applications) and we need a way of handling input and output. The prompt() function allows a program to accept user input through a dialog box, while the console.log() function is used to display output to the console or other output device. As you have noticed, we have been using console.log() function all along! The prompt() function displays a message to the user in a dialog box, waits for the user to enter a response, and returns the user's input as a string. The console.log() function takes one or more arguments and displays them on the console or other output device. It is important to properly handle user input to prevent errors or security vulnerabilities, such as by validating input to ensure that it meets certain criteria. ",
+            "slide_title": "User Input and Output"
+          },
+          {
+            "description": "In JavaScript, errors that occur during program execution are known as exceptions. These can arise due to a variety of reasons, such as incorrect input, unexpected data, or system failures. To ensure that our programs handle these exceptions gracefully, we can use JavaScript's built-in exception handling mechanism.\nThis involves enclosing the code that might raise an exception in a try block and using catch blocks to catch and handle any specific types of exceptions that might occur. Additionally, we can use the finally block to specify code that should be executed regardless of whether an exception occurred or not.\nBy handling exceptions in this way, we can prevent our programs from crashing unexpectedly and provide helpful error messages to users. We can also use JavaScript's console logging to log errors and other information about program execution, which can be useful for debugging and monitoring program behavior.\nKnowing how to handle exceptions is imperative when your code has to deal with situations that can cause a lot of problems (for example, reading or writing from a file).",
+            "slide_title": "Handling Exceptions and Errors"
+          }
+        ],
+        "module_title": "File Writing/Reading, Input/Output, and Exception Handling"
+      },
+      {
+        "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "A programming strategy that is based on the concept of functions",
+                "b": "A programming strategy that is based on the concept of objects",
+                "c": "A programming strategy that is based on the concept of arrays",
+                "d": "A programming strategy that is based on the concept of loops"
+              }
+            ],
+            "question": "What is Object-Oriented Programming?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A set of instructions for creating an object",
+                "b": "A loop that creates a set of objects",
+                "c": "A type of array used to store objects",
+                "d": "A function that creates an object"
+              }
+            ],
+            "question": "What is a class in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "A function that creates an object",
+                "b": "A method used to access object properties",
+                "c": "A method that is called when an object is created/constructed",
+                "d": "A function that modifies object properties"
+              }
+            ],
+            "question": "What is a constructor in JavaScript?",
+            "correct_answer": "c"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "The ability to declare a class that will act as the parent and expand upon the capabilities of the parent",
+                "b": "The ability to declare a function that will act as the parent and expand upon the capabilities of the parent",
+                "c": "The ability to declare an array that will act as the parent and expand upon the capabilities of the parent",
+                "d": "The ability to declare a loop that will act as the parent and expand upon the capabilities of the parent"
+              }
+            ],
+            "question": "What is inheritance in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "The ability to implement certain capabilities in different ways",
+                "b": "The ability to modify object properties in different ways",
+                "c": "The ability to create different types of arrays",
+                "d": "The ability to create different types of loops"
+              }
+            ],
+            "question": "What is polymorphism in JavaScript?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "The ability to hide implementation details and only show the necessary details",
+                "b": "The ability to modify object properties from outside the object",
+                "c": "The ability to access object properties from outside the object",
+                "d": "The ability to create objects without using classes"
+              }
+            ],
+            "question": "What is encapsulation in JavaScript?",
+            "correct_answer": "a"
+          }
+        ],
+        "slides": [
+          {
+            "description": "Object-Oriented Programming (OOP) is a programming paradigm that emphasizes the use of objects to represent data and behaviors. In JavaScript, everything is an object or can be converted to an object making OOP a crucial aspect of the language.\nOOP allows programmers to create reusable and maintainable code by organizing it into classes and objects. In JavaScript, a class is defined using the class keyword, which contains constructor methods and other methods that define the properties and behaviors of the object.\nEncapsulation is an essential principle of OOP, allowing programmers to hide the internal details of an object and only expose its public interface. This helps prevent unwanted access or modification to the object's internal state.\nInheritance is another essential feature of OOP that allows a class to inherit properties and methods from a parent class. This promotes code reuse and helps to reduce duplication of code.\nPolymorphism is a programming concept that allows objects of different classes to be treated as if they are of the same class. This allows for more flexible and dynamic code that can be adapted to different situations.\nBy using OOP principles in JavaScript, programmers can create more organized and efficient code that is easier to maintain and extend.",
+            "slide_title": "Introduction to OOP"
+          },
+          {
+            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); // Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
+            "slide_title": "Classes and Objects"
+          },
+          {
+            "description": "Inheritance and Polymorphism are the height of what one can achieve with OOP.\nInheritance allows you to declare a class that will act as the parent, and then declare a class that will act as the child.\nThe child class expands upon the capabilities of the parent, or 'inherits' the parent's capabilities.\nThis goes back to the concept of reusability in code.\nIf it is not necessary to write more code, then why should you?\nPolymorphism is a way for objects of different classes to implement certain capabilities in different ways.\nSpecificallyit refers to functions that child classes implement or override in different ways.\n",
+            "slide_title": "Inheritance and Polymorphism"
+          }
+        ],
+        "module_title": "Object-Oriented Programming (OOP)"
+      },
+      {
+        "module_comments": [],
+        "quiz": [],
+        "slides": [
+          {
+            "description": "Now that we have covered the meat of programming, let's cover some advanced things you can do in JavaScript, starting with .... MACHINE LEARNING!!!\nJavaScript is a popular language for building web applications, which also makes it easy to implement machine learning algorithms on. Libraries and modules such as TensorFlow.js, ml5.js, brain.js, and so many more make machine learning more accessible to web developers.\nThe following is an example of a supervised machine learning algorithm that implements k-nearest neighbors.\nThe point of this algorithm is to classify a given set of data points into k subgroups. It uses all of the techniques we have learned up to this point including OOP and functions.",
+            "slide_title": "Machine Learning in JavaScript"
+          }
+        ],
+        "module_title": "JavaScript Advanced Topics and Applications"
       }
     ]
   }

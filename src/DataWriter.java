@@ -171,14 +171,11 @@ public class DataWriter extends DataConstants {
         break;
       }
     }
-    for (int i = 0; i < student.getCourseProgresses().size(); i++) {
-      if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
-        studentDetails.put(GRADES,
-            getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
-        break;
-      }
+    ArrayList<Double> gradeList = student.getCourseGradeList(course);
+    if (gradeList == null) {
+      return null;
     }
-
+    studentDetails.put(GRADES, getGradeJSONArray(gradeList));
     return studentDetails;
   }
 
@@ -239,7 +236,7 @@ public class DataWriter extends DataConstants {
    */
   private static JSONObject getCommentJSON(Comment comment) {
     JSONObject commentDetails = new JSONObject();
-    commentDetails.put(COMMENTER_ID, comment.getPostingUser().toString());
+    commentDetails.put(COMMENTER_ID, comment.getPostingUser().getID().toString());
     commentDetails.put(COMMENT_TEXT, comment.getPost());
     commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies()));
 
@@ -368,7 +365,9 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * Writies a certificate to a text file.
+   * Writes a certificate file for a student and sends them to the certificate directory.
+   * 
+   * @param student - A Student object whose certificate to be rewarded to.
    */
   public static void WriteCertificateToFile(Student student) {
     try {
@@ -377,15 +376,42 @@ public class DataWriter extends DataConstants {
         CourseStatus studentStatus = courseStatusList.get(i);
         if (studentStatus.getCompleted()) {
           Course completedCourse = studentStatus.getCourse();
-          String pathName = "./certificate/" + student.getLastName() + "-" + (completedCourse.getTitle()).replace(' ', '-') + "-Certificate.txt";
+          String pathName = "./certificate/" + student.getLastName() + "-"
+              + (completedCourse.getTitle()).replace(' ', '-') + "-Certificate.txt";
           FileWriter certificateWriter = new FileWriter(pathName);
-          String certificateString = (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor())).toString();
+          String certificateString =
+              (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor()))
+                  .toString();
           certificateWriter.write(certificateString);
           certificateWriter.close();
         }
-        
+
       }
     } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Creates a module to a text file and puts it to a module directory.
+   * 
+   * @param module - A Module object to be put into a text file.
+   */
+  public static void WriteModule(Module module) {
+    try {
+      String title = module.getTitle();
+      if (title.indexOf('/') != -1)
+        title = title.replace("/", " ");
+      String pathName = "./module/" + title + ".txt";
+      FileWriter moduleWriter = new FileWriter(pathName);
+      moduleWriter.write(module.getTitle() + "\n\n");
+      ArrayList<TextSlide> slides = module.getSlides();
+      for (int i = 0; i < slides.size(); i++) {
+        moduleWriter.write(slides.get(i).getContents());
+        moduleWriter.flush();
+      }
+      moduleWriter.close();
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }

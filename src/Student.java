@@ -15,8 +15,6 @@ public class Student extends User {
   }
 
   public void setCourseProgress(Course course, ArrayList<Double> grades, boolean completed) {
-    // this method will get an array list of grades, which signify the grades for a
-    // specific class (module quiz/exam grades
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
     newCourseStatus.setCompletion(completed);
     courseProgresses.add(newCourseStatus);
@@ -52,10 +50,13 @@ public class Student extends User {
     return "student";
   }
 
-  public void updateCourseProgress(Course course, Double score) {
+  public void updateCourseProgress(Course course, int numCorrect, int numQuestions) {
+    System.out.println(this.username +" "+ this.getID());
     for (CourseStatus courseStatus : courseProgresses) {
       if (courseStatus.getCourse().equals(course)) {
-        courseStatus.updateScore(score);
+        System.out.println("************************REACHED");
+        System.out.println("grade list size: " + courseStatus.getGradeList().size());
+        courseStatus.updateScore(numCorrect, numQuestions);
       }
     }
   }
@@ -65,4 +66,19 @@ public class Student extends User {
     certificates.add(certificate);
   }
 
+  public double getCourseGrade(Course course) {
+    for (CourseStatus courseStatus : courseProgresses) {
+      if (courseStatus.getCourse().equals(course))
+        return courseStatus.getGrade().doubleValue();
+    }
+    return 69.0;
+  }
+
+  public ArrayList<Double> getCourseGradeList(Course course) {
+    for (CourseStatus courseStatus : courseProgresses) {
+      if (courseStatus.getCourse().equals(course))
+        return courseStatus.getGradeList();
+    }
+    return null;
+  }
 }

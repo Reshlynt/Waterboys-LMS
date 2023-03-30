@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.UUID;
 
 public class LMSSystem {
-  public UserList userList = new UserList();
+  public UserList userList = UserList.getInstance();
   public CourseList courseList;
 
   public User Login(String username, String password) {
     if (userList.foundUser(username)) {
       if (userList.getUser(username).getPassword().equals(password)) {
-        UI.WelcomeLine7("Login successfully!");
+        UI.WelcomeLine7("Login successful!");
         UI.enterToContinue();
         return userList.getUser(username);
       } else {

@@ -5,13 +5,15 @@ import java.util.ArrayList;
 public class CourseStatus {
   private Course course;
   private double progress;
-  private Long totalGrade;
-  private ArrayList<Double> grades;
-  private boolean completed;
+
+  private double courseGrade;
+  private ArrayList<Double> grades = new ArrayList<Double>();
+  private Boolean completed;
 
   public CourseStatus(Course course, ArrayList<Double> grades) {
     this.course = course;
     this.grades = grades;
+    courseGrade = 0.0;
   }
 
   public double getProgress() {
@@ -22,8 +24,8 @@ public class CourseStatus {
     this.grades = grades;
   }
 
-  public Long getGrade() {
-    return totalGrade;
+  public Double getGrade() {
+    return this.courseGrade;
   }
 
   public Course getCourse() {
@@ -35,17 +37,18 @@ public class CourseStatus {
   }
 
   public void calculateProgress() {
-    double total = 0;
-    for (int i = 0; i < grades.size(); i++) {
-      total += grades.get(i);
-    }
-    progress = total / totalGrade;
+    // calculate average of grades arraylist
+    Double sum = 0.0;
+    for (Double grade : grades)
+      sum += grade;
+    courseGrade = sum / (grades.size());
   }
 
-  public void updateScore(double score) {
-    grades.add(score);
+  public void updateScore(int numCorrect, int numQuestions) {
+    Double quizScore = 100 * Double.valueOf((double) numCorrect / (double) numQuestions);
+    grades.add(quizScore);
     calculateProgress();
-  };
+  }
 
   public void setCompletion(boolean completed) {
     this.completed = completed;

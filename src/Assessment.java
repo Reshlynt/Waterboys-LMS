@@ -50,6 +50,10 @@ public class Assessment {
     return title;
   }
 
+  public void addQuestion(int index, Question question) {
+    questions.add(index, question);
+  }
+
   /**
    * To String method for printing the assessment(debugging method)
    * 
@@ -58,7 +62,7 @@ public class Assessment {
   public String toString() {
     String info = "title: " + title + " type" + type + "\n Questions: \n";
     for (int i = 0; i < questions.size(); i++) {
-      info += (questions.get(i) + "\n");
+      info += ( (i + 1) + ". " + questions.get(i) + "\n");
     }
     return info;
   }

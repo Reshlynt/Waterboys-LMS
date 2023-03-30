@@ -109,11 +109,15 @@ public class DataLoader extends DataConstants {
         JSONArray examJSON = (JSONArray) courseJSON.get(EXAM);
         Assessment readExam = readAssessment(examJSON, courseTitle + " exam", Type.EXAM);
 
+        Teacher courseTeacher = (Teacher) UserList.getInstance().getUserByUUID(teacherID);
         // creates a course with all of the information that was read from the JSON, and
         // appends to the array list
-        Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
+        Course readCourse = new Course(courseID, courseTeacher, courseTitle,
             courseDifficulty, courseTitle, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
+
+        // adds the course to the teachers courses
+        courseTeacher.addCourse(readCourse);
 
         // iterates through students and updates all of their grades that were parsed
         // and put into the array list of hashmaps
@@ -121,7 +125,7 @@ public class DataLoader extends DataConstants {
 
       }
     } catch (Exception e) {
-      // UI.WelcomeLine7("There was an error loading some of the courses.");
+      e.printStackTrace();
     }
     return courses;
   }
@@ -133,12 +137,12 @@ public class DataLoader extends DataConstants {
    *            user
    * @return Converted Date object specifying date of birth
    */
-  public static Date parseDate(String dob) {
+  private static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     try {
       return dateFormat.parse(dob);
     } catch (ParseException e) {
-      UI.WelcomeLine7("There was an error with your birthday...");
+      e.printStackTrace();
     }
     return null;
   }
@@ -321,8 +325,9 @@ public class DataLoader extends DataConstants {
       ArrayList<Double> grades = new ArrayList<Double>();
 
       // goes through all of the grades and appends to the array list
-      for (int j = 0; j < gradesJSON.size(); j++)
-        grades.add((Double) gradesJSON.get(j));
+      if (gradesJSON != null)
+        for (int j = 0; j < gradesJSON.size(); j++)
+          grades.add((Double) gradesJSON.get(j));
 
       // if the course is completed there is a value of 1 added to the end
       // this is not the best or cleanest way to do this, however, given the timeline
@@ -382,15 +387,16 @@ public class DataLoader extends DataConstants {
       // .get(h) get the particular HashMap from the ArrayList of HashMaps, and
       // .get(ListedStudent) hashes using the student as the key
       ArrayList<Double> particularGrades = gradeMaps.get(i).get(listedStudent);
+      boolean completed = false;
+      if (particularGrades != null && !particularGrades.isEmpty()) {
+        int sizeOfGrades = particularGrades.size();
+        // checking if the last element of the array list is Double value 1, which means
+        // the course is completed
+        completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
 
-      int sizeOfGrades = particularGrades.size();
-      // checking if the last element of the array list is Double value 1, which means
-      // the course is completed
-      boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
-
-      // removes the the last element 1, as it is not an actual grade
-      particularGrades.remove(Double.valueOf(1.0));
-
+        // removes the the last element 1, as it is not an actual grade
+        particularGrades.remove(Double.valueOf(1.0));
+      }
       // calls setCourseGrade method which updates the students grade for the
       // particular course
       listedStudent.setCourseProgress(course, particularGrades, completed);

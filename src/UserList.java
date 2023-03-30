@@ -7,7 +7,7 @@ public class UserList {
   private static ArrayList<User> userList;
   private static UserList singletonUserList;
 
-  public UserList() {
+  private UserList() {
     userList = DataLoader.getUsers();
   }
 
@@ -68,4 +68,7 @@ public class UserList {
     }
   }
 
+  public void saveUsers() {
+    DataWriter.saveUsers();
+  }
 }
