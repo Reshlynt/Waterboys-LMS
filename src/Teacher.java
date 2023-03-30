@@ -23,9 +23,9 @@ public class Teacher extends User {
     return true;
   }
 
-  public boolean removeFromCourse(Student student, Course course) {
-    return course.removeFromCourse(student);
-  }
+  // public boolean removeFromCourse(Student student, Course course) {
+  //   return course.removeFromCourse(student);
+  // }
 
   public void makeComment() {
     return;
