@@ -8,6 +8,12 @@ public class Question {
   private String correctAnswer;
   // correct answer is a string - a, b, c, or d
 
+  /**
+   * Constructor for loading from json
+   * @param question
+   * @param answerChoices
+   * @param correctAnswer
+   */
   public Question(String question, ArrayList<String> answerChoices, String correctAnswer) {
     this.question = question;
     this.answerChoices = answerChoices;
@@ -21,10 +27,16 @@ public class Question {
 
   }
 
+  /**
+   * Method to create a question
+   */
   public boolean createQuestion(ArrayList<String> answers, String prompt, String correctAnswer) {
     return true;
   }
 
+  /**
+   * toString method to print the question
+   */
   public String toString() {
     String info = "Question: " + question + "\n";
     info += "Answer choices: ";
@@ -35,6 +47,10 @@ public class Question {
     return info;
   }
 
+  /**
+   * Method to get a question
+   * @return
+   */
   public Question getQuestion() {
     return new Question();
   }
