@@ -336,10 +336,23 @@ public class UI {
       System.out.println(i);
       Course course = courses.get(i);
       WelcomeLine5(10, "Course " + (i + 1) + ": " + course.getTitle() + "\n");
-      WelcomeLine5(20, "Description: " + course.getDescription() + "\n");
-      WelcomeLine5(20, "Author: " + course.getAuthor().getUsername() + "\n");
-      WelcomeLine5(20, "Students Enrolled: " + course.getStudents().size() + "\n");
-      System.out.println("\n");
+      System.out.println("\n\n");
+      WelcomeLine7("Enter the number of the course you want to view; enter 0 to go back");
+      int choice = INPUT.nextInt();
+      if (choice == 0) {
+        clearScreen();
+        return;
+      }
+      if (choice > 0 && choice <= courses.size()) {
+        Course course1 = courses.get(choice - 1);
+        viewCourse(course1);
+      } else {
+        clearScreen();
+        WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        viewCourses(teacher);
+      }
     }
     enterToContinue();
   }
@@ -595,12 +608,26 @@ public class UI {
     // What info to make a course? Difficulty,
   }
 
+<<<<<<< HEAD
+  public static Course getCourses(User user) {
+    ArrayList<Course> courses = DataLoader.getCourses();
+    if (courses != null) {
+=======
   public static Course getCourses(Student user) {
     ArrayList<Course> student_courses = DataLoader.getCourses();
-    if (student_courses != null) {
+    ArrayList<Course> courses = new ArrayList<Course>();
+    for (Course course : student_courses) {
+      for (Student student : course.getStudents()) {
+        if (user.getID().equals(student.getID())) {
+          courses.add(course);
+        }
+      }
+    }
+    if (!(courses.size() == 0)) {
+>>>>>>> 89008c5819363ed1bd56ff44745a7b577518ea06
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
-      for (Course course : student_courses) {
+      for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
@@ -610,7 +637,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return student_courses.get(num - 1);
+        return courses.get(num - 1);
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
@@ -626,6 +653,10 @@ public class UI {
   }
 
   public static void AccessCourse(Course course, Student student) {
+    if (course == null) {
+      enterToContinue();
+      return;
+    }
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       clearScreen();
