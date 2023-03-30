@@ -65,13 +65,16 @@ public class Student extends User {
   }
   public double getCourseGrade(Course course){
     for(CourseStatus courseStatus: courseProgresses){
-      System.out.println("param course name" + course.getTitle());
-      System.out.println("list course name" + courseStatus.getCourse().getTitle());
-
       if(courseStatus.getCourse().equals(course))
         return courseStatus.getGrade().doubleValue();
     }
-
     return 69.0;
+  }
+  public ArrayList<Double> getCourseGradeList(Course course){
+    for(CourseStatus courseStatus: courseProgresses){
+      if(courseStatus.getCourse().equals(course))
+        return courseStatus.getGradeList();
+    }
+    return null;
   }
 }
