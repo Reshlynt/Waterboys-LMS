@@ -402,16 +402,17 @@ public class UI {
         WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
         num++;
       }
-      System.out.println();
+      System.out.println("\n");
       WelcomeLine7("Choose an option, or enter 'E' to add modules: ");
       try {
         String input = INPUT.nextLine();
         int inputVal;
         Module module;
-        if (checkIfE(input)) {
+        if (input.equalsIgnoreCase("e")) {
           WelcomeLine7("At what index would you like to insert it? (1-" + (modules.size() + 1) + ");");
           num = INPUT.nextInt();
           INPUT.nextLine();
+          clearScreen();
           modules.add(num, createModule());
           return;
         } else {
@@ -644,23 +645,26 @@ public class UI {
   }
 
   public static TextSlide createSlide() {
-    System.out.println("What do you want to title the slide?");
+    WelcomeLine7("What do you want to title the slide?");
     String slideTitle = INPUT.nextLine();
-    System.out.println("What do you want to print on the slide?");
+    WelcomeLine7("What do you want to print on the slide?");
     String slideContents = INPUT.nextLine();
+    clearScreen();
     return new TextSlide(slideTitle, slideContents);
   }
 
   public static Module createModule() {
     boolean addAnotherSlide = true;
-    System.out.println("What is the title of the module?");
+    WelcomeLine7("What is the title of the module?");
     String moduleTitle = INPUT.nextLine();
+    clearScreen();
     ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
     // Create slide loop
     while (addAnotherSlide) {
       slides.add(createSlide());
-      System.out.println("Do you want to add another slide? (Y/N)");
+      WelcomeLine7("Do you want to add another slide? (Y/N)");
       String addSlide = INPUT.nextLine();
+      clearScreen();
       if (addSlide.equalsIgnoreCase("N")) {
         addAnotherSlide = false;
       }
@@ -692,6 +696,7 @@ public class UI {
   public static Assessment makeAssessment() {
     System.out.println("What is the title of the assessment?");
     String title = INPUT.nextLine();
+    clearScreen();
     ArrayList<Question> questions = new ArrayList<Question>();
     boolean addMoreQuestions = true;
     while (addMoreQuestions) {
@@ -711,11 +716,13 @@ public class UI {
     System.out.println("Enter 4 answer choices, pressing enter after each:");
     ArrayList<String> answers = new ArrayList<String>();
     for (int i = 0; i < 4; i++) {
+      System.out.print("\t");
       answers.add(INPUT.nextLine());
     }
     System.out.println("What is the correct answer? a, b, c, or d?");
     String correctAnswer = INPUT.nextLine();
     correctAnswer.toLowerCase();
+    clearScreen();
     return new Question(question, answers, correctAnswer);
   }
 
