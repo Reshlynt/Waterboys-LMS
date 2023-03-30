@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class CourseStatus {
   private Course course;
-  private Double progress;
+  private double progress;
 
-  private Double courseGrade;
+  private double courseGrade;
   private ArrayList<Double> grades = new ArrayList<Double>();
   private Boolean completed;
 
