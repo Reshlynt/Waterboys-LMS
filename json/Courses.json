@@ -38,8 +38,7 @@
         "id": "662bc837-e323-4226-9ed0-f878d1011e84",
         "completed": false,
         "grades": []
-      },
-      null
+      }
     ],
     "title": "Introduction to Python",
     "course_comments": [
@@ -1651,11 +1650,7 @@
               {
                 "a": "A function that creates an object",
                 "b": "A method used to access object properties",
-<<<<<<< HEAD
                 "c": "A method that is called when an object is created/constructed",
-=======
-                "c": "A method that is called when an object is created\/constructed",
->>>>>>> parent of a499d49 (changed menu)
                 "d": "A function that modifies object properties"
               }
             ],
@@ -1705,11 +1700,7 @@
             "slide_title": "Introduction to OOP"
           },
           {
-<<<<<<< HEAD
             "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); // Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
-=======
-            "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); \/\/ Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created\/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
->>>>>>> parent of a499d49 (changed menu)
             "slide_title": "Classes and Objects"
           },
           {
