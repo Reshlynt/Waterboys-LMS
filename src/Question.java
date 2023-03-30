@@ -3,9 +3,9 @@ package src;
 import java.util.ArrayList;
 
 public class Question {
-  String question;
-  ArrayList<String> answerChoices = new ArrayList<String>();
-  String correctAnswer;
+  private String question;
+  private ArrayList<String> answerChoices = new ArrayList<String>();
+  private String correctAnswer;
   // correct answer is a string - a, b, c, or d
 
   public Question(String question, ArrayList<String> answerChoices, String correctAnswer) {
