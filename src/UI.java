@@ -1103,20 +1103,9 @@ public class UI {
         WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
         // double score = (double) correct / (double) numQuestions;
-<<<<<<< HEAD
-        student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(
-            ConsoleColor.GREEN + "Current Course Grade: " + student.getCourseGrade(course) + ConsoleColor.RESET);
-        ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
-        System.out.println("Grades so far in the class:");
-        for (int i = 0; i < currentCourseGrades.size(); i++) {
-          System.out.println(currentCourseGrades.get(i) + ", ");
-        }
-=======
         student.updateCourseProgress(course, module,numCorrect, numQuestions);
         System.out
             .println(ConsoleColor.RED + "Current Course Grade: " + student.getCourseGrade(course) + ConsoleColor.RESET);
->>>>>>> 4e700766fb5ef529523837e4436ad3adcde9ebf2
       }
     }
   }
