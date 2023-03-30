@@ -1115,8 +1115,43 @@ public class UI {
       }
     }
   }
+  
+  //goes through comments array, prints out comments and replies
+  private static Comment getCommentsAndReplies(Module module, Student user) {
+    if (module.getComments() != null && module.getComments().size() != 0) {
+      ArrayList<Comment> comments = module.getComments();
+      int[] count = { 0, 0, 0 };
+      for (Comment comment : comments) {
+        count[0]++;
+        System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
+        System.out.println("\t\"" + comment.getPost() + "\"");
+        if (comment.getReplies().size() != 0 && comment.getReplies() != null) {
+          ArrayList<Comment> replies = comment.getReplies();
+          for (Comment reply : replies) {
+            count[1]++;
+            System.out.println("\t|");
+            System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
+            System.out.println("\t\t\"" + reply.getPost() + "\"");
+            if (reply.getReplies().size() != 0) {
+              ArrayList<Comment> replies2 = comment.getReplies();
+              for (Comment reply2 : replies2) {
+                count[2]++;
+                System.out.println("\t\t|");
+                System.out.println(
+                    (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
+                System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b45ce4d43c0c6c536802c86d2f065d0b4bbcadee
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {

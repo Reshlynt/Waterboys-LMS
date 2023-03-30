@@ -56,7 +56,7 @@ public class Assessment {
 
   public void removeCurrent(int start) {
     for (int i = start; i < questions.size(); i++) {
-      questions.;
+      questions.set(i, questions.get(i + 1));
     }
   }
 
