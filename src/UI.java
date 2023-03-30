@@ -59,6 +59,7 @@ public class UI {
       if (userType.equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
+             addToCourse((Teacher) user);
             // add student to course
             break;
           case 2:
@@ -305,6 +306,43 @@ public class UI {
     }
   }
 
+  public static void addToCourse(Teacher teacher) {
+    WelcomeLine1();
+    WelcomeLine6("Add Student to Course");
+    WelcomeLine1();
+    System.out.println();
+    WelcomeLine7("Which course would you like to add a student to?");
+    int num = 0;
+    for (Course course : teacher.getCourses()) {
+      WelcomeLine5(10, course.getTitle());
+    }
+    num = INPUT.nextInt();
+    INPUT.nextLine();
+    clearScreen();
+    boolean addMore = true;
+    while (addMore) {
+      WelcomeLine1();
+      WelcomeLine6("Add Student to Course");
+      WelcomeLine1();
+      System.out.println();
+      WelcomeLine5(10, "Enter the username of the student you would like to add: ");
+      String username = INPUT.nextLine();
+      Student student = (Student) LMS.getUser(username);
+      if (student == null) {
+        WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        addToCourse(teacher);
+      } else {
+        teacher.addToCourse(student, teacher.getCourses().get(num));
+        WelcomeLine7("Student added to course. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        addMore = false;
+      }
+    }
+  }
+
   private static void ViewTeacherProfile(Teacher user) {
     clearScreen();
     String header = (user.getUsername() + "\'s Profile");
@@ -315,8 +353,8 @@ public class UI {
     WelcomeLine5(10, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
     WelcomeLine5(10, "Email: " + user.getEmail() + "\n");
     WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
-    if (DataLoader.getCourses() != null) {
-      ArrayList<Course> readCourses = DataLoader.getCourses();
+    if (courseList.getAllCourses() != null) {
+      ArrayList<Course> readCourses = courseList.getAllCourses();
       System.out.println("\n");
       WelcomeLine5(10, "Courses Created:\n");
       for (int i = 0; i < readCourses.size(); i++) {
@@ -344,7 +382,7 @@ public class UI {
     WelcomeLine6("Courses:");
     WelcomeLine1();
     System.out.println("\n");
-    ArrayList<Course> courses = DataLoader.getCourses();
+    ArrayList<Course> courses = courseList.getAllCourses();
     ArrayList<Course> teacherCourses = new ArrayList<Course>();
     for (int i = 0; i < courses.size(); i++) {
       if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
@@ -415,7 +453,7 @@ public class UI {
           num = INPUT.nextInt();
           INPUT.nextLine();
           clearScreen();
-          modules.add(num, createModule());
+          modules.add(num - 1, createModule());
           clearScreen();
           return;
         } else {
@@ -538,7 +576,7 @@ public class UI {
     WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
     System.out.println("\n");
     WelcomeLine5(10, "Courses Enrolled:\n");
-    ArrayList<Course> readCourses = CourseList.getInstance.getCourses();
+    ArrayList<Course> readCourses = courseList.getAllCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
       ArrayList<Student> students = course.getStudents();
@@ -999,7 +1037,7 @@ public class UI {
         // add student's grade to their courseProgress for this course
         //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.GREEN+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(ConsoleColor.GREEN+"Current Course Grade: "+ student.getCourseGrade(course) + ConsoleColor.RESET);
         ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
         System.out.println("Grades so far in the class:");
         for(int i = 0; i<currentCourseGrades.size();i++){
