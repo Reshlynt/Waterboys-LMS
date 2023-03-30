@@ -2,6 +2,7 @@ package src;
 
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Student extends User {
@@ -15,6 +16,8 @@ public class Student extends User {
   }
 
   public void setCourseProgress(Course course, ArrayList<Double> grades, boolean completed) {
+    // construct an array list of hashmaps
+    ArrayList<HashMap<Module, Double>> moduleGrades = new ArrayList<HashMap<Module, Double>>();
     CourseStatus newCourseStatus = new CourseStatus(course, grades);
     newCourseStatus.setCompletion(completed);
     courseProgresses.add(newCourseStatus);
@@ -50,13 +53,13 @@ public class Student extends User {
     return "student";
   }
 
-  public void updateCourseProgress(Course course, int numCorrect, int numQuestions) {
-    System.out.println(this.username +" "+ this.getID());
-    for (int i = 0; i<courseProgresses.size();i++) {
+  public void updateCourseProgress(Course course, Module module, int numCorrect, int numQuestions) {
+    System.out.println(this.username + " " + this.getID());
+    for (int i = 0; i < courseProgresses.size(); i++) {
       if (courseProgresses.get(i).getCourse().equals(course)) {
         System.out.println("************************REACHED");
         System.out.println("grade list size: " + courseProgresses.get(i).getGradeList().size());
-        courseProgresses.get(i).updateScore(numCorrect, numQuestions);
+        courseProgresses.get(i).updateScore(module, numCorrect, numQuestions);
       }
     }
   }
@@ -75,7 +78,7 @@ public class Student extends User {
   }
 
   public ArrayList<Double> getCourseGradeList(Course course) {
-    for (int i = 0; i<courseProgresses.size();i++) {
+    for (int i = 0; i < courseProgresses.size(); i++) {
       if (courseProgresses.get(i).getCourse().equals(course))
         return courseProgresses.get(i).getGradeList();
     }

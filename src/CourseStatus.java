@@ -1,6 +1,8 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CourseStatus {
   private Course course;
@@ -15,7 +17,6 @@ public class CourseStatus {
     this.grades = grades;
     courseGrade = 0.0;
   }
-
   public double getProgress() {
     return progress;
   }
@@ -44,7 +45,8 @@ public class CourseStatus {
     courseGrade = sum / (grades.size());
   }
 
-  public void updateScore(int numCorrect, int numQuestions) {
+  public void updateScore(Module module, int numCorrect, int numQuestions) {
+    // find the module in the course and set the grade for that
     Double quizScore = 100 * Double.valueOf((double) numCorrect / (double) numQuestions);
     grades.add(quizScore);
     calculateProgress();
