@@ -46,7 +46,10 @@
       {
         "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
         "completed": false,
-        "grades": []
+        "grades": [
+          100.0,
+          86.9
+        ]
       }
     ],
     "title": "Introduction to Python",

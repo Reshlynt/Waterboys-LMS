@@ -970,13 +970,14 @@ public class UI {
       String grade = "";
 
       for (int i = 0; i < modules.size(); i++) {
-
-        if (user.getType().equalsIgnoreCase("student")) {
-          if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
-          }
-        }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
+        boolean studentCompletedModule = user.getType().equalsIgnoreCase("student") && modules.get(i).hasQuiz() && i > 0
+            && (i <= ((Student) user).getCourseGradeList(course).size());
+        if (studentCompletedModule) {
+          grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
+          WelcomeLine5(10, ConsoleColor.GREEN
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET+grade + "\n" + ConsoleColor.RESET));
+        } else
+          WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
         grade = "";
       }
@@ -1019,6 +1020,18 @@ public class UI {
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
               getCommentsAndReplies(module.getComments(), (Student) user, 1);
+              WelcomeLine7("Would you like to add a comment?\n");
+              WelcomeLine7("Enter \"Yes\" or \"No\"\n");
+              String choice = INPUT.nextLine();
+              if (choice.equalsIgnoreCase("yes")) {
+                WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
+                module.addComment(INPUT.nextLine(), user);
+                CourseList.saveCourses();
+              } else if (choice.equalsIgnoreCase("no")) {
+                WelcomeLine7("Moving on...");
+              } else {
+                WelcomeLine7("You entered an invalid choice, moving on...");
+              }
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
@@ -1029,6 +1042,7 @@ public class UI {
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
                 module.addComment(INPUT.nextLine(), user);
+                CourseList.saveCourses();
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("This comment section is looking awfully quiet...");
               } else {
@@ -1098,7 +1112,7 @@ public class UI {
         for (int i = 0; i <= count; i++)
           System.out.print('\t');
         System.out.println("\"" + comment.getPost() + "\"\n");
-        if (comment.getReplies().size() != 0 && comment.getReplies() != null) {
+        if (comment.getReplies() != null && comment.getReplies().size() != 0) {
           getCommentsAndReplies(comment.getReplies(), user, count + 1);
         }
       }
