@@ -750,7 +750,7 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    DataWriter.saveCourses();
+    //DataWriter.saveCourses();
     ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> courses = new ArrayList<Course>();
     for (Course course : student_courses) {
