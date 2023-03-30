@@ -49,7 +49,7 @@ public class Question {
 
   /**
    * Method to get a question
-   * @return
+   * @return question
    */
   public Question getQuestion() {
     return new Question();
