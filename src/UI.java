@@ -1075,16 +1075,16 @@ public class UI {
 
   private static void editQuiz(Assessment quiz) {
     for (int i = 0; i < quiz.getQuestions().size(); i++) {
-      WelcomeLine7("Enter . to move to the next question;\n");
+      clearScreen();
       System.out.println((i + 1) + ": \n" + quiz.getQuestions().get(i).toString() + "\n");
       WelcomeLine7("Enter 'I' to insert a question\n");
       String input = INPUT.nextLine();
-      if (!input.equals(".")) {
-        if (input.equals("I")) {
-          quiz.addQuestion(i, makeQuestion());
-        }
+      if (input.equals("I")) {
+        quiz.addQuestion(i, makeQuestion());
       }
     }
+    WelcomeLine7("End of quiz; press enter to continue");
+    INPUT.nextLine();
   }
 
   // goes through comments array, prints out comments and replies
