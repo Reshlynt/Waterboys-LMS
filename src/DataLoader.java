@@ -387,19 +387,19 @@ public class DataLoader extends DataConstants {
       // .get(h) get the particular HashMap from the ArrayList of HashMaps, and
       // .get(ListedStudent) hashes using the student as the key
       ArrayList<Double> particularGrades = gradeMaps.get(i).get(listedStudent);
+      boolean completed = false;
       if (particularGrades != null && !particularGrades.isEmpty()) {
         int sizeOfGrades = particularGrades.size();
         // checking if the last element of the array list is Double value 1, which means
         // the course is completed
-        boolean completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
+        completed = (particularGrades.get(sizeOfGrades - 1).doubleValue() == 1);
 
         // removes the the last element 1, as it is not an actual grade
         particularGrades.remove(Double.valueOf(1.0));
-
-        // calls setCourseGrade method which updates the students grade for the
-        // particular course
-        listedStudent.setCourseProgress(course, particularGrades, completed);
       }
+      // calls setCourseGrade method which updates the students grade for the
+      // particular course
+      listedStudent.setCourseProgress(course, particularGrades, completed);
     }
   }
 

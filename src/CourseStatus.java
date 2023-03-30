@@ -25,7 +25,7 @@ public class CourseStatus {
   }
 
   public Double getGrade() {
-    return courseGrade;
+    return this.courseGrade;
   }
 
   public Course getCourse() {

@@ -64,5 +64,15 @@ public class Student extends User {
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);
   }
+  public double getCourseGrade(Course course){
+    for(CourseStatus courseStatus: courseProgresses){
+      System.out.println("param course name" + course.getTitle());
+      System.out.println("list course name" + courseStatus.getCourse().getTitle());
+      
+      if(courseStatus.getCourse().equals(course))
+        return courseStatus.getGrade().doubleValue();
+    }
 
+    return 69.0;
+  }
 }
