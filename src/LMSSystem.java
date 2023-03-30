@@ -10,7 +10,7 @@ public class LMSSystem {
   public User Login(String username, String password) {
     if (userList.foundUser(username)) {
       if (userList.getUser(username).getPassword().equals(password)) {
-        UI.WelcomeLine7("Login successfully!");
+        UI.WelcomeLine7("Login successful!");
         UI.enterToContinue();
         return userList.getUser(username);
       } else {

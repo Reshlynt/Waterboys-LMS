@@ -328,11 +328,12 @@ public class UI {
   public static void viewCourses(Teacher teacher) {
     clearScreen();
     WelcomeLine1();
-    WelcomeLine6("Courses");
+    WelcomeLine6("Courses:");
     WelcomeLine1();
     System.out.println("\n");
     ArrayList<Course> courses = teacher.getCourses();
     for (int i = 0; i < courses.size(); i++) {
+      System.out.println(i);
       Course course = courses.get(i);
       WelcomeLine5(10, "Course " + (i + 1) + ": " + course.getTitle() + "\n");
       WelcomeLine5(20, "Description: " + course.getDescription() + "\n");
