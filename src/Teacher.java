@@ -62,7 +62,7 @@ public class Teacher extends User {
 
   // Returns the courses that the teacher has created
   public ArrayList<Course> getCourses() {
-    return courses;
+    return this.courses;
   }
 
   // Returns the teacher's students
