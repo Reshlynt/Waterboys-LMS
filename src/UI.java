@@ -867,20 +867,24 @@ public class UI {
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
               ArrayList<Comment> comments = module.getComments();
+              int[] count = {0, 0, 0};
               for (Comment comment : comments) {
-                System.out.println(comment.getPostingUser().getFullName());
+                count[0]++;
+                System.out.println(count[0] + " " + comment.getPostingUser().getFullName());
                 System.out.println("\t\"" + comment.getPost() + "\"");
                 if (comment.getReplies().size() !=0) {
                   ArrayList<Comment> replies = comment.getReplies();
                   for (Comment reply : replies) {
+                    count[1]++;
                     System.out.println("\t|");
-                    System.out.println("\t| " + reply.getPostingUser().getFullName());
+                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getFullName());
                     System.out.println("\t\t\"" + reply.getPost() + "\"");
                     if (reply.getReplies().size() !=0) {
                       ArrayList<Comment> replies2 = comment.getReplies();
                       for (Comment reply2 : replies2) {
+                        count[2]++;
                         System.out.println("\t\t|");
-                        System.out.println("\t\t| " + reply2.getPostingUser().getFullName());
+                        System.out.println((count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getFullName());
                         System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
                       }
                     }
