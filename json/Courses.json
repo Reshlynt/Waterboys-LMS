@@ -1000,6 +1000,19 @@
           94.0,
           97.0
         ]
+      },
+      {
+        "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+        "completed": true,
+        "grades": [
+          100.0,
+          100.0,
+          95.0,
+          100.0,
+          87.0,
+          90.0,
+          100.0
+        ]
       }
     ],
     "title": "Introduction to JavaScript",
