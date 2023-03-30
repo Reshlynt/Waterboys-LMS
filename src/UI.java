@@ -435,8 +435,7 @@ public class UI {
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(10, "1.) View Comments\n");
           WelcomeLine5(10, "2.) View Quiz\n");
-          WelcomeLine5(10, "3.) View Other Modules\n");
-          WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
+          WelcomeLine5(10, "3.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
@@ -474,10 +473,23 @@ public class UI {
                 System.out.println(module.getQuiz().toString());
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
+              return;
             }
+            WelcomeLine7("Would you like to add any questions to this quiz? \n");
+            WelcomeLine7("Enter the the number where you would like to insert the question, or '0' if you do not want to insert anything.\n");
+            int index = INPUT.nextInt();
+            INPUT.nextLine();
+            if (index == 0) {
+              return;
+            } else if (index > 0 && index <= module.getQuiz().getQuestions().size()) {
+              module.getQuiz().addQuestion(index - 1, makeQuestion());
+            } else {
+              WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+              enterToContinue();
+              return;
+            }
+
           } else if (value == 3) {
-            AccessCourse(course, student);
-          } else if (value == 4) {
             return;
           } else {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
@@ -675,17 +687,7 @@ public class UI {
     ArrayList<Question> questions = new ArrayList<Question>();
     boolean addMoreQuestions = true;
     while (addMoreQuestions) {
-      System.out.println("What is the question?");
-      String question = System.console().readLine();
-      System.out.println("Enter 4 answer choices, pressing enter after each:");
-      ArrayList<String> answers = new ArrayList<String>();
-      for (int i = 0; i < 4; i++) {
-        answers.add(System.console().readLine());
-      }
-      System.out.println("What is the correct answer? a, b, c, or d?");
-      String correctAnswer = System.console().readLine();
-      correctAnswer.toLowerCase();
-      questions.add(new Question(question, answers, correctAnswer));
+      questions.add(makeQuestion());
       System.out.println("Do you want to add another question? (Y/N)");
       String addQuestion = System.console().readLine();
       addQuestion.toUpperCase();
@@ -694,6 +696,20 @@ public class UI {
       }
     }
     return new Assessment(title, questions);
+  }
+
+  public static Question makeQuestion() {
+    System.out.println("What is the question?");
+    String question = System.console().readLine();
+    System.out.println("Enter 4 answer choices, pressing enter after each:");
+    ArrayList<String> answers = new ArrayList<String>();
+    for (int i = 0; i < 4; i++) {
+      answers.add(System.console().readLine());
+    }
+    System.out.println("What is the correct answer? a, b, c, or d?");
+    String correctAnswer = System.console().readLine();
+    correctAnswer.toLowerCase();
+    return new Question(question, answers, correctAnswer);
   }
 
   private static void CreateCourse(Teacher teacher) {
