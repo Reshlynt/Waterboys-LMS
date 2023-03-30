@@ -886,7 +886,7 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-              takeQuiz(course, module, user);
+              takeQuiz(course, module, (Student) user);
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
             }
@@ -908,7 +908,7 @@ public class UI {
         WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
-        AccessCourse(course, student);
+        AccessCourse(course, user);
       }
     } else {
       return;
