@@ -691,8 +691,7 @@ public class UI {
     boolean valid = false;
     while (!valid) {
       valid = true;
-      System.out.print("\033[H\033[2J");
-      System.out.flush();
+      clearScreen();
       System.out.println("Would you like to create a course from scratch or from a template?");
       System.out.println("1.) Create from scratch");
       System.out.println("2.) Create from template");
@@ -750,7 +749,7 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    //DataWriter.saveCourses();
+    DataWriter.saveCourses();
     ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> courses = new ArrayList<Course>();
     for (Course course : student_courses) {
