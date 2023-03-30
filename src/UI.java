@@ -983,7 +983,8 @@ public class UI {
           WelcomeLine5(10, "1.) View Comments\n");
           WelcomeLine5(10, "2.) Take a Quiz\n");
           WelcomeLine5(10, "3.) View Other Modules\n");
-          WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
+          WelcomeLine5(10, "4.) Print Module to a File\n");
+          WelcomeLine5(10, "5.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
@@ -1057,6 +1058,9 @@ public class UI {
           } else if (value == 3) {
             AccessCourse(course, user);
           } else if (value == 4) {
+            DataWriter.WriteModule(module);
+          }
+          else if (value == 5) {
             return;
           } else {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
