@@ -1073,14 +1073,10 @@ public class UI {
       WelcomeLine7("Enter . to move to the next \n");
       System.out.println(i + ": " + quiz.getQuestions().get(i).toString() + "\n");
       WelcomeLine7("Enter 'I' to insert a question\n");
-      WelcomeLine7("Enter 'R' to remove current question\n");
       String input = INPUT.nextLine();
       if (!input.equals(".")) {
         if (input.equals("I")) {
           quiz.addQuestion(i, makeQuestion());
-        }
-        if (input.equals("R")) {
-          quiz.removeQuestion(i);
         }
       }
     }
@@ -1103,10 +1099,7 @@ public class UI {
     }
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b45ce4d43c0c6c536802c86d2f065d0b4bbcadee
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {
