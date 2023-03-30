@@ -1098,17 +1098,6 @@ public class UI {
     }
   }
 
-<<<<<<< HEAD
-  private static void editQuiz(Assessment quiz) {
-    for (int i = 0; i < quiz.getQuestions().size(); i++) {
-      WelcomeLine7("Press enter to iterate through the questions\n");
-      System.out.println(i + ": " + quiz.getQuestions().get(i).toString() + "\n");
-      WelcomeLine7
-    }
-  }
-
-
-=======
   //goes through comments array, prints out comments and replies
   private static Comment getCommentsAndReplies(Module module, Student user) {
     if (module.getComments() != null && module.getComments().size() != 0) {
@@ -1155,7 +1144,6 @@ public class UI {
     return student_comment;
   }
 
->>>>>>> 4fcce6d2bdaaaee9f0ac6b1bf4ecce2761a30e96
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {
