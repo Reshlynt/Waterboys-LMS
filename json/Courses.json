@@ -394,7 +394,6 @@
         ],
         "quiz": [
           {
-            "question": "What is a for loop and how does it work in programming?",
             "answer_choices": [
               {
                 "a": "A for loop is a control flow statement used to iterate over a range of values and perform a specific task for each value in the range.",
@@ -403,10 +402,10 @@
                 "d": "A for loop is a programming construct used to define a sequence of operations."
               }
             ],
+            "question": "What is a for loop and how does it work in programming?",
             "correct_answer": "a"
           },
           {
-            "question": "How can you use a for loop to iterate through an array or list in Python?",
             "answer_choices": [
               {
                 "a": "By using the range function and accessing each element in the array or list using its index.",
@@ -415,10 +414,10 @@
                 "d": "By using the map function and applying a specific operation to each element in the array or list."
               }
             ],
+            "question": "How can you use a for loop to iterate through an array or list in Python?",
             "correct_answer": "c"
           },
           {
-            "question": "What are some common mistakes to avoid when using a for loop, and how can you debug them?",
             "answer_choices": [
               {
                 "a": "Using the wrong variable name in the loop, and using the print statement to debug.",
@@ -427,6 +426,7 @@
                 "d": "Off-by-one errors when iterating through the loop, and using the debugger to identify and fix the problem."
               }
             ],
+            "question": "What are some common mistakes to avoid when using a for loop, and how can you debug them?",
             "correct_answer": "d"
           }
         ],

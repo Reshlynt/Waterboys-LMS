@@ -1026,7 +1026,16 @@ public class UI {
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
                 Comment new_comment = new Comment(INPUT.nextLine(), user);
-                WelcomeLine7("Where would you like to put this?");
+                WelcomeLine7("Is this a post or reply? (Enter \"Reply\" or \"Post\")");
+                String item = INPUT.nextLine();
+                if (item.equalsIgnoreCase("post")) {
+                  module.addComment(INPUT.nextLine(), user);
+                  CourseList.saveCourses();
+                } else if (item.equalsIgnoreCase("reply")) {
+                  postReplies(module.getComments(), (Student) user, 1);
+                } else {
+                  WelcomeLine7("You entered an invalid choice, moving on...");
+                }
                 CourseList.saveCourses();
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("Moving on...");
@@ -1115,6 +1124,34 @@ public class UI {
         System.out.println("\"" + comment.getPost() + "\"\n");
         if (comment.getReplies() != null && comment.getReplies().size() != 0) {
           getCommentsAndReplies(comment.getReplies(), user, count + 1);
+        }
+      }
+    }
+  }
+
+  private static void postReplies(ArrayList<Comment> comments, Student user, int count) {
+    if (comments != null && comments.size() != 0 && count < 3) {
+      for (Comment comment : comments) {
+        for (int i = 0; i < count; i++)
+          System.out.print('\t');
+        System.out.println(comment.getPostingUser().getUsername());
+        for (int i = 0; i <= count; i++)
+          System.out.print('\t');
+        System.out.println("\"" + comment.getPost() + "\"\n");
+        System.out.println();
+        WelcomeLine7("Would you like to post here? (Enter \"Yes\" or \"No\")\n");
+        String choice = INPUT.nextLine();
+        if (choice.equalsIgnoreCase("yes")) {
+          comment.replyToComment(choice, user);
+          CourseList.saveCourses();
+          return;
+        } else if (choice.equalsIgnoreCase("no")) {
+          WelcomeLine7("Moving on...");
+        } else {
+          WelcomeLine7("You entered an invalid choice, moving on...");
+        }
+        if (comment.getReplies() != null && comment.getReplies().size() != 0) {
+          postReplies(comment.getReplies(), user, count + 1);
         }
       }
     }
