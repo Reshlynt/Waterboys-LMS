@@ -15,7 +15,6 @@ public class CourseStatus {
     this.grades = grades;
     courseGrade = 0.0;
   }
-
   public double getProgress() {
     return progress;
   }
@@ -45,6 +44,7 @@ public class CourseStatus {
   }
 
   public void updateScore(int numCorrect, int numQuestions) {
+    // find the module in the course and set the grade for that
     Double quizScore = 100 * Double.valueOf((double) numCorrect / (double) numQuestions);
     grades.add(quizScore);
     calculateProgress();

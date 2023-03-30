@@ -90,6 +90,16 @@ public class Course {
     students.add((Student) userList.getUserByUUID(studentID));
   }
 
+  public boolean removeFromCourse(Student student) {
+    for (Student aStudent: students) {
+      if (aStudent.getID().equals(student.getID())) {
+        students.remove(student);
+        return true;
+      }
+    }
+    return false;
+  }
+
   /**
    * Method displays the slides of each lesson
    */
