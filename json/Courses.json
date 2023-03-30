@@ -394,40 +394,40 @@
         ],
         "quiz": [
           {
+            "question": "What is a for loop and how does it work in programming?",
             "answer_choices": [
               {
-                "a": "for",
-                "b": "while",
-                "c": "if",
-                "d": "break"
+                "a": "A for loop is a control flow statement used to iterate over a range of values and perform a specific task for each value in the range.",
+                "b": "A for loop is used to define a function in Python programming.",
+                "c": "A for loop is a data structure used to store multiple values of the same type.",
+                "d": "A for loop is a programming construct used to define a sequence of operations."
               }
             ],
-            "question": "What is the most common conditional statement in Python?",
-            "correct_answer": "c"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "It is used to create more complex decision-making structures.",
-                "b": "It is used to execute a block of code if a specific condition is true.",
-                "c": "It is used to execute a block of code if a specific condition is false.",
-                "d": "It is used to loop through a sequence of code."
-              }
-            ],
-            "question": "What is the purpose of the \"else\" statement in Python?",
-            "correct_answer": "c"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "if-else",
-                "b": "if-elif-else",
-                "c": "while",
-                "d": "for"
-              }
-            ],
-            "question": "Which of the following is an example of an if statement in Python?",
             "correct_answer": "a"
+          },
+          {
+            "question": "How can you use a for loop to iterate through an array or list in Python?",
+            "answer_choices": [
+              {
+                "a": "By using the range function and accessing each element in the array or list using its index.",
+                "b": "By using a while loop and accessing each element in the array or list using its index.",
+                "c": "By using the for loop and accessing each element in the array or list directly.",
+                "d": "By using the map function and applying a specific operation to each element in the array or list."
+              }
+            ],
+            "correct_answer": "c"
+          },
+          {
+            "question": "What are some common mistakes to avoid when using a for loop, and how can you debug them?",
+            "answer_choices": [
+              {
+                "a": "Using the wrong variable name in the loop, and using the print statement to debug.",
+                "b": "Not initializing the loop variable correctly, and using the if statement to debug.",
+                "c": "Using the wrong loop syntax, and using the break statement to debug.",
+                "d": "Off-by-one errors when iterating through the loop, and using the debugger to identify and fix the problem."
+              }
+            ],
+            "correct_answer": "d"
           }
         ],
         "slides": [
