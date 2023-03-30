@@ -368,7 +368,8 @@ public class DataWriter extends DataConstants {
   }
 
   /**
-   * Writies a certificate to a text file.
+   * Writes a certificate file for a student and sends
+   * them to the certificate directory.
    */
   public static void WriteCertificateToFile(Student student) {
     try {
@@ -389,8 +390,27 @@ public class DataWriter extends DataConstants {
       e.printStackTrace();
     }
   }
-
-  public static void main(String[] args) {
-    saveCourses();
+  /**
+   * Creates a module to a text file and puts it to
+   * a module directory.
+   * @param module - A Module object to be put into a text file.
+   */
+  public static void WriteModule(Module module) {
+    try {
+        String title = module.getTitle();
+        if (title.indexOf('/') != -1)
+            title = title.replace("/", " ");
+        String pathName = "./module/" + title + ".txt";
+        FileWriter moduleWriter = new FileWriter(pathName);
+        moduleWriter.write(module.getTitle() + "\n\n");
+        ArrayList<TextSlide> slides = module.getSlides();
+        for (int i = 0; i < slides.size(); i++) {
+            moduleWriter.write(slides.get(i).getContents());
+            moduleWriter.flush();
+        }
+        moduleWriter.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
   }
 }
