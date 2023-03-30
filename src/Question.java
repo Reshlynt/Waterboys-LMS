@@ -42,7 +42,7 @@ public class Question {
     char letter = 'a';
     info += "Answer choices: \n";
     for (int i = 0; i < answerChoices.size(); i++) {
-      info += (letter + ". " + answerChoices.get(i) + "\n");
+      info += ("\t" + letter + ". " + answerChoices.get(i) + "\n");
       letter++;
     }
     info += ("\nCorrect Answer: " + correctAnswer);
