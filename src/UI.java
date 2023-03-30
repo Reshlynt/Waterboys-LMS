@@ -1103,7 +1103,11 @@ public class UI {
         WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
         // double score = (double) correct / (double) numQuestions;
+<<<<<<< HEAD
         student.updateCourseProgress(course, module,numCorrect, numQuestions);
+=======
+        student.updateCourseProgress(course,numCorrect, numQuestions);
+>>>>>>> ed9e1f56a2f1bc948eda8f3d78c511275ee1b22e
         System.out
             .println(ConsoleColor.RED + "Current Course Grade: " + student.getCourseGrade(course) + ConsoleColor.RESET);
       }
