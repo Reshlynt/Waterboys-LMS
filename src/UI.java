@@ -11,6 +11,7 @@ public class UI {
   public static final Scanner INPUT = new Scanner(System.in);
   public static final LMSSystem LMS = new LMSSystem();
   public static CourseList courseList = CourseList.getInstance();
+  public static UserList userList = UserList.getInstance();
 
   public static void main(String[] args) {
     clearScreen();
@@ -30,7 +31,6 @@ public class UI {
           break;
         case 2:
           user = SignUp();
-          UserList userList = UserList.getInstance();
           userList.addUser(user);
           DataWriter.saveUsers();
           break;
@@ -82,16 +82,14 @@ public class UI {
       } else if (userType.equalsIgnoreCase("student")) {
         switch (StudentMenu((Student) user)) {
           case 1:
-            break;
-          case 2:
             Course course = getCourses((Student) user);
             // AccessCourse(course, (Student) user);
             AccessCourse(course, user);
             break;
-          case 3:
+          case 2:
             viewCertificates((Student) user);
             break;
-          case 4:
+          case 3:
             ViewStudentProfile((Student) user);
             break;
           case 9:
@@ -285,10 +283,9 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(10, "1.) Register for Course\n");
-    WelcomeLine5(10, "2.) Access your Courses\n");
-    WelcomeLine5(10, "3.) Access Certifications\n");
-    WelcomeLine5(10, "4.) View Profile\n");
+    WelcomeLine5(10, "1.) Access your Courses\n");
+    WelcomeLine5(10, "2.) Access Certifications\n");
+    WelcomeLine5(10, "3.) View Profile\n");
     WelcomeLine5(10, "9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
@@ -307,18 +304,33 @@ public class UI {
   }
 
   public static void addToCourse(Teacher teacher) {
+    clearScreen();
     WelcomeLine1();
-    WelcomeLine6("Add Student to Course");
+    WelcomeLine6("Add Student to Course:");
     WelcomeLine1();
-    System.out.println();
-    WelcomeLine7("Which course would you like to add a student to?");
-    int num = 0;
-    for (Course course : teacher.getCourses()) {
-      WelcomeLine5(10, course.getTitle());
+    System.out.println("\n");
+    ArrayList<Course> courses = courseList.getAllCourses();
+    ArrayList<Course> teacherCourses = new ArrayList<Course>();
+    for (int i = 0; i < courses.size(); i++) {
+      if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
+        teacherCourses.add(courses.get(i));
+      }
     }
-    num = INPUT.nextInt();
+    if (teacherCourses.size() == 0) {
+      WelcomeLine7("You have no courses. Press Enter to Continue");
+      INPUT.nextLine();
+      clearScreen();
+      return;
+    }
+    WelcomeLine5(10, "Select a course to add a student to:\n\n");
+    for (int i = 0; i < teacherCourses.size(); i++) {
+      WelcomeLine5(10, (i + 1) + ".) " + teacherCourses.get(i).getTitle());
+      System.out.println("\n");
+    }
+    int num = INPUT.nextInt();
     INPUT.nextLine();
     clearScreen();
+    Course course = teacherCourses.get(num - 1);
     boolean addMore = true;
     while (addMore) {
       WelcomeLine1();
@@ -327,14 +339,15 @@ public class UI {
       System.out.println();
       WelcomeLine5(10, "Enter the username of the student you would like to add: ");
       String username = INPUT.nextLine();
-      Student student = (Student) LMS.getUser(username);
+      Student student = (Student) userList.getUser(username);
+      clearScreen();
       if (student == null) {
         WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
-        addToCourse(teacher);
+        return;
       } else {
-        teacher.addToCourse(student, teacher.getCourses().get(num));
+        teacher.addToCourse(student, course);
         WelcomeLine7("Student added to course. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
@@ -892,8 +905,8 @@ public class UI {
             grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           }
         }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"
-            + grade + "\n"));
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() 
+                                       + "\t"  + grade + "\n"));
         num++;
         grade = "";
       }
@@ -913,8 +926,10 @@ public class UI {
         boolean option = true;
         int value = 0;
         while (option) {
-          if (user.getType().equals("teacher"))
+          if (user.getType().equals("teacher")) {
+            clearScreen();
             return;
+          }
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(10, "1.) View Comments\n");
           WelcomeLine5(10, "2.) Take a Quiz\n");
