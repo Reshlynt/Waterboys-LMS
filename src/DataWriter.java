@@ -418,8 +418,4 @@ public class DataWriter extends DataConstants {
       e.printStackTrace();
     }
   }
-
-  public static void main(String[] args) {
-    saveCourses();
-  }
 }
