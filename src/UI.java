@@ -471,7 +471,7 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-                module.getQuiz().printQuiz();
+                System.out.println(module.getQuiz().toString());
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
             }
