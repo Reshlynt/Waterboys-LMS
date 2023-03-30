@@ -1,9 +1,11 @@
 package src;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
+
 public class UI {
   public static final String FIVESTAR = "*****", FOURSTAR = "****", SPACESTAR = " *";
   public static final Scanner INPUT = new Scanner(System.in);
@@ -319,6 +321,7 @@ public class UI {
     }
     enterToContinue();
   }
+
   public void removeStudentFromClass() {
     clearScreen();
     WelcomeLine7("Which course would you like to remove a student from?");
@@ -367,7 +370,8 @@ public class UI {
 
   public static void editCourse(Course course) {
     // Proceed through course;
-    // At any point if the teacher types 'e', they will be prompted to edit the course
+    // At any point if the teacher types 'e', they will be prompted to edit the
+    // course
     if (course == null) {
       enterToContinue();
       return;
@@ -440,7 +444,7 @@ public class UI {
               module.printComments();
             } else if (student.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
-            }else {
+            } else {
               clearScreen();
               WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
               WelcomeLine7("Enter \"Yes\" or \"No\"\n");
@@ -484,7 +488,7 @@ public class UI {
     } else {
       return;
     }
-    
+
   }
 
   private static void ViewStudentProfile(Student user) {
@@ -619,24 +623,24 @@ public class UI {
   public static Module createModule() {
     boolean addAnotherSlide = true;
     System.out.println("What is the title of the module?");
-      String moduleTitle = System.console().readLine();
-      ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
-      // Create slide loop
-      while (addAnotherSlide) {
-        slides.add(createSlide());
-        System.out.println("Do you want to add another slide? (Y/N)");
-        String addSlide = System.console().readLine();
-        addSlide.toUpperCase();
-        if (addSlide.equals("N")) {
-          addAnotherSlide = false;
-        }
+    String moduleTitle = System.console().readLine();
+    ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
+    // Create slide loop
+    while (addAnotherSlide) {
+      slides.add(createSlide());
+      System.out.println("Do you want to add another slide? (Y/N)");
+      String addSlide = System.console().readLine();
+      addSlide.toUpperCase();
+      if (addSlide.equals("N")) {
+        addAnotherSlide = false;
       }
-      Module aModule = new Module(moduleTitle, slides);
-      System.out.println("Create the quiz for this module: ");
-      Assessment moduleQuiz = makeAssessment();
-      moduleQuiz.setType(Type.QUIZ);
-      aModule.setLessonQuiz(moduleQuiz);
-      return aModule;
+    }
+    Module aModule = new Module(moduleTitle, slides);
+    System.out.println("Create the quiz for this module: ");
+    Assessment moduleQuiz = makeAssessment();
+    moduleQuiz.setType(Type.QUIZ);
+    aModule.setLessonQuiz(moduleQuiz);
+    return aModule;
   }
 
   public static ArrayList<Module> createModules() {
@@ -840,7 +844,7 @@ public class UI {
               module.printComments();
             } else if (student.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
-            }else {
+            } else {
               clearScreen();
               WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
               WelcomeLine7("Enter \"Yes\" or \"No\"\n");
@@ -887,7 +891,7 @@ public class UI {
   }
 
   public static void takeQuiz(Course course, Module module, Student student) {
-    int size = 0, numQuestions = module.getQuiz().getQuestions().size(), correct = 0;
+    int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {
       size += 1;
       WelcomeLine7(question.getQuestionContent());
@@ -901,7 +905,7 @@ public class UI {
       String answer = INPUT.nextLine();
       if (answer.equalsIgnoreCase(question.getCorrectAnswer())) {
         System.out.println("Correct!");
-        correct += 1;
+        numCorrect += 1;
       } else {
         System.out.println("Incorrect!");
       }
@@ -911,10 +915,10 @@ public class UI {
         clearScreen();
       } else {
         WelcomeLine7("You have finished this module's quiz!");
-        WelcomeLine7("You scored " + correct + " out of " + numQuestions + " points!");
+        WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
-        double score = (double) correct / numQuestions;
-        student.updateCourseProgress(course, score);
+        //double score = (double) correct / (double) numQuestions;
+        student.updateCourseProgress(course, numCorrect, numQuestions);
       }
     }
   }

@@ -52,10 +52,10 @@ public class Student extends User {
     return "student";
   }
 
-  public void updateCourseProgress(Course course, Double score) {
+  public void updateCourseProgress(Course course, int numCorrect, int numQuestions) {
     for (CourseStatus courseStatus : courseProgresses) {
       if (courseStatus.getCourse().equals(course)) {
-        courseStatus.updateScore(score);
+        courseStatus.updateScore(numCorrect, numQuestions);
       }
     }
   }
