@@ -52,7 +52,12 @@
                                 "replies": null,
                                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                                 "text": "This is a reply to reply to a comment"
-                            }
+                            },
+                            {
+                              "replies": null,
+                              "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                              "text": "This a reply to reply to a comment"
+                          }
                         ],
                         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                         "text": "This is a reply to a course comment"
@@ -73,6 +78,11 @@
                                         "replies": null,
                                         "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                                         "text": "This is a reply to reply to a comment"
+                                    },
+                                    {
+                                      "replies": null,
+                                      "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                      "text": "This is a reply to reply to a comment"
                                     }
                                 ],
                                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
@@ -269,7 +279,13 @@
                 "module_title": "Variables and Data Types"
             },
             {
-                "module_comments": [],
+                "module_comments": [
+                  {
+                    "replies": null,
+                    "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
+                    "text": "These are throwing me for a loop... hehehe"
+                  }
+                ],
                 "quiz": [
                     {
                         "answer_choices": [
