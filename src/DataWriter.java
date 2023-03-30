@@ -149,7 +149,6 @@ public class DataWriter extends DataConstants {
     for (int i = 0; i < grades.size(); i++) {
       gradeArray.add(grades.get(i));
     }
-    System.out.println();
     return gradeArray;
   }
 
@@ -169,15 +168,14 @@ public class DataWriter extends DataConstants {
       CourseStatus studentStatus = student.getCourseProgresses().get(i);
       if (studentStatus.getCourse().equals(course) && studentStatus.getCompleted()) {
         studentDetails.put(COMPLETED, true);
+        break;
       }
     }
-    for (int i = 0; i < student.getCourseProgresses().size(); i++) {
-      if (student.getCourseProgresses().get(i).getCourse().equals(course)) {
-        studentDetails.put(GRADES,
-            getGradeJSONArray(student.getCourseProgresses().get(i).getGradeList()));
-      }
+    ArrayList<Double> gradeList = student.getCourseGradeList(course);
+    if (gradeList == null) {
+      return null;
     }
-
+    studentDetails.put(GRADES, getGradeJSONArray(gradeList));
     return studentDetails;
   }
 
