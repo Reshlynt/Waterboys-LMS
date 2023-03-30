@@ -1139,7 +1139,7 @@
                 "d": "var myVariable;"
               }
             ],
-            " correct_answer": "d"
+            "correct_answer": "d"
           },
           {
             "question": "What is the difference between == and === in JavaScript?",
