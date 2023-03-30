@@ -7,7 +7,7 @@ public class CourseStatus {
   private double progress;
 
   private Double courseGrade;
-  private ArrayList<Double> grades;
+  private ArrayList<Double> grades = new ArrayList<Double>();
   private boolean completed;
 
   public CourseStatus(Course course, ArrayList<Double> grades) {
