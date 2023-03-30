@@ -11,6 +11,7 @@ public class UserList {
     userList = DataLoader.getUsers();
   }
 
+  // Singleton pattern
   public static UserList getInstance() {
     if (singletonUserList == null)
       singletonUserList = new UserList();
@@ -27,14 +28,17 @@ public class UserList {
       userList.add(user);
   }
 
+  // method to remove a user from the list
   public void deleteUser(User user) {
     userList.remove(user);
   }
 
+  // method to get the list of users
   public ArrayList<User> getUserList() {
     return userList;
   }
 
+  // method to get a user by their ID
   public User getUserByUUID(UUID id) {
     for (User user : userList) {
       if (user.equals(id)) {
@@ -44,6 +48,7 @@ public class UserList {
     return null;
   }
 
+  // method to get a user by their username
   public boolean foundUser(String username) {
     for (User user : userList) {
       if (user.getUsername().equals(username)) {
@@ -53,6 +58,7 @@ public class UserList {
     return false;
   }
 
+  // method to get a user by their username
   public User getUser(String username) {
     for (User user : userList) {
       if (user.getUsername().equals(username)) {
@@ -62,6 +68,7 @@ public class UserList {
     return null;
   }
 
+  // method to print the list of users
   public void Print() {
     for (int i = 0; i < userList.size(); i++) {
       System.out.println(userList.get(i));

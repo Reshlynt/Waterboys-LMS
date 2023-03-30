@@ -13,6 +13,102 @@
         ],
         "question": "question1",
         "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "x is less than 5",
+            "b": "x is greater than or equal to 5",
+            "c": "x is equal to 5",
+            "d": "There is a syntax error in the code."
+          }
+        ],
+        "question": "What is the output of the following code?\nx = 3\nif x < 5:\n    print(\"x is less than 5\")\nelse:\n    print(\"x is greater than or equal to 5\")",
+        "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+            "b": "A for loop and a while loop are the same thing.",
+            "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+            "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+          }
+        ],
+        "question": "What is the difference between a for loop and a while loop in Python?",
+        "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "4 8 12 16",
+            "b": "2 4 6 8",
+            "c": "8 16 24 32",
+            "d": "10 12 14 16"
+          }
+        ],
+        "question": "What is the output of the following code?\n\nnumbers = [2, 4, 6, 8]\nfor i in numbers:\n    print(i * 2)",
+        "correct_answer": "c"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "To terminate the loop and skip any remaining iterations",
+            "b": "To pause the loop and wait for user input",
+            "c": "To execute a block of code once before the loop begins",
+            "d": "To skip a single iteration of the loop and continue with the next one"
+          }
+        ],
+        "question": "What is the purpose of the break statement in a loop?",
+        "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "0 1 2",
+            "b": "1 2 3",
+            "c": "0 2 4",
+            "d": "1 4 7"
+          }
+        ],
+        "question": "What is the output of the following code?\n\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1",
+        "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "and, if, while",
+            "b": "if, else, not",
+            "c": "and, or, not",
+            "d": "or, for, while"
+          }
+        ],
+        "question": "What are the three logical operators in Python?",
+        "correct_answer": "c"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "True if both expressions being evaluated are True",
+            "b": "True if at least one of the expressions being evaluated is True",
+            "c": "True if neither of the expressions being evaluated is True",
+            "d": "False if both expressions being evaluated are True"
+          }
+        ],
+        "question": "What does the \"and\" operator return in Python?",
+        "correct_answer": "a"
+      },
+      {
+        "answer_choices": [
+          {
+            "a": "Both conditions are true.",
+            "b": "At least one condition is false.",
+            "c": "Both conditions are false.",
+            "d": "The code snippet will produce an error."
+          }
+        ],
+        "question": "What is the output of the following code snippet?\na = 5\nb = 10\nc = 15\nif a < b and b < c:\n    print(\"Both conditions are true.\")\nelse:\n    print(\"At least one condition is false.\")",
+        "correct_answer": "a"
       }
     ],
     "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
@@ -41,6 +137,14 @@
         "completed": false,
         "grades": [
           100.0
+        ]
+      },
+      {
+        "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+        "completed": false,
+        "grades": [
+          100.0,
+          86.9
         ]
       }
     ],
@@ -283,7 +387,7 @@
       {
         "module_comments": [
           {
-            "replies": null,
+            "replies": [],
             "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
             "text": "These are throwing me for a loop... hehehe"
           }
@@ -292,134 +396,38 @@
           {
             "answer_choices": [
               {
-                "a": "for",
-                "b": "while",
-                "c": "if",
-                "d": "break"
+                "a": "A for loop is a control flow statement used to iterate over a range of values and perform a specific task for each value in the range.",
+                "b": "A for loop is used to define a function in Python programming.",
+                "c": "A for loop is a data structure used to store multiple values of the same type.",
+                "d": "A for loop is a programming construct used to define a sequence of operations."
               }
             ],
-            "question": "What is the most common conditional statement in Python?",
+            "question": "What is a for loop and how does it work in programming?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "By using the range function and accessing each element in the array or list using its index.",
+                "b": "By using a while loop and accessing each element in the array or list using its index.",
+                "c": "By using the for loop and accessing each element in the array or list directly.",
+                "d": "By using the map function and applying a specific operation to each element in the array or list."
+              }
+            ],
+            "question": "How can you use a for loop to iterate through an array or list in Python?",
             "correct_answer": "c"
           },
           {
             "answer_choices": [
               {
-                "a": "It is used to create more complex decision-making structures.",
-                "b": "It is used to execute a block of code if a specific condition is true.",
-                "c": "It is used to execute a block of code if a specific condition is false.",
-                "d": "It is used to loop through a sequence of code."
+                "a": "Using the wrong variable name in the loop, and using the print statement to debug.",
+                "b": "Not initializing the loop variable correctly, and using the if statement to debug.",
+                "c": "Using the wrong loop syntax, and using the break statement to debug.",
+                "d": "Off-by-one errors when iterating through the loop, and using the debugger to identify and fix the problem."
               }
             ],
-            "question": "What is the purpose of the \"else\" statement in Python?",
-            "correct_answer": "c"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "if-else",
-                "b": "if-elif-else",
-                "c": "while",
-                "d": "for"
-              }
-            ],
-            "question": "Which of the following is an example of an if statement in Python?",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "x is less than 5",
-                "b": "x is greater than or equal to 5",
-                "c": "x is equal to 5",
-                "d": "There is a syntax error in the code."
-              }
-            ],
-            "question": "What is the output of the following code?\nx = 3\nif x < 5:\n    print(\"x is less than 5\")\nelse:\n    print(\"x is greater than or equal to 5\")",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
-                "b": "A for loop and a while loop are the same thing.",
-                "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
-                "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
-              }
-            ],
-            "question": "What is the difference between a for loop and a while loop in Python?",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "4 8 12 16",
-                "b": "2 4 6 8",
-                "c": "8 16 24 32",
-                "d": "10 12 14 16"
-              }
-            ],
-            "question": "What is the output of the following code?\n\nnumbers = [2, 4, 6, 8]\nfor i in numbers:\n    print(i * 2)",
-            "correct_answer": "c"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "To terminate the loop and skip any remaining iterations",
-                "b": "To pause the loop and wait for user input",
-                "c": "To execute a block of code once before the loop begins",
-                "d": "To skip a single iteration of the loop and continue with the next one"
-              }
-            ],
-            "question": "What is the purpose of the break statement in a loop?",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "0 1 2",
-                "b": "1 2 3",
-                "c": "0 2 4",
-                "d": "1 4 7"
-              }
-            ],
-            "question": "What is the output of the following code?\n\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "and, if, while",
-                "b": "if, else, not",
-                "c": "and, or, not",
-                "d": "or, for, while"
-              }
-            ],
-            "question": "What are the three logical operators in Python?",
-            "correct_answer": "c"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "True if both expressions being evaluated are True",
-                "b": "True if at least one of the expressions being evaluated is True",
-                "c": "True if neither of the expressions being evaluated is True",
-                "d": "False if both expressions being evaluated are True"
-              }
-            ],
-            "question": "What does the \"and\" operator return in Python?",
-            "correct_answer": "a"
-          },
-          {
-            "answer_choices": [
-              {
-                "a": "Both conditions are true.",
-                "b": "At least one condition is false.",
-                "c": "Both conditions are false.",
-                "d": "The code snippet will produce an error."
-              }
-            ],
-            "question": "What is the output of the following code snippet?\na = 5\nb = 10\nc = 15\nif a < b and b < c:\n    print(\"Both conditions are true.\")\nelse:\n    print(\"At least one condition is false.\")",
-            "correct_answer": "a"
+            "question": "What are some common mistakes to avoid when using a for loop, and how can you debug them?",
+            "correct_answer": "d"
           }
         ],
         "slides": [
@@ -999,6 +1007,19 @@
           95.0,
           94.0,
           97.0
+        ]
+      },
+      {
+        "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+        "completed": true,
+        "grades": [
+          100.0,
+          100.0,
+          95.0,
+          100.0,
+          87.0,
+          90.0,
+          100.0
         ]
       }
     ],

@@ -62,6 +62,14 @@ public class Student extends User {
     }
   }
 
+  public boolean completedCourse(Course course) {
+    // find course in the courseprogresses
+    for (int i = 0; i < courseProgresses.size(); i++)
+      if (courseProgresses.get(i).getCourse().equals(course))
+        return (courseProgresses.get(i).getCompleted());
+    return false;
+  }
+
   // Gives a student a certificate
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);

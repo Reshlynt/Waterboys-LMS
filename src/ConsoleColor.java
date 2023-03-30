@@ -19,7 +19,7 @@ public enum ConsoleColor {
   GREEN {
 
     public String toString() {
-      return "\u001B[26m";
+      return "\u001B[32m";
     }
   },
   YELLOW {
