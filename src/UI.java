@@ -271,7 +271,7 @@ public class UI {
     } catch (Exception e) {
       INPUT.nextLine();
       clearScreen();
-      System.out.println("You entered an invalid choice. Press Enter or to Continue");
+      System.out.println("You entered an invalid choice. Press Enter to Continue");
       INPUT.nextLine();
       clearScreen();
       return TeacherMenu(teacher);
@@ -352,6 +352,9 @@ public class UI {
     }
     if (!(teacherCourses.size() == 0)) {
       int num = 1;
+      WelcomeLine7("Enter 'E' to edit a course, or 'V' if you only want to view.");
+      boolean edit = (INPUT.nextLine().equalsIgnoreCase("e") ? true : false);
+      clearScreen();
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
@@ -363,7 +366,9 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        editCourse(teacherCourses.get(num - 1), teacher);
+        if (edit)
+          editCourse(teacherCourses.get(num - 1), teacher);
+        else AccessCourse(courses.get(num - 1), teacher);
         return;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -398,14 +403,17 @@ public class UI {
         WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
         num++;
       }
-      System.out.println();
-      WelcomeLine5(31, "Choose an option, or enter 'E' to add modules: ");
+      System.out.println("\n");
+      WelcomeLine7("Choose an option, or enter 'E' to add modules: ");
       try {
         String input = INPUT.nextLine();
         int inputVal;
-        clearScreen();
         Module module;
-        if (checkIfE(input)) {
+        if (input.equalsIgnoreCase("e")) {
+          WelcomeLine7("At what index would you like to insert it? (1-" + (modules.size() + 1) + ");");
+          num = INPUT.nextInt();
+          INPUT.nextLine();
+          clearScreen();
           modules.add(num, createModule());
           return;
         } else {
@@ -414,10 +422,12 @@ public class UI {
         if (inputVal > 0 && inputVal <= modules.size()) {
           module = modules.get(num - 1);
         } else {
+          clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           enterToContinue();
           return;
         }
+        clearScreen();
         int slideIndex = 0;
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
@@ -636,23 +646,26 @@ public class UI {
   }
 
   public static TextSlide createSlide() {
-    System.out.println("What do you want to title the slide?");
+    WelcomeLine7("What do you want to title the slide?");
     String slideTitle = INPUT.nextLine();
-    System.out.println("What do you want to print on the slide?");
+    WelcomeLine7("What do you want to print on the slide?");
     String slideContents = INPUT.nextLine();
+    clearScreen();
     return new TextSlide(slideTitle, slideContents);
   }
 
   public static Module createModule() {
     boolean addAnotherSlide = true;
-    System.out.println("What is the title of the module?");
+    WelcomeLine7("What is the title of the module?");
     String moduleTitle = INPUT.nextLine();
+    clearScreen();
     ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
     // Create slide loop
     while (addAnotherSlide) {
       slides.add(createSlide());
-      System.out.println("Do you want to add another slide? (Y/N)");
+      WelcomeLine7("Do you want to add another slide? (Y/N)");
       String addSlide = INPUT.nextLine();
+      clearScreen();
       if (addSlide.equalsIgnoreCase("N")) {
         addAnotherSlide = false;
       }
@@ -684,6 +697,7 @@ public class UI {
   public static Assessment makeAssessment() {
     System.out.println("What is the title of the assessment?");
     String title = INPUT.nextLine();
+    clearScreen();
     ArrayList<Question> questions = new ArrayList<Question>();
     boolean addMoreQuestions = true;
     while (addMoreQuestions) {
@@ -703,11 +717,13 @@ public class UI {
     System.out.println("Enter 4 answer choices, pressing enter after each:");
     ArrayList<String> answers = new ArrayList<String>();
     for (int i = 0; i < 4; i++) {
+      System.out.print("\t");
       answers.add(INPUT.nextLine());
     }
     System.out.println("What is the correct answer? a, b, c, or d?");
     String correctAnswer = INPUT.nextLine();
     correctAnswer.toLowerCase();
+    clearScreen();
     return new Question(question, answers, correctAnswer);
   }
 
@@ -868,7 +884,31 @@ public class UI {
 
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
-              module.printComments();
+              ArrayList<Comment> comments = module.getComments();
+              int[] count = {0, 0, 0};
+              for (Comment comment : comments) {
+                count[0]++;
+                System.out.println(count[0] + " " + comment.getPostingUser().getFullName());
+                System.out.println("\t\"" + comment.getPost() + "\"");
+                if (comment.getReplies().size() !=0) {
+                  ArrayList<Comment> replies = comment.getReplies();
+                  for (Comment reply : replies) {
+                    count[1]++;
+                    System.out.println("\t|");
+                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getFullName());
+                    System.out.println("\t\t\"" + reply.getPost() + "\"");
+                    if (reply.getReplies().size() !=0) {
+                      ArrayList<Comment> replies2 = comment.getReplies();
+                      for (Comment reply2 : replies2) {
+                        count[2]++;
+                        System.out.println("\t\t|");
+                        System.out.println((count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getFullName());
+                        System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
+                      }
+                    }
+                  }
+                }
+              }
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
@@ -910,7 +950,6 @@ public class UI {
         WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
-        //AccessCourse(course, student);
         AccessCourse(course, user);
       }
     } else {
