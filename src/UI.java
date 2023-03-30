@@ -954,11 +954,10 @@ public class UI {
 
         if (user.getType().equalsIgnoreCase("student")) {
           if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            double gradeDouble = Math.round(((Student) user).getCourseGradeList(course).get(i - 1).doubleValue());
-            grade += gradeDouble;
+            grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           }
         }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"  + grade + "\n"));
         num++;
         grade = "";
       }
