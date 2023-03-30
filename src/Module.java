@@ -8,6 +8,13 @@ public class Module {
   private ArrayList<Comment> comments;
   private Assessment lessonQuiz;
 
+  /**
+   * Constructor for loading from json
+   * @param title
+   * @param slides
+   * @param comments
+   * @param lessonQuiz
+   */
   public Module(String title, ArrayList<TextSlide> slides, ArrayList<Comment> comments, Assessment lessonQuiz) {
     this.title = title;
     this.slides = slides;
@@ -15,11 +22,19 @@ public class Module {
     this.lessonQuiz = lessonQuiz;
   }
 
+  /**
+   * Constructor for creating from UI
+   * @param title
+   * @param slides
+   */
   public Module(String title, ArrayList<TextSlide> slides) {
     this.title = title;
     this.slides = slides;
   }
 
+  /**
+   * Displays the slides in the module
+   */
   public void displaySlides() {
     for (int i = 0; i < slides.size(); i++) {
       System.out.print("\033[H\033[2J");
@@ -29,6 +44,9 @@ public class Module {
     return;
   }
 
+  /**
+   * Displays the slides in the module
+   */
   public String toString() {
     String info = title + "\n";
     info += "module_slides";
@@ -44,6 +62,7 @@ public class Module {
     return info;
   }
 
+  // adds a comment to the module
   public void addComment(String input, User user) {
     comments.add(new Comment(input, user));
     return;
@@ -54,6 +73,7 @@ public class Module {
     return title;
   }
 
+  // prints the module's comments
   public void printComments() {
     for (int i = 0; i < comments.size(); i++) {
       System.out.println(comments.get(i));
@@ -79,14 +99,17 @@ public class Module {
     return lessonQuiz;
   }
 
+  // sets the module's quiz
   public void setLessonQuiz(Assessment lessonQuiz) {
     this.lessonQuiz = lessonQuiz;
   }
 
+  // adds a slide to the module
   public void addSlide(int index, TextSlide slide) {
     slides.add(index, slide);
   }
 
+  // checking if the module has a quiz
   public boolean hasQuiz() {
     return lessonQuiz != null;
   }
