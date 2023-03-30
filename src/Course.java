@@ -90,13 +90,14 @@ public class Course {
     students.add((Student) userList.getUserByUUID(studentID));
   }
 
-  public void removeFromCourse(Student student) {
+  public boolean removeFromCourse(Student student) {
     for (Student aStudent: students) {
       if (aStudent.getID().equals(student.getID())) {
         students.remove(student);
-        break;
+        return true;
       }
     }
+    return false;
   }
 
   /**

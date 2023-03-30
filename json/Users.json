@@ -52,7 +52,7 @@
   {
     "firstName": "Jagger",
     "lastName": "Tanner",
-    "password": "!password123",
+    "password": " ",
     "dateOfBirth": "07242002",
     "id": "662bc837-e323-4226-9ed0-f878d1011e83",
     "type": "student",
