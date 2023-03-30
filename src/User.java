@@ -89,14 +89,17 @@ public abstract class User {
     return true;
   }
 
+  // print the user's information
   public String toString() {
     return "User: " + id + " " + username + " " + firstName + " " + lastName + " " + email + " " + password + " " + DOB;
   }
 
+  // method to verify if the user is the same as the one passed in
   public boolean equals(UUID id) {
     return this.id.equals(id);
   }
 
+  // getters for all instance variables
   public String getUsername() {
     return username;
   }
@@ -147,6 +150,7 @@ public abstract class User {
     this.DOB = DOB;
   }
 
+  // Return true if the user is at least 13 years old.
   public boolean ofAge() {
     Calendar cal = Calendar.getInstance();
     cal.setTime(DOB);
