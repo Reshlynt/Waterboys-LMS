@@ -370,6 +370,7 @@ public class DataWriter extends DataConstants {
   /**
    * Writes a certificate file for a student and sends
    * them to the certificate directory.
+   * @param student - A Student object whose certificate to be rewarded to.
    */
   public static void WriteCertificateToFile(Student student) {
     try {
