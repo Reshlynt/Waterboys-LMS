@@ -414,6 +414,7 @@ public class UI {
           INPUT.nextLine();
           clearScreen();
           modules.add(num, createModule());
+          clearScreen();
           return;
         } else {
           inputVal = Integer.parseInt(input);
