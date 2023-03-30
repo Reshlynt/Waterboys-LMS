@@ -174,6 +174,8 @@ public class DataWriter extends DataConstants {
     ArrayList<Double> gradeList = student.getCourseGradeList(course);
     if (gradeList != null) {
       studentDetails.put(GRADES, getGradeJSONArray(gradeList));
+    } else {
+      studentDetails.put(GRADES, null);
     }
     return studentDetails;
   }
