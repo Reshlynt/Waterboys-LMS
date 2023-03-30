@@ -917,10 +917,9 @@ public class UI {
         WelcomeLine7("You have finished this module's quiz!");
         WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
-        // double score = (double) correct / (double) numQuestions;
+        //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.RED + "Current Course Grade: " + ConsoleColor.GREEN
-            + student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(ConsoleColor.RED+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
       }
     }
   }
