@@ -903,8 +903,8 @@ public class UI {
             grade = ((Student) user).getCourseGradeList(course).get(i-1).toString();
           }
         }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"
-                                       + grade + "\n"));
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() 
+                                       + "\t"  + grade + "\n"));
         num++;
         grade = "";
       }
