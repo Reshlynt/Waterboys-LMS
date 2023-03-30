@@ -87,4 +87,8 @@ public class Module {
     slides.add(index, slide);
   }
 
+  public boolean hasQuiz() {
+    return lessonQuiz != null;
+  }
+
 }

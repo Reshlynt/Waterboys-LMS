@@ -843,9 +843,19 @@ public class UI {
       WelcomeLine1();
       System.out.println();
       int num = 1;
-      for (Module module : modules) {
-        WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
+      String grade = "";
+      
+      for (int i = 0; i < modules.size(); i++) {
+        
+        if (user.getType().equalsIgnoreCase("student")) {
+          if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
+            grade = ((Student) user).getCourseGradeList(course).get(i-1).toString();
+          }
+        }
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + " "
+                                       + grade + "\n"));
         num++;
+        grade = "";
       }
       System.out.println();
       WelcomeLine5(31, "Choose an option: ");
