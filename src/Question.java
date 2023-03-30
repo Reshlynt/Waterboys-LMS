@@ -39,11 +39,13 @@ public class Question {
    */
   public String toString() {
     String info = "Question: " + question + "\n";
-    info += "Answer choices: ";
+    char letter = 'a';
+    info += "Answer choices: \n";
     for (int i = 0; i < answerChoices.size(); i++) {
-      info += (i + answerChoices.get(i) + "\n");
+      info += ("\t" + letter + ". " + answerChoices.get(i) + "\n");
+      letter++;
     }
-    info += ("Correct Answer: " + correctAnswer);
+    info += ("\nCorrect Answer: " + correctAnswer);
     return info;
   }
 
