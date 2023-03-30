@@ -53,13 +53,13 @@ public class Student extends User {
     return "student";
   }
 
-  public void updateCourseProgress(Course course, Module module, int numCorrect, int numQuestions) {
+  public void updateCourseProgress(Course course, int numCorrect, int numQuestions) {
     System.out.println(this.username + " " + this.getID());
     for (int i = 0; i < courseProgresses.size(); i++) {
       if (courseProgresses.get(i).getCourse().equals(course)) {
         System.out.println("************************REACHED");
         System.out.println("grade list size: " + courseProgresses.get(i).getGradeList().size());
-        courseProgresses.get(i).updateScore(module, numCorrect, numQuestions);
+        courseProgresses.get(i).updateScore(numCorrect, numQuestions);
       }
     }
   }

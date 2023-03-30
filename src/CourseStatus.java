@@ -45,7 +45,7 @@ public class CourseStatus {
     courseGrade = sum / (grades.size());
   }
 
-  public void updateScore(Module module, int numCorrect, int numQuestions) {
+  public void updateScore(int numCorrect, int numQuestions) {
     // find the module in the course and set the grade for that
     Double quizScore = 100 * Double.valueOf((double) numCorrect / (double) numQuestions);
     grades.add(quizScore);
