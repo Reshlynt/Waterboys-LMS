@@ -11,6 +11,7 @@ public class UI {
   public static final Scanner INPUT = new Scanner(System.in);
   public static final LMSSystem LMS = new LMSSystem();
   public static CourseList courseList = CourseList.getInstance();
+  public static UserList userList = UserList.getInstance();
 
   public static void main(String[] args) {
     clearScreen();
@@ -956,13 +957,7 @@ public class UI {
             grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           }
         }
-<<<<<<< HEAD
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"
-            + grade + "\n"));
-=======
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() 
-                                       + "\t"  + grade + "\n"));
->>>>>>> 4e700766fb5ef529523837e4436ad3adcde9ebf2
+        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"  + grade + "\n"));
         num++;
         grade = "";
       }
