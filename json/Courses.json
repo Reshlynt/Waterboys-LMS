@@ -890,6 +890,58 @@
       },
       {
         "module_comments": [],
+        "quiz": [
+          {
+            "answer_choices": [
+              {
+                "a": "re.compile",
+                "b": "re.findall",
+                "c": "re.replace",
+                "d": "re.split"
+              }
+            ],
+            "question": "Which function is used to search for a pattern in a string using regular expressions in Python?",
+            "correct_answer": "b"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": ".",
+                "b": "*",
+                "c": "^",
+                "d": "+"
+              }
+            ],
+            "question": "Which of the following is a valid regular expression pattern that matches any character?",
+            "correct_answer": "a"
+          },
+          {
+            "answer_choices": [
+              {
+                "a": "Matches any character except for the ones specified.",
+                "b": "Matches only at the beginning of a line",
+                "c": "Matches the pattern case-insensitively.",
+                "d": "Matches one or more occurrences of the preceding character or group"
+              }
+            ],
+            "question": "What does the re.IGNORECASE flag do in Python regular expressions?",
+            "correct_answer": "c"
+          }
+        ],
+        "slides": [
+          {
+            "description": "Regular expressions (regex) are a powerful tool for working with text in Python.\nThey are a sequence of characters that define a search pattern.\nThis pattern is used to search, replace or manipulate text.\nThe re module in Python provides functions to work with regular expressions.\n ",
+            "slide_title": "Regular Expressions in Python"
+          },
+          {
+            "description": "Regular expressions are defined using special characters and metacharacters.\n”nA period (.) matches any character except newline.\nThe ^ character matches the start of a string.\nThe $ character matches the end of a string.\nThe [] character set matches any one of the enclosed characters.\nThe *, + and ? quantifiers match zero or more, one or more, or zero or one occurrences respectively.\nThe () parentheses define a group that can be referenced later in the expression.",
+            "slide_title": "Syntax of Regular Expressions in Python"
+          }
+        ],
+        "module_title": "Regular Expressions"
+      },
+      {
+        "module_comments": [],
         "quiz": [],
         "slides": [
           {
