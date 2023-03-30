@@ -597,10 +597,18 @@ public class UI {
 
   public static Course getCourses(Student user) {
     ArrayList<Course> student_courses = DataLoader.getCourses();
-    if (student_courses != null) {
+    ArrayList<Course> courses = new ArrayList<Course>();
+    for (Course course : student_courses) {
+      for (Student student : course.getStudents()) {
+        if (user.getID().equals(student.getID())) {
+          courses.add(course);
+        }
+      }
+    }
+    if (!(courses.size() == 0)) {
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
-      for (Course course : student_courses) {
+      for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
@@ -610,7 +618,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        return student_courses.get(num - 1);
+        return courses.get(num - 1);
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
@@ -626,6 +634,10 @@ public class UI {
   }
 
   public static void AccessCourse(Course course, Student student) {
+    if (course == null) {
+      enterToContinue();
+      return;
+    }
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       clearScreen();
