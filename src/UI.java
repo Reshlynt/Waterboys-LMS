@@ -1025,7 +1025,8 @@ public class UI {
               String choice = INPUT.nextLine();
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
-                module.addComment(INPUT.nextLine(), user);
+                Comment new_comment = new Comment(INPUT.nextLine(), user);
+                WelcomeLine7("Where would you like to put this?");
                 CourseList.saveCourses();
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("Moving on...");
