@@ -970,13 +970,14 @@ public class UI {
       String grade = "";
 
       for (int i = 0; i < modules.size(); i++) {
-
-        if (user.getType().equalsIgnoreCase("student")) {
-          if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
-          }
-        }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
+        boolean studentCompletedModule = user.getType().equalsIgnoreCase("student") && modules.get(i).hasQuiz() && i > 0
+            && (i <= ((Student) user).getCourseGradeList(course).size());
+        if (studentCompletedModule) {
+          grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
+          WelcomeLine5(10, ConsoleColor.GREEN
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET+grade + "\n" + ConsoleColor.RESET));
+        } else
+          WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
         grade = "";
       }
