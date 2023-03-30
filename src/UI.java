@@ -21,8 +21,8 @@ public class UI {
   public static User promptUser() {
     boolean quit = false;
     // Part 1 - Logging in or Signing up
+    User user = null;
     while (!quit) {
-      User user = null;
       switch (Welcome()) {
         case 1:
           user = Login();
@@ -897,10 +897,10 @@ public class UI {
       size += 1;
       WelcomeLine7(question.getQuestionContent());
       System.out.println();
-      char num = 'A';
+      char ansChoice = 'A';
       for (String answer_choice : question.getAnswerChoices()) {
-        System.out.println(num + ".) " + answer_choice);
-        num++;
+        System.out.println(ansChoice + ".) " + answer_choice);
+        ansChoice++;
       }
       System.out.print("\nWhat is your answer? ");
       String answer = INPUT.nextLine();
@@ -909,6 +909,7 @@ public class UI {
         numCorrect += 1;
       } else {
         System.out.println("Incorrect!");
+        System.out.println("Correct Answer: " + question.getCorrectAnswer());
       }
       if (size != module.getQuiz().getQuestions().size()) {
         WelcomeLine7("Press Enter to continue to the next question");
