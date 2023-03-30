@@ -79,6 +79,17 @@ public class Course {
     if (student != null)
       students.add(student);
   }
+  public boolean removeFromCourse(Student student) {
+    if (student == null)
+      return false;
+    for (int i = 0; i < students.size(); i++) {
+      if (students.get(i).getID().equals(student.getID())) {
+        students.remove(i);
+        return true;
+      }
+    }
+    return false;
+  }
 
   /**
    * Method adds a given student to the course

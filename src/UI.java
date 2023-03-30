@@ -59,13 +59,14 @@ public class UI {
       if (userType.equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
-             addToCourse((Teacher) user);
+            addToCourse((Teacher) user);
             // add student to course
             break;
           case 2:
             CreateCourse((Teacher) user);
             break;
           case 3:
+            removeStudentFromCourse((Teacher) user);
             // remove student from course
             break;
           case 4:
@@ -83,7 +84,7 @@ public class UI {
         switch (StudentMenu((Student) user)) {
           case 1:
             Course course = getCourses((Student) user);
-            //AccessCourse(course, (Student) user);
+            // AccessCourse(course, (Student) user);
             AccessCourse(course, user);
             break;
           case 2:
@@ -383,10 +384,59 @@ public class UI {
     enterToContinue();
   }
 
-  public void removeStudentFromClass() {
+  public static void removeStudentFromCourse(Teacher teacher) {
     clearScreen();
-    WelcomeLine7("Which course would you like to remove a student from?");
-
+    WelcomeLine1();
+    WelcomeLine6("Remove Student From Course:");
+    WelcomeLine1();
+    System.out.println("\n");
+    ArrayList<Course> courses = courseList.getAllCourses();
+    ArrayList<Course> teacherCourses = new ArrayList<Course>();
+    for (int i = 0; i < courses.size(); i++) {
+      if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
+        teacherCourses.add(courses.get(i));
+      }
+    }
+    if (teacherCourses.size() == 0) {
+      WelcomeLine7("You have no courses. Press Enter to Continue");
+      INPUT.nextLine();
+      clearScreen();
+      return;
+    }
+    WelcomeLine5(10, "Select a course to remove a student from:\n\n");
+    for (int i = 0; i < teacherCourses.size(); i++) {
+      WelcomeLine5(10, (i + 1) + ".) " + teacherCourses.get(i).getTitle());
+      System.out.println("\n");
+    }
+    int num = INPUT.nextInt();
+    INPUT.nextLine();
+    clearScreen();
+    Course course = teacherCourses.get(num - 1);
+    boolean addMore = true;
+    while (addMore) {
+      WelcomeLine1();
+      WelcomeLine6("Add Student to Course");
+      WelcomeLine1();
+      System.out.println();
+      WelcomeLine5(10, "Enter the username of the student you would like to add: ");
+      String username = INPUT.nextLine();
+      Student student = (Student) userList.getUser(username);
+      clearScreen();
+      if (student == null) {
+        WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        return;
+      } else {
+        if (course.removeFromCourse(student))
+          WelcomeLine7("Student removed from course. Press Enter to Continue");
+        else
+          WelcomeLine7("Error removing student. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        addMore = false;
+      }
+    }
   }
 
   public static void viewCourses(Teacher teacher) {
@@ -420,7 +470,8 @@ public class UI {
         System.out.println("\n\n\n\n\n");
         if (edit)
           editCourse(teacherCourses.get(num - 1), teacher);
-        else AccessCourse(courses.get(num - 1), teacher);
+        else
+          AccessCourse(courses.get(num - 1), teacher);
         return;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -535,13 +586,14 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-                System.out.println(module.getQuiz().toString());
+              System.out.println(module.getQuiz().toString());
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
               return;
             }
             WelcomeLine7("Would you like to add any questions to this quiz? \n");
-            WelcomeLine7("Enter the the number where you would like to insert the question, or '0' if you do not want to insert anything.\n");
+            WelcomeLine7(
+                "Enter the the number where you would like to insert the question, or '0' if you do not want to insert anything.\n");
             int index = INPUT.nextInt();
             INPUT.nextLine();
             if (index == 0) {
@@ -895,16 +947,16 @@ public class UI {
       System.out.println();
       int num = 1;
       String grade = "";
-      
+
       for (int i = 0; i < modules.size(); i++) {
-        
+
         if (user.getType().equalsIgnoreCase("student")) {
           if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            grade = ((Student) user).getCourseGradeList(course).get(i-1).toString();
+            grade = ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           }
         }
         WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t"
-                                       + grade + "\n"));
+            + grade + "\n"));
         num++;
         grade = "";
       }
@@ -950,24 +1002,25 @@ public class UI {
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
               ArrayList<Comment> comments = module.getComments();
-              int[] count = {0, 0, 0};
+              int[] count = { 0, 0, 0 };
               for (Comment comment : comments) {
                 count[0]++;
                 System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
                 System.out.println("\t\"" + comment.getPost() + "\"");
-                if (comment.getReplies().size() !=0) {
+                if (comment.getReplies().size() != 0) {
                   ArrayList<Comment> replies = comment.getReplies();
                   for (Comment reply : replies) {
                     count[1]++;
                     System.out.println("\t|");
                     System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
                     System.out.println("\t\t\"" + reply.getPost() + "\"");
-                    if (reply.getReplies().size() !=0) {
+                    if (reply.getReplies().size() != 0) {
                       ArrayList<Comment> replies2 = comment.getReplies();
                       for (Comment reply2 : replies2) {
                         count[2]++;
                         System.out.println("\t\t|");
-                        System.out.println((count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
+                        System.out.println(
+                            (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
                         System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
                       }
                     }
@@ -993,7 +1046,7 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-              takeQuiz(course, module, (Student)user);
+              takeQuiz(course, module, (Student) user);
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
             }
@@ -1050,12 +1103,13 @@ public class UI {
         WelcomeLine7("You have finished this module's quiz!");
         WelcomeLine7("You scored " + numCorrect + " out of " + numQuestions + " points!");
         // add student's grade to their courseProgress for this course
-        //double score = (double) correct / (double) numQuestions;
+        // double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.GREEN+"Current Course Grade: "+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(
+            ConsoleColor.GREEN + "Current Course Grade: " + student.getCourseGrade(course) + ConsoleColor.RESET);
         ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
         System.out.println("Grades so far in the class:");
-        for(int i = 0; i<currentCourseGrades.size();i++){
+        for (int i = 0; i < currentCourseGrades.size(); i++) {
           System.out.println(currentCourseGrades.get(i) + ", ");
         }
       }
