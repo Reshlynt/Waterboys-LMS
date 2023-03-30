@@ -36,14 +36,6 @@ public class Teacher extends User {
     return "teacher";
   }
 
-  public void editCourse(Course course) {
-    for (int i = 0; i < course.getModules.size(); i++) {
-      if (courses.get(i).equals(course)) {
-        courses.set(i, course);
-      }
-    }
-  }
-
   // Returns the courses that the teacher has created
   public ArrayList<Course> getCourses() {
     return this.courses;

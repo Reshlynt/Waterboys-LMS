@@ -351,19 +351,135 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        teacher.editCourse(teacherCourses.get(num - 1));
+        editCourse(teacherCourses.get(num - 1));
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        WelcomeLine7("You entered an invalid choice. Press Enter or to Continue");
-        INPUT.nextLine();
-        System.out.println("\n\n\n\n\n");
-        return getCourses((Student) user);
+        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+        enterToContinue();
+        return;
       }
     } else {
       WelcomeLine7("You have no courses!");
-      return null;
+      return;
     }
+  }
+
+  public static void editCourse(Course course) {
+    // Proceed through course;
+    // At any point if the teacher types 'e', they will be prompted to edit the course
+    if (course == null) {
+      enterToContinue();
+      return;
+    }
+    ArrayList<Module> modules = course.getModules();
+    if (modules != null) {
+      clearScreen();
+      WelcomeLine1();
+      WelcomeLine6(course.getTitle());
+      WelcomeLine1();
+      System.out.println();
+      int num = 1;
+      for (Module module : modules) {
+        WelcomeLine5(10, (num + ".) " + module.getTitle() + "\n"));
+        num++;
+      }
+      System.out.println();
+      WelcomeLine5(31, "Choose an option, or enter 'E' to add modules: ");
+      try {
+        String input = INPUT.nextLine();
+        clearScreen();
+        if (input.equalsIgnoreCase("e")) {
+          modules.add(num, createModules());
+        } else {
+          int value = Integer.parseInt(input);
+          if (value > 0 && value <= modules.size()) {
+            viewModule(course, value);
+          } else {
+            WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+            enterToContinue();
+            return;
+          }
+        }
+        Module module = modules.get(num - 1);
+        for (Slide slide : module.getSlides()) {
+          WelcomeLine1();
+          System.out.println(slide + "\n");
+          enterToContinue();
+        }
+        WelcomeLine7("You have finished this module!");
+        boolean option = true;
+        int value = 0;
+        while (option) {
+          WelcomeLine7("What would you like to do?\n");
+          WelcomeLine5(10, "1.) View Comments\n");
+          WelcomeLine5(10, "2.) Take a Quiz\n");
+          WelcomeLine5(10, "3.) View Other Modules\n");
+          WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
+          WelcomeLine5(30, "Choose an option: ");
+          try {
+            value = INPUT.nextInt();
+            INPUT.nextLine();
+            clearScreen();
+            option = false;
+          } catch (Exception e) {
+            INPUT.nextLine();
+            clearScreen();
+            System.out.println("You entered an invalid choice. Press Enter to Continue");
+            INPUT.nextLine();
+            clearScreen();
+          }
+
+          if (value == 1) {
+            if (module.getComments() != null && module.getComments().size() != 0) {
+              module.printComments();
+            } else if (student.ofAge() == false) {
+              WelcomeLine7("Comments cannot be viewed by users under 13");
+            }else {
+              clearScreen();
+              WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
+              WelcomeLine7("Enter \"Yes\" or \"No\"\n");
+              String choice = INPUT.nextLine();
+              if (choice.equalsIgnoreCase("yes")) {
+                WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
+                module.addComment(INPUT.nextLine(), student);
+              } else if (choice.equalsIgnoreCase("no")) {
+                WelcomeLine7("This comment section is looking awfully quiet...");
+              } else {
+                WelcomeLine7("You entered an invalid choice, moving on...");
+              }
+            }
+          } else if (value == 2) {
+            if (module.getQuiz() != null &&
+                module.getQuiz().getQuestions().size() != 0) {
+              takeQuiz(course, module, student);
+            } else {
+              WelcomeLine7("There are currently no quizzes for this module.");
+            }
+          } else if (value == 3) {
+            AccessCourse(course, student);
+          } else if (value == 4) {
+            return;
+          } else {
+            System.out.println("You entered an invalid choice. Press Enter to Continue");
+            INPUT.nextLine();
+            clearScreen();
+          }
+        }
+        enterToContinue();
+        return;
+      } catch (Exception e) {
+        INPUT.nextLine();
+        clearScreen();
+        WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        AccessCourse(course, student);
+      }
+    } else {
+      return;
+    }
+    
   }
 
   private static void ViewStudentProfile(Student user) {
@@ -449,6 +565,7 @@ public class UI {
         System.out.println("Please enter JavaScript or Python");
       }
     } while (!System.console().readLine().equals("JavaScript") && !System.console().readLine().equals("Python"));
+    System.out.println("Moving on now to the modules;");
     ArrayList<Module> lessons = createModules();
     // Create exam
     System.out.println("Create the exam for this course: ");
@@ -486,25 +603,22 @@ public class UI {
     return null;
   }
 
-  public static ArrayList<Module> createModules() {
-    clearScreen();
-    // Lesson creator:
-    ArrayList<Module> lessons = new ArrayList<Module>();
-    boolean addAnotherModule = true;
+  public static TextSlide createSlide() {
+    System.out.println("What do you want to title the slide?");
+    String slideTitle = System.console().readLine();
+    System.out.println("What do you want to print on the slide?");
+    String slideContents = System.console().readLine();
+    return new TextSlide(slideTitle, slideContents);
+  }
+
+  public static Module createModule() {
     boolean addAnotherSlide = true;
-    System.out.println("Moving on now to the modules;");
-    while (addAnotherModule) {
-      System.out.println("What is the title of the module?");
+    System.out.println("What is the title of the module?");
       String moduleTitle = System.console().readLine();
       ArrayList<TextSlide> slides = new ArrayList<TextSlide>();
       // Create slide loop
       while (addAnotherSlide) {
-        System.out.println("What do you want to title the slide?");
-        String slideTitle = System.console().readLine();
-        System.out.println("What do you want to print on the slide?");
-        String slideContents = System.console().readLine();
-        TextSlide tSlide = new TextSlide(slideTitle, slideContents);
-        slides.add(tSlide);
+        slides.add(createSlide());
         System.out.println("Do you want to add another slide? (Y/N)");
         String addSlide = System.console().readLine();
         addSlide.toUpperCase();
@@ -517,10 +631,19 @@ public class UI {
       Assessment moduleQuiz = makeAssessment();
       moduleQuiz.setType(Type.QUIZ);
       aModule.setLessonQuiz(moduleQuiz);
+      return aModule;
+  }
+
+  public static ArrayList<Module> createModules() {
+    clearScreen();
+    // Lesson creator:
+    ArrayList<Module> lessons = new ArrayList<Module>();
+    boolean addAnotherModule = true;
+    while (addAnotherModule) {
+      lessons.add(createModule());
       System.out.println("Add another module? (Y/N)");
       String addModule = System.console().readLine();
-      addModule.toUpperCase();
-      if (addModule.equals("N")) {
+      if (addModule.equalsIgnoreCase("N")) {
         addAnotherModule = false;
       }
     }
