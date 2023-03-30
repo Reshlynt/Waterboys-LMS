@@ -59,6 +59,7 @@ public class UI {
       if (userType.equalsIgnoreCase("teacher")) {
         switch (TeacherMenu((Teacher) user)) {
           case 1:
+             addToCourse((Teacher) user);
             // add student to course
             break;
           case 2:
@@ -305,6 +306,43 @@ public class UI {
     }
   }
 
+  public static void addToCourse(Teacher teacher) {
+    WelcomeLine1();
+    WelcomeLine6("Add Student to Course");
+    WelcomeLine1();
+    System.out.println();
+    WelcomeLine7("Which course would you like to add a student to?");
+    int num = 0;
+    for (Course course : teacher.getCourses()) {
+      WelcomeLine5(10, course.getTitle());
+    }
+    num = INPUT.nextInt();
+    INPUT.nextLine();
+    clearScreen();
+    boolean addMore = true;
+    while (addMore) {
+      WelcomeLine1();
+      WelcomeLine6("Add Student to Course");
+      WelcomeLine1();
+      System.out.println();
+      WelcomeLine5(10, "Enter the username of the student you would like to add: ");
+      String username = INPUT.nextLine();
+      Student student = (Student) LMS.getUser(username);
+      if (student == null) {
+        WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        addToCourse(teacher);
+      } else {
+        teacher.addToCourse(student, teacher.getCourses().get(num));
+        WelcomeLine7("Student added to course. Press Enter to Continue");
+        INPUT.nextLine();
+        clearScreen();
+        addMore = false;
+      }
+    }
+  }
+
   private static void ViewTeacherProfile(Teacher user) {
     clearScreen();
     String header = (user.getUsername() + "\'s Profile");
@@ -415,7 +453,7 @@ public class UI {
           num = INPUT.nextInt();
           INPUT.nextLine();
           clearScreen();
-          modules.add(num, createModule());
+          modules.add(num - 1, createModule());
           clearScreen();
           return;
         } else {
