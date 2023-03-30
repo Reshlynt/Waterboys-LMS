@@ -1103,10 +1103,6 @@ public class UI {
     }
   }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b45ce4d43c0c6c536802c86d2f065d0b4bbcadee
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {
