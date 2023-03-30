@@ -307,16 +307,29 @@ public class UI {
   }
 
   public static void addToCourse(Teacher teacher) {
+    clearScreen();
     WelcomeLine1();
-    WelcomeLine6("Add Student to Course");
+    WelcomeLine6("Add Student to Course:");
     WelcomeLine1();
-    System.out.println();
-    WelcomeLine7("Which course would you like to add a student to?");
-    int num = 0;
-    for (Course course : teacher.getCourses()) {
-      WelcomeLine5(10, course.getTitle());
+    System.out.println("\n");
+    ArrayList<Course> courses = courseList.getAllCourses();
+    ArrayList<Course> teacherCourses = new ArrayList<Course>();
+    for (int i = 0; i < courses.size(); i++) {
+      if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
+        teacherCourses.add(courses.get(i));
+      }
     }
-    num = INPUT.nextInt();
+    if (teacherCourses.size() == 0) {
+      WelcomeLine7("You have no courses. Press Enter to Continue");
+      INPUT.nextLine();
+      clearScreen();
+      return;
+    }
+    WelcomeLine5(10, "Select a course to add a student to: (1 - " + (teacherCourses.size() + 1) + ")");
+    for (int i = 0; i < teacherCourses.size(); i++) {
+      WelcomeLine5(10, i + 1 + ".) " + teacherCourses.get(i).getTitle());
+    }
+    int num = INPUT.nextInt();
     INPUT.nextLine();
     clearScreen();
     boolean addMore = true;
@@ -328,6 +341,7 @@ public class UI {
       WelcomeLine5(10, "Enter the username of the student you would like to add: ");
       String username = INPUT.nextLine();
       Student student = (Student) LMS.getUser(username);
+      clearScreen();
       if (student == null) {
         WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
         INPUT.nextLine();
