@@ -109,11 +109,15 @@ public class DataLoader extends DataConstants {
         JSONArray examJSON = (JSONArray) courseJSON.get(EXAM);
         Assessment readExam = readAssessment(examJSON, courseTitle + " exam", Type.EXAM);
 
+        Teacher courseTeacher = (Teacher) UserList.getInstance().getUserByUUID(teacherID);
         // creates a course with all of the information that was read from the JSON, and
         // appends to the array list
-        Course readCourse = new Course(courseID, (Teacher) UserList.getInstance().getUserByUUID(teacherID), courseTitle,
+        Course readCourse = new Course(courseID, courseTeacher, courseTitle,
             courseDifficulty, courseTitle, readExam, courseType, modules, courseComments, students);
         courses.add(readCourse);
+
+        // adds the course to the teachers courses
+        courseTeacher.addCourse(readCourse);
 
         // iterates through students and updates all of their grades that were parsed
         // and put into the array list of hashmaps

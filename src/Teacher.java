@@ -11,7 +11,6 @@ public class Teacher extends User {
 
   public Teacher(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
-    // this.courses = setCoursesCreated(courses);;
   }
 
   public Teacher(String username, String firstName, String lastName, String email, String password, Date DOB) {
@@ -44,5 +43,9 @@ public class Teacher extends User {
   // Returns the teacher's students
   public ArrayList<Student> getStudents() {
     return students;
+  }
+
+  public void addCourse(Course course) {
+    this.courses.add(course);
   }
 }
