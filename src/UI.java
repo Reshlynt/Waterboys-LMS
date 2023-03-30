@@ -608,9 +608,23 @@ public class UI {
     // What info to make a course? Difficulty,
   }
 
+<<<<<<< HEAD
   public static Course getCourses(User user) {
     ArrayList<Course> courses = DataLoader.getCourses();
     if (courses != null) {
+=======
+  public static Course getCourses(Student user) {
+    ArrayList<Course> student_courses = DataLoader.getCourses();
+    ArrayList<Course> courses = new ArrayList<Course>();
+    for (Course course : student_courses) {
+      for (Student student : course.getStudents()) {
+        if (user.getID().equals(student.getID())) {
+          courses.add(course);
+        }
+      }
+    }
+    if (!(courses.size() == 0)) {
+>>>>>>> 89008c5819363ed1bd56ff44745a7b577518ea06
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
@@ -639,6 +653,10 @@ public class UI {
   }
 
   public static void AccessCourse(Course course, Student student) {
+    if (course == null) {
+      enterToContinue();
+      return;
+    }
     ArrayList<Module> modules = course.getModules();
     if (modules != null) {
       clearScreen();

@@ -32,6 +32,10 @@
         "id":"9e38f751-9524-4e62-9acf-5c70c644a988",
         "completed": false,
         "grades":[]
+      },{
+        "id":"662bc837-e323-4226-9ed0-f878d1011e84",
+        "completed": false,
+        "grades":[]
       }
     ],
     "title": "Introduction to Python",
