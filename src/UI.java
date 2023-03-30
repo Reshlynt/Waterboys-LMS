@@ -989,7 +989,7 @@ public class UI {
         // add student's grade to their courseProgress for this course
         //double score = (double) correct / (double) numQuestions;
         student.updateCourseProgress(course, numCorrect, numQuestions);
-        System.out.println(ConsoleColor.GREEN+"Current Course Grade: " + ConsoleColor.GREEN+ student.getCourseGrade(course) + ConsoleColor.RESET);
+        System.out.println(ConsoleColor.GREEN+"Current Course Grade: "+ student.getCourseGrade(course) + ConsoleColor.RESET);
         ArrayList<Double> currentCourseGrades = student.getCourseGradeList(course);
         System.out.println("Grades so far in the class:");
         for(int i = 0; i<currentCourseGrades.size();i++){
