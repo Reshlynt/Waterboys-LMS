@@ -133,12 +133,12 @@ public class DataLoader extends DataConstants {
    *            user
    * @return Converted Date object specifying date of birth
    */
-  public static Date parseDate(String dob) {
+  private static Date parseDate(String dob) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
     try {
       return dateFormat.parse(dob);
     } catch (ParseException e) {
-      UI.WelcomeLine7("There was an error with your birthday...");
+      e.printStackTrace();
     }
     return null;
   }
