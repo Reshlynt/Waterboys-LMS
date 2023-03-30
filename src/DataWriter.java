@@ -239,7 +239,7 @@ public class DataWriter extends DataConstants {
    */
   private static JSONObject getCommentJSON(Comment comment) {
     JSONObject commentDetails = new JSONObject();
-    commentDetails.put(COMMENTER_ID, comment.getPostingUser().toString());
+    commentDetails.put(COMMENTER_ID, comment.getPostingUser().getID().toString());
     commentDetails.put(COMMENT_TEXT, comment.getPost());
     commentDetails.put(REPLIES, getCommentJSONArray(comment.getReplies()));
 
@@ -388,5 +388,9 @@ public class DataWriter extends DataConstants {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public static void main(String[] args) {
+    saveCourses();
   }
 }
