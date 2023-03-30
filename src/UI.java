@@ -142,6 +142,14 @@ public class UI {
     System.out.flush();
   }
 
+  public static boolean checkIfE(String input) {
+    if (input.equalsIgnoreCase("e")) {
+      clearScreen();
+      return true;
+    }
+    return false;
+  }
+
   private static void WelcomeLine1() {
     for (int i = 0; i < 79; i++)
       System.out.print('*');
@@ -354,7 +362,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        editCourse(teacherCourses.get(num - 1));
+        editCourse(teacherCourses.get(num - 1), teacher);
       } catch (Exception e) {
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
@@ -368,7 +376,7 @@ public class UI {
     }
   }
 
-  public static void editCourse(Course course) {
+  public static void editCourse(Course course, Teacher teacher) {
     // Proceed through course;
     // At any point if the teacher types 'e', they will be prompted to edit the
     // course
@@ -392,29 +400,33 @@ public class UI {
       WelcomeLine5(31, "Choose an option, or enter 'E' to add modules: ");
       try {
         String input = INPUT.nextLine();
-        int value;
+        int inputVal;
         clearScreen();
-        if (input.equalsIgnoreCase("e")) {
+        Module module;
+        if (checkIfE(input)) {
           modules.add(num, createModule());
           return;
         } else {
-          value = Integer.parseInt(input);
+          inputVal = Integer.parseInt(input);
         }
-        if (value > 0 && value <= modules.size()) {
-          Module module = modules.get(num - 1);
+        if (inputVal > 0 && inputVal <= modules.size()) {
+          module = modules.get(num - 1);
         } else {
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
           enterToContinue();
           return;
         }
+        int slideIndex;
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide + "\n\n\n");
-          WelcomeLine7("Press Enter to Continue, or 'E' to edit the slides");
+          WelcomeLine7("Press Enter to Continue or 'I' to insert a slide after this one.");
           input = INPUT.nextLine();
-          if (input.equalsIgnoreCase("e")) {
-            slide.editSlide();
+          if (input.equalsIgnoreCase("i")) {
+            module.addSlide(slideIndex + 1, createSlide());
+            return;
           }
+          slideIndex++;
         }
         WelcomeLine7("You have finished this module!");
         boolean option = true;
@@ -422,7 +434,7 @@ public class UI {
         while (option) {
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(10, "1.) View Comments\n");
-          WelcomeLine5(10, "2.) Take a Quiz\n");
+          WelcomeLine5(10, "2.) View Quiz\n");
           WelcomeLine5(10, "3.) View Other Modules\n");
           WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
@@ -442,8 +454,6 @@ public class UI {
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
               module.printComments();
-            } else if (student.ofAge() == false) {
-              WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
               clearScreen();
               WelcomeLine7("There are no comments for this module! Would you like to add one?\n");
@@ -451,7 +461,7 @@ public class UI {
               String choice = INPUT.nextLine();
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
-                module.addComment(INPUT.nextLine(), student);
+                module.addComment(INPUT.nextLine(), teacher);
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("This comment section is looking awfully quiet...");
               } else {
@@ -461,7 +471,7 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-              takeQuiz(course, module, student);
+                module.getQuiz().printQuiz();
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
             }
@@ -481,9 +491,8 @@ public class UI {
         INPUT.nextLine();
         clearScreen();
         WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-        INPUT.nextLine();
-        clearScreen();
-        AccessCourse(course, student);
+        enterToContinue();
+        return;
       }
     } else {
       return;
@@ -814,6 +823,7 @@ public class UI {
         for (Slide slide : module.getSlides()) {
           WelcomeLine1();
           System.out.println(slide + "\n");
+          if ()
           enterToContinue();
         }
         WelcomeLine7("You have finished this module!");
