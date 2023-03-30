@@ -314,8 +314,8 @@ public class UI {
     WelcomeLine5(10, "Name: " + user.getFirstName() + " " + user.getLastName() + "\n");
     WelcomeLine5(10, "Email: " + user.getEmail() + "\n");
     WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
-    if (DataLoader.getCourses() != null) {
-      ArrayList<Course> readCourses = DataLoader.getCourses();
+    if (courseList.getAllCourses() != null) {
+      ArrayList<Course> readCourses = courseList.getAllCourses();
       System.out.println("\n");
       WelcomeLine5(10, "Courses Created:\n");
       for (int i = 0; i < readCourses.size(); i++) {
@@ -343,7 +343,7 @@ public class UI {
     WelcomeLine6("Courses:");
     WelcomeLine1();
     System.out.println("\n");
-    ArrayList<Course> courses = DataLoader.getCourses();
+    ArrayList<Course> courses = courseList.getAllCourses();
     ArrayList<Course> teacherCourses = new ArrayList<Course>();
     for (int i = 0; i < courses.size(); i++) {
       if (courses.get(i).getAuthor().getID().equals(teacher.getID())) {
@@ -537,7 +537,7 @@ public class UI {
     WelcomeLine5(10, "Date of Birth: " + user.getDOB() + "\n");
     System.out.println("\n");
     WelcomeLine5(10, "Courses Enrolled:\n");
-    ArrayList<Course> readCourses = CourseList.getInstance.getCourses();
+    ArrayList<Course> readCourses = courseList.getAllCourses();
     for (int i = 0; i < readCourses.size(); i++) {
       Course course = readCourses.get(i);
       ArrayList<Student> students = course.getStudents();
@@ -791,7 +791,7 @@ public class UI {
 
   public static Course getCourses(Student user) {
     DataWriter.saveCourses();
-    ArrayList<Course> student_courses = DataLoader.getCourses();
+    ArrayList<Course> student_courses = courseList.getAllCourses();
     ArrayList<Course> courses = new ArrayList<Course>();
     for (Course course : student_courses) {
       for (Student student : course.getStudents()) {
