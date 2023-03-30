@@ -1098,64 +1098,25 @@ public class UI {
     }
   }
 
-<<<<<<< HEAD
   private static void editQuiz(Assessment quiz) {
     for (int i = 0; i < quiz.getQuestions().size(); i++) {
-      WelcomeLine7("Press enter to iterate through the questions\n");
+      WelcomeLine7("Enter . to move to the next \n");
       System.out.println(i + ": " + quiz.getQuestions().get(i).toString() + "\n");
-      WelcomeLine7
-    }
-  }
-
-
-=======
-  //goes through comments array, prints out comments and replies
-  private static Comment getCommentsAndReplies(Module module, Student user) {
-    if (module.getComments() != null && module.getComments().size() != 0) {
-      ArrayList<Comment> comments = module.getComments();
-      int[] count = { 0, 0, 0 };
-      for (Comment comment : comments) {
-        count[0]++;
-        System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
-        System.out.println("\t\"" + comment.getPost() + "\"");
-        if (comment.getReplies().size() != 0 && comment.getReplies() != null) {
-          ArrayList<Comment> replies = comment.getReplies();
-          for (Comment reply : replies) {
-            count[1]++;
-            System.out.println("\t|");
-            System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
-            System.out.println("\t\t\"" + reply.getPost() + "\"");
-            if (reply.getReplies().size() != 0) {
-              ArrayList<Comment> replies2 = comment.getReplies();
-              for (Comment reply2 : replies2) {
-                count[2]++;
-                System.out.println("\t\t|");
-                System.out.println(
-                    (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
-                System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
-              }
-            }
-          }
+      WelcomeLine7("Enter 'I' to insert a question\n");
+      WelcomeLine7("Enter 'R' to remove current question\n");
+      String input = INPUT.nextLine();
+      if (!input.equals(".")) {
+        if (input.equals("I")) {
+          quiz.addQuestion(i, makeQuestion());
+        }
+        if (input.equals("R")) {
+          quiz.removeQuestion(i);
         }
       }
     }
-    Comment student_comment = null;
-    WelcomeLine7("Would you like to leave a comment?");
-    WelcomeLine7("Enter \"Yes\" or \"No\"\n");
-    String choice = INPUT.nextLine();
-    if (choice.equalsIgnoreCase("yes")) {
-      WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
-      student_comment = new Comment(choice, user);
-      module.addComment(INPUT.nextLine(), user);
-    } else if (choice.equalsIgnoreCase("no")) {
-      WelcomeLine7("This comment section is looking awfully quiet...");
-    } else {
-      WelcomeLine7("You entered an invalid choice, moving on...");
-    }
-    return student_comment;
   }
 
->>>>>>> 4fcce6d2bdaaaee9f0ac6b1bf4ecce2761a30e96
+
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {

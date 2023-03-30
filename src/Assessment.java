@@ -54,6 +54,12 @@ public class Assessment {
     questions.add(index, question);
   }
 
+  public void removeCurrent(int start) {
+    for (int i = start; i < questions.size(); i++) {
+      questions.;
+    }
+  }
+
   /**
    * To String method for printing the assessment(debugging method)
    * 
