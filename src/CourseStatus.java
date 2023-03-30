@@ -15,6 +15,7 @@ public class CourseStatus {
     this.grades = grades;
     courseGrade = 0.0;
   }
+
   public double getProgress() {
     return progress;
   }
