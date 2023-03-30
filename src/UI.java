@@ -866,7 +866,27 @@ public class UI {
 
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
-              module.printComments();
+              ArrayList<Comment> comments = module.getComments();
+              for (Comment comment : comments) {
+                System.out.println(comment.getPostingUser().getFullName());
+                System.out.println("\t\"" + comment.getPost() + "\"");
+                if (comment.getReplies().size() !=0) {
+                  ArrayList<Comment> replies = comment.getReplies();
+                  for (Comment reply : replies) {
+                    System.out.println("\t|");
+                    System.out.println("\t| " + reply.getPostingUser().getFullName());
+                    System.out.println("\t\t\"" + reply.getPost() + "\"");
+                    if (reply.getReplies().size() !=0) {
+                      ArrayList<Comment> replies2 = comment.getReplies();
+                      for (Comment reply2 : replies2) {
+                        System.out.println("\t\t|");
+                        System.out.println("\t\t| " + reply2.getPostingUser().getFullName());
+                        System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
+                      }
+                    }
+                  }
+                }
+              }
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
             } else {
