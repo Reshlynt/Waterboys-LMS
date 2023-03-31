@@ -84,16 +84,13 @@ public class UI {
       } else if (userType.equalsIgnoreCase("student")) {
         switch (StudentMenu((Student) user)) {
           case 1:
-            break;
-          case 2:
             Course course = getCourses((Student) user);
-            // AccessCourse(course, (Student) user);
             AccessCourse(course, user);
             break;
-          case 3:
+          case 2:
             viewCertificates((Student) user);
             break;
-          case 4:
+          case 3:
             ViewStudentProfile((Student) user);
             break;
           case 9:
@@ -287,10 +284,9 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(10, "1.) Register for Course\n");
-    WelcomeLine5(10, "2.) Access your Courses\n");
-    WelcomeLine5(10, "3.) Access Certifications\n");
-    WelcomeLine5(10, "4.) View Profile\n");
+    WelcomeLine5(10, "1.) Access your Courses\n");
+    WelcomeLine5(10, "2.) Access Certifications\n");
+    WelcomeLine5(10, "3.) View Profile\n");
     WelcomeLine5(10, "9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
