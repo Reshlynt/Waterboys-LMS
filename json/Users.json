@@ -92,12 +92,12 @@
   {
     "firstName": "John",
     "lastName": "Wisdom",
-    "password": "john",
+    "password": "pythonRocks0",
     "dateOfBirth": "03251971",
     "id": "c105f1e7-8d20-4786-974f-4cf24d737d06",
     "type": "teacher",
     "email": "jwisdom@gmail.com",
-    "username": "wisdom"
+    "username": "jWisdom"
   },
   {
     "firstName": "Aiden",
@@ -118,5 +118,15 @@
     "type": "student",
     "email": "vnagpal@email.sc.edu",
     "username": "vnagpal25"
+  }, 
+  {
+    "firstName": "Adam",
+    "lastName": "Stewart",
+    "password": "stewy",
+    "dateOfBirth": "01222002",
+    "id": "7b1f2c5c-75f1-4be9-9c9a-5a7b5d5f5d7f",
+    "type": "student",
+    "email": "ars23@email.sc.edu",
+    "username": "stewys"
   }
 ]
