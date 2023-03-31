@@ -118,5 +118,15 @@
     "type": "student",
     "email": "vnagpal@email.sc.edu",
     "username": "vnagpal25"
+  }, 
+  {
+    "firstName": "Adam",
+    "lastName": "Stewart",
+    "password": "stewy",
+    "dateOfBirth": "01222002",
+    "id": "7b1f2c5c-75f1-4be9-9c9a-5a7b5d5f5d7f",
+    "type": "student",
+    "email": "ars23@email.sc.edu",
+    "username": "stewys"
   }
 ]
