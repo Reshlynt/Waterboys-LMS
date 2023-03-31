@@ -17,7 +17,6 @@ public class UserList {
       singletonUserList = new UserList();
     return singletonUserList;
   }
-
   /**
    * 
    * @return Instance of the UserList object.
@@ -75,7 +74,7 @@ public class UserList {
     }
   }
 
-  public void saveUsers() {
+  public static void saveUsers() {
     DataWriter.saveUsers();
   }
 }
