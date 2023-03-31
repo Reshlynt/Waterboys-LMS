@@ -97,18 +97,8 @@ public class LMSSystem {
     return courseList;
   }
 
-  /*
-   * public boolean createCourse(String name, String description, String
-   * teacherName) {
-   * if (courseList.found(name)) {
-   * System.out.println("Course already exists!");
-   * return false;
-   * } else {
-   * Course course = new Course(name, description, teacherName);
-   * courseList.addCourse(course);
-   * System.out.println("Course created successfully!");
-   * return true;
-   * }
-   * }
-   */
+  public void saveInfo() {
+    UserList.saveUsers();
+    CourseList.saveCourses();
+  }
 }

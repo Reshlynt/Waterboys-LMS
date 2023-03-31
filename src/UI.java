@@ -33,7 +33,7 @@ public class UI {
           user = SignUp();
           UserList userList = UserList.getInstance();
           userList.addUser(user);
-          DataWriter.saveUsers();
+          UserList.saveUsers();
           break;
         case 9:
           Quit();
@@ -887,8 +887,6 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    // DataWriter.saveCourses();
-    // ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> allCourses = CourseList.getInstance().getCourseList();
     ArrayList<Course> studentCourses = new ArrayList<Course>();
     for (Course course : allCourses) {
@@ -960,7 +958,8 @@ public class UI {
         if (studentCompletedModule) {
           grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           WelcomeLine5(10, ConsoleColor.GREEN
-              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET+grade + "\n" + ConsoleColor.RESET));
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET + grade + "\n"
+                  + ConsoleColor.RESET));
         } else
           WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
@@ -1010,7 +1009,17 @@ public class UI {
               String choice = INPUT.nextLine();
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
-                module.addComment(INPUT.nextLine(), user);
+                Comment new_comment = new Comment(INPUT.nextLine(), user);
+                WelcomeLine7("Is this a post or reply? (Enter \"Reply\" or \"Post\")");
+                String item = INPUT.nextLine();
+                if (item.equalsIgnoreCase("post")) {
+                  module.addComment(INPUT.nextLine(), user);
+                  CourseList.saveCourses();
+                } else if (item.equalsIgnoreCase("reply")) {
+                  postReplies(module.getComments(), (Student) user, 1);
+                } else {
+                  WelcomeLine7("You entered an invalid choice, moving on...");
+                }
                 CourseList.saveCourses();
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("Moving on...");
@@ -1048,7 +1057,7 @@ public class UI {
           } else if (value == 3) {
             AccessCourse(course, user);
           } else if (value == 4) {
-            DataWriter.WriteModule(module);
+            CourseList.writeModule(module);
           } else if (value == 5) {
             return;
           } else {
@@ -1104,6 +1113,34 @@ public class UI {
     }
   }
 
+  private static void postReplies(ArrayList<Comment> comments, Student user, int count) {
+    if (comments != null && comments.size() != 0 && count < 3) {
+      for (Comment comment : comments) {
+        for (int i = 0; i < count; i++)
+          System.out.print('\t');
+        System.out.println(comment.getPostingUser().getUsername());
+        for (int i = 0; i <= count; i++)
+          System.out.print('\t');
+        System.out.println("\"" + comment.getPost() + "\"\n");
+        System.out.println();
+        WelcomeLine7("Would you like to post here? (Enter \"Yes\" or \"No\")\n");
+        String choice = INPUT.nextLine();
+        if (choice.equalsIgnoreCase("yes")) {
+          comment.replyToComment(choice, user);
+          CourseList.saveCourses();
+          return;
+        } else if (choice.equalsIgnoreCase("no")) {
+          WelcomeLine7("Moving on...");
+        } else {
+          WelcomeLine7("You entered an invalid choice, moving on...");
+        }
+        if (comment.getReplies() != null && comment.getReplies().size() != 0) {
+          postReplies(comment.getReplies(), user, count + 1);
+        }
+      }
+    }
+  }
+
   public static void takeQuiz(Course course, Module module, Student student) {
     int size = 0, numQuestions = module.getQuiz().getQuestions().size(), numCorrect = 0;
     for (Question question : module.getQuiz().getQuestions()) {
@@ -1141,11 +1178,10 @@ public class UI {
   }
 
   private static void Quit() {
+    LMS.saveInfo();
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
-    DataWriter.saveUsers();
-    DataWriter.saveCourses();
     System.exit(0);
   }
 
