@@ -973,7 +973,8 @@ public class UI {
         if (studentCompletedModule) {
           grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           WelcomeLine5(10, ConsoleColor.GREEN
-              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET+grade + "\n" + ConsoleColor.RESET));
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET + grade + "\n"
+                  + ConsoleColor.RESET));
         } else
           WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
@@ -1192,11 +1193,10 @@ public class UI {
   }
 
   private static void Quit() {
+    LMS.saveInfo();
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
-    UserList.saveUsers();
-    CourseList.saveCourses();
     System.exit(0);
   }
 

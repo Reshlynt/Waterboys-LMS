@@ -96,4 +96,9 @@ public class LMSSystem {
   public CourseList getCourseList() {
     return courseList;
   }
+
+  public void saveInfo() {
+    UserList.saveUsers();
+    CourseList.saveCourses();
+  }
 }
