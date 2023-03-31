@@ -878,8 +878,8 @@ public class UI {
       WelcomeLine5(25, "Enter 1,2, or 3:");
       difficulty = INPUT.nextInt();
     }
-    String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
-    Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
+    //String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
+    //Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     WelcomeLine7(
         "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
 
