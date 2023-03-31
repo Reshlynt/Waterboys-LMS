@@ -123,7 +123,8 @@
                     95.0,
                     94.0,
                     97.0,
-                    30.0
+                    30.0,
+                    0.0
                 ]
             },
             {
@@ -421,6 +422,18 @@
                     {
                         "answer_choices": [
                             {
+                                "a": "as long as a condition is met",
+                                "b": "as long as a contiotion is false",
+                                "c": "as long as 2 condition are true",
+                                "d": "as long as there is no condition"
+                            }
+                        ],
+                        "question": "when do while loops run",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
                                 "a": "Using the wrong variable name in the loop, and using the print statement to debug.",
                                 "b": "Not initializing the loop variable correctly, and using the if statement to debug.",
                                 "c": "Using the wrong loop syntax, and using the break statement to debug.",
@@ -443,6 +456,14 @@
                     {
                         "description": "In Python, logical operators are used to evaluate logical expressions and return a boolean value of either True or False.\nThere are three logical operators in Python: \"and\", \"or\", and \"not\".\nThe \"and\" operator returns True if both expressions being evaluated are True, otherwise it returns False.\nThe \"or\" operator returns True if at least one of the expressions being evaluated is True, otherwise it returns False.\nFinally, the \"not\" operator returns the opposite boolean value of the expression it is evaluating.\nLogical operators are often used in conditional statements such as \"if\" statements and \"while\" loops to control program flow based on logical conditions.\nThey can also be used in conjunction with comparison operators to create more complex logical expressions.\nOverall, logical operators are an essential tool for writing programs that can make decisions based on logical conditions.Here are some examples:\na = 5\nb = 10\nc = 15\n\n# using AND operator\nif a < b and b < c:\n    print(\"Both conditions are true.\")\n# output: Both conditions are true.\n\n# using OR operator\nif a < b or a > c:\n    print(\"At least one condition is true.\")\n# output: At least one condition is true.\n\n# using NOT operator\nif not(a > b):\n    print(\"a is not greater than b.\")\n# output: a is not greater than b.",
                         "slide_title": "Control Flow and Logical Operators"
+                    },
+                    {
+                        "description": "while loops are a type of loop that loop as long as some condition is true",
+                        "slide_title": "while loops"
+                    },
+                    {
+                        "description": "a while loop is a type of loop that runs as long as some condition is true",
+                        "slide_title": "While loops"
                     }
                 ],
                 "module_title": "Control Flow and Loops"
