@@ -155,12 +155,12 @@
           {
             "replies": [
               {
-                "replies": null,
+                "replies": [],
                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                 "text": "This is a reply to reply to a comment"
               },
               {
-                "replies": null,
+                "replies": [],
                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                 "text": "This a reply to reply to a comment"
               }
@@ -181,12 +181,12 @@
               {
                 "replies": [
                   {
-                    "replies": null,
+                    "replies": [],
                     "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                     "text": "This is a reply to reply to a comment"
                   },
                   {
-                    "replies": null,
+                    "replies": [],
                     "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                     "text": "This is a reply to reply to a comment"
                   }
@@ -1030,7 +1030,7 @@
           {
             "replies": [
               {
-                "replies": null,
+                "replies": [],
                 "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
                 "text": "This is a reply to reply to a comment"
               }
