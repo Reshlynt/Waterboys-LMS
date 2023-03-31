@@ -17,6 +17,7 @@ public class UserList {
       singletonUserList = new UserList();
     return singletonUserList;
   }
+  
   /**
    * 
    * @return Instance of the UserList object.
