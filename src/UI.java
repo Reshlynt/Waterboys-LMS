@@ -878,8 +878,9 @@ public class UI {
       WelcomeLine5(25, "Enter 1,2, or 3:");
       difficulty = INPUT.nextInt();
     }
-    //String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
-    //Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
+    // String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2)
+    // ? "INTERMEDIATE" : "EXPERT");
+    // Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     WelcomeLine7(
         "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
 
@@ -960,7 +961,8 @@ public class UI {
         if (studentCompletedModule) {
           grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
           WelcomeLine5(10, ConsoleColor.GREEN
-              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET+grade + "\n" + ConsoleColor.RESET));
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET + grade + "\n"
+                  + ConsoleColor.RESET));
         } else
           WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
@@ -1162,7 +1164,7 @@ public class UI {
         System.out.println("Incorrect!");
         System.out.println("Correct Answer: " + question.getCorrectAnswer());
       }
-      
+
       if (size != module.getQuiz().getQuestions().size()) {
         WelcomeLine7("Press Enter to continue to the next question");
         INPUT.nextLine();
