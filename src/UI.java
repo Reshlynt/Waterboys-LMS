@@ -878,8 +878,8 @@ public class UI {
       WelcomeLine5(25, "Enter 1,2, or 3:");
       difficulty = INPUT.nextInt();
     }
-    String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
-    Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
+    //String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
+    //Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     WelcomeLine7(
         "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
 
@@ -1014,6 +1014,7 @@ public class UI {
                 Comment new_comment = new Comment(INPUT.nextLine(), user);
                 WelcomeLine7("Is this a post or reply? (Enter \"Reply\" or \"Post\")");
                 String item = INPUT.nextLine();
+                clearScreen();
                 if (item.equalsIgnoreCase("post")) {
                   module.addComment(INPUT.nextLine(), user);
                   CourseList.saveCourses();
@@ -1105,10 +1106,7 @@ public class UI {
       for (Comment comment : comments) {
         for (int i = 0; i < count; i++)
           System.out.print('\t');
-        System.out.println(comment.getPostingUser().getUsername());
-        for (int i = 0; i <= count; i++)
-          System.out.print('\t');
-        System.out.println("\"" + comment.getPost() + "\"\n");
+        System.out.println(comment.getPostingUser().getUsername() + ": \"" + comment.getPost() + "\"\n");
         if (comment.getReplies() != null && comment.getReplies().size() != 0) {
           getCommentsAndReplies(comment.getReplies(), user, count + 1);
         }
