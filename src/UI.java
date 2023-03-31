@@ -33,7 +33,7 @@ public class UI {
           user = SignUp();
           UserList userList = UserList.getInstance();
           userList.addUser(user);
-          DataWriter.saveUsers();
+          UserList.saveUsers();
           break;
         case 9:
           Quit();
@@ -902,8 +902,6 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    // DataWriter.saveCourses();
-    // ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> allCourses = CourseList.getInstance().getCourseList();
     ArrayList<Course> studentCourses = new ArrayList<Course>();
     for (Course course : allCourses) {
@@ -1073,7 +1071,7 @@ public class UI {
           } else if (value == 3) {
             AccessCourse(course, user);
           } else if (value == 4) {
-            DataWriter.WriteModule(module);
+            CourseList.writeModule(module);
           } else if (value == 5) {
             return;
           } else {
@@ -1197,8 +1195,8 @@ public class UI {
     for (int i = 0; i < 32; i++)
       System.out.print(" ");
     System.out.println("Quitting the LMS...");
-    DataWriter.saveUsers();
-    DataWriter.saveCourses();
+    UserList.saveUsers();
+    CourseList.saveCourses();
     System.exit(0);
   }
 

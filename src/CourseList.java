@@ -73,7 +73,12 @@ public class CourseList {
   public ArrayList<Course> getCourseList() {
     return courses;
   }
-  public static void saveCourses(){
+
+  public static void saveCourses() {
     DataWriter.saveCourses();
+  }
+
+  public static void writeModule(Module module) {
+    DataWriter.WriteModule(module);
   }
 }
