@@ -1014,6 +1014,7 @@ public class UI {
                 Comment new_comment = new Comment(INPUT.nextLine(), user);
                 WelcomeLine7("Is this a post or reply? (Enter \"Reply\" or \"Post\")");
                 String item = INPUT.nextLine();
+                clearScreen();
                 if (item.equalsIgnoreCase("post")) {
                   module.addComment(INPUT.nextLine(), user);
                   CourseList.saveCourses();
@@ -1105,10 +1106,7 @@ public class UI {
       for (Comment comment : comments) {
         for (int i = 0; i < count; i++)
           System.out.print('\t');
-        System.out.println(comment.getPostingUser().getUsername());
-        for (int i = 0; i <= count; i++)
-          System.out.print('\t');
-        System.out.println("\"" + comment.getPost() + "\"\n");
+        System.out.println(comment.getPostingUser().getUsername() + ": \"" + comment.getPost() + "\"\n");
         if (comment.getReplies() != null && comment.getReplies().size() != 0) {
           getCommentsAndReplies(comment.getReplies(), user, count + 1);
         }
@@ -1164,6 +1162,7 @@ public class UI {
         System.out.println("Incorrect!");
         System.out.println("Correct Answer: " + question.getCorrectAnswer());
       }
+      
       if (size != module.getQuiz().getQuestions().size()) {
         WelcomeLine7("Press Enter to continue to the next question");
         INPUT.nextLine();
