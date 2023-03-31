@@ -888,8 +888,6 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    // DataWriter.saveCourses();
-    // ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> allCourses = CourseList.getInstance().getCourseList();
     ArrayList<Course> studentCourses = new ArrayList<Course>();
     for (Course course : allCourses) {
