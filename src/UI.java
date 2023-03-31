@@ -1176,6 +1176,7 @@ public class UI {
         System.out.println("Incorrect!");
         System.out.println("Correct Answer: " + question.getCorrectAnswer());
       }
+      
       if (size != module.getQuiz().getQuestions().size()) {
         WelcomeLine7("Press Enter to continue to the next question");
         INPUT.nextLine();
