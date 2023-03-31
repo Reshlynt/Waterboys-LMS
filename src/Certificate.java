@@ -17,11 +17,12 @@ public class Certificate {
    * @param date    on what date they completed the course
    * @param teacher of the course
    */
-  public Certificate(Course course, User user, Date date, Teacher teacher) {
+  public Certificate(Course course, User user, Date date, Teacher teacher, int grade) {
     this.course = course;
     this.user = user;
     this.date = date;
     this.teacher = teacher;
+    this.grade = grade;
   }
 
   /**

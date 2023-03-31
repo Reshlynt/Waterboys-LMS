@@ -379,9 +379,10 @@ public class DataWriter extends DataConstants {
           Course completedCourse = studentStatus.getCourse();
           String pathName = "./certificate/" + student.getLastName() + "-"
               + (completedCourse.getTitle()).replace(' ', '-') + "-Certificate.txt";
+          int grade= (int)student.getCourseGrade(completedCourse);
           FileWriter certificateWriter = new FileWriter(pathName);
           String certificateString =
-              (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor()))
+              (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor(), grade))
                   .toString();
           certificateWriter.write(certificateString);
           certificateWriter.close();
