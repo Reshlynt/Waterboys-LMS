@@ -1,4 +1,19 @@
 User:
+setPassword null password
+setPassword excessive length
+setPassword only special characters
+setPassword no special characters
+setPassword too short
+setPassword base case
+setPassword space
+setUser space
+setUser name taken
+setUser only special characters
+setUser too short
+setUser excessive length
+equals valid
+equals invalid
+
 check null
 check empty
 check create one
