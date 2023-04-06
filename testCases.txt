@@ -29,7 +29,7 @@ setType null type
 setType incorrect type
 
 UserList:
-addUser null User
+addUser null User - Failed
 addUser existing User
 deleteUser null User
 deleteUser existing User

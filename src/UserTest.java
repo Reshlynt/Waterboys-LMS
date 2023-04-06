@@ -1,11 +1,13 @@
 package src;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.juint.jupiter.api.Test;
+import static java.util.UUID;
 
 import java.util.file;
 
 
 public class UserTest {
+    public UserList userList = UserList.getInstance();
     // Password tests
 
     @Test
@@ -61,34 +63,35 @@ public class UserTest {
     }
     @Test
     public void testSetUserNameTaken() {
-        return null;
+        User.setUser("UziThaGoat13");
     }
     @Test
     public void testSetUserOnlySpecials() {
-        return null;
+        User.setUser("!!!!!!!!!!!!");
     }
     @Test
     public void testSetUserTooShort() {
-        return null;
+        User.setUser("a");
     }
     @Test
     public void testSetUserTooLong() {
-        return null;
+        User.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
     }
 
     // equals tests
+    User uzi = userList.getUser("UziThaGoat13");
 
     @Test
     public void testEqualsNull() {
-        return null;
+        uzi.User.equals(null);
     }
     @Test
     public void testEqualsEqual() {
-        return null;
+        uzi.User.equals("e58ed763-928c-4155-bee9-fdbaaadc15f3");
     }
     @Test
     public void testEqualsInequal() {
-        return null;
+        uzi.User.equals(UUID.randomUUID());
     }
 
 }
