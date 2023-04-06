@@ -59,3 +59,12 @@ getCourseByUUID UUID not in list
 getCourseByUUID UUID in list
 writeModule null module
 writeModule valid module
+
+DataLoader test ideas:
+courses without author,
+empty module,
+empty quiz,
+user had no grades in course,
+
+user had invalid email,
+invalid birthday, etc, etc
