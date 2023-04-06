@@ -50,4 +50,10 @@ public class DataLoaderTest {
     userList = DataLoader.getUsers();
     assertEquals("asmith", userList.get(0).getUsername());
   }
+
+  @Test
+  void userInvalidEmail() {
+    userList = DataLoader.getUsers();
+    // add an invalid email
+  }
 }
