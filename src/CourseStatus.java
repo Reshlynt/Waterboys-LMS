@@ -6,15 +6,16 @@ public class CourseStatus {
   private Course course;
   private double progress;
 
-  private double courseGrade;
+  private double courseGrade = 0.0;
   private ArrayList<Double> grades = new ArrayList<Double>();
   private Boolean completed;
 
   public CourseStatus(Course course, ArrayList<Double> grades) {
     this.course = course;
     this.grades = grades;
-    courseGrade = 0.0;
+    calculateProgress();
   }
+
   public double getProgress() {
     return progress;
   }
@@ -37,6 +38,10 @@ public class CourseStatus {
 
   public void calculateProgress() {
     // calculate average of grades arraylist
+    if(grades.size() == 0){
+      courseGrade = 0;
+      return;
+    }
     Double sum = 0.0;
     for (Double grade : grades)
       sum += grade;

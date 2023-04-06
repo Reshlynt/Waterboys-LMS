@@ -57,8 +57,8 @@ public class Comment {
     return info;
   }
 
-  public void replyToComment() {
-    Comment comment = new Comment("comment", postingUser, replies);
+  public void replyToComment(String post, User posting_user) {
+    Comment comment = new Comment(post, posting_user, null);
     comment.CID = this.CID + .1;
     this.replies.add(comment);
   }

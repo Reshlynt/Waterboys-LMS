@@ -84,16 +84,13 @@ public class UI {
       } else if (userType.equalsIgnoreCase("student")) {
         switch (StudentMenu((Student) user)) {
           case 1:
-            break;
-          case 2:
             Course course = getCourses((Student) user);
-            // AccessCourse(course, (Student) user);
             AccessCourse(course, user);
             break;
-          case 3:
+          case 2:
             viewCertificates((Student) user);
             break;
-          case 4:
+          case 3:
             ViewStudentProfile((Student) user);
             break;
           case 9:
@@ -287,10 +284,9 @@ public class UI {
     WelcomeLine6("Welcome, " + student.getUsername());
     WelcomeLine1();
     System.out.println();
-    WelcomeLine5(10, "1.) Register for Course\n");
-    WelcomeLine5(10, "2.) Access your Courses\n");
-    WelcomeLine5(10, "3.) Access Certifications\n");
-    WelcomeLine5(10, "4.) View Profile\n");
+    WelcomeLine5(10, "1.) Access your Courses\n");
+    WelcomeLine5(10, "2.) Access Certifications\n");
+    WelcomeLine5(10, "3.) View Profile\n");
     WelcomeLine5(10, "9.) Exit LMS\n\n");
     WelcomeLine5(31, "Choose an option: ");
     try {
@@ -327,9 +323,9 @@ public class UI {
       clearScreen();
       return;
     }
-    WelcomeLine5(10, "Select a course to add a student to: (1 - " + (teacherCourses.size() + 1) + ")");
+    WelcomeLine5(10, "Select a course to add a student to: \n");
     for (int i = 0; i < teacherCourses.size(); i++) {
-      WelcomeLine5(10, i + 1 + ".) " + teacherCourses.get(i).getTitle());
+      WelcomeLine5(10, i + 1 + ".) " + teacherCourses.get(i).getTitle() + "\n");
     }
     int num = INPUT.nextInt();
     INPUT.nextLine();
@@ -342,7 +338,7 @@ public class UI {
       System.out.println();
       WelcomeLine5(10, "Enter the username of the student you would like to add: ");
       String username = INPUT.nextLine();
-      Student student = (Student) LMS.getUser(username);
+      Student student = (Student) userList.getUser(username);
       clearScreen();
       if (student == null) {
         WelcomeLine7("The student you entered does not exist. Press Enter to Continue");
@@ -350,7 +346,7 @@ public class UI {
         clearScreen();
         addToCourse(teacher);
       } else {
-        teacher.addToCourse(student, teacher.getCourses().get(num));
+        teacher.addToCourse(student, teacherCourses.get(num - 1));
         WelcomeLine7("Student added to course. Press Enter to Continue");
         INPUT.nextLine();
         clearScreen();
@@ -459,6 +455,10 @@ public class UI {
       WelcomeLine7("Enter 'E' to edit a course, or 'V' if you only want to view.");
       boolean edit = (INPUT.nextLine().equalsIgnoreCase("e") ? true : false);
       clearScreen();
+      if (!edit) {
+        AccessCourse(teacherCourses.get(num - 1), teacher);
+        return;
+      }
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : courses) {
         WelcomeLine7(num + ".) " + course.getTitle());
@@ -470,10 +470,7 @@ public class UI {
         num = INPUT.nextInt();
         INPUT.nextLine();
         System.out.println("\n\n\n\n\n");
-        if (edit)
-          editCourse(teacherCourses.get(num - 1), teacher);
-        else
-          AccessCourse(courses.get(num - 1), teacher);
+        editCourse(teacherCourses.get(num - 1), teacher);
         return;
       } catch (Exception e) {
         INPUT.nextLine();
@@ -524,12 +521,15 @@ public class UI {
           return;
         } else {
           inputVal = Integer.parseInt(input);
+          System.out.println("Input: " + inputVal);
         }
         if (inputVal > 0 && inputVal <= modules.size()) {
-          module = modules.get(num - 1);
+          // module = modules.get(num - 1);
+          module = modules.get(inputVal - 1);
         } else {
           clearScreen();
           WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
+          System.out.println("input: " + inputVal);
           enterToContinue();
           return;
         }
@@ -541,7 +541,9 @@ public class UI {
           WelcomeLine7("Press Enter to Continue or 'I' to insert a slide after this one.");
           input = INPUT.nextLine();
           if (input.equalsIgnoreCase("i")) {
+            clearScreen();
             module.addSlide(slideIndex + 1, createSlide());
+            WelcomeLine7("Slide added. Press Enter to Continue");
             return;
           }
           slideIndex++;
@@ -588,26 +590,11 @@ public class UI {
           } else if (value == 2) {
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
-              System.out.println(module.getQuiz().toString());
+              editQuiz(module.getQuiz());
             } else {
               WelcomeLine7("There are currently no quizzes for this module.");
               return;
             }
-            WelcomeLine7("Would you like to add any questions to this quiz? \n");
-            WelcomeLine7(
-                "Enter the the number where you would like to insert the question, or '0' if you do not want to insert anything.\n");
-            int index = INPUT.nextInt();
-            INPUT.nextLine();
-            if (index == 0) {
-              return;
-            } else if (index > 0 && index <= module.getQuiz().getQuestions().size()) {
-              module.getQuiz().addQuestion(index - 1, makeQuestion());
-            } else {
-              WelcomeLine7("You entered an invalid choice. Press Enter to Continue");
-              enterToContinue();
-              return;
-            }
-
           } else if (value == 3) {
             return;
           } else {
@@ -887,8 +874,9 @@ public class UI {
       WelcomeLine5(25, "Enter 1,2, or 3:");
       difficulty = INPUT.nextInt();
     }
-    String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2) ? "INTERMEDIATE" : "EXPERT");
-    Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
+    // String difficultyString = (difficulty == 1) ? "BEGINNER" : ((difficulty == 2)
+    // ? "INTERMEDIATE" : "EXPERT");
+    // Difficulty courseDifficulty = Difficulty.valueOf(difficultyString);
     WelcomeLine7(
         "We are going to provide you with our default modules for said course and difficulty, if you want you can add more!");
 
@@ -896,8 +884,6 @@ public class UI {
   }
 
   public static Course getCourses(Student user) {
-    // DataWriter.saveCourses();
-    // ArrayList<Course> student_courses = DataLoader.getCourses();
     ArrayList<Course> allCourses = CourseList.getInstance().getCourseList();
     ArrayList<Course> studentCourses = new ArrayList<Course>();
     for (Course course : allCourses) {
@@ -911,7 +897,12 @@ public class UI {
       int num = 1;
       WelcomeLine7("What courses would you like to access?\n");
       for (Course course : studentCourses) {
-        WelcomeLine7(num + ".) " + course.getTitle());
+        if (user.completedCourse(course)) {
+          System.out.println(ConsoleColor.GREEN);
+          WelcomeLine7(num + ".) " + course.getTitle());
+          System.out.println(ConsoleColor.RESET);
+        } else
+          WelcomeLine7(num + ".) " + course.getTitle());
         num++;
       }
       System.out.println();
@@ -935,6 +926,14 @@ public class UI {
     }
   }
 
+  public static void AccessModule(Module module) {
+    for (Slide slide : module.getSlides()) {
+      WelcomeLine1();
+      System.out.println(slide + "\n");
+      enterToContinue();
+    }
+  }
+
   public static void AccessCourse(Course course, User user) {
     if (course == null) {
       enterToContinue();
@@ -951,14 +950,15 @@ public class UI {
       String grade = "";
 
       for (int i = 0; i < modules.size(); i++) {
-
-        if (user.getType().equalsIgnoreCase("student")) {
-          if (modules.get(i).hasQuiz() && i > 0 && (i <= ((Student) user).getCourseGradeList(course).size())) {
-            double gradeDouble = Math.round(((Student) user).getCourseGradeList(course).get(i - 1).doubleValue());
-            grade += gradeDouble;
-          }
-        }
-        WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
+        boolean studentCompletedModule = user.getType().equalsIgnoreCase("student") && modules.get(i).hasQuiz() && i > 0
+            && (i <= ((Student) user).getCourseGradeList(course).size());
+        if (studentCompletedModule) {
+          grade = ConsoleColor.CYAN + ((Student) user).getCourseGradeList(course).get(i - 1).toString();
+          WelcomeLine5(10, ConsoleColor.GREEN
+              + (num + ".) " + modules.get(i).getTitle() + "\t" + ConsoleColor.RESET + grade + "\n"
+                  + ConsoleColor.RESET));
+        } else
+          WelcomeLine5(10, (num + ".) " + modules.get(i).getTitle() + "\t" + grade + "\n"));
         num++;
         grade = "";
       }
@@ -978,13 +978,13 @@ public class UI {
         boolean option = true;
         int value = 0;
         while (option) {
-          if (user.getType().equals("teacher"))
-            return;
           WelcomeLine7("What would you like to do?\n");
           WelcomeLine5(10, "1.) View Comments\n");
-          WelcomeLine5(10, "2.) Take a Quiz\n");
+          WelcomeLine5(10, "2.) View Module Quiz\n");
           WelcomeLine5(10, "3.) View Other Modules\n");
-          WelcomeLine5(10, "4.) Go Back to Main Menu\n\n");
+          WelcomeLine5(10, "4.) Print Module to a File\n");
+          WelcomeLine5(10, "5.) Print Certificate to a File\n");
+          WelcomeLine5(10, "6.) Go Back to Main Menu\n\n");
           WelcomeLine5(30, "Choose an option: ");
           try {
             value = INPUT.nextInt();
@@ -1001,31 +1001,31 @@ public class UI {
 
           if (value == 1) {
             if (module.getComments() != null && module.getComments().size() != 0) {
-              ArrayList<Comment> comments = module.getComments();
-              int[] count = { 0, 0, 0 };
-              for (Comment comment : comments) {
-                count[0]++;
-                System.out.println(count[0] + " " + comment.getPostingUser().getUsername());
-                System.out.println("\t\"" + comment.getPost() + "\"");
-                if (comment.getReplies().size() != 0) {
-                  ArrayList<Comment> replies = comment.getReplies();
-                  for (Comment reply : replies) {
-                    count[1]++;
-                    System.out.println("\t|");
-                    System.out.println((count[0] + count[1]) + " \t| " + reply.getPostingUser().getUsername());
-                    System.out.println("\t\t\"" + reply.getPost() + "\"");
-                    if (reply.getReplies().size() != 0) {
-                      ArrayList<Comment> replies2 = comment.getReplies();
-                      for (Comment reply2 : replies2) {
-                        count[2]++;
-                        System.out.println("\t\t|");
-                        System.out.println(
-                            (count[0] + count[1] + count[2]) + " \t\t| " + reply2.getPostingUser().getUsername());
-                        System.out.println("\t\t\t\"" + reply2.getPost() + "\"");
-                      }
-                    }
-                  }
+              getCommentsAndReplies(module.getComments(), (Student) user, 1);
+              WelcomeLine7("Would you like to add a comment?\n");
+              WelcomeLine7("Enter \"Yes\" or \"No\"\n");
+              String choice = INPUT.nextLine();
+              if (choice.equalsIgnoreCase("yes")) {
+                clearScreen();
+                WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
+                Comment new_comment = new Comment(INPUT.nextLine(), user);
+                WelcomeLine7("Is this a post or reply? (Enter \"Reply\" or \"Post\")");
+                String item = INPUT.nextLine();
+                clearScreen();
+                if (item.equalsIgnoreCase("post")) {
+                  module.addComment(INPUT.nextLine(), user);
+                  CourseList.saveCourses();
+                } else if (item.equalsIgnoreCase("reply")) {
+                  postReplies(module.getComments(), (Student) user, 1, new_comment);
+                  CourseList.saveCourses();
+                } else {
+                  WelcomeLine7("You entered an invalid choice, moving on...");
                 }
+                CourseList.saveCourses();
+              } else if (choice.equalsIgnoreCase("no")) {
+                WelcomeLine7("Moving on...");
+              } else {
+                WelcomeLine7("You entered an invalid choice, moving on...");
               }
             } else if (user.ofAge() == false) {
               WelcomeLine7("Comments cannot be viewed by users under 13");
@@ -1037,6 +1037,7 @@ public class UI {
               if (choice.equalsIgnoreCase("yes")) {
                 WelcomeLine7("Tell everyone what you would like to say! (Press Enter when done)\n");
                 module.addComment(INPUT.nextLine(), user);
+                CourseList.saveCourses();
               } else if (choice.equalsIgnoreCase("no")) {
                 WelcomeLine7("This comment section is looking awfully quiet...");
               } else {
@@ -1044,6 +1045,10 @@ public class UI {
               }
             }
           } else if (value == 2) {
+            if (user.getType().equals("teacher")) {
+              editQuiz(module.getQuiz());
+              return;
+            }
             if (module.getQuiz() != null &&
                 module.getQuiz().getQuestions().size() != 0) {
               takeQuiz(course, module, (Student) user);
@@ -1053,6 +1058,10 @@ public class UI {
           } else if (value == 3) {
             AccessCourse(course, user);
           } else if (value == 4) {
+            DataWriter.WriteModule(module);
+          } else if (value == 5) {
+            DataWriter.WriteCertificate((Student) user);
+          } else if (value == 6) {
             return;
           } else {
             System.out.println("You entered an invalid choice. Press Enter to Continue");
@@ -1072,6 +1081,63 @@ public class UI {
       }
     } else {
       return;
+    }
+  }
+
+  private static void editQuiz(Assessment quiz) {
+    for (int i = 0; i < quiz.getQuestions().size(); i++) {
+      clearScreen();
+      System.out.println((i + 1) + ": \n" + quiz.getQuestions().get(i).toString() + "\n");
+      WelcomeLine7("Enter 'I' to insert a question\n");
+      String input = INPUT.nextLine();
+      if (input.equalsIgnoreCase("I")) {
+        clearScreen();
+        quiz.addQuestion(i, makeQuestion());
+      }
+    }
+    WelcomeLine7("End of quiz; press enter to continue");
+    INPUT.nextLine();
+  }
+
+  // goes through comments array, prints out comments and replies
+  private static void getCommentsAndReplies(ArrayList<Comment> comments, Student user, int count) {
+    if (comments != null && comments.size() != 0 && count < 4) {
+      for (Comment comment : comments) {
+        for (int i = 0; i < count; i++)
+          System.out.print('\t');
+        System.out.println(comment.getPostingUser().getUsername() + ": \"" + comment.getPost() + "\"\n");
+        if (comment.getReplies() != null && comment.getReplies().size() != 0) {
+          getCommentsAndReplies(comment.getReplies(), user, count + 1);
+        }
+      }
+    }
+  }
+
+  private static void postReplies(ArrayList<Comment> comments, Student user, int count, Comment new_comment) {
+    if (comments != null && comments.size() != 0 && count < 3) {
+      for (Comment comment : comments) {
+        for (int i = 0; i < count; i++)
+          System.out.print('\t');
+        System.out.println(comment.getPostingUser().getUsername());
+        for (int i = 0; i <= count; i++)
+          System.out.print('\t');
+        System.out.println("\"" + comment.getPost() + "\"\n");
+        System.out.println();
+        WelcomeLine7("Would you like to post here? (Enter \"Yes\" or \"No\")\n");
+        String choice = INPUT.nextLine();
+        if (choice.equalsIgnoreCase("yes")) {
+          comment.replyToComment(new_comment.getPost(), new_comment.getPostingUser());
+          return;
+        } else if (choice.equalsIgnoreCase("no")) {
+          WelcomeLine7("Moving on...");
+          clearScreen();
+        } else {
+          WelcomeLine7("You entered an invalid choice, moving on...");
+        }
+        if (comment.getReplies() != null && comment.getReplies().size() != 0) {
+          postReplies(comment.getReplies(), user, count + 1, new_comment);
+        }
+      }
     }
   }
 
@@ -1095,6 +1161,7 @@ public class UI {
         System.out.println("Incorrect!");
         System.out.println("Correct Answer: " + question.getCorrectAnswer());
       }
+
       if (size != module.getQuiz().getQuestions().size()) {
         WelcomeLine7("Press Enter to continue to the next question");
         INPUT.nextLine();

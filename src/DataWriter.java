@@ -172,10 +172,11 @@ public class DataWriter extends DataConstants {
       }
     }
     ArrayList<Double> gradeList = student.getCourseGradeList(course);
-    if (gradeList == null) {
-      return null;
+    if (gradeList != null) {
+      studentDetails.put(GRADES, getGradeJSONArray(gradeList));
+    } else {
+      studentDetails.put(GRADES, null);
     }
-    studentDetails.put(GRADES, getGradeJSONArray(gradeList));
     return studentDetails;
   }
 
@@ -250,9 +251,9 @@ public class DataWriter extends DataConstants {
    * @return A JSON array of Comment JSON objects.
    */
   private static JSONArray getCommentJSONArray(ArrayList<Comment> comments) {
-    if (comments == null)
-      return null;
     JSONArray commentArray = new JSONArray();
+    if (comments == null || comments.size() == 0)
+      return commentArray;
     for (int i = 0; i < comments.size(); i++) {
       commentArray.add(getCommentJSON(comments.get(i)));
     }
@@ -369,7 +370,7 @@ public class DataWriter extends DataConstants {
    * 
    * @param student - A Student object whose certificate to be rewarded to.
    */
-  public static void WriteCertificateToFile(Student student) {
+  public static void WriteCertificate(Student student) {
     try {
       ArrayList<CourseStatus> courseStatusList = student.getCourseProgresses();
       for (int i = 0; courseStatusList != null && i < courseStatusList.size(); i++) {
@@ -378,9 +379,10 @@ public class DataWriter extends DataConstants {
           Course completedCourse = studentStatus.getCourse();
           String pathName = "./certificate/" + student.getLastName() + "-"
               + (completedCourse.getTitle()).replace(' ', '-') + "-Certificate.txt";
+          int grade= (int)student.getCourseGrade(completedCourse);
           FileWriter certificateWriter = new FileWriter(pathName);
           String certificateString =
-              (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor()))
+              (new Certificate(completedCourse, student, new Date(), completedCourse.getAuthor(), grade))
                   .toString();
           certificateWriter.write(certificateString);
           certificateWriter.close();

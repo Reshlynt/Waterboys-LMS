@@ -1,0 +1,29 @@
+Course Introduction
+
+Welcome to Introduction to Python course!
+
+In this course, we will learn the basics of Python programming language and how to use it to solve various problems.
+
+Throughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input/output, object-oriented programming, and working with libraries and modules.
+
+We will also explore more advanced topics such as working with APIs, web scraping, and automation.
+
+By the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.
+In this section, we will discuss the objectives and outcomes of the course.
+
+By the end of this course, you will be able to write Python programs to solve various real-world problems.
+
+You will have a good understanding of the Python programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.
+
+You will also be able to work with files, APIs, web scraping, and automation using Python.
+
+Overall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a Python programmer.
+1. Course Overview
+2. Getting Started with Python
+3. Variables and Data Types
+4. Control Flow and Loops
+5. Functions and Modules
+6. Lists, Tuples, and Dictionaries
+7. File Handling and Input/Output
+8. Object-Oriented Programming (OOP)
+9. Advanced Topics in Python

@@ -13,6 +13,7 @@ public class TextSlide implements Slide {
 
   }
 
+  // Displays the slide
   public void display() {
     System.out.println("|\n|\t" + title
         + "\n|--------------------------------------------------------------------------------------\n\n");

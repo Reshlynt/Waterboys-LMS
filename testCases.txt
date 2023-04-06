@@ -1,0 +1,61 @@
+User:
+setPassword null password
+setPassword excessive length
+setPassword only special characters
+setPassword no special characters
+setPassword too short
+setPassword base case
+setPassword space
+setUser space
+setUser name taken
+setUser only special characters
+setUser too short
+setUser excessive length
+equals valid
+equals invalid
+
+Module:
+addSlide negative index
+addSlide null slide
+addSlide index beyond existing (ex. only 4 slides, index 15)
+addComment empty input
+addComment null user
+
+Assessment:
+addQuestion null index
+addQuestion negative index
+addQuestion null question
+setType null type
+setType incorrect type
+
+UserList:
+addUser null User
+addUser existing User
+deleteUser null User
+deleteUser existing User
+getUserByUUID null UUID
+foundUser username not in list
+foundUser username in list
+foundUser null username
+getUser null username
+getUser username not in list
+getUsername username in list
+
+CourseList:
+addCourse null Course
+addCourse preexisting course
+deleteCourse course not in list
+deleteCourse course in list
+deleteCourse null course
+getCourseByKeyword null name
+getCourseByKeyword no courses contain name
+getCourseByKeyword valid name
+found null name
+found no courses contain name
+found valid name
+getEnrolledCourse (maybe just delete, only returns null)
+getCourseByUUID null UUID
+getCourseByUUID UUID not in list
+getCourseByUUID UUID in list
+writeModule null module
+writeModule valid module

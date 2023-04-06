@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class Student extends User {
   private ArrayList<CourseStatus> courseProgresses;// list of courses and respective grades
@@ -11,6 +14,12 @@ public class Student extends User {
 
   public Student(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB) {
     super(id, username, firstName, lastName, email, password, DOB);
+    courseProgresses = new ArrayList<CourseStatus>();
+    certificates = new ArrayList<Certificate>();
+  }
+
+  public Student(String username, String firstName, String lastName, String email, String password, String DOB) {
+    super(UUID.randomUUID(), username, firstName, lastName, email, password, parseDate(DOB));
     courseProgresses = new ArrayList<CourseStatus>();
     certificates = new ArrayList<Certificate>();
   }
@@ -62,6 +71,14 @@ public class Student extends User {
     }
   }
 
+  public boolean completedCourse(Course course) {
+    // find course in the courseprogresses
+    for (int i = 0; i < courseProgresses.size(); i++)
+      if (courseProgresses.get(i).getCourse().equals(course))
+        return (courseProgresses.get(i).getCompleted());
+    return false;
+  }
+
   // Gives a student a certificate
   public void giveCertificate(Certificate certificate) {
     certificates.add(certificate);
@@ -79,6 +96,16 @@ public class Student extends User {
     for (int i = 0; i < courseProgresses.size(); i++) {
       if (courseProgresses.get(i).getCourse().equals(course))
         return courseProgresses.get(i).getGradeList();
+    }
+    return null;
+  }
+
+  private static Date parseDate(String dob) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+    try {
+      return dateFormat.parse(dob);
+    } catch (ParseException e) {
+      e.printStackTrace();
     }
     return null;
   }
