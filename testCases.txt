@@ -14,12 +14,6 @@ setUser excessive length
 equals valid
 equals invalid
 
-check null
-check empty
-check create one
-check create several
-check duplicate
-
 Module:
 addSlide negative index
 addSlide null slide
