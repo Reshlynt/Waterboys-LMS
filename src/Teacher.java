@@ -2,8 +2,9 @@ package src;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class Teacher extends User {
   private ArrayList<Course> courses = new ArrayList<Course>();
@@ -11,6 +12,7 @@ public class Teacher extends User {
 
   /**
    * Constructor for loading from json
+   * 
    * @param id
    * @param username
    * @param firstName
@@ -25,6 +27,7 @@ public class Teacher extends User {
 
   /**
    * Constructor for creating from UI
+   * 
    * @param username
    * @param firstName
    * @param lastName
@@ -37,6 +40,10 @@ public class Teacher extends User {
     this.id = UUID.randomUUID();
   }
 
+  public Teacher(String username, String firstName, String lastName, String email, String password, String DOB) {
+    super(UUID.randomUUID(), username, firstName, lastName, email, password, parseDate(DOB));
+  }
+
   // Adds a student to the teacher's list of students
   public boolean addToCourse(Student student, Course course) {
     course.addToCourse(student);
@@ -44,7 +51,7 @@ public class Teacher extends User {
   }
 
   // public boolean removeFromCourse(Student student, Course course) {
-  //   return course.removeFromCourse(student);
+  // return course.removeFromCourse(student);
   // }
 
   public void makeComment() {
@@ -69,5 +76,15 @@ public class Teacher extends User {
   // Adds a course to the teacher's list of courses
   public void addCourse(Course course) {
     this.courses.add(course);
+  }
+
+  private static Date parseDate(String dob) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+    try {
+      return dateFormat.parse(dob);
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 }
