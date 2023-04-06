@@ -61,26 +61,26 @@ public class UserTest {
     }
     @Test
     public void testSetUserNameTaken() {
-        return null;
+        User.setUser("UziThaGoat13");
     }
     @Test
     public void testSetUserOnlySpecials() {
-        return null;
+        User.setUser("!!!!!!!!!!!!");
     }
     @Test
     public void testSetUserTooShort() {
-        return null;
+        User.setUser("a");
     }
     @Test
     public void testSetUserTooLong() {
-        return null;
+        User.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
     }
 
     // equals tests
 
     @Test
     public void testEqualsNull() {
-        return null;
+        ;
     }
     @Test
     public void testEqualsEqual() {
