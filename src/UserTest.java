@@ -1,11 +1,13 @@
 package src;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.juint.jupiter.api.Test;
+import static java.util.UUID;
 
 import java.util.file;
 
 
 public class UserTest {
+    public UserList userList = UserList.getInstance();
     // Password tests
 
     @Test
@@ -77,18 +79,19 @@ public class UserTest {
     }
 
     // equals tests
+    User uzi = userList.getUser("UziThaGoat13");
 
     @Test
     public void testEqualsNull() {
-        ;
+        uzi.User.equals(null);
     }
     @Test
     public void testEqualsEqual() {
-        return null;
+        uzi.User.equals("e58ed763-928c-4155-bee9-fdbaaadc15f3");
     }
     @Test
     public void testEqualsInequal() {
-        return null;
+        uzi.User.equals(UUID.randomUUID());
     }
 
 }
