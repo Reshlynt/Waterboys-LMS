@@ -41,14 +41,13 @@ class UserListTest {
 	//assertNotSame(val1,val2)
 	//assertNull(val)
 	//assertNotNull(val)
-	//public User(UUID id, String username, String firstName, String lastName, String email, String password, Date DOB)
 
     @Test
     public void TestAddTeacher() {
       UserList userList = UserList.getInstance();
       User new_user = new Teacher(UUID.randomUUID(), "username", "John", "Doe", "JD@JD.com", "password", null);
       userList.addUser(new_user);
-      assertSame(new_user, new_user);   
+      assertEquals(userList.foundUser("username"), true);   
     }
 
     @Test
@@ -56,46 +55,102 @@ class UserListTest {
       UserList userList = UserList.getInstance();
       User new_user = new Student(UUID.randomUUID(), "username", "John", "Doe", "JD@JD.com", "password", null);
       userList.addUser(new_user);
-      assertSame(new_user, new_user);   
-    }
-
-    @Test
-    public void TestAddNullTeacher() {
-      UserList userList = UserList.getInstance();
-      User new_user = new Teacher(null, null, null, null, null, null, null);
-      userList.addUser(new_user);
-      assertSame(new_user, null);   
-    }
-
-    @Test
-    public void TestAddNullStudent() {
-      UserList userList = UserList.getInstance();
-      User new_user = new Student(null, null, null, null, null, null, null);
-      userList.addUser(new_user);
-      assertSame(new_user, null);   
+      assertEquals(userList.foundUser("username"), true);     
     }
 
     @Test
     public void TestAddNullUser() {
       UserList userList = UserList.getInstance();
       User new_user = null;
-      assertSame(new_user, null);   
+      userList.addUser(new_user);
+      User tester = new Student(UUID.randomUUID(), "username", "John", "Doe", "JD@JD.com", "password", null);
+      for (User user : userList.getUserList()) {
+        if (user == new_user) {
+          tester = user;
+        }
+      }
+      assertNotNull(tester);
     }
 
     @Test
     public void TestAddExistingUser() {
-        /*{
-            "firstName": "Grichael",
-            "lastName": "Crach",
-            "password": "!password123",
-            "dateOfBirth": "04142000",
-            "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
-            "type": "student",
-            "email": "gCrach2000@gmail.com",
-            "username": "UziThaGoat13"
-          }*/
       UserList userList = UserList.getInstance();
-      User new_user = new Student(null, null, null, null, null, null, null);
-      assertSame(new_user, null);   
+      User new_user = userList.getUser("UziThaGoat13");
+      userList.addUser(new_user);
+      assertSame(true, !userList.getUserList().contains(new_user));   
+    }
+
+    @Test
+    public void TestDeleteNullUser() {
+      UserList userList = UserList.getInstance();
+      User new_user = null;
+      userList.addUser(new_user);
+      userList.deleteUser(new_user);
+      for (User user : userList.getUserList()) {
+        if (user == new_user) {
+          userList.deleteUser(new_user);
+          assertSame(false, userList.getUserList().contains(new_user));
+        }
+      }
+    }
+
+    @Test
+    public void TestDeleteExistingUser() {
+      UserList userList = UserList.getInstance();
+      User new_user = userList.getUser("UziThaGoat13");
+      userList.deleteUser(new_user);
+      assertSame(true, !userList.getUserList().contains(new_user));   
+    }
+
+    @Test
+    public void TestGetUserByUUID() {
+      UserList userList = UserList.getInstance();
+      User new_user = null;
+      assertSame(new_user, userList.getUserByUUID(new_user.getID()));   
+    }
+
+    @Test
+    public void TestfoundUserInList() {
+      UserList userList = UserList.getInstance();
+      User new_user = userList.getUser("UziThaGoat13");
+      assertTrue(userList.foundUser(new_user.getUsername()));   
+    }
+
+    @Test
+    public void TestfoundUserNotInList() {
+      UserList userList = UserList.getInstance();
+      User new_user = new Student(UUID.randomUUID(), "username", "John", "Doe", "JD@JD.com", "password", null);
+      assertFalse(userList.foundUser(new_user.getUsername()));   
+    }
+
+    @Test
+    public void TestfoundUserNullUsername() {
+      UserList userList = UserList.getInstance();
+      User new_user = new Student(UUID.randomUUID(), null, "John", "Doe", "JD@JD.com", "password", null);
+      userList.addUser(new_user);
+      assertFalse(userList.foundUser(new_user.getUsername()));   
+    }
+
+    @Test
+    public void TestGetUserNullUsername() {
+      UserList userList = UserList.getInstance();
+      User new_user = new Student(UUID.randomUUID(), null, "John", "Doe", "JD@JD.com", "password", null);
+      userList.addUser(new_user);
+      assertNull(userList.getUser(new_user.getUsername()));   
+    }
+
+    @Test
+    public void TestGetUserByUsernameNotInList() {
+      UserList userList = UserList.getInstance();
+      User new_user = new Student(UUID.randomUUID(), "I<3testing", "John", "Doe", "JD@JD.com", "password", null);
+      assertNull(userList.getUser(new_user.getUsername()));   
+    }
+
+    @Test
+    public void TestGetUserByUsernameInList() {
+      UserList userList = UserList.getInstance();
+      User new_user = new Student(UUID.randomUUID(), "I<3testing", "John", "Doe", "JD@JD.com", "password", null);
+      userList.addUser(new_user);
+      assertNotNull(userList.getUser(new_user.getUsername()));   
     }
 }

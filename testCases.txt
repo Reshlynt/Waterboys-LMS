@@ -30,16 +30,16 @@ setType incorrect type
 
 UserList:
 addUser null User - true
-addUser existing User
-deleteUser null User
-deleteUser existing User
-getUserByUUID null UUID
-foundUser username not in list
-foundUser username in list
-foundUser null username
-getUser null username
-getUser username not in list
-getUsername username in list
+addUser existing User - false
+deleteUser null User - true
+deleteUser existing User - true
+getUserByUUID null UUID - false
+foundUser username not in list - false
+foundUser username in list - false
+foundUser null username - false
+getUser null username - false
+getUser username not in list - false
+getUsername username in list - false
 
 CourseList:
 addCourse null Course
