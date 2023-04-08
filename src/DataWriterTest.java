@@ -38,6 +38,7 @@ public class DataWriterTest {
 
     /*
      * Test 1: Determine whether DataWriter can save a user.
+     * The user will be found by UUID.
      */
     @Test
     void testWritingOneUser() {
@@ -90,4 +91,14 @@ public class DataWriterTest {
         assertEquals("", DataLoader.getUsers().get(0).getFirstName());
     }
 
+    /**
+     * Test 4: Test zero users.
+     * Does DataWriter still function if the singleton UserList
+     * has no users.
+     */
+    @Test
+	void testWritingZeroUsers() {
+		Users = DataLoader.getUsers();
+		assertEquals(0, Users.size());
+	}
 }
