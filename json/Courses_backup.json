@@ -1,0 +1,1841 @@
+[
+    {
+        "difficulty": "BEGINNER",
+        "exam": [
+            {
+                "answer_choices": [
+                    {
+                        "a": "exam answer choice 1",
+                        "b": "exam answer choice 2",
+                        "c": "exam answer choice 3",
+                        "d": "exam answer choice 4"
+                    }
+                ],
+                "question": "question1",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "x is less than 5",
+                        "b": "x is greater than or equal to 5",
+                        "c": "x is equal to 5",
+                        "d": "There is a syntax error in the code."
+                    }
+                ],
+                "question": "What is the output of the following code?\nx = 3\nif x < 5:\n    print(\"x is less than 5\")\nelse:\n    print(\"x is greater than or equal to 5\")",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+                        "b": "A for loop and a while loop are the same thing.",
+                        "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+                        "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+                    }
+                ],
+                "question": "What is the difference between a for loop and a while loop in Python?",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "4 8 12 16",
+                        "b": "2 4 6 8",
+                        "c": "8 16 24 32",
+                        "d": "10 12 14 16"
+                    }
+                ],
+                "question": "What is the output of the following code?\n\nnumbers = [2, 4, 6, 8]\nfor i in numbers:\n    print(i * 2)",
+                "correct_answer": "c"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "To terminate the loop and skip any remaining iterations",
+                        "b": "To pause the loop and wait for user input",
+                        "c": "To execute a block of code once before the loop begins",
+                        "d": "To skip a single iteration of the loop and continue with the next one"
+                    }
+                ],
+                "question": "What is the purpose of the break statement in a loop?",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "0 1 2",
+                        "b": "1 2 3",
+                        "c": "0 2 4",
+                        "d": "1 4 7"
+                    }
+                ],
+                "question": "What is the output of the following code?\n\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "and, if, while",
+                        "b": "if, else, not",
+                        "c": "and, or, not",
+                        "d": "or, for, while"
+                    }
+                ],
+                "question": "What are the three logical operators in Python?",
+                "correct_answer": "c"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "True if both expressions being evaluated are True",
+                        "b": "True if at least one of the expressions being evaluated is True",
+                        "c": "True if neither of the expressions being evaluated is True",
+                        "d": "False if both expressions being evaluated are True"
+                    }
+                ],
+                "question": "What does the \"and\" operator return in Python?",
+                "correct_answer": "a"
+            },
+            {
+                "answer_choices": [
+                    {
+                        "a": "Both conditions are true.",
+                        "b": "At least one condition is false.",
+                        "c": "Both conditions are false.",
+                        "d": "The code snippet will produce an error."
+                    }
+                ],
+                "question": "What is the output of the following code snippet?\na = 5\nb = 10\nc = 15\nif a < b and b < c:\n    print(\"Both conditions are true.\")\nelse:\n    print(\"At least one condition is false.\")",
+                "correct_answer": "a"
+            }
+        ],
+        "course_id": "e58ed763-928c-4155-bee9-fdbaaadc15f4",
+        "courseType": "PYTHON",
+        "author": "John Wisdom",
+        "teacher_id": "c105f1e7-8d20-4786-974f-4cf24d737d06",
+        "students": [
+            {
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "completed": false,
+                "grades": [
+                    95.0,
+                    94.0,
+                    97.0,
+                    30.0,
+                    0.0
+                ]
+            },
+            {
+                "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
+                "completed": false,
+                "grades": [
+                    100.0
+                ]
+            },
+            {
+                "id": "662bc837-e323-4226-9ed0-f878d1011e84",
+                "completed": false,
+                "grades": [
+                    100.0
+                ]
+            },
+            {
+                "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+                "completed": false,
+                "grades": [
+                    100.0,
+                    86.9
+                ]
+            }
+        ],
+        "title": "Introduction to Python",
+        "course_comments": [
+            {
+                "replies": [
+                    {
+                        "replies": [
+                            {
+                                "replies": [],
+                                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                "text": "This is a reply to reply to a comment"
+                            },
+                            {
+                                "replies": [],
+                                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                "text": "This a reply to reply to a comment"
+                            }
+                        ],
+                        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                        "text": "This is a reply to a course comment"
+                    }
+                ],
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a course comment"
+            }
+        ],
+        "modules": [
+            {
+                "module_comments": [
+                    {
+                        "replies": [
+                            {
+                                "replies": [
+                                    {
+                                        "replies": [],
+                                        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                        "text": "This is a reply to reply to a comment"
+                                    },
+                                    {
+                                        "replies": [],
+                                        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                        "text": "This is a reply to reply to a comment"
+                                    }
+                                ],
+                                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                "text": "This is a reply to a course comment"
+                            }
+                        ],
+                        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                        "text": "This is a course comment"
+                    }
+                ],
+                "quiz": [],
+                "slides": [
+                    {
+                        "description": "Welcome to Introduction to Python course!\n\nIn this course, we will learn the basics of Python programming language and how to use it to solve various problems.\n\nThroughout the course, we will cover topics such as data types, variables, operators, control structures, functions, file input\/output, object-oriented programming, and working with libraries and modules.\n\nWe will also explore more advanced topics such as working with APIs, web scraping, and automation.\n\nBy the end of the course, you will have a solid understanding of Python programming language and the skills to apply it to real-world projects.\n",
+                        "slide_title": "Course Introduction and Welcome"
+                    },
+                    {
+                        "description": "In this section, we will discuss the objectives and outcomes of the course.\n\nBy the end of this course, you will be able to write Python programs to solve various real-world problems.\n\nYou will have a good understanding of the Python programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.\n\nYou will also be able to work with files, APIs, web scraping, and automation using Python.\n\nOverall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a Python programmer.\n",
+                        "slide_title": "Course Objectives and Outcomes"
+                    },
+                    {
+                        "description": "1. Course Overview\n2. Getting Started with Python\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Lists, Tuples, and Dictionaries\n7. File Handling and Input\/Output\n8. Object-Oriented Programming (OOP)\n9. Advanced Topics in Python",
+                        "slide_title": "Course Outline"
+                    }
+                ],
+                "module_title": "Course Introduction"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A markup language",
+                                "b": "A low-level programming language",
+                                "c": "A compiled programming language",
+                                "d": "A high-level, general interpreted programming language"
+                            }
+                        ],
+                        "question": "What is Python?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Bill Gates",
+                                "b": "Linus Torvalds",
+                                "c": "Guido Von Rossum",
+                                "d": "Steve Jobs"
+                            }
+                        ],
+                        "question": "Who originally created Python?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Jupyter Notebook",
+                                "b": "Visual Studio Code",
+                                "c": "PyCharm",
+                                "d": "Eclipse"
+                            }
+                        ],
+                        "question": "What is the primary mode of coding in Python for this module?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Procedural programming, object-oriented programming, and functional programming",
+                                "b": "Imperative programming only",
+                                "c": "Declarative programming only",
+                                "d": "Object-oriented programming only"
+                            }
+                        ],
+                        "question": "What are some programming paradigms supported by Python?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Python is what is considered to be a high-level, general interpreted programming language that is dynamically typed and supports a variety of programming paradigms such as procedural programming, object-oriented programming and functional programming.\nOriginally released in 1991 by Guido van Rossum and is considered to be the most popular programming language used today and one of the easiest to teach individuals.",
+                        "slide_title": "Another Introduction to Python"
+                    },
+                    {
+                        "description": "Setting up your workspace will require a few steps:\n First download\/setup the anaconda installer following this link: https:\/\/www.anaconda.com\/products\/distribution\nMake sure that you have the bin in your global computer file path.\nMake sure you have Jupyter Notebook installed, and you will be able to open jupyter-notebook by typing 'jupyter-notebook' in your command terminal(cmd or terminal).\n Jupyter will be our primary mode of coding in python, so it is imperative that you install it properly and ask me if you have any questions https:\/\/jupyter-notebook-beginner-guide.readthedocs.io\/en\/latest\/execute.html#:~:text=1.,will%20contain%20all%20the%20notebooks.\n",
+                        "slide_title": "Setting up your Python Workspace"
+                    }
+                ],
+                "module_title": "Getting Started with Python"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Start with a digit, followed by letters or underscores",
+                                "b": "Start with a letter or underscore, followed by letters, digits or underscores",
+                                "c": "Start with an underscore, followed by letters, digits or underscores",
+                                "d": "Start with a letter, followed by letters or digits"
+                            }
+                        ],
+                        "question": "What is the naming convention for Python variables?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Numeric types (integers and floats), strings, and booleans",
+                                "b": "Numeric types (integers and floats) and strings",
+                                "c": "Strings and booleans",
+                                "d": "Numeric types (integers, floats, and complex numbers), strings, and booleans"
+                            }
+                        ],
+                        "question": "What data types are supported in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Integers are whole numbers without a decimal point, while floats are numbers with a decimal point",
+                                "b": "Integers are numbers with a decimal point, while floats are whole numbers without a decimal point",
+                                "c": "Integers and floats are the same data type",
+                                "d": "Integers and floats are only used in advanced Python programming"
+                            }
+                        ],
+                        "question": "What is the difference between integers and floats?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Lists are unordered collections of key-value pairs, and dictionaries are ordered collections of items",
+                                "b": "Lists are ordered collections of items, and dictionaries are unordered collections of key-value pairs",
+                                "c": "Lists and dictionaries are the same data type",
+                                "d": "Lists and dictionaries are only used in advanced Python programming"
+                            }
+                        ],
+                        "question": "What are lists and dictionaries in Python?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "It refers to the process of converting one data type to another",
+                                "b": "It refers to the process of converting a string to an integer",
+                                "c": "It refers to the process of converting a boolean to a string",
+                                "d": "It refers to the process of converting an integer to a boolean"
+                            }
+                        ],
+                        "question": "What is type conversion in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "str()",
+                                "b": "float()",
+                                "c": "int()",
+                                "d": "bool()"
+                            }
+                        ],
+                        "question": "Which built-in function can be used to convert a string to an integer?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "variable_name = value",
+                                "b": "value = variable_name",
+                                "c": "variable_name == value",
+                                "d": "value == variable_name"
+                            }
+                        ],
+                        "question": "What is the correct syntax to declare a variable in Python?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true\/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
+                        "slide_title": "Working with Variables"
+                    },
+                    {
+                        "description": "Python has several primitive data types, including integers, floats, booleans, and strings.\nIntegers are whole numbers without a decimal point, while floats are numbers with a decimal point.\nBooleans are either True or False and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes (\"\").\nAdditionally, there are two more advanced primitive data types: lists and dictionaries, but we will cover these in depth later. \nLists are ordered collections of items, and dictionaries are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Python.",
+                        "slide_title": "Another Introduction to Python"
+                    },
+                    {
+                        "description": "Type conversion, also known as casting, refers to the process of converting one data type to another.\nIn Python, you can convert between primitive data types using built-in functions such as int(), float(), str(), and bool().\nFor example, you can use int() to convert a string containing a number to an integer, or float() to convert an integer or string to a floating-point number.\nSimilarly, you can use str() to convert a number to a string, or bool() to convert a value to either True or False.\nIt's important to note that some conversions may result in a loss of precision or information, so it's always best to use the appropriate conversion function for the desired result.\n\nHere is some sample python code illustrating the capabilities of these functions:\n# Converting a string to an integer:\nage_str = '27'\nage_int = int(age_str)\nprint(age_int)  # Output: 27\n\n# Converting a float to an integer:\nprice_float = 9.99\nprice_int = int(price_float)\nprint(price_int)  # Output: 9\n\n# Converting an integer to a string:\ncount_int = 10\ncount_str = str(count_int)\nprint(count_str)  # Output: \"10\"\n\n# Converting a boolean to an integer:\nis_true = True\nis_false = False\nint_true = int(is_true)\nint_false = int(is_false)\nprint(int_true)   # Output: 1\nprint(int_false)  # Output: 0\n\n# Converting a string to a boolean:\nis_true_str = \"True\"\nis_false_str = \"False\"\nbool_true = bool(is_true_str)\nbool_false = bool(is_false_str)\nprint(bool_true)   # Output: True\nprint(bool_false)  # Output: True (any non-empty string is considered True)",
+                        "slide_title": "Type Conversion and Casting"
+                    }
+                ],
+                "module_title": "Variables and Data Types"
+            },
+            {
+                "module_comments": [
+                    {
+                        "replies": [],
+                        "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
+                        "text": "These are throwing me for a loop... hehehe"
+                    }
+                ],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A for loop is a control flow statement used to iterate over a range of values and perform a specific task for each value in the range.",
+                                "b": "A for loop is used to define a function in Python programming.",
+                                "c": "A for loop is a data structure used to store multiple values of the same type.",
+                                "d": "A for loop is a programming construct used to define a sequence of operations."
+                            }
+                        ],
+                        "question": "What is a for loop and how does it work in programming?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "By using the range function and accessing each element in the array or list using its index.",
+                                "b": "By using a while loop and accessing each element in the array or list using its index.",
+                                "c": "By using the for loop and accessing each element in the array or list directly.",
+                                "d": "By using the map function and applying a specific operation to each element in the array or list."
+                            }
+                        ],
+                        "question": "How can you use a for loop to iterate through an array or list in Python?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "as long as a condition is met",
+                                "b": "as long as a contiotion is false",
+                                "c": "as long as 2 condition are true",
+                                "d": "as long as there is no condition"
+                            }
+                        ],
+                        "question": "when do while loops run",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Using the wrong variable name in the loop, and using the print statement to debug.",
+                                "b": "Not initializing the loop variable correctly, and using the if statement to debug.",
+                                "c": "Using the wrong loop syntax, and using the break statement to debug.",
+                                "d": "Off-by-one errors when iterating through the loop, and using the debugger to identify and fix the problem."
+                            }
+                        ],
+                        "question": "What are some common mistakes to avoid when using a for loop, and how can you debug them?",
+                        "correct_answer": "d"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "In Python, conditional statements are used to make decisions based on certain conditions.\nThe most common conditional statement is the \"if\" statement, which executes a block of code only if a specific condition is true.\nIn addition to the \"if\" statement, Python also has \"else\" and \"elif\" statements, which are used to create more complex decision-making structures.\n\n# Example 1: if statement\nx = 7\nif x > 5:\n    print(\"x is greater than 5\")\n\n# Example 2: if-else statement\nx = 2\nif x > 5:\n    print(\"x is greater than 5\")\nelse:\n    print(\"x is less than or equal to 5\")\n\n# Example 3: if-elif-else statement\nx = 12\nif x < 5:\n    print(\"x is less than 5\")\nelif x > 10:\n    print(\"x is greater than 10\")\nelse:\n    print(\"x is between 5 and 10\")\n\nThe following code outputs:\nx is greater than 5\nx is less than or equal to 5\nx is greater than 10",
+                        "slide_title": "Conditional Statements"
+                    },
+                    {
+                        "description": "# Example 1: For loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num)\n# Output: 1 2 3 4 5\n\nword = \"hello\"\nfor letter in word:\n    print(letter)\n# Output: h e l l o\n\n# Example 2: While loop\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n# Output: 0 1 2 3 4\n# Example 3: Range function with for loop\nfor i in range(5):\n    print(i)\n# Output: 0 1 2 3 4\n\n# Example 4: Enumerate function with for loop\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(i, fruit)\n# Output: 0 apple 1 banana 2 cherry\n\n# Example 5: Zip function with for loop\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nages = [25, 30, 35]\nfor name, age in zip(names, ages):\n    print(name, age)\n# Output: Alice 25 Bob 30 Charlie 35\n\n# Example 6: Break statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        break\n    print(num)\n# Output: 1 2\n\n# Example 7: Continue statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        continue\n    print(num)\n# Output: 1 2 4 5",
+                        "slide_title": "Loops and Iterations"
+                    },
+                    {
+                        "description": "In Python, logical operators are used to evaluate logical expressions and return a boolean value of either True or False.\nThere are three logical operators in Python: \"and\", \"or\", and \"not\".\nThe \"and\" operator returns True if both expressions being evaluated are True, otherwise it returns False.\nThe \"or\" operator returns True if at least one of the expressions being evaluated is True, otherwise it returns False.\nFinally, the \"not\" operator returns the opposite boolean value of the expression it is evaluating.\nLogical operators are often used in conditional statements such as \"if\" statements and \"while\" loops to control program flow based on logical conditions.\nThey can also be used in conjunction with comparison operators to create more complex logical expressions.\nOverall, logical operators are an essential tool for writing programs that can make decisions based on logical conditions.Here are some examples:\na = 5\nb = 10\nc = 15\n\n# using AND operator\nif a < b and b < c:\n    print(\"Both conditions are true.\")\n# output: Both conditions are true.\n\n# using OR operator\nif a < b or a > c:\n    print(\"At least one condition is true.\")\n# output: At least one condition is true.\n\n# using NOT operator\nif not(a > b):\n    print(\"a is not greater than b.\")\n# output: a is not greater than b.",
+                        "slide_title": "Control Flow and Logical Operators"
+                    },
+                    {
+                        "description": "while loops are a type of loop that loop as long as some condition is true",
+                        "slide_title": "while loops"
+                    },
+                    {
+                        "description": "a while loop is a type of loop that runs as long as some condition is true",
+                        "slide_title": "While loops"
+                    }
+                ],
+                "module_title": "Control Flow and Loops"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A collection of variables",
+                                "b": "A collection of loops",
+                                "c": "A collection of code that performs a specific task and can be called from other parts of the program",
+                                "d": "A collection of conditions"
+                            }
+                        ],
+                        "question": "What is a function in Python?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A function definition defines a variable and a function call performs a specific task",
+                                "b": "A function definition performs a specific task and a function call defines a variable",
+                                "c": "A function definition is where you write the code for a function and a function call is where you use the function",
+                                "d": "A function definition and a function call are the same thing"
+                            }
+                        ],
+                        "question": "What is the difference between a function definition and a function call?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "def function_name():",
+                                "b": "function_name():",
+                                "c": "function_name = def():",
+                                "d": "function_name = ()"
+                            }
+                        ],
+                        "question": "How do you define a function in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To stop the execution of the function",
+                                "b": "To print a message to the console",
+                                "c": "To specify the input parameters of the function",
+                                "d": "To return a value from the function"
+                            }
+                        ],
+                        "question": "What is the purpose of the 'return' statement in a function?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "print()",
+                                "b": "len()",
+                                "c": "range()",
+                                "d": "add()"
+                            }
+                        ],
+                        "question": "Which of the following is NOT a built-in function in Python?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "return",
+                                "b": "output",
+                                "c": "yield",
+                                "d": "break"
+                            }
+                        ],
+                        "question": "What keyword in Python is used to return a value from a function?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "The area of this rectangle is 10",
+                                "b": "The area of this rectangle is 5",
+                                "c": "The area of this rectangle is 50",
+                                "d": "The area of this circle is 4pi"
+                            }
+                        ],
+                        "question": "What is the output of this code?\ndef areaRectangle(a, b):\n    area = a * b\n    return 'The area of this rectangle is {area}'\nprint(areaRectangle(5,10))",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A function that performs a specific task and can be called from other parts of the program.",
+                                "b": "A collection of variables.",
+                                "c": "A collection of code that performs a specific task and can be called from other parts of the program.",
+                                "d": "A collection of conditions."
+                            }
+                        ],
+                        "question": "What is a Python module?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A built-in module is included in Python by default, while a user-defined module is created by the programmer.",
+                                "b": "A built-in module is used for math operations, while a user-defined module is used for string manipulation.",
+                                "c": "A built-in module is used for string manipulation, while a user-defined module is used for math operations.",
+                                "d": "There is no difference between a built-in module and a user-defined module."
+                            }
+                        ],
+                        "question": "What is the difference between a built-in module and a user-defined module?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To create a new module.",
+                                "b": "To call a function.",
+                                "c": "To load a module into a Python script.",
+                                "d": "To print a message to the console."
+                            }
+                        ],
+                        "question": "What is the purpose of the 'import' statement in Python?",
+                        "correct_answer": "c"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "The concept of functions is one of the fundamental building blocks of programming in Python.\nFunctions are reusable blocks of code that perform a specific task, and they allow us to break up our programs into smaller, more manageable pieces.\nIn this module, we'll introduce you to the basics of functions in Python.\nYou'll learn how to define your own functions and call them from other parts of your code.\nWe'll also cover how to use parameters and return values in your functions, and how to handle errors that might occur during their execution.\nBy the end of this module, you'll have a solid understanding of how functions work in Python and why they're so important in programming.",
+                        "slide_title": "Introduction to Functions"
+                    },
+                    {
+                        "description": "A function is defined using the \"def\" keyword, followed by the function name and parentheses.\nInside the parentheses, you can define parameters for the function to take as input.\nThe body of the function is indented and contains the code to be executed when the function is called.\nTo call a function, you simply need to write the function name followed by parentheses, and pass any necessary arguments inside the parentheses.\nFunctions can also return values using the \"return\" keyword.\nHere are some examples:\n# Function that prints a welcome message with a name parameter\ndef welcome(name):\n    print(f\"Welcome, {name}!\")\n\n# Function that calculates the sum of two numbers with two parameters\ndef add_numbers(num1, num2):\n    sum = num1 + num2\n    return sum\n\n# Call the welcome function with the name parameter \"Alice\"\nwelcome(\"Alice\") #Output: Welcome, Alice!\n\n# Call the add_numbers function with the parameters 3 and 5, and print the result\nresult = add_numbers(3, 5)\nprint(f\"The sum of 3 and 5 is: {result}\") #Output: The sum of 3 and 5 is: 8",
+                        "slide_title": "Creating and Calling Functions"
+                    },
+                    {
+                        "description": "\nimport datetime\n\ncurrent_time = datetime.datetime.now()\nprint(\"Current date and time: \", current_time) #Output: Current date and time: 2023-25-03 13:45:32.123456\n\nimport random\n\nrandom_number = random.randint(1, 10)\nprint(\"Random number between 1 and 10: \", random_number) #Output: Random number between 1 and 10: 8\n\nimport math\na = 16\nprint(math.sqrt(a))  # Output: 4.0",
+                        "slide_title": "Built-in Python Modules"
+                    }
+                ],
+                "module_title": "Functions and Modules"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A way of organizing and storing data so that it can be accessed and used efficiently.",
+                                "b": "A way of organizing and storing data so that it can be accessed and used inefficiently.",
+                                "c": "A way of organizing and storing data that cannot be accessed or used.",
+                                "d": "A way of organizing and storing data that only works for certain types of data."
+                            }
+                        ],
+                        "question": "What is a data structure in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A type of data that can only hold numeric values",
+                                "b": "A way to organize and store data",
+                                "c": "A built-in function in Python",
+                                "d": "A type of loop"
+                            }
+                        ],
+                        "question": "What is a list in Python?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "list = {}",
+                                "b": "list = []",
+                                "c": "list = ()",
+                                "d": "list = <>"
+                            }
+                        ],
+                        "question": "What is the correct syntax to create a list in Python?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "0",
+                                "b": "1",
+                                "c": "n",
+                                "d": "None of the above"
+                            }
+                        ],
+                        "question": "What is the index of the first element in a list?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "[2, 4]",
+                                "b": "[4, 6]",
+                                "c": "[6, 8]",
+                                "d": "[2, 4, 6]"
+                            }
+                        ],
+                        "question": "What is the output of the following code: \n\nmy_list = [2, 4, 6, 8] \nprint(my_list[1:3])",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A way of organizing and storing data",
+                                "b": "A data structure that can only hold numeric values",
+                                "c": "A loop in Python",
+                                "d": "A built-in function in Python"
+                            }
+                        ],
+                        "question": "What is a tuple in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A way of organizing and storing data",
+                                "b": "A data structure that can only hold numeric values",
+                                "c": "A loop in Python",
+                                "d": "A built-in function in Python"
+                            }
+                        ],
+                        "question": "What is a set in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A tuple is ordered and immutable, while a set is unordered and mutable",
+                                "b": "A tuple can hold any type of data, while a set can only hold numeric values",
+                                "c": "A tuple is mutable, while a set is immutable",
+                                "d": "There is no difference between a tuple and a set"
+                            }
+                        ],
+                        "question": "What is the main difference between a tuple and a set in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "(1, 2, 3)",
+                                "b": "[1, 2, 3]",
+                                "c": "{1, 2, 3}",
+                                "d": "1, 2, 3"
+                            }
+                        ],
+                        "question": "What is the output of the following code: \nmy_tuple = (1, 2, 3) \nprint(my_tuple)",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A way of organizing data with key-value pairs",
+                                "b": "A type of loop in Python",
+                                "c": "A way of storing numerical data",
+                                "d": "A way of creating strings in Python"
+                            }
+                        ],
+                        "question": "What is a dictionary in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "my_dict[key] = value",
+                                "b": "my_dict.add(key, value)",
+                                "c": "my_dict.update(key, value)",
+                                "d": "my_dict.append(key, value)"
+                            }
+                        ],
+                        "question": "Which of the following is the correct way to add a key-value pair to a dictionary in Python?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Data structures in Python are the building blocks of programming.\nThey are essential for managing and manipulating data in a way that is both efficient and effective.\nData structures can range from simple to complex, depending on the task at hand.\nIn Python, there are several built-in data structures, such as lists, tuples, sets, and dictionaries, that can be used to store and organize data.\nEach of these structures has its unique characteristics and uses, which we will explore in this class.\nBy the end of this lesson, you should have a solid understanding of data structures and be able to use them in your Python programs to make your code more efficient and effective.",
+                        "slide_title": "Introduction to Data Structures: What exactly is a data structure"
+                    },
+                    {
+                        "description": "A list is an ordered collection of items, where each item is assigned a unique index number that can be used to access and manipulate the data.\nIn Python, lists are a versatile and widely used data structure, and they can be created using square brackets and separating each item with a comma.\nLists can contain items of different types, including strings, numbers, and even other lists.\nThey are commonly used for storing and manipulating data that can change over time, such as user input or database records.\nWith their flexibility and powerful built-in functions, lists are an essential tool for many programming tasks in Python.\nHere are some examples of their uses\nA class roster:\nstudents = ['Alice', 'Bob', 'Charlie', 'David']\nprint(students[0]) #Output: 'Alice'\nprint(students[3]) #Output: 'David'\n\nFruits(adding and removing elements):\nfruits = ['apple', 'date', 'cherry']\nfruits.append('mango')#adding an element\nprint(fruits)# Output: ['apple', 'date', 'cherry', 'mango']\nfruits.remove('apple')\nprint(fruits)#Output: ['date', 'cherry', 'mango']",
+                        "slide_title": "Lists"
+                    },
+                    {
+                        "description": "On the other hand, a set is an unordered collection of unique objects.\nUnlike lists and tuples, sets do not have a specific order, and duplicate elements are automatically removed.\nSets are useful for tasks such as removing duplicates from a list or testing membership of an element in a collection.\nSets are created by enclosing a comma-separated sequence of objects in curly braces or by using the set() function.\nHere is an example showing the functionality of a tuple:\n\n# creating a tuple of numbers\nmy_tuple = (1, 2, 3, 4, 5)\n\n# accessing elements of a tuple\nprint(my_tuple[0]) # output: 1\nprint(my_tuple[3]) # output: 4\n\n# attempting to modify a tuple (this will result in an error)\nmy_tuple[2] = 10 # TypeError: 'tuple' object does not support item assignment\n\nHere is an example using a set:\n# creating a set of strings\nmy_set = {\"apple\", \"banana\", \"cherry\", \"apple\", \"banana\"}\n\n# printing the set (duplicates are automatically removed)\nprint(my_set) # output: {\"apple\", \"banana\", \"cherry\"}\n\n# adding an item to the set\nmy_set.add(\"orange\")\n\n# removing an item from the set\nmy_set.remove(\"banana\")\n\n# checking if an item exists in the set\nprint(\"orange\" in my_set) # output: True\nprint(\"watermelon\" in my_set) # output: False",
+                        "slide_title": "Tuples and Sets"
+                    },
+                    {
+                        "description": "Dictionaries in Python are a type of data structure that allow you to store and access data in an organized and efficient way.\nA dictionary is created by enclosing a comma-separated list of key-value pairs in curly braces {}.\nEach key is separated from its value by a colon, and the key-value pairs are separated by commas.\nDictionaries are unordered, which means that the items in the dictionary are not stored in any particular order, and they are mutable, which means that you can add, remove, or modify items in the dictionary after it has been created.\nAnother word for dictionaries in computer science is Hash Maps, remember that for your coding interviews.\n\nOne case where you might use a dictionary is when assigning a group of people there phone numbers:\n\npeopleNumbers = {\"Alice\":\"123 456 7890\",\"Bob\":\"098 765 4321\"}\nprint(peopleNumbers[\"Alice\"]) # Output: 123 456 7890\nprint(peopleNumbers.get(\"Bob\")) # Output: 098 765 4321\npeopleNumbers[\"Jake\"] = \"981 235 0124\"\nprint(peopleNumbers)#Output: {\"Alice\":\"123 456 7890\",\"Bob\":\"098 765 4321\", \"Jake\":\"981 235 0124\"}",
+                        "slide_title": "Dictionaries"
+                    }
+                ],
+                "module_title": "Data Structures - Lists, Tuples,Sets and Dictionaries"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "read()",
+                                "b": "readlines()",
+                                "c": "readline()",
+                                "d": "write()"
+                            }
+                        ],
+                        "question": "Which of the following methods can be used to read a file one line at a time in Python?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "f = open('example.txt'); f.write('Hello, world!'); f.close()",
+                                "b": "with open('example.txt', 'w') as f: f.write('Hello, world!')",
+                                "c": "f = open('example.txt', 'r'); f.write('Hello, world!'); f.close()",
+                                "d": "f.write('Hello World!')"
+                            }
+                        ],
+                        "question": "Which of the following code snippets correctly opens a file called 'example.txt' in write mode, writes the string 'Hello, world!' to the file, and then closes the file?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "input()",
+                                "b": "print()",
+                                "c": "raw_input()",
+                                "d": "keyboard_input()"
+                            }
+                        ],
+                        "question": "What function is used to accept user input from the keyboard in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To define a block of code that will be executed regardless of whether an exception occurs or not",
+                                "b": "To catch and handle specific types of exceptions that might occur during program execution",
+                                "c": "To specify code that should be executed if an exception occurs",
+                                "d": "To log errors and other information about program execution"
+                            }
+                        ],
+                        "question": "What is the purpose of using a `try` block in Python exception handling?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "`SyntaxError`",
+                                "b": "`TypeError`",
+                                "c": "`KeyError`",
+                                "d": "`ValueError`"
+                            }
+                        ],
+                        "question": "Which of the following is an example of a built-in Python exception?",
+                        "correct_answer": "d"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Reading and writing to files is an essential part of many programming tasks, and Python provides several built-in functions to perform these operations.\nTo read data from a file, you first need to open the file using the open() function, specifying the file name and the mode in which you want to access the file (such as 'r' for reading or 'w' for writing).\nOnce the file is open, you can read its contents using the read() function, which returns the entire file's content as a string.\nAlternatively, you can read the file line by line using the readline() function.\nTo write data to a file, you need to open the file in write mode, using the 'w' flag.\nYou can then write data to the file using the write() function, which takes a string argument to write to the file.\nFinally, after reading from or writing to a file, you should always close the file using the close() function to ensure that any changes are properly saved and to free up system resources.\nWe will explore how exactly to do this in the following examples:\n\n# Open a file for writing to it\nwith open('example.txt', 'w') as f:\n    # Write some data to the file\n    f.write('Hello, world!\n')\n    f.write('This is an example file.\n')\n    f.close()\nThe file example.txt now contains the two lines 'Hello World' and 'This is an example file.'\n# Open a file for reading\nwith open('example.txt', 'r') as f:\n    # Read the contents of the file\n    contents = f.read() #Option 1, read entire file as 1 string\n    contents_list = f.readLines() #Option 2, seperate lines into individual strings stored in a list\n    content_one_line = f.readLine() #Option 3, reads one line at a time, the most inefficient way\n\n# Print the contents of the file\nprint(contents) #Output, single string containing everything\nprint(contents_list)#Output: lines comma seperated in a list\nprint(content_one_line)#Output: prints out the first line of the file",
+                        "slide_title": "Reading and Writing Files"
+                    },
+                    {
+                        "description": "User input and output are essential components of any interactive Python program.\nOften times, software needs to be interactive(i.e. apps) and we need a way of handling input and output.\nHowever, we will cover it a much smaller scale than apps, so not to worry(Imagine coding an entire software application hahaha).\nThe input() function allows a program to accept user input from the keyboard, while the print() function is used to display output to the console or other output device. As you have noticed, we have using the print() function all along!\nThe input() function waits for the user to type something on the keyboard and press Enter, and returns a string containing the user's input.\nThe print() function takes one or more arguments and displays them on the console or other output device.\nThe format() method can be used to format strings to include variables or other data.\nIt is important to properly handle user input to prevent errors or security vulnerabilities, such as by validating input to ensure that it meets certain criteria.\nHere's an example that uses print(), input(), and format() to ask the user their name, age, and favorite color:\n\n# ask the user for their name, age, and favorite color\nname = input(\"What is your name? \")\nage = input(\"How old are you? \")\ncolor = input(\"What is your favorite color? \")\n\n# create a personalized message using the user's input\nmessage = \"Hi {name}, I see that you're {age} years old and your favorite color is {color}. That's really cool!\"\n\n# display the personalized message to the user\nprint(message.format(name=name, age=age, color=color))\n\nSo if I enter Vansh, 20, and red, the code should output Hi Vansh, I see that you're 20 years old and your favorite color is red. That's really cool!\nThis is a very basic chatbot, an interesting side project would be to make a madlibs type chatbot.",
+                        "slide_title": "User Input and Output"
+                    },
+                    {
+                        "description": "\nIn Python, errors that occur during program execution are known as exceptions.\nThese can arise due to a variety of reasons, such as incorrect input, unexpected data, or system failures.\nTo ensure that our programs handle these exceptions gracefully, we can use Python's built-in exception handling mechanism.\nThis involves enclosing the code that might raise an exception in a try block and using except blocks to catch and handle any specific types of exceptions that might occur.\nAdditionally, we can use the finally block to specify code that should be executed regardless of whether an exception occurred or not.\nBy handling exceptions in this way, we can prevent our programs from crashing unexpectedly and provide helpful error messages to users.\nWe can also use Python's logging module to log errors and other information about program execution, which can be useful for debugging and monitoring program behavior.\nKnowing how to handle exceptions is imperative when your code has to deal with situations that can cause a lot of problems (for example, reading or writing from a file).\nHere's an example that tries to take two numbers as user input, and tries to divide them:\n2try:\n    num1 = int(input(\"Enter a number: \"))\n    num2 = int(input(\"Enter another number: \"))\n    result = num1 \/ num2\n    print(\"The result is:\", result)\nexcept ValueError:\n    print(\"Invalid input. Please enter a valid integer.\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero.\")\nfinally:\n    print(\"Exiting program.\")",
+                        "slide_title": "Handling Exceptions and Errors"
+                    }
+                ],
+                "module_title": "File Writing\/Reading, Input\/Output, and Exception Handling"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "It is based on the concept of objects.",
+                                "b": "It is based on the concept of functions.",
+                                "c": "It is based on the concept of loops.",
+                                "d": "It is based on the concept of arrays."
+                            }
+                        ],
+                        "question": "What is the basic concept of Object-Oriented Programming (OOP)?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "It allows for more modular, flexible, and reusable code.",
+                                "b": "It makes programs more complex and harder to maintain.",
+                                "c": "It reduces the efficiency of code.",
+                                "d": "It is not compatible with other programming languages."
+                            }
+                        ],
+                        "question": "What are the benefits of using OOP in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Inheritance, encapsulation, and polymorphism.",
+                                "b": "Loops, functions, and arrays.",
+                                "c": "Conditionals, exceptions, and file I\/O.",
+                                "d": "Networking, databases, and GUIs."
+                            }
+                        ],
+                        "question": "What are some of the OOP features provided by Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Use the __init__() method to define the constructor and the class keyword to declare a class.",
+                                "b": "Use the self keyword to define the constructor and the def keyword to declare a class.",
+                                "c": "Use the __new__() method to define the constructor and the class keyword to declare a class.",
+                                "d": "Use the class keyword to define the constructor and the __init__() method to declare a class."
+                            }
+                        ],
+                        "question": "How do you make a constructor and declare a class in Python?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A mechanism for treating different objects as if they were the same type of object",
+                                "b": "A mechanism for sharing and reusing properties between related classes",
+                                "c": "A mechanism for overriding the methods of a parent class",
+                                "d": "A mechanism for encapsulating data within a class"
+                            }
+                        ],
+                        "question": "What is inheritance in object-oriented programming?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A mechanism for treating different objects as if they were the same type of object",
+                                "b": "A mechanism for sharing and reusing properties between related classes",
+                                "c": "A mechanism for overriding the methods of a parent class",
+                                "d": "A mechanism for encapsulating data within a class"
+                            }
+                        ],
+                        "question": "What is polymorphism in object-oriented programming?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Object-Oriented Programming (OOP) is a programming strategy that is based on the concept of objects.\nIn Python, everything data type and structure is an object, making OOP a fundamental aspect of the language.\nOOP allows programmers to structure their code in a way that is more modular, flexible, and reusable.\nThis is accomplished through the creation of classes, which define the properties and behavior of objects, and the creation of instances of those classes, which are the actual objects themselves.\nPython provides a wide range of OOP features, including inheritance, encapsulation, and polymorphism, which allow programmers to build complex systems that are easy to maintain and extend.\nWith OOP in Python, programmers can write more organized and efficient code that is also reusable.\nThis is arguably why OOP the most important a skill a developer\/programmer should know and understand.\n ",
+                        "slide_title": "Introduction to OOP"
+                    },
+                    {
+                        "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in python:\n\n#please take note of the indentation(indentation is very important in python)\nclass Student:\n  #this is a constructor which is a method that is called when an object is created\/constructed\n  #self is just a pointer to the own specific object, don't worry about it too much\n  def __init__(self, name, age, major):\n    self.name = name\n    self.age = age \n    self.major = major  \n\n  #this is a method that displays my info\n  def getStudentInfo(self):\n    print('name:', self.name)\n    print('age:', self.age)\n    print('major:', self.major)\n\n\nVansh = Student('Vansh Nagpal',20,'Computer Science')\nVansh.getStudentInfo()#Output'Vansh Nagpal'\n20\n'Computer Science'",
+                        "slide_title": "Classes and Objects"
+                    },
+                    {
+                        "description": "Inheritance and Polymorphism are the height of what one can achieve with OOP.\nInheritance allows you to declare a class that will act as the parent, and then declare a class that will act as the child.\nThe child class expands upon the capabilities of the parent, or 'inherits' the parent's capabilities.\nThis goes back to the concept of reusability in code.\nIf it is not necessary to write more code, then why should you?\nPolymorphism is a way for objects of different classes to implement certain capabilities in different ways.\nSpecificallyit refers to functions that child classes implement or override in different ways.\nHere is an example of both polymorphism and inheritance in python:\n\n#Here the cat and dog classes inherit from the animal class:\nclass Animal:\n  def __init__(self, name, age):\n    self.age = age\n    self.name = name\n\n  def makeASound(self)\n    print(\"this will be overriden\")\n\n#dog is a child of animal, hence (Animal)\nclass Dog(Animal):\n  def __init(self, name, age, breed)\n    super().__init(name, age)#calls parent constructor\n    self.breed = breed\n\n  def makeASound(self):\n    print(\"BARK\")\n\n#cat is a child of animal, hence (Animal)\nclass Cat(Animal):\n  def __init(self, name, age, color)\n    super().__init(name, age)#calls parent constructor\n    self.color = color\n\n  def makeASound(self):\n    print(\"MEOW MEOW\")  \n\ndog = Dog('rex', 3,'golden retriever')\ncat = Cat('jenna', 2, 'black and white')\ndog.makeASound()#Output: BARK\ncat.makeASound()#Ouput: MEOW MEOW",
+                        "slide_title": "Inheritance and Polymorphism"
+                    }
+                ],
+                "module_title": "Object-Oriented Programming (OOP)"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Matches any character except for the ones specified",
+                                "b": "Matches only at the beginning of a line",
+                                "c": "Matches the pattern case-insensitively",
+                                "d": "Matches one or more occurrences of the preceding character or group"
+                            }
+                        ],
+                        "question": "What does the re.IGNORECASE flag do in Python regular expressions?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": ".",
+                                "b": "*",
+                                "c": "^",
+                                "d": "+"
+                            }
+                        ],
+                        "question": "Which of the following is a valid regular expression pattern that matches any character?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "re.compile",
+                                "b": "re.findall",
+                                "c": "re.replace",
+                                "d": "re.split"
+                            }
+                        ],
+                        "question": "Which function is used to search for a pattern in a string using regular expressions in Python?",
+                        "correct_answer": "b"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Regular expressions are defined using special characters and metacharacters.\nA period (.) matches any character except newline.\nThe ^ character matches the start of a string.\nThe $ character matches the end of a string.\nThe [] character set matches any one of the enclosed characters.\nThe *, + and ? quantifiers match zero or more, one or more, or zero or one occurrences respectively.\nThe () parentheses define a group that can be referenced later in the expression.\n",
+                        "slide_title": "Syntax of Regular Expressions in Python"
+                    },
+                    {
+                        "description": "Regular expressions (regex) are a powerful tool for working with text in Python.\nThey are a sequence of characters that define a search pattern.\nThis pattern is used to search, replace or manipulate text.\nThe re module in Python provides functions to work with regular expressions.\n",
+                        "slide_title": "Regular Expressions in Python"
+                    }
+                ],
+                "module_title": "Regular Expressions"
+            },
+            {
+                "module_comments": [],
+                "quiz": [],
+                "slides": [
+                    {
+                        "description": "Now that we have covered the meat of programming, let's cover some advanced things you can do in python, starting with .... MACHINE LEARNING!!!\nPython is the premier language for data analysis in the modern world, which also makes it easy to implement simple machine learning algorithms on.\nLibraries and modules such as numpy, pandas, matplotlib, and so many more make statistical analysis of sets of data very user friendly.\nThe following is an example of an unsupervised machine learning algorithm that implements k means scattering.\nThe point of this algorithm is to seperate a given set of points into k subgroups.\nIt uses all of the techniques we have learned up to this point including OOP and functions\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.preprocessing import StandardScaler\nfrom numpy.random import uniform\nfrom sklearn.datasets import make_blobs\nimport seaborn as sns\nimport random\ndef euclidean(point, data):\n    \"\"\"\n    Euclidean distance between point & data.\n    Point has dimensions (m,), data has dimensions (n,m), and output will be of size (n,).\n    \"\"\"\n    return np.sqrt(np.sum((point - data)**2, axis=1))\nclass KMeans:\n    def __init__(self, n_clusters=8, max_iter=300):\n        self.n_clusters = n_clusters\n        self.max_iter = max_iter\n    def fit(self, X_train):\n        # Initialize the centroids, using the \"k-means++\" method, where a random datapoint is selected as the first,\n        # then the rest are initialized w\/ probabilities proportional to their distances to the first\n        # Pick a random point from train data for first centroi\n        self.centroids = [random.choice(X_train)]\n        for _ in range(self.n_clusters-1):\n            # Calculate distances from points to the centroids\n            dists = np.sum([euclidean(centroid, X_train) for centroid in self.centroids], axis=0)\n            # Normalize the distances\n            dists \/= np.sum(dists)\n            # Choose remaining points based on their distances\n            new_centroid_idx, = np.random.choice(range(len(X_train)), size=1, p=dists)\n            self.centroids += [X_train[new_centroid_idx]]\n        # This initial method of randomly selecting centroid starts is less effective\n        # min_, max_ = np.min(X_train, axis=0), np.max(X_train, axis=0)\n        # self.centroids = [uniform(min_, max_) for _ in range(self.n_clusters)]\n        # Iterate, adjusting centroids until converged or until passed max_iter\n        iteration = 0\n        prev_centroids = None\n        while np.not_equal(self.centroids, prev_centroids).any() and iteration < self.max_iter:\n            # Sort each datapoint, assigning to nearest centroid\n            sorted_points = [[] for _ in range(self.n_clusters)]\n            for x in X_train:\n                dists = euclidean(x, self.centroids)\n                centroid_idx = np.argmin(dists)\n                sorted_points[centroid_idx].append(x)\n            # Push current centroids to previous, reassign centroids as mean of the points belonging to them\n            prev_centroids = self.centroids\n            self.centroids = [np.mean(cluster, axis=0) for cluster in sorted_points]\n            for i, centroid in enumerate(self.centroids):\n                if np.isnan(centroid).any():  # Catch any np.nans, resulting from a centroid having no points\n                    self.centroids[i] = prev_centroids[i]\n            iteration += 1\n    def evaluate(self, X):\n        centroids = []\n        centroid_idxs = []\n        for x in X:\n            dists = euclidean(x, self.centroids)\n            centroid_idx = np.argmin(dists)\n            centroids.append(self.centroids[centroid_idx])\n            centroid_idxs.append(centroid_idx)\n        return centroids, centroid_idxs\n# Create a dataset of 2D distributions\ncenters = 5\nX_train, true_labels = make_blobs(n_samples=100, centers=centers, random_state=42)\nX_train = StandardScaler().fit_transform(X_train)\n# Fit centroids to dataset\nkmeans = KMeans(n_clusters=centers)\nkmeans.fit(X_train)\n# View results\nclass_centers, classification = kmeans.evaluate(X_train)\nsns.scatterplot(x=[X[0] for X in X_train],\n                y=[X[1] for X in X_train],\n                hue=true_labels,\n                style=classification,\n                palette=\"deep\",\n                legend=None\n                )\nplt.plot([x for x, _ in kmeans.centroids],\n         [y for _, y in kmeans.centroids],\n         'k+',\n         markersize=10,\n         )\nplt.show()",
+                        "slide_title": "Machine Learning in Python"
+                    }
+                ],
+                "module_title": "Python Advanced Topics and Applications"
+            }
+        ]
+    },
+    {
+        "difficulty": "BEGINNER",
+        "exam": [
+            {
+                "answer_choices": [
+                    {
+                        "a": "exam answer choice 1",
+                        "b": "exam answer choice 2",
+                        "c": "exam answer choice 3",
+                        "d": "exam answer choice 4"
+                    }
+                ],
+                "question": "question1",
+                "correct_answer": "a"
+            }
+        ],
+        "course_id": "a5a5e5c5-e5f5-8a3b-29cb-a65a2d578fa5",
+        "courseType": "JAVASCRIPT",
+        "author": "Little Baby",
+        "teacher_id": "6ee074ab-189e-4508-9574-972f77fb2812",
+        "students": [
+            {
+                "id": "f16ed563-913a-4156-bee9-fdbcffdc15f3",
+                "completed": true,
+                "grades": [
+                    95.0,
+                    94.0,
+                    97.0
+                ]
+            },
+            {
+                "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+                "completed": true,
+                "grades": [
+                    100.0,
+                    100.0,
+                    95.0,
+                    100.0,
+                    87.0,
+                    90.0,
+                    100.0
+                ]
+            }
+        ],
+        "title": "Introduction to JavaScript",
+        "course_comments": [
+            {
+                "replies": [
+                    {
+                        "replies": [
+                            {
+                                "replies": [],
+                                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                                "text": "This is a reply to reply to a comment"
+                            }
+                        ],
+                        "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                        "text": "This is a reply to a course comment"
+                    }
+                ],
+                "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+                "text": "This is a course comment"
+            }
+        ],
+        "modules": [
+            {
+                "module_comments": [],
+                "quiz": [],
+                "slides": [
+                    {
+                        "description": "Welcome to Introduction to JavaScript course!\n\nIn this course, we will learn the fundamentals of JavaScript programming language and how to use it to create dynamic and interactive web pages.\n\nThroughout the course, we will cover topics such as variables, data types, operators, control structures, functions, arrays, objects, and working with the Document Object Model (DOM).\n\nWe will also explore more advanced topics such as asynchronous programming, error handling, and working with third-party libraries and frameworks.\n\nBy the end of the course, you will have a solid understanding of JavaScript programming language and the skills to create dynamic and interactive web pages.\n",
+                        "slide_title": "Course Introduction and Welcome"
+                    },
+                    {
+                        "description": "In this section, we will discuss the objectives and outcomes of the course.\n\nBy the end of this course, you will be able to write JavaScript programs to create dynamic and interactive web pages.\n\nYou will have a good understanding of the JavaScript programming language and be familiar with its syntax, data structures, control structures, functions, and object-oriented programming concepts.\n\nYou will also be able to work with the Document Object Model (DOM), handle events, and manipulate web page content using JavaScript.\n\nOverall, this course aims to equip you with the fundamental skills and knowledge required to start your journey as a JavaScript developer.\n",
+                        "slide_title": "Course Objectives and Outcomes"
+                    },
+                    {
+                        "description": "1. Course Overview\n2. Introduction to JavaScript\n3. Variables and Data Types\n4. Control Flow and Loops\n5. Functions and Modules\n6. Arrays and Objects\n7. Working with the Document Object Model (DOM)\n8. Asynchronous Programming and Error Handling\n9. Working with Third-Party Libraries and Frameworks",
+                        "slide_title": "Course Outline"
+                    }
+                ],
+                "module_title": "Course Introduction"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A markup language",
+                                "b": "A low-level programming language",
+                                "c": "A compiled programming language",
+                                "d": "A high-level, interpreted programming language"
+                            }
+                        ],
+                        "question": "What is JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Bill Gates",
+                                "b": "Brendan Eich",
+                                "c": "Guido Von Rossum",
+                                "d": "Steve Jobs"
+                            }
+                        ],
+                        "question": "Who created JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Numbers and strings",
+                                "b": "Booleans and arrays",
+                                "c": "Objects and arrays",
+                                "d": "Numbers and objects"
+                            }
+                        ],
+                        "question": "What are the two types of data types in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "while loop",
+                                "b": "for loop",
+                                "c": "do-while loop",
+                                "d": "goto loop"
+                            }
+                        ],
+                        "question": "Which of the following is not a looping structure in JavaScript?",
+                        "correct_answer": "d"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "JavaScript is a high-level programming language that is widely used to create interactive and dynamic web pages. It is a versatile language that can be used for front-end development, back-end development, and even mobile app development.\nJavaScript was first released in 1995 and has since become one of the most popular programming languages in the world.\nIn this course, we will learn the basics of JavaScript programming and how to use it to create web applications.",
+                        "slide_title": "Introduction to JavaScript"
+                    },
+                    {
+                        "description": "Setting up your workspace for JavaScript programming will require a few steps:\nFirst, you need to have a code editor installed on your computer, such as Visual Studio Code, Sublime Text, or Atom. These editors provide a more user-friendly interface for coding.\nNext, you need to have a web browser installed on your computer, such as Google Chrome, Firefox, or Safari. This will be used to test and run your JavaScript code.\nYou can write JavaScript code directly in an HTML file or create a separate JavaScript file and link it to your HTML file using a script tag.\nLastly, you can also use online code editors like CodePen or JSFiddle to write and test your JavaScript code without the need for any installation.",
+                        "slide_title": "Setting up your JavaScript Workspace"
+                    }
+                ],
+                "module_title": "Getting Started with JavaScript"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Start with a digit, followed by letters or underscores",
+                                "b": "Start with a letter or underscore, followed by letters, digits or underscores",
+                                "c": "Start with an underscore, followed by letters, digits or underscores",
+                                "d": "Start with a letter, followed by letters or digits"
+                            }
+                        ],
+                        "question": "What is the naming convention for JavaScript variables?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Numeric types (integers and floats), strings, and booleans",
+                                "b": "Numeric types (integers and floats) and strings",
+                                "c": "Strings and booleans",
+                                "d": "Numeric types (integers, floats, and complex numbers), strings, and booleans"
+                            }
+                        ],
+                        "question": "What data types are supported in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "There is no difference, they both represent the absence of a value",
+                                "b": "Null represents the absence of a value while undefined represents a variable that has been declared but has not been assigned a value",
+                                "c": "Undefined represents the absence of a value while null represents a variable that has been declared but has not been assigned a value",
+                                "d": "Null and undefined are the same data type"
+                            }
+                        ],
+                        "question": "What is the difference between null and undefined in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "They are the same operator",
+                                "b": "== compares the value of two variables without considering the data type, while === compares the value and the data type of two variables",
+                                "c": "== compares the value and the data type of two variables, while === compares the value of two variables without considering the data type",
+                                "d": "None of the above"
+                            }
+                        ],
+                        "question": "What is the difference between the == operator and the === operator in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Arrays are unordered collections of key-value pairs, and objects are ordered collections of items",
+                                "b": "Arrays are ordered collections of items, and objects are unordered collections of key-value pairs",
+                                "c": "Arrays and objects are the same data type",
+                                "d": "Arrays and objects are only used in advanced JavaScript programming"
+                            }
+                        ],
+                        "question": "What are arrays and objects in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "str()",
+                                "b": "parseFloat()",
+                                "c": "parseInt()",
+                                "d": "Boolean()"
+                            }
+                        ],
+                        "question": "Which built-in function can be used to convert a string to an integer in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "variable_name = value",
+                                "b": "value = variable_name",
+                                "c": "var variable_name = value",
+                                "d": "value == variable_name"
+                            }
+                        ],
+                        "question": "What is the correct syntax to declare a variable in JavaScript?",
+                        "correct_answer": "c"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Variable names must start with a letter or underscore, and can be followed by letters, digits, or underscores.\n Variable names are case-sensitive, so 'my_var' and 'My_Var' are two different variables.\n Declaring Variables Using the Assignment Operator '='\n To declare a variable in Python, simply assign a value to it using the '=' operator.\n For example, to declare a variable 'x' with a value of 10, we would write 'x = 10'.\n Understanding Data Types in Python:\n Python supports several data types, including numeric types (integers and floats), strings, and booleans.\n Numeric types represent numbers, strings represent text, and booleans represent true or false values.\n\nExamples of Declaring Variables of Different Data Types\nTo declare a variable of type integer, we can assign an integer value to it, such as 'x = 5'.\nTo declare a variable of type string, we can enclose a string value in quotation marks, such as ' name = 'John' '.\nTo declare a variable of type boolean, we can assign a true\/false value to it, such as hasFriends = false or isSad = true\n\n Unlike in java, python is much more flexible with data types, which is why we have to be much more careful about making mistakes and keeping track of what data types are store in each variable of our own accord.\nCommenting your code by typing '#' followed by your comment is an easy way to keep track of what is in what.",
+                        "slide_title": "Working with Variables"
+                    },
+                    {
+                        "description": "Javascript has several primitive data types, including numbers, strings, booleans, null, and undefined.\nNumbers can be integers or floating-point numbers.\nBooleans are either true or false and are often used for logical expressions.\nStrings are sequences of characters enclosed in quotes, either single quotes('') or double quotes.\nAdditionally, there are two more advanced primitive data types: arrays and objects, but we will cover these in depth later. \nArrays are ordered collections of items, and objects are unordered collections of key-value pairs.\nThese primitive data types form the building blocks of more complex data structures in Javascript.",
+                        "slide_title": "Another Introduction to Javascript"
+                    },
+                    {
+                        "description": "Type conversion, also known as casting, refers to the process of converting one data type to another.\nIn Python, you can convert between primitive data types using built-in functions such as int(), float(), str(), and bool().\nFor example, you can use int() to convert a string containing a number to an integer, or float() to convert an integer or string to a floating-point number.\nSimilarly, you can use str() to convert a number to a string, or bool() to convert a value to either True or False.\nIt's important to note that some conversions may result in a loss of precision or information, so it's always best to use the appropriate conversion function for the desired result.\n\nHere is some sample python code illustrating the capabilities of these functions:\n# Converting a string to an integer:\nage_str = '27'\nage_int = int(age_str)\nprint(age_int)  # Output: 27\n\n# Converting a float to an integer:\nprice_float = 9.99\nprice_int = int(price_float)\nprint(price_int)  # Output: 9\n\n# Converting an integer to a string:\ncount_int = 10\ncount_str = str(count_int)\nprint(count_str)  # Output: \"10\"\n\n# Converting a boolean to an integer:\nis_true = True\nis_false = False\nint_true = int(is_true)\nint_false = int(is_false)\nprint(int_true)   # Output: 1\nprint(int_false)  # Output: 0\n\n# Converting a string to a boolean:\nis_true_str = \"True\"\nis_false_str = \"False\"\nbool_true = bool(is_true_str)\nbool_false = bool(is_false_str)\nprint(bool_true)   # Output: True\nprint(bool_false)  # Output: True (any non-empty string is considered True)",
+                        "slide_title": "Type Conversion and Casting"
+                    }
+                ],
+                "module_title": "Variables and Data Types"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To make web pages more visually appealing.",
+                                "b": "To make web pages more interactive.",
+                                "c": "To make web pages load faster.",
+                                "d": "To make web pages more secure."
+                            }
+                        ],
+                        "question": "What is the purpose of JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "var = myVariable;",
+                                "b": "variable myVariable;",
+                                "c": "myVariable = var;",
+                                "d": "var myVariable;"
+                            }
+                        ],
+                        "question": "What is the correct syntax for declaring a variable in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "== compares both value and type, while === compares only value.",
+                                "b": "=== compares both value and type, while == compares only value.",
+                                "c": "== and === are equivalent.",
+                                "d": "== and === cannot be used in JavaScript."
+                            }
+                        ],
+                        "question": "What is the difference between == and === in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "1",
+                                "b": "2",
+                                "c": "3",
+                                "d": "4"
+                            }
+                        ],
+                        "question": "What is the output of the following code?\nvar myVar = 3;\nmyVar = myVar + 1;\nconsole.log(myVar);",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Boolean",
+                                "b": "String",
+                                "c": "Number",
+                                "d": "Character"
+                            }
+                        ],
+                        "question": "Which of the following is NOT a data type in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To define a function.",
+                                "b": "To declare a variable.",
+                                "c": "To execute a block of code repeatedly.",
+                                "d": "To add a style to an element."
+                            }
+                        ],
+                        "question": "What is the purpose of a loop in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A for loop iterates over a sequence, while a while loop repeatedly executes code as long as a condition is true.",
+                                "b": "A for loop and a while loop are the same thing.",
+                                "c": "A for loop executes a block of code once, while a while loop repeats the block of code until a condition is false.",
+                                "d": "A for loop is used for arithmetic operations, while a while loop is used for logical operations."
+                            }
+                        ],
+                        "question": "What is the difference between the for and while loops in JavaScript?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Conditional statements are used in JavaScript to make decisions based on certain conditions. The most common conditional statement in JavaScript is the if statement, which executes a block of code only if a specific condition is true. In addition to the if statement, JavaScript also has else and else if statements, which are used to create more complex decision-making structures.",
+                        "slide_title": "Conditional Statements"
+                    },
+                    {
+                        "description": "# Example 1: For loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num)\n# Output: 1 2 3 4 5\n\nword = \"hello\"\nfor letter in word:\n    print(letter)\n# Output: h e l l o\n\n# Example 2: While loop\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n# Output: 0 1 2 3 4\n# Example 3: Range function with for loop\nfor i in range(5):\n    print(i)\n# Output: 0 1 2 3 4\n\n# Example 4: Enumerate function with for loop\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(i, fruit)\n# Output: 0 apple 1 banana 2 cherry\n\n# Example 5: Zip function with for loop\nnames = [\"Alice\", \"Bob\", \"Charlie\"]\nages = [25, 30, 35]\nfor name, age in zip(names, ages):\n    print(name, age)\n# Output: Alice 25 Bob 30 Charlie 35\n\n# Example 6: Break statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        break\n    print(num)\n# Output: 1 2\n\n# Example 7: Continue statement in for loop\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num == 3:\n        continue\n    print(num)\n# Output: 1 2 4 5",
+                        "slide_title": "Loops and Iterations"
+                    },
+                    {
+                        "description": "In JavaScript, logical operators are used to evaluate logical expressions and return a boolean value of either true or false. There are three logical operators in JavaScript: && (logical AND), || (logical OR), and ! (logical NOT). The && operator returns true if both expressions being evaluated are true, otherwise it returns false. The || operator returns true if at least one of the expressions being evaluated is true, otherwise it returns false. Finally, the ! operator returns the opposite boolean value of the expression it is evaluating. Logical operators are often used in conditional statements such as if statements and while loops to control program flow based on logical conditions. They can also be used in conjunction with comparison operators to create more complex logical expressions.",
+                        "slide_title": "Control Flow and Logical Operators"
+                    }
+                ],
+                "module_title": "Control Flow and Loops"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A collection of variables",
+                                "b": "A collection of loops",
+                                "c": "A collection of code that performs a specific task and can be called from other parts of the program",
+                                "d": "A collection of conditions"
+                            }
+                        ],
+                        "question": "What is a function in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A function definition defines a variable and a function call performs a specific task",
+                                "b": "A function definition performs a specific task and a function call defines a variable",
+                                "c": "A function definition is where you write the code for a function and a function call is where you use the function",
+                                "d": "A function definition and a function call are the same thing"
+                            }
+                        ],
+                        "question": "What is the difference between a function definition and a function call in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "function functionName() {}",
+                                "b": "functionName() {}",
+                                "c": "functionName = function() {}",
+                                "d": "functionName = ()"
+                            }
+                        ],
+                        "question": "How do you define a function in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To stop the execution of the function",
+                                "b": "To print a message to the console",
+                                "c": "To specify the input parameters of the function",
+                                "d": "To return a value from the function"
+                            }
+                        ],
+                        "question": "What is the purpose of the 'return' statement in a function in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "console.log()",
+                                "b": "parseInt()",
+                                "c": "Math.random()",
+                                "d": "add()"
+                            }
+                        ],
+                        "question": "Which of the following is NOT a built-in function in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "return",
+                                "b": "output",
+                                "c": "yield",
+                                "d": "break"
+                            }
+                        ],
+                        "question": "What keyword in JavaScript is used to return a value from a function?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "The area of this rectangle is 10",
+                                "b": "The area of this rectangle is 5",
+                                "c": "The area of this rectangle is 50",
+                                "d": "The area of this circle is 4pi"
+                            }
+                        ],
+                        "question": "What is the output of this code in JavaScript?\nfunction areaRectangle(a, b) {\nvar area = a * b;\nreturn 'The area of this rectangle is ' + area;\n}\nconsole.log(areaRectangle(5,10));",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A function that performs a specific task and can be called from other parts of the program.",
+                                "b": "A collection of variables.",
+                                "c": "A collection of code that performs a specific task and can be called from other parts of the program.",
+                                "d": "A collection of conditions."
+                            }
+                        ],
+                        "question": "What is a JavaScript module?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A built-in module is included in JavaScript by default, while a user-defined module is created by the programmer.",
+                                "b": "A built-in module is used for math operations, while a user-defined module is used for string manipulation.",
+                                "c": "A built-in module is used for string manipulation, while a user-defined module is used for math operations.",
+                                "d": "There is no difference between a built-in module and a user-defined module."
+                            }
+                        ],
+                        "question": "What is the difference between a built-in module and a user-defined module?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To create a new module.",
+                                "b": "To call a function.",
+                                "c": "To load a module into a JavaScript script.",
+                                "d": "To print a message to the console."
+                            }
+                        ],
+                        "question": "What is the purpose of the 'import' statement in JavaScript?",
+                        "correct_answer": "c"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "The concept of functions is one of the fundamental building blocks of programming in JavaScript. Functions are reusable blocks of code that perform a specific task, and they allow us to break up our programs into smaller, more manageable pieces. In this module, we'll introduce you to the basics of functions in JavaScript. You'll learn how to define your own functions and call them from other parts of your code. We'll also cover how to use parameters and return values in your functions, and how to handle errors that might occur during their execution. By the end of this module, you'll have a solid understanding of how functions work in JavaScript and why they're so important in programming.",
+                        "slide_title": "Introduction to Functions"
+                    },
+                    {
+                        "description": "A function is defined using the \"def\" keyword, followed by the function name and parentheses.\nInside the parentheses, you can define parameters for the function to take as input.\nThe body of the function is indented and contains the code to be executed when the function is called.\nTo call a function, you simply need to write the function name followed by parentheses, and pass any necessary arguments inside the parentheses.\nFunctions can also return values using the \"return\" keyword.\nHere are some examples:\n# Function that prints a welcome message with a name parameter\ndef welcome(name):\n    print(f\"Welcome, {name}!\")\n\n# Function that calculates the sum of two numbers with two parameters\ndef add_numbers(num1, num2):\n    sum = num1 + num2\n    return sum\n\n# Call the welcome function with the name parameter \"Alice\"\nwelcome(\"Alice\") #Output: Welcome, Alice!\n\n# Call the add_numbers function with the parameters 3 and 5, and print the result\nresult = add_numbers(3, 5)\nprint(f\"The sum of 3 and 5 is: {result}\") #Output: The sum of 3 and 5 is: 8",
+                        "slide_title": "Creating and Calling Functions"
+                    },
+                    {
+                        "description": "In JavaScript, we can use various built-in modules to perform different tasks. Here are some examples:\n\/\/ Import the 'date-fns' module to work with dates\nconst { format } = require('date-fns');\n\/\/ Get the current date and time\nconst currentDate = new Date();\nconsole.log('Current date and time:', format(currentDate, 'yyyy-MM-dd HH:mm:ss.SSS'));\n\/\/ Output: Current date and time: 2023-03-25 13:45:32.123\n\/\/ Import the 'lodash' module to work with arrays, numbers, and strings\nconst _ = require('lodash');\n\/\/ Generate a random number between 1 and 10\nconst randomNumber = _.random(1, 10);\nconsole.log('Random number between 1 and 10:', randomNumber); \/\/ Output: Random\n\/\/ Use the built-in 'Math' object to perform mathematical operations\nconst a = 16;\nconsole.log(Math.sqrt(a)); \/\/ Output: 4.0\n",
+                        "slide_title": "Built-in JavaScript Modules"
+                    }
+                ],
+                "module_title": "Functions and Modules"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "For loop",
+                                "b": "If statement",
+                                "c": "Array",
+                                "d": "Function"
+                            }
+                        ],
+                        "question": "Which of the following is a data structure in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "push()",
+                                "b": "add()",
+                                "c": "insert()",
+                                "d": "concat()"
+                            }
+                        ],
+                        "question": "What is the most common method used to add an element to an array in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "number",
+                                "b": "string",
+                                "c": "boolean",
+                                "d": "object"
+                            }
+                        ],
+                        "question": "Which of the following is not a primitive data type in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A type of function",
+                                "b": "A data structure that stores data in key-value pairs",
+                                "c": "A method used to manipulate arrays",
+                                "d": "A type of loop"
+                            }
+                        ],
+                        "question": "What is an object in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "O(n)",
+                                "b": "O(1)",
+                                "c": "O(log n)",
+                                "d": "O(n log n)"
+                            }
+                        ],
+                        "question": "What is the time complexity of searching for an element in an array using indexOf() method in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Constant time insertion and deletion of elements",
+                                "b": "Dynamic memory allocation",
+                                "c": "Linear access time",
+                                "d": "Inefficient random access"
+                            }
+                        ],
+                        "question": "Which of the following is a disadvantage of linked lists in JavaScript?",
+                        "correct_answer": "d"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": " O(n)",
+                                "b": "O(1)",
+                                "c": "O(log n)",
+                                "d": "O(n log n)"
+                            }
+                        ],
+                        "question": "What is the time complexity of accessing an element in an array using its index in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A tree where each node has at most two children",
+                                "b": "A tree where each node has three children",
+                                "c": "A tree where each node has at most one child",
+                                "d": "A tree where each node has four children"
+                            }
+                        ],
+                        "question": "What is a binary tree in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "unshift()",
+                                "b": "splice()",
+                                "c": "pop()",
+                                "d": "slice()"
+                            }
+                        ],
+                        "question": "Which of the following methods can be used to remove the last element of an array in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "Efficient searching, insertion, and deletion operations",
+                                "b": "Ability to represent hierarchical data structures",
+                                "c": "Guaranteed logarithmic time complexity for all operations",
+                                "d": "Ability to represent cyclic data structures"
+                            }
+                        ],
+                        "question": "Which of the following is not an advantage of using trees in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A linked list where each node has two children",
+                                "b": "A linked list where each node has three children",
+                                "c": "A linked list where each node has two pointers, one to its previous node and one to its next node",
+                                "d": "A linked list where each node has only one pointer to its next node"
+                            }
+                        ],
+                        "question": "What is a doubly linked list in JavaScript?",
+                        "correct_answer": "c"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "In JavaScript, there are several built-in data structures, including arrays, objects, maps, sets, and more. Each data structure has its own unique characteristics and use cases. For example, arrays are used to store and manipulate ordered collections of data, while objects are used to store data in key-value pairs.",
+                        "slide_title": "Introduction to Data Structures"
+                    },
+                    {
+                        "description": "In JavaScript, arrays and objects are two of the most commonly used data structures. An array is a collection of data elements that are ordered and accessible by index, where each index represents a unique position in the array. Arrays can store data of any type, including strings, numbers, and other arrays. Objects, on the other hand, are a collection of key-value pairs, where each key is a unique identifier and each value can be any data type. Objects can store data that is not ordered, and the data can be accessed using the keys. Arrays and objects are both useful in different scenarios, and being able to work with both effectively is essential for building complex applications in JavaScript.",
+                        "slide_title": "Arrays and Object"
+                    },
+                    {
+                        "description": "A linked list is a data structure consisting of a group of nodes, each containing a value and a reference to the next node in the sequence. The first node is called the head, and the last node is called the tail, with the tail's reference pointing to null. Linked lists can be used to implement dynamic data structures where the size is not known beforehand and can change during program execution. In JavaScript, linked lists can be implemented using object references and prototypes or with the ES6 class syntax. Although not as commonly used as arrays or objects in JavaScript, linked lists can provide benefits in certain use cases, such as for efficiently inserting and deleting elements in large data sets.",
+                        "slide_title": "Linked Lists"
+                    },
+                    {
+                        "description": "In JavaScript, a tree is a data structure that consists of nodes connected by edges, where each node can have zero or more child nodes. The topmost node in a tree is called the root, and the nodes without any children are called leaves. Trees are useful for representing hierarchical structures, such as file systems, organization charts, and XML\/HTML documents. In JavaScript, trees can be implemented using classes and objects, where each node is represented as an object with properties for its value and its children. Traversing a tree can be done using depth-first search or breadth-first search algorithms. Trees are an important data structure in computer science and are used in many applications, such as databases, compilers, and artificial intelligence.",
+                        "slide_title": "Trees"
+                    }
+                ],
+                "module_title": "Data Structures in JavaScript"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "read()",
+                                "b": "write()",
+                                "c": "readFileSync()",
+                                "d": "writeFileSync()"
+                            }
+                        ],
+                        "question": "What method is used to read data from a file in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "write()",
+                                "b": "read()",
+                                "c": "writeFile()",
+                                "d": "readFile()"
+                            }
+                        ],
+                        "question": "How can you write data to a file in JavaScript?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "input()",
+                                "b": "read()",
+                                "c": "prompt()",
+                                "d": "console.log()"
+                            }
+                        ],
+                        "question": "What function is used to handle user input in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "To handle exceptions and errors",
+                                "b": "To write data to a file",
+                                "c": "To read data from a file",
+                                "d": "To print output to the console"
+                            }
+                        ],
+                        "question": "What is the purpose of the try-catch statement in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "TypeError",
+                                "b": "IndexError",
+                                "c": "ValueError",
+                                "d": "FileNotFoundError"
+                            }
+                        ],
+                        "question": "Which of the following is a common error that can occur when working with files in JavaScript?",
+                        "correct_answer": "d"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "In JavaScript, manipulating files is an essential part of many programming tasks, and it provides several built-in functions to perform these operations. To read data from a file, you first need to open the file using the fs module's fs.open() function, specifying the file name, and the mode in which you want to access the file (such as 'r' for reading or 'w' for writing). Once the file is open, you can read its contents using the fs.readFile() function, which returns the entire file's content as a string. Alternatively, you can read the file line by line using the readline module's createInterface() function. To write data to a file, you need to open the file in write mode, using the 'w' flag. You can then write data to the file using the fs.writeFile() function, which takes a string argument to write to the file. Finally, after reading from or writing to a file, you should always close the file using the fs.close() function to ensure that any changes are properly saved and to free up system resources. ",
+                        "slide_title": "Reading and Writing Files"
+                    },
+                    {
+                        "description": "User input and output are essential components of any interactive JavaScript program. Often times, software needs to be interactive (i.e. web applications) and we need a way of handling input and output. The prompt() function allows a program to accept user input through a dialog box, while the console.log() function is used to display output to the console or other output device. As you have noticed, we have been using console.log() function all along! The prompt() function displays a message to the user in a dialog box, waits for the user to enter a response, and returns the user's input as a string. The console.log() function takes one or more arguments and displays them on the console or other output device. It is important to properly handle user input to prevent errors or security vulnerabilities, such as by validating input to ensure that it meets certain criteria. ",
+                        "slide_title": "User Input and Output"
+                    },
+                    {
+                        "description": "In JavaScript, errors that occur during program execution are known as exceptions. These can arise due to a variety of reasons, such as incorrect input, unexpected data, or system failures. To ensure that our programs handle these exceptions gracefully, we can use JavaScript's built-in exception handling mechanism.\nThis involves enclosing the code that might raise an exception in a try block and using catch blocks to catch and handle any specific types of exceptions that might occur. Additionally, we can use the finally block to specify code that should be executed regardless of whether an exception occurred or not.\nBy handling exceptions in this way, we can prevent our programs from crashing unexpectedly and provide helpful error messages to users. We can also use JavaScript's console logging to log errors and other information about program execution, which can be useful for debugging and monitoring program behavior.\nKnowing how to handle exceptions is imperative when your code has to deal with situations that can cause a lot of problems (for example, reading or writing from a file).",
+                        "slide_title": "Handling Exceptions and Errors"
+                    }
+                ],
+                "module_title": "File Writing\/Reading, Input\/Output, and Exception Handling"
+            },
+            {
+                "module_comments": [],
+                "quiz": [
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A programming strategy that is based on the concept of functions",
+                                "b": "A programming strategy that is based on the concept of objects",
+                                "c": "A programming strategy that is based on the concept of arrays",
+                                "d": "A programming strategy that is based on the concept of loops"
+                            }
+                        ],
+                        "question": "What is Object-Oriented Programming?",
+                        "correct_answer": "b"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A set of instructions for creating an object",
+                                "b": "A loop that creates a set of objects",
+                                "c": "A type of array used to store objects",
+                                "d": "A function that creates an object"
+                            }
+                        ],
+                        "question": "What is a class in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "A function that creates an object",
+                                "b": "A method used to access object properties",
+                                "c": "A method that is called when an object is created\/constructed",
+                                "d": "A function that modifies object properties"
+                            }
+                        ],
+                        "question": "What is a constructor in JavaScript?",
+                        "correct_answer": "c"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "The ability to declare a class that will act as the parent and expand upon the capabilities of the parent",
+                                "b": "The ability to declare a function that will act as the parent and expand upon the capabilities of the parent",
+                                "c": "The ability to declare an array that will act as the parent and expand upon the capabilities of the parent",
+                                "d": "The ability to declare a loop that will act as the parent and expand upon the capabilities of the parent"
+                            }
+                        ],
+                        "question": "What is inheritance in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "The ability to implement certain capabilities in different ways",
+                                "b": "The ability to modify object properties in different ways",
+                                "c": "The ability to create different types of arrays",
+                                "d": "The ability to create different types of loops"
+                            }
+                        ],
+                        "question": "What is polymorphism in JavaScript?",
+                        "correct_answer": "a"
+                    },
+                    {
+                        "answer_choices": [
+                            {
+                                "a": "The ability to hide implementation details and only show the necessary details",
+                                "b": "The ability to modify object properties from outside the object",
+                                "c": "The ability to access object properties from outside the object",
+                                "d": "The ability to create objects without using classes"
+                            }
+                        ],
+                        "question": "What is encapsulation in JavaScript?",
+                        "correct_answer": "a"
+                    }
+                ],
+                "slides": [
+                    {
+                        "description": "Object-Oriented Programming (OOP) is a programming paradigm that emphasizes the use of objects to represent data and behaviors. In JavaScript, everything is an object or can be converted to an object making OOP a crucial aspect of the language.\nOOP allows programmers to create reusable and maintainable code by organizing it into classes and objects. In JavaScript, a class is defined using the class keyword, which contains constructor methods and other methods that define the properties and behaviors of the object.\nEncapsulation is an essential principle of OOP, allowing programmers to hide the internal details of an object and only expose its public interface. This helps prevent unwanted access or modification to the object's internal state.\nInheritance is another essential feature of OOP that allows a class to inherit properties and methods from a parent class. This promotes code reuse and helps to reduce duplication of code.\nPolymorphism is a programming concept that allows objects of different classes to be treated as if they are of the same class. This allows for more flexible and dynamic code that can be adapted to different situations.\nBy using OOP principles in JavaScript, programmers can create more organized and efficient code that is easier to maintain and extend.",
+                        "slide_title": "Introduction to OOP"
+                    },
+                    {
+                        "description": "Now that we have been introduced to OOP, let's delve deeper. A class lays the groundwork for creating objects, which are instances of the class.\nA class defines a set of variables and methods that the objects created from it will have .\nMethods are class functions that can be called on objects to perform some action.\nWhen an object is created from a class, it is called an instance of that class.\nEach instance can have its own values for the attributes defined in the class.\nLet's explore an example about how classes work in javascript:\n\nclass Student{\n constructor(name, age, major){\n this.name = name;\n this.age = age;\n this.major = major;\n }\n\n getStudentInfo(){\n console.log('name:', this.name);\n console.log('age:', this.age);\n console.log('major:', this.major);\n }\n}\n\nlet Vansh = new Student('Vansh Nagpal', 20, 'Computer Science');\nVansh.getStudentInfo(); \/\/ Output: Vansh Nagpal, 20, Computer Science\n\nIn javascript, the keyword class is used to define a class. The constructor method is called when an object is created\/constructed and is used to set up the object's properties. The getStudentInfo method is used to display the information about the student. The this keyword is used to refer to the current instance of the class. Finally, the new keyword is used to create an instance of the class.",
+                        "slide_title": "Classes and Objects"
+                    },
+                    {
+                        "description": "Inheritance and Polymorphism are the height of what one can achieve with OOP.\nInheritance allows you to declare a class that will act as the parent, and then declare a class that will act as the child.\nThe child class expands upon the capabilities of the parent, or 'inherits' the parent's capabilities.\nThis goes back to the concept of reusability in code.\nIf it is not necessary to write more code, then why should you?\nPolymorphism is a way for objects of different classes to implement certain capabilities in different ways.\nSpecificallyit refers to functions that child classes implement or override in different ways.\n",
+                        "slide_title": "Inheritance and Polymorphism"
+                    }
+                ],
+                "module_title": "Object-Oriented Programming (OOP)"
+            },
+            {
+                "module_comments": [],
+                "quiz": [],
+                "slides": [
+                    {
+                        "description": "Now that we have covered the meat of programming, let's cover some advanced things you can do in JavaScript, starting with .... MACHINE LEARNING!!!\nJavaScript is a popular language for building web applications, which also makes it easy to implement machine learning algorithms on. Libraries and modules such as TensorFlow.js, ml5.js, brain.js, and so many more make machine learning more accessible to web developers.\nThe following is an example of a supervised machine learning algorithm that implements k-nearest neighbors.\nThe point of this algorithm is to classify a given set of data points into k subgroups. It uses all of the techniques we have learned up to this point including OOP and functions.",
+                        "slide_title": "Machine Learning in JavaScript"
+                    }
+                ],
+                "module_title": "JavaScript Advanced Topics and Applications"
+            }
+        ]
+    }
+]

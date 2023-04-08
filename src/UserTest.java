@@ -1,97 +1,99 @@
 package src;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.juint.jupiter.api.Test;
-import static java.util.UUID;
+import org.junit.jupiter.api.Test;
+import java.util.UUID;
 
-import java.util.file;
 
 
 public class UserTest {
     public UserList userList = UserList.getInstance();
+    User uzi = userList.getUser("UziThaGoat13");
+
     // Password tests
 
     @Test
     public void testSetPasswordNull() {
-        User.setPassword(null);
+        boolean testBool = uzi.setPassword(null);
+        assertEquals(false, testBool, "Cannot set password to null");
     }
     @Test
     public void testSetPasswordTooLong() {
-        User.setPassword("!password12345678901234567890123456789012345678901234567890");
+        boolean testBool = uzi.setPassword("!password12345678901234567890123456789012345678901234567890");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordTooShort() {
-        User.setPassword(".a1");
+        uzi.setPassword(".a1");
     }
     @Test
     public void testSetPasswordOnlySpecials() {
-        User.setPassword("*!/$@#/!_/!");
+        uzi.setPassword("*!/$@#/!_/!");
     }
     @Test
     public void testSetPasswordNoNumbersSpecials() {
-        User.setPassword("!password")
+        uzi.setPassword("!password")
     }
     @Test
     public void testSetPasswordNoNumbersNoSpecials() {
-        User.setPassword("password");
+        uzi.setPassword("password");
     }
     @Test
     public void testSetPasswordNumbersNoSpecials() {
-        User.setPassword("password11");
+        uzi.setPassword("password11");
     }
     @Test
     public void testPasswordNoLetters() {
-        User.setPassword("!!!!!12345");
+        uzi.setPassword("!!!!!12345");
     }
     @Test
     public void testSetPasswordValidPass() {
-        User.setPassword("!password123"));
+        uzi.setPassword("!password123"));
     }
     @Test
     public void testSetPasswordSpace() {
-        User.setPassword("!pass word123");
+        uzi.setPassword("!pass word123");
     }
 
     // Username tests
 
     @Test
     public void testSetUserNull() {
-        User.setUser(null);
+        uzi.setUser(null);
     }
     @Test
     public void testSetUserSpace() {
-        User.setUser("UziTha Goat13");
+        uzi.setUser("UziTha Goat13");
     }
     @Test
     public void testSetUserNameTaken() {
-        User.setUser("UziThaGoat13");
+        uzi.setUser("UziThaGoat13");
     }
     @Test
     public void testSetUserOnlySpecials() {
-        User.setUser("!!!!!!!!!!!!");
+        uzi.setUser("!!!!!!!!!!!!");
     }
     @Test
     public void testSetUserTooShort() {
-        User.setUser("a");
+        uzi.setUser("a");
     }
     @Test
     public void testSetUserTooLong() {
-        User.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
+        uzi.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
     }
 
     // equals tests
-    User uzi = userList.getUser("UziThaGoat13");
 
     @Test
     public void testEqualsNull() {
-        uzi.User.equals(null);
+        boolean testBool = uzi.equals(null);
     }
     @Test
     public void testEqualsEqual() {
-        uzi.User.equals("e58ed763-928c-4155-bee9-fdbaaadc15f3");
+        boolean testBool = uzi.equals("e58ed763-928c-4155-bee9-fdbaaadc15f3");
     }
     @Test
     public void testEqualsInequal() {
-        uzi.User.equals(UUID.randomUUID());
+        boolean testBool = uzi.equals(UUID.randomUUID());
     }
 
 }

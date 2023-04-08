@@ -1,0 +1,132 @@
+[
+  {
+    "firstName": "Grichael",
+    "lastName": "Crach",
+    "password": "!password123",
+    "dateOfBirth": "04142000",
+    "id": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+    "type": "student",
+    "email": "gCrach2000@gmail.com",
+    "username": "UziThaGoat13"
+  },
+  {
+    "firstName": "Little",
+    "lastName": "Baby",
+    "password": "broidek",
+    "dateOfBirth": "12121912",
+    "id": "6ee074ab-189e-4508-9574-972f77fb2812",
+    "type": "teacher",
+    "email": "lilbaby@gmail.com",
+    "username": "LilBaby"
+  },
+  {
+    "firstName": "Anthony",
+    "lastName": "Bimblos",
+    "password": "12345678_",
+    "dateOfBirth": "07142000",
+    "id": "f16ed563-913a-4156-bee9-fdbcffdc15f3",
+    "type": "student",
+    "email": "biblo444@gmail.com",
+    "username": "scrimblo.bimblo"
+  },
+  {
+    "firstName": "Mr.",
+    "lastName": "Cole",
+    "password": "x14FGdh.sZl",
+    "dateOfBirth": "04201900",
+    "id": "eff4390c-47db-428a-9178-66bf7ed2e7c1",
+    "type": "teacher",
+    "email": "gcole1443@email.sc.edu",
+    "username": "garycole144"
+  },
+  {
+    "firstName": "Portia",
+    "lastName": "Plante",
+    "password": "portia",
+    "dateOfBirth": "04142000",
+    "id": "98a7d10f-80e5-4e58-9025-fbc8c34f639d",
+    "type": "teacher",
+    "email": "portia@gmail.com",
+    "username": "portiaportia"
+  },
+  {
+    "firstName": "Jagger",
+    "lastName": "Tanner",
+    "password": " ",
+    "dateOfBirth": "07242002",
+    "id": "662bc837-e323-4226-9ed0-f878d1011e83",
+    "type": "student",
+    "email": "jrtanner@email.sc.edu",
+    "username": "jrtanner"
+  },
+  {
+    "firstName": "Pushpendra",
+    "lastName": "Shekhawat",
+    "password": "4",
+    "dateOfBirth": "03061996",
+    "id": "662bc837-e323-4226-9ed0-f878d1011e84",
+    "type": "student",
+    "email": "shekhawp@email.sc.edu",
+    "username": "shekhawp"
+  },
+  {
+    "firstName": "Allie",
+    "lastName": "Anderson",
+    "password": "allie",
+    "dateOfBirth": "11182001",
+    "id": "546dd5c3-2eba-42dc-bf9f-ea80f90c4681",
+    "type": "student",
+    "email": "anderson@gmail.com",
+    "username": "anders10"
+  },
+  {
+    "firstName": "Scout",
+    "lastName": "Solace",
+    "password": "solace",
+    "dateOfBirth": "01182000",
+    "id": "6afaf89e-c829-4110-bc44-ac87d1941181",
+    "type": "student",
+    "email": "ssolace@gmail.com",
+    "username": "solace"
+  },
+  {
+    "firstName": "John",
+    "lastName": "Wisdom",
+    "password": "pythonRocks0",
+    "dateOfBirth": "03251971",
+    "id": "c105f1e7-8d20-4786-974f-4cf24d737d06",
+    "type": "teacher",
+    "email": "jwisdom@gmail.com",
+    "username": "jWisdom"
+  },
+  {
+    "firstName": "Aiden",
+    "lastName": "Child",
+    "password": "child",
+    "dateOfBirth": "01012015",
+    "id": "cbc169b2-7045-4a42-8bbd-ede023b977e5",
+    "type": "student",
+    "email": "aChild@gmail.com",
+    "username": "child"
+  },
+  {
+    "firstName": "Vansh",
+    "lastName": "Nagpal",
+    "password": "godmode",
+    "dateOfBirth": "12022002",
+    "id": "9e38f751-9524-4e62-9acf-5c70c644a988",
+    "type": "student",
+    "email": "vnagpal@email.sc.edu",
+    "username": "vnagpal25"
+  },
+  {
+    "firstName": "Adam",
+    "lastName": "Stewart",
+    "password": "stewy",
+    "dateOfBirth": "01222002",
+    "id": "7b1f2c5c-75f1-4be9-9c9a-5a7b5d5f5d7f",
+    "type": "student",
+    "email": "ars23@email.sc.edu",
+    "username": "stewys"
+  }
+]
