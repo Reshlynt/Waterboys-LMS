@@ -1,11 +1,8 @@
 package src;
 
-public class Slide {
-  public String toString() {
-    return "";
-  }
+public interface Slide {
 
-  public void display() {
-    return;
-  }
+  public String toString();
+
+  public void display();
 }
