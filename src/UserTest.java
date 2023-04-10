@@ -7,6 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
+
+/**
+ * Test cases for the User class
+ * @author Jagger Tanner
+ */
 public class UserTest {
     public UserList userList = UserList.getInstance();
     public Student uzi = new Student("UziThaGoat13", "Grichael", "Crach", "gCrach@gmail.com", "password", "11011999");
@@ -128,7 +133,7 @@ public class UserTest {
     }
     @Test
     public void testEqualsEqual() {
-        UUID uziID = UUID.fromString("e58ed763-928c-4155-bee9-fdbaaadc15f3");
+        UUID uziID = uzi.getID();
         boolean testBool = uzi.equals(uziID);
         assertEquals(true, testBool);
     }
