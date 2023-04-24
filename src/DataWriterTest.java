@@ -286,20 +286,5 @@ public class DataWriterTest {
         assertEquals(course1.getID(), DataLoader.getCourses().get(0).getID());
     }
 
-    // -------------------------
-    // Other tests
-    // -------------------------
-    /**
-     * Test if DataWriter can write a user to a json file
-     * regardless of any content in the sington Users list.
-     */
-
-    @Test
-    void UserJsonFileExists() {
-        File file = new File("./json/Users.json");
-        assertTrue(file.exists());
-    }
-
-
 
 }

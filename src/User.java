@@ -53,13 +53,8 @@ public abstract class User {
         return false;
       }
     }
-    for (int i = 0; i < pass.length(); i++) {
-      if (pass.charAt(i) >= 'A' && pass.charAt(i) <= 'Z') {
-        password = pass;
-        return true;
-      }
-    }
-    return false;
+    password = pass;
+    return true;
   }
 
   /**

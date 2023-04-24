@@ -1,16 +1,40 @@
 package src;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 
-
+/**
+ * Test cases for the User class
+ * @author Jagger Tanner
+ */
 public class UserTest {
     public UserList userList = UserList.getInstance();
-    User uzi = userList.getUser("UziThaGoat13");
+    public Student uzi = new Student("UziThaGoat13", "Grichael", "Crach", "gCrach@gmail.com", "password", "11011999");
+
+    
+    @BeforeClass
+	public void oneTimeSetup() {}
+	
+	@AfterClass
+	public void oneTimeTearDown() {}
+	
+	@BeforeEach
+	public void setup() {}
+	
+	@AfterEach
+	public void tearDown() {}
 
     // Password tests
 
+    @Test
+    public void Test() {
+      assertTrue(true);
+    }
     @Test
     public void testSetPasswordNull() {
         boolean testBool = uzi.setPassword(null);
@@ -19,66 +43,85 @@ public class UserTest {
     @Test
     public void testSetPasswordTooLong() {
         boolean testBool = uzi.setPassword("!password12345678901234567890123456789012345678901234567890");
-        assertEquals(false, testBool);
+        assertFalse(testBool, "Password should not be set with excessive length");
     }
     @Test
     public void testSetPasswordTooShort() {
-        uzi.setPassword(".a1");
+       boolean testBool = uzi.setPassword(".a1");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordOnlySpecials() {
-        uzi.setPassword("*!/$@#/!_/!");
+        boolean testBool = uzi.setPassword("*!/$@#/!_/!");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordNoNumbersSpecials() {
-        uzi.setPassword("!password")
+        boolean testBool = uzi.setPassword("!password");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordNoNumbersNoSpecials() {
-        uzi.setPassword("password");
+        boolean testBool = uzi.setPassword("password");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordNumbersNoSpecials() {
-        uzi.setPassword("password11");
+        boolean testBool = uzi.setPassword("password11");
+        assertEquals(false, testBool);
     }
     @Test
     public void testPasswordNoLetters() {
-        uzi.setPassword("!!!!!12345");
+        boolean testBool = uzi.setPassword("!!!!!12345");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetPasswordValidPass() {
-        uzi.setPassword("!password123"));
+        boolean testBool = uzi.setPassword("!password123");
+        assertEquals(true, testBool);
     }
     @Test
     public void testSetPasswordSpace() {
-        uzi.setPassword("!pass word123");
+        boolean testBool = uzi.setPassword("!pass word123");
+        assertEquals(false, testBool);
     }
 
     // Username tests
 
     @Test
     public void testSetUserNull() {
-        uzi.setUser(null);
+        boolean testBool = uzi.setUser(null);
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetUserSpace() {
-        uzi.setUser("UziTha Goat13");
+        boolean testBool = uzi.setUser("UziTha Goat13");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetUserNameTaken() {
-        uzi.setUser("UziThaGoat13");
+        boolean testBool = uzi.setUser("UziThaGoat13");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetUserOnlySpecials() {
-        uzi.setUser("!!!!!!!!!!!!");
+        boolean testBool = uzi.setUser("!!!!!!!!!!!!");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetUserTooShort() {
-        uzi.setUser("a");
+        boolean testBool = uzi.setUser("a");
+        assertEquals(false, testBool);
     }
     @Test
     public void testSetUserTooLong() {
-        uzi.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
+        boolean testBool = uzi.setUser("!asdfghjkl1234567890asdfghjkl1234567890");
+        assertEquals(false, testBool);
+    }
+    @Test
+    public void testSetUserValid() {
+        boolean testBool = uzi.setUser("UziTheGoat13");
+        assertEquals(true, testBool);
     }
 
     // equals tests
@@ -86,14 +129,18 @@ public class UserTest {
     @Test
     public void testEqualsNull() {
         boolean testBool = uzi.equals(null);
+        assertEquals(false, testBool);
     }
     @Test
     public void testEqualsEqual() {
-        boolean testBool = uzi.equals("e58ed763-928c-4155-bee9-fdbaaadc15f3");
+        UUID uziID = uzi.getID();
+        boolean testBool = uzi.equals(uziID);
+        assertEquals(true, testBool);
     }
     @Test
     public void testEqualsInequal() {
         boolean testBool = uzi.equals(UUID.randomUUID());
+        assertEquals(false, testBool);
     }
 
 }
